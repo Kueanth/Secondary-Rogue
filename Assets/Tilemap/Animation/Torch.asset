@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Nihuasobu
+  m_Name: Torch
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_AnimatedSprites:
+  - {fileID: -2128176267, guid: 6d655983e18079b429a62c02d73927eb, type: 3}
+  - {fileID: 1940925146, guid: 6d655983e18079b429a62c02d73927eb, type: 3}
+  - {fileID: -567367246, guid: 6d655983e18079b429a62c02d73927eb, type: 3}
+  - {fileID: -189630990, guid: 6d655983e18079b429a62c02d73927eb, type: 3}
+  - {fileID: 1167528779, guid: 6d655983e18079b429a62c02d73927eb, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0

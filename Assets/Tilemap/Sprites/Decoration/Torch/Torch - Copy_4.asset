@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Torch_3
+  m_Name: Torch - Copy_4
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1714895902, guid: a5e21c2e3abb2a14da43cda77ec7189d, type: 3}
+  m_Sprite: {fileID: 1167528779, guid: 6d655983e18079b429a62c02d73927eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
