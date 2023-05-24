@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6d655983e18079b429a62c02d73927eb
+guid: e546151d5df371749ac289aec6630a73
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -140,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Torch - Copy_0
+      name: Emission_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1754d72b39323374ab7fa21a905ed236
-      internalID: -2128176267
+      spriteID: 159d58ed056918243b89c199d3420869
+      internalID: 601339055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_1
+      name: Emission_1
       rect:
         serializedVersion: 2
         x: 16
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00964c1fadd0f9f4bac1a6def3659dee
-      internalID: 1940925146
+      spriteID: 01b6e9e18bb30804992c202009f6554e
+      internalID: -631699315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_2
+      name: Emission_2
       rect:
         serializedVersion: 2
         x: 32
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82b33f01e156db142a0130a2e3c034df
-      internalID: -567367246
+      spriteID: 1c8bc3a32779ec541892d5cf40d08ed9
+      internalID: -1167842162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_3
+      name: Emission_3
       rect:
         serializedVersion: 2
         x: 48
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e85e629e5af22e346827f543fc7549bd
-      internalID: -189630990
+      spriteID: 70b33955f0d609c49b7a68819cfdca49
+      internalID: -459448560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_4
+      name: Emission_4
       rect:
         serializedVersion: 2
         x: 64
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bed7995162f6064c9bca614d6281c11
-      internalID: 1167528779
+      spriteID: 7de18b89be5024046a385cc87d698aa4
+      internalID: 1158423353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_5
+      name: Emission_5
       rect:
         serializedVersion: 2
         x: 0
@@ -259,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 367c66516a1878a42b1bcfa35ea5a44f
-      internalID: -1495360138
+      spriteID: 529814a5168e53c42b0e8b884fdfae39
+      internalID: 2142853118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_6
+      name: Emission_6
       rect:
         serializedVersion: 2
         x: 16
@@ -280,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a40121f652a20f4888940de024f31df
-      internalID: -1640703503
+      spriteID: af2e5da92f6309346934b972a8bd9df0
+      internalID: 959009620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_7
+      name: Emission_7
       rect:
         serializedVersion: 2
         x: 32
@@ -301,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea9e9857a6bc7c408f54f0e4f9e9310
-      internalID: 1238484406
+      spriteID: 58e77436e950fa041b6d353ad7ae0b5f
+      internalID: -1842479737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_8
+      name: Emission_8
       rect:
         serializedVersion: 2
         x: 48
@@ -322,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6421b619ecd55f344999e21efa4b4679
-      internalID: 1318454123
+      spriteID: 0d7169ebfd37624448bfef87bfe93b4c
+      internalID: 570054432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Torch - Copy_9
+      name: Emission_9
       rect:
         serializedVersion: 2
         x: 64
@@ -343,8 +343,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d38ad0be0f15879439ef5167cb03b6f8
-      internalID: -283684046
+      spriteID: 0e1dcb1112df4ad4cb09a1098f5af787
+      internalID: -1412676155
       vertices: []
       indices: 
       edges: []
@@ -360,16 +360,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Torch - Copy_4: 1167528779
-      Torch - Copy_8: 1318454123
-      Torch - Copy_9: -283684046
-      Torch - Copy_0: -2128176267
-      Torch - Copy_3: -189630990
-      Torch - Copy_2: -567367246
-      Torch - Copy_7: 1238484406
-      Torch - Copy_5: -1495360138
-      Torch - Copy_1: 1940925146
-      Torch - Copy_6: -1640703503
+      Emission_2: -1167842162
+      Emission_8: 570054432
+      Emission_7: -1842479737
+      Emission_0: 601339055
+      Emission_9: -1412676155
+      Emission_1: -631699315
+      Emission_4: 1158423353
+      Emission_5: 2142853118
+      Emission_3: -459448560
+      Emission_6: 959009620
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
