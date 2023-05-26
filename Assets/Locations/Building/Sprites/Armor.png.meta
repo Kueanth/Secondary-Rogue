@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f6aba681e5169f4087a7d337d2d12b1
+guid: c970bb48c869deb42a244bc3c5dc76da
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
-  spriteBorder: {x: 16, y: 3, z: 16, w: 7}
+  spriteBorder: {x: 21, y: 4, z: 21, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -140,28 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bookshelf_0
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 48
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d12a36c3eecdf64f921bafcfa6260b1
-      internalID: -638029634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bookshelf_1
+      name: Armor_0
       rect:
         serializedVersion: 2
         x: 0
@@ -169,35 +148,56 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51d66d4764341b444918774651aa503e
-      internalID: 675892070
+      spriteID: 61366d0304b599442ad6f68fa656e77e
+      internalID: 1324006526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bookshelf_2
+      name: Armor_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 0
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94893ddd2c0f1074f8133bb4e6a8fd8c
-      internalID: 593131482
+      spriteID: c071c4eb4a4f2c8498188ba59b09fa78
+      internalID: 2008444708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armor_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768785d1256aa1f4da77b431b3ee4b98
+      internalID: -806415453
       vertices: []
       indices: 
       edges: []
@@ -213,9 +213,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bookshelf_0: -638029634
-      bookshelf_2: 593131482
-      bookshelf_1: 675892070
+      Armor_2: -806415453
+      Armor_1: 2008444708
+      Armor_0: 1324006526
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
