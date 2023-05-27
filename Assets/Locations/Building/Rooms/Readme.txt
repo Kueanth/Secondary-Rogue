@@ -3,18 +3,19 @@
 - Pattern
 	- Grid
 		- Lit Tilemaps
-			- Layer 1
-			- Layer 2
-			- Layer 3
-			- Layer 4
-			- Layer 5
+			- Lit Layer 1
+			- Lit Layer 2
+			- Lit Layer 3
+			- Lit Layer 4
+			- Lit Layer 5
 		- Unlit Tilemaps
-			- Layer 1
-			- Layer 2
-			- Layer 3
-			- Layer 4
-			- Layer 5
+			- Unlit Layer 1
+			- Unlit Layer 2
+			- Unlit Layer 3
+			- Unlit Layer 4
+			- Unlit Layer 5
 	- Lights
+	- Objects
 
 В Grid идет построение комнаты, используя Tilemap'ы,
 которые подразделяются на две секции:
@@ -35,38 +36,38 @@
 
 (Неправильно)
 
-	- Layer 1
-	- Layer 3
-	- Layer 2
+	- Lit Layer 1
+	- Lit Layer 3
+	- Lit Layer 2
 
 (Правильно)
 
-	- Layer 1
-	- Layer 2
-	- Layer 3
+	- Lit Layer 1
+	- Lit Layer 2
+	- Lit Layer 3
 
 Во-вторых цифры означают Order in Layer в Additional Settings
 
 (Неправильно)
 
-	- Layer 1 (Tilemap Renderer -> Additional Settings -> Odrder in Layer = 3)
+	- Lit Layer 1 (Tilemap Renderer -> Additional Settings -> Odrder in Layer = 3)
 
 (Правильно)
 
-	- Layer 2 (Tilemap Renderer -> Additional Settings -> Odrder in Layer = 2)
+	- Lit Layer 2 (Tilemap Renderer -> Additional Settings -> Odrder in Layer = 2)
 
 После цифры в названии слоя, необходимо указать для чего предназначен слой,
 есть несколько основных обозначений для слоев (при необходимости, можно
 создать свое название, которое должно будет быть понятным для всех).
 
-	- Layer 1 (Collider) -> Означает что этот слой, будет хранить tiles,
+	- Lit Layer 1 (Collider) -> Означает что этот слой, будет хранить tiles,
 	которые содержат компонент Collider (игрок может соприкосаться с tile'ом)
 
-	- Layer 2 (Decoration) -> Слой для декораций
+	- Lit Layer 2 (Decoration) -> Слой для декораций
 
-	- Layer 3 (Ground) -> Слой для пола
+	- Lit Layer 3 (Ground) -> Слой для пола
 
-	- Layer 4 (Walls) -> Слой для стены
+	- Lit Layer 4 (Walls) -> Слой для стены
 
 Также не стоит забывать, что слои - это полноценные Tilemap'ы, которые подписаны
 так, для удобного использования и быстрого построения комнаты.
@@ -74,3 +75,14 @@
 Стандарт нужен для того, чтобы все построения комнат были шаблонными, что позволит
 в любой комнате быстро сориентироваться и не заставит тратить время на поиски
 необходимого Tilemap'а.
+
+Слои должны иметь материал:
+	
+	- Sprite-Lit-Default (Если слой имеет префикc Lit)
+	- Sprite-Unlit-Default (Если слой имеет префикс Unlit)
+
+При создании нового слоя, материал по умолчанию автоматически не устанавливается под
+необходимые требования, так что рекомендуется воспользоваться всеми слоями, не удаляя
+заранее ни один слой, и только после того как вы создали комнату рекомендуется
+удалять не нужные слои. Если слои наоборот нужно добавить, нужно ставить самостоятельно
+необходимый материал для слоя.
