@@ -16,30 +16,27 @@ public class PlayerInput : IEcsRunSystem
 
             components.rigidbody2D.velocity = new Vector2(horizontal, vertical);
 
-            if (horizontal <= -0.5f && vertical <= -0.5f)
+            if (horizontal >= 0.2f || vertical >= 0.2f || vertical <= -0.2f || horizontal <= -0.2f)
             {
                 components.animator.SetBool("Running", true);
-                components.spriteRenderer.flipX = true;
-            }
-            else if (horizontal >= 0.5f && vertical >= 0.5f)
-            {
-                components.animator.SetBool("Running", true);
-                components.spriteRenderer.flipX = false;
-            }
-            else if (horizontal >= 0.5f || vertical >= 0.5f)
-            {
-                components.animator.SetBool("Running", true);
-                components.spriteRenderer.flipX = false;
-            }
-            else if (horizontal <= -0.5f || vertical <= -0.5f)
-            {
-                components.animator.SetBool("Running", true);
-                components.spriteRenderer.flipX = true;
             }
             else
             {
                 components.animator.SetBool("Running", false);
             }
+
+            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.transform.position;
+
+            if(positionMouse.x < 0)
+            {
+                components.spriteRenderer.flipX = true;
+            }
+            else
+            {
+                components.spriteRenderer.flipX = false;
+            }
+            
+            
         }
     }
 }
