@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f7731a8d392f94e915cc0646b038cd, type: 3}
   m_Name: Static Data
   m_EditorClassIdentifier: 
+  Player: {fileID: 3167797347898922125, guid: 2bd47c3e95c8fc7448357b736c726dc3, type: 3}
