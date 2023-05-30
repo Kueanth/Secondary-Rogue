@@ -44,13 +44,16 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-    - {fileID: 2800000, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
+    - {fileID: 102900000, guid: e16f5f466da86464c87c7a043ac92878, type: 3}
+    - {fileID: 102900000, guid: 353916e3364e32c46941e9fd8fca68f5, type: 3}
+    - {fileID: 102900000, guid: 24dd6eba521ed804da93f27d502db8e5, type: 3}
+    - {fileID: 102900000, guid: b1c11dc5cf3c4c54f902cc24cd29a60e, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: b4b435f00007164488963d934f7d44b8, type: 3}
   - {fileID: -1733456764, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
   - {fileID: 572136371, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
   - {fileID: 1504509468, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
@@ -267,7 +270,12 @@ SpriteAtlas:
   - {fileID: -670603350, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: -371937647, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 1491144291, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
+  - {fileID: -941368312, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: -864408193, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: -1118025496, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: -1949371584, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Door
   - Decoration for Walls_6
   - Decoration for Walls_7
   - Decoration for Walls_4
@@ -484,6 +492,10 @@ SpriteAtlas:
   - Walls and Ground_76
   - Walls and Ground_77
   - Walls and Ground_67
+  - Hero_2
+  - Hero_3
+  - Hero_0
+  - Hero_1
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0
