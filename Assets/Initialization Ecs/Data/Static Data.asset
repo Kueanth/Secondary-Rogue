@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Static Data
   m_EditorClassIdentifier: 
   Player: {fileID: 3167797347898922125, guid: 2bd47c3e95c8fc7448357b736c726dc3, type: 3}
+  Camera: {fileID: 8770490745442471739, guid: ef0c5a1d29addcf4aa08430c4a1260aa, type: 3}

@@ -5,38 +5,33 @@ public class PlayerInput : IEcsRunSystem
 {
     private EcsFilter<Player> _filter;
 
+    public float speed = 4f;
+
     public void Run()
     {
         foreach(var i in _filter)
         {
             ref Player components = ref _filter.Get1(i);
 
-            float horizontal = Input.GetAxis("Horizontal") * 4f;
-            float vertical = Input.GetAxis("Vertical") * 4f;
+            float horizontal = Input.GetAxis("Horizontal") * speed;
+            float vertical = Input.GetAxis("Vertical") * speed;
 
             components.rigidbody2D.velocity = new Vector2(horizontal, vertical);
 
             if (horizontal >= 0.2f || vertical >= 0.2f || vertical <= -0.2f || horizontal <= -0.2f)
-            {
-                components.animator.SetBool("Running", true);
-            }
+
+                components.running = true;
             else
-            {
-                components.animator.SetBool("Running", false);
-            }
+                components.running = false;
 
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.transform.position;
 
             if(positionMouse.x < 0)
-            {
-                components.spriteRenderer.flipX = true;
-            }
+
+                components.flipping = true;
             else
-            {
-                components.spriteRenderer.flipX = false;
-            }
-            
-            
+                components.flipping = false;
+               
         }
     }
 }
