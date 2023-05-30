@@ -10,6 +10,7 @@ public class PlayerInit : IEcsInitSystem
 
     public void Init()
     {
+
         EcsEntity playerEntity = _world.NewEntity();
 
         ref Player Components = ref playerEntity.Get<Player>();

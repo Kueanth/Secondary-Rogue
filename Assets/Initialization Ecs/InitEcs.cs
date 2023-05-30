@@ -8,6 +8,7 @@ public class InitEcs : MonoBehaviour
 
     private EcsWorld _world;
 
+    private EcsSystems _awakeSystems;
     private EcsSystems _startSystems;
     private EcsSystems _fixedSystems;
     private EcsSystems _updateSystems;
@@ -15,12 +16,17 @@ public class InitEcs : MonoBehaviour
 
     private void Awake()
     {
+
         _world = new EcsWorld();
 
+        _awakeSystems = new EcsSystems(_world);
         _startSystems = new EcsSystems(_world);
         _fixedSystems = new EcsSystems(_world);
         _updateSystems = new EcsSystems(_world);
         _lateSystems = new EcsSystems(_world);
+
+        _awakeSystems
+            .Init();
 
         _startSystems
             .Add(new PlayerInit())
@@ -37,6 +43,8 @@ public class InitEcs : MonoBehaviour
 
         _lateSystems
             .Init();
+
+        _awakeSystems.Run();
     }
 
     private void Start()
@@ -61,6 +69,7 @@ public class InitEcs : MonoBehaviour
 
     private void OnDestroy()
     {
+        _awakeSystems.Destroy();
         _startSystems.Destroy();
         _fixedSystems.Destroy();
         _updateSystems.Destroy();

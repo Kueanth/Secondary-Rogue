@@ -32,13 +32,13 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 3.37
   scatter:
     m_OverrideState: 1
-    m_Value: 0.66
+    m_Value: 0.666
   clamp:
     m_OverrideState: 1
-    m_Value: 65472
+    m_Value: 65396.54
   tint:
     m_OverrideState: 1
     m_Value: {r: 1, g: 0.13474192, b: 0, a: 1}
@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Value: 0
   skipIterations:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   dirtTexture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
