@@ -4,4 +4,5 @@ using UnityEngine;
 public class StaticData : ScriptableObject
 {
     public GameObject Player;
+    public GameObject Camera;
 }

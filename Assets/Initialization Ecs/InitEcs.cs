@@ -38,6 +38,8 @@ public class InitEcs : MonoBehaviour
             .Init();
 
         _updateSystems
+            .Add(new CameraFollow())
+            .Inject(configuration)
             .Add(new PlayerInput())
             .Init();
 

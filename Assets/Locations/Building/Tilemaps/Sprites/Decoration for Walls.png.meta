@@ -1723,7 +1723,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1744,7 +1744,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1765,7 +1765,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1773,6 +1773,27 @@ TextureImporter:
       bones: []
       spriteID: 17d56658f33e2ef4491d5a7340513c02
       internalID: 1537496626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decoration for Walls_78
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ef00e5aa5b39e4fa6e12a31eb56da2
+      internalID: -1454167564
       vertices: []
       indices: 
       edges: []
@@ -1835,6 +1856,7 @@ TextureImporter:
       Decoration for Walls_54: 1175516278
       Decoration for Walls_45: -1127873589
       Decoration for Walls_57: -534917812
+      Decoration for Walls_78: -1454167564
       Decoration for Walls_14: 1117692057
       Decoration for Walls_66: 150501114
       Decoration for Walls_30: -1113645768
