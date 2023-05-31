@@ -12,13 +12,16 @@ public class PlayerRotate : IEcsRunSystem
             ref Player components = ref _filter.Get1(i);
 
             if(components.running)
+
                 components.animator.SetBool("Running", true);
             else
                 components.animator.SetBool("Running", false);
 
-            if (components.flipping && !components.running)
+            Debug.Log(components.flipping);
+
+            if (components.flipping)
                 components.spriteRenderer.flipX = true;
-            else if (components.flipping && !components.running)
+            else if (!components.flipping)
                 components.spriteRenderer.flipX = false;
         }
     }

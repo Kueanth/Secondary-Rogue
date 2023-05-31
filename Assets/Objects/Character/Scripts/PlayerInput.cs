@@ -18,20 +18,37 @@ public class PlayerInput : IEcsRunSystem
 
             components.rigidbody2D.velocity = new Vector2(horizontal, vertical);
 
-            if (horizontal >= 0.2f || vertical >= 0.2f || vertical <= -0.2f || horizontal <= -0.2f)
-
-                components.running = true;
-            else
-                components.running = false;
-
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.transform.position;
 
-            if(positionMouse.x < 0)
+            if (positionMouse.x < 0)
 
                 components.flipping = true;
             else
                 components.flipping = false;
-               
+
+            if(vertical >= 0.2f || vertical <= -0.2f)
+            {
+                components.running = true;
+            }
+
+            if (horizontal >= 0.2f)
+            {
+                components.running = true;
+                components.flipping = false;
+            }
+            else if (horizontal <= -0.2f)
+            {
+                components.running = true;
+                components.flipping = true;
+            }
+            else
+            {
+                if (vertical >= 0.2f || vertical <= -0.2f)
+
+                    components.running = true;
+                else
+                    components.running = false;
+            }
         }
     }
 }
