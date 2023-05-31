@@ -17,8 +17,6 @@ public class PlayerRotate : IEcsRunSystem
             else
                 components.animator.SetBool("Running", false);
 
-            Debug.Log(components.flipping);
-
             if (components.flipping)
                 components.spriteRenderer.flipX = true;
             else if (!components.flipping)
