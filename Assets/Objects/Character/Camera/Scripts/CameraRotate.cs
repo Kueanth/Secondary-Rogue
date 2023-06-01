@@ -14,10 +14,19 @@ public class CameraRotate : IEcsRunSystem
             ref Player playerComponents = ref _filter.Get1(i);
             ref CameraComponents cameraComponents = ref _filter.Get2(i);
 
-            Vector2 distance = Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerComponents.transform.position;
-            Vector2 normDistance = distance.normalized;
+            Vector3 distance = Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerComponents.transform.position;
+            Vector3 normDistance = distance.normalized;
+            normDistance.z = -10;
 
             Debug.Log(normDistance);
+
+            Vector3 temp = cameraComponents.transform.position;
+
+            if (temp.x < 5f && temp.x > -5f && temp.y < 5f && temp.y > -5f)
+                cameraComponents.transform.Translate(playerComponents.transform.position + distance);
+            else if (temp.x < 1f && temp.x > -1f && temp.y < 1f && temp.y > -1f)
+                cameraComponents.transform.Translate(playerComponents.transform.position);
+
         }
     }
 }

@@ -24,5 +24,6 @@ public class PlayerInit : IEcsInitSystem
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
 
         CameraComponents.transform = CameraObject.GetComponent<Transform>();
+        CameraComponents.rigidbody2D = CameraObject.GetComponent<Rigidbody2D>();
     }
 }
