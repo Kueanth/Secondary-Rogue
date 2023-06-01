@@ -20,12 +20,12 @@ public class CameraRotate : IEcsRunSystem
 
             Debug.Log(normDistance);
 
-            Vector3 temp = cameraComponents.transform.position;
+            Vector3 temp = distance;
 
-            if (temp.x < 5f && temp.x > -5f && temp.y < 5f && temp.y > -5f)
-                cameraComponents.transform.Translate(playerComponents.transform.position + distance);
-            else if (temp.x < 1f && temp.x > -1f && temp.y < 1f && temp.y > -1f)
-                cameraComponents.transform.Translate(playerComponents.transform.position);
+            if (temp.x < 10f && temp.x > -10f && temp.y < 10f && temp.y > -10f)
+                cameraComponents.rigidbody2D.velocity = normDistance * 10f;
+            else
+                cameraComponents.rigidbody2D.velocity = Vector2.zero;
 
         }
     }
