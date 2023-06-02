@@ -17,11 +17,14 @@ public class CameraFollow : IEcsRunSystem
             ref CameraComponents cameraComponents = ref _filter.Get2(i);
             ref Player playerComponents = ref _filter.Get1(i);
 
-            Vector3 target = playerComponents.transform.position;
-            target.z = -10;
+            if (!cameraComponents.rotation)
+            {
+                Vector3 target = playerComponents.transform.position;
+                target.z = -10;
 
-            cameraComponents.transform.position =
-                Vector3.SmoothDamp(cameraComponents.transform.position, target, ref velocity, smoothTime);
+                cameraComponents.transform.position =
+                    Vector3.SmoothDamp(cameraComponents.transform.position, target, ref velocity, smoothTime);
+            }
         }
     }
 }
