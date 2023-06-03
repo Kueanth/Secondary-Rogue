@@ -22,8 +22,12 @@ public class CameraFollow : IEcsRunSystem
                 Vector3 target = playerComponents.transform.position;
                 target.z = -10;
 
+                Vector3 distance = Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerComponents.transform.position;
+                Vector3 normDistance = distance.normalized;
+                normDistance.z = -10;
+
                 cameraComponents.transform.position =
-                    Vector3.SmoothDamp(cameraComponents.transform.position, target, ref velocity, smoothTime);
+                    Vector3.SmoothDamp(cameraComponents.transform.position, target + (normDistance * 2), ref velocity, smoothTime);
             }
         }
     }
