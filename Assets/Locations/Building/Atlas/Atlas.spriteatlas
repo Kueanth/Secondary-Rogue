@@ -274,6 +274,11 @@ SpriteAtlas:
   - {fileID: -864408193, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   - {fileID: -1118025496, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   - {fileID: -1949371584, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: -9634294, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: 235494938, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: 750182552, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: 1921208089, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: 212538664, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   m_PackedSpriteNamesToIndex:
   - Door
   - Decoration for Walls_6
@@ -496,6 +501,11 @@ SpriteAtlas:
   - Hero_3
   - Hero_0
   - Hero_1
+  - Hero_6
+  - Hero_7
+  - Hero_4
+  - Hero_5
+  - Hero_8
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0
