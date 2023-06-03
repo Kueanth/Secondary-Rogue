@@ -44,10 +44,13 @@ public class PlayerInput : IEcsRunSystem
             else
             {
                 if (vertical >= 0.2f || vertical <= -0.2f)
-
+                {
                     components.running = true;
+                }
                 else
+                {
                     components.running = false;
+                }
             }
         }
     }

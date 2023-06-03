@@ -1,5 +1,6 @@
 using UnityEngine;
 using Leopotam.Ecs;
+using System.Threading;
 
 public class PlayerRotate : IEcsRunSystem
 {
@@ -18,9 +19,13 @@ public class PlayerRotate : IEcsRunSystem
                 components.animator.SetBool("Running", false);
 
             if (components.flipping)
+            {
                 components.spriteRenderer.flipX = true;
+            }
             else if (!components.flipping)
+            {
                 components.spriteRenderer.flipX = false;
+            }
         }
     }
 }

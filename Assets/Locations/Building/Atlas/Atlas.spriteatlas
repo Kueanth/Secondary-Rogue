@@ -270,6 +270,10 @@ SpriteAtlas:
   - {fileID: -670603350, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: -371937647, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 1491144291, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
+  - {fileID: -1982304604, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: 319032879, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: 682866971, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: -1419269673, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   - {fileID: -941368312, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   - {fileID: -864408193, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   - {fileID: -1118025496, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
@@ -279,6 +283,7 @@ SpriteAtlas:
   - {fileID: 750182552, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   - {fileID: 1921208089, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   - {fileID: 212538664, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
+  - {fileID: -1665456151, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   m_PackedSpriteNamesToIndex:
   - Door
   - Decoration for Walls_6
@@ -497,6 +502,10 @@ SpriteAtlas:
   - Walls and Ground_76
   - Walls and Ground_77
   - Walls and Ground_67
+  - Hero_11
+  - Hero_10
+  - Hero_13
+  - Hero_12
   - Hero_2
   - Hero_3
   - Hero_0
@@ -506,6 +515,7 @@ SpriteAtlas:
   - Hero_4
   - Hero_5
   - Hero_8
+  - Hero_9
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0
