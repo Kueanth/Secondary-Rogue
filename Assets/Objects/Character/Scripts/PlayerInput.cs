@@ -20,6 +20,10 @@ public class PlayerInput : IEcsRunSystem
 
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            components.gun.rotation = Quaternion.LookRotation(Vector3.forward, mousePos);
+
             if (positionMouse.x < 0)
 
                 components.flipping = true;
