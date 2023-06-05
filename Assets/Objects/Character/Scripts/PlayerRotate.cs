@@ -12,8 +12,11 @@ public class PlayerRotate : IEcsRunSystem
         {
             ref Player components = ref _filter.Get1(i);
 
-            if(components.running)
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            components.gun.rotation = Quaternion.LookRotation(Vector3.forward, mousePos);
+
+            if (components.running)
                 components.animator.SetBool("Running", true);
             else
                 components.animator.SetBool("Running", false);

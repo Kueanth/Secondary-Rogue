@@ -18,18 +18,23 @@ public class PlayerInput : IEcsRunSystem
 
             components.rigidbody2D.velocity = new Vector2(horizontal, vertical);
 
+            Vector3 meow = components.transform.position;
+
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            components.gun.rotation = Quaternion.LookRotation(Vector3.forward, mousePos);
-
             if (positionMouse.x < 0)
-
+            {
                 components.flipping = true;
+                components.flipGun.flipX = true;
+                components.gun.position = new Vector3(meow.x + -0.24f, meow.y + -0.17f, 0f);
+            }
             else
+            {
                 components.flipping = false;
-
+                components.flipGun.flipX = false;
+                components.gun.position = new Vector3(meow.x + 0.27f, meow.y + -0.17f, 0f);
+            }
+            
             if(vertical >= 0.2f || vertical <= -0.2f)
             {
                 components.running = true;
