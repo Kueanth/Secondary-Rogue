@@ -23,6 +23,12 @@ public class PlayerInit : IEcsInitSystem
         Components.animator = PlayerObject.GetComponent<Animator>();
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
 
+        Transform meow = PlayerObject.transform.Find("Square");
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        meow.transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - meow.transform.position);
+
         CameraComponents.transform = CameraObject.GetComponent<Transform>();
         CameraComponents.rigidbody2D = CameraObject.GetComponent<Rigidbody2D>();
     }

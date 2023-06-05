@@ -26,6 +26,10 @@ public class PlayerRotate : IEcsRunSystem
             {
                 components.spriteRenderer.flipX = false;
             }
+
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            components.gun.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - components.gun.position);
         }
     }
 }

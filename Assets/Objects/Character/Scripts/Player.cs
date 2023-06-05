@@ -7,6 +7,8 @@ public struct Player
     public Animator animator;
     public SpriteRenderer spriteRenderer;
 
+    public Transform gun;
+
     public bool running;
     public bool flipping;
     public bool waitingFlip;
