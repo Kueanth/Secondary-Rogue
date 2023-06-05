@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data Gun", menuName = "Data Guns / Gun")]
+[CreateAssetMenu(fileName = "DataGun", menuName = "Data Guns/DataGun")]
 public class DataGun : ScriptableObject
 {
     public Sprite sprite;

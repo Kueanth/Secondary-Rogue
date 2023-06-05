@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Data Gun
-  m_EditorClassIdentifier: Assembly-CSharp::DataGun
-  sprite: {fileID: 0}
-  nameGun: 
-  ammo: 
+  m_Script: {fileID: 11500000, guid: 990ea09078e09964480993e698e1b0e0, type: 3}
+  m_Name: Pistol
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 9bf30de498904d94e8cd01066bf185ac, type: 3}
+  nameGun: Pistol
+  ammo: 64
