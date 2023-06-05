@@ -3,8 +3,9 @@ using Leopotam.Ecs;
 
 public class InitEcs : MonoBehaviour
 {
-    [SerializeField] public SceneData sceneData;
-    [SerializeField] public StaticData configuration;
+    [SerializeField] private SceneData sceneData;
+    [SerializeField] private StaticData configuration;
+    [SerializeField] private UI ui;
 
     private EcsWorld _world;
 
@@ -45,6 +46,8 @@ public class InitEcs : MonoBehaviour
             .Init();
 
         _lateSystems
+            .Add(new AimFollow())
+            .Inject(ui)
             .Init();
 
         _awakeSystems.Run();

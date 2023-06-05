@@ -18,7 +18,7 @@ public class PlayerInput : IEcsRunSystem
 
             components.rigidbody2D.velocity = new Vector2(horizontal, vertical);
 
-            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.transform.position;
+            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             if (positionMouse.x < 0)
 
