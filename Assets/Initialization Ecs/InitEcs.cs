@@ -43,6 +43,7 @@ public class InitEcs : MonoBehaviour
             .Add(new PlayerRotate())
             .Add(new CameraFollow())
             .Inject(configuration)
+            .Inject(sceneData)
             .Init();
 
         _lateSystems

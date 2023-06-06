@@ -23,7 +23,7 @@ public class PlayerInit : IEcsInitSystem
         Components.animator = PlayerObject.GetComponent<Animator>();
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
 
-        Components.gun = PlayerObject.transform.Find("Square");
+        Components.gun = PlayerObject.transform.Find("Gun");
         Components.flipGun = Components.gun.GetComponent<SpriteRenderer>();
 
         CameraComponents.transform = CameraObject.GetComponent<Transform>();
