@@ -22,6 +22,12 @@ public class PlayerInput : IEcsRunSystem
 
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+
+            if(positionMouse.y > 0)
+            {
+
+            }
+
             if (positionMouse.x < 0)
             {
                 components.flipping = true;
