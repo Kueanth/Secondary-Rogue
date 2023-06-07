@@ -16,7 +16,7 @@ public class PlayerInput : IEcsRunSystem
             ref Player components = ref _filter.Get1(i);
 
             float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+            float vertical = Input.GetAxis("Vertical"); 
 
             Vector2 gow = new Vector2(horizontal, vertical);
             gow.Normalize();
@@ -26,12 +26,6 @@ public class PlayerInput : IEcsRunSystem
             Vector3 meow = components.transform.position;
 
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
-            if(positionMouse.y > 0)
-            {
-
-            }
 
             if (positionMouse.x < 0)
             {

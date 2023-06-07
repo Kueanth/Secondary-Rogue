@@ -8,6 +8,7 @@ public struct Player
     public SpriteRenderer spriteRenderer;
 
     public Transform gun;
+    public Transform bulletSpawn;
     public SpriteRenderer flipGun;
 
     public bool running;
