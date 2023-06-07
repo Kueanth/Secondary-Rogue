@@ -3,9 +3,9 @@ using Leopotam.Ecs;
 
 public class InitEcs : MonoBehaviour
 {
-    [SerializeField] private SceneData sceneData;
-    [SerializeField] private StaticData configuration;
-    [SerializeField] private UI ui;
+    [SerializeField] private SceneData sceneData; // MonoBehaviour
+    [SerializeField] private StaticData configuration; // ScriptableObject
+    [SerializeField] private UI ui; // User Interface Components 
 
     private EcsWorld _world;
 
@@ -31,8 +31,9 @@ public class InitEcs : MonoBehaviour
 
         _startSystems
             .Add(new PlayerInit())
-            .Inject(sceneData)
+            .Add(new CameraInit())
             .Inject(configuration)
+            .Inject(sceneData)
             .Init();
 
         _fixedSystems

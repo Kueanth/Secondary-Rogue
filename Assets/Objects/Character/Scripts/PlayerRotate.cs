@@ -12,15 +12,18 @@ public class PlayerRotate : IEcsRunSystem
         {
             ref Player components = ref _filter.Get1(i);
 
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // Get mouse position and set rotation for hand
+            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            components.gun.rotation = Quaternion.LookRotation(Vector3.forward, positionMouse);
 
-            components.gun.rotation = Quaternion.LookRotation(Vector3.forward, mousePos);
-
+            // Set bool for animator
             if (components.running)
+
                 components.animator.SetBool("Running", true);
             else
                 components.animator.SetBool("Running", false);
 
+            // flipping character
             if (components.flipping)
             {
                 components.spriteRenderer.flipX = true;

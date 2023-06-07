@@ -7,27 +7,26 @@ public class PlayerInput : IEcsRunSystem
 
     public SceneData sceneData;
 
-    public float speed = 4f;
-
     public void Run()
     {
         foreach(var i in _filter)
         {
             ref Player components = ref _filter.Get1(i);
             ref EcsEntity entity = ref _filter.GetEntity(i);       
-
+            
             float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical"); 
+            float vertical = Input.GetAxis("Vertical");
 
-            Vector2 gow = new Vector2(horizontal, vertical);
-            gow.Normalize();
+            // Movement
+            Vector2 movement = new Vector2(horizontal, vertical);
+            movement.Normalize();
+            components.rigidbody2D.velocity = movement * sceneData.playerSpeed;
 
-            components.rigidbody2D.velocity = gow * speed;
-
-            Vector3 meow = components.transform.position;
-
+            // Get position
+            Vector3 positionPlayer = components.transform.position;
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+            // A great code for the correct rotation of the character
             if (positionMouse.x < 0)
             {
                 components.flipping = true;
@@ -39,7 +38,7 @@ public class PlayerInput : IEcsRunSystem
                 components.flipGun.flipX = false;
             }
             
-            if(vertical >= 0.2f || vertical <= -0.2f)
+            if (vertical >= 0.2f || vertical <= -0.2f)
             {
                 components.running = true;
             }
@@ -64,17 +63,19 @@ public class PlayerInput : IEcsRunSystem
                 }
             }
 
+            // A great code for the correct rotation of the hand
             if (components.flipping)
             {
                 components.gun.position =
-                    new Vector3(meow.x + 0.2f + GunAnim.animX, meow.y + -0.2f + GunAnim.animY, 0f);
+                    new Vector3(positionPlayer.x + 0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
             }
             else
             {
                 components.gun.position =
-                    new Vector3(meow.x + -0.2f + GunAnim.animX, meow.y + -0.2f + GunAnim.animY, 0f);
+                    new Vector3(positionPlayer.x + -0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
             }
 
+            // For shots
             if (Input.GetMouseButtonDown(0))
             {
                 entity.Get<Shoot>();
