@@ -5,4 +5,5 @@ public class StaticData : ScriptableObject
 {
     public GameObject Player;
     public GameObject Camera;
+    public GameObject Bullet;
 }

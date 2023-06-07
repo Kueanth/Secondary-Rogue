@@ -14,6 +14,7 @@ public class PlayerInput : IEcsRunSystem
         foreach(var i in _filter)
         {
             ref Player components = ref _filter.Get1(i);
+            ref EcsEntity entity = ref _filter.GetEntity(i);       
 
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical"); 
@@ -72,6 +73,11 @@ public class PlayerInput : IEcsRunSystem
             {
                 components.gun.position =
                     new Vector3(meow.x + -0.2f + GunAnim.animX, meow.y + -0.2f + GunAnim.animY, 0f);
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                entity.Get<Shoot>();
             }
         }
     }

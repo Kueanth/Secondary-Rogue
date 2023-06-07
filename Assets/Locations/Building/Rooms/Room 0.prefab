@@ -5554,7 +5554,7 @@ GameObject:
   - component: {fileID: 8445131193509171949}
   m_Layer: 0
   m_Name: Unlit Layer 3 (Walls) (Collider)
-  m_TagString: Untagged
+  m_TagString: Walls and Decoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -8534,7 +8534,7 @@ GameObject:
   - component: {fileID: 470661512229126512}
   m_Layer: 0
   m_Name: Unlit Layer 4 (Decoration) (Collider)
-  m_TagString: Untagged
+  m_TagString: Walls and Decoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -9196,7 +9196,7 @@ GameObject:
   - component: {fileID: 8079062532127541721}
   m_Layer: 0
   m_Name: Lit Layer 3 (Walls) (Collider)
-  m_TagString: Untagged
+  m_TagString: Walls and Decoration
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
