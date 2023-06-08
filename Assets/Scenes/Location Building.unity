@@ -794,7 +794,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ec101e8fed43b468fb55fd54cfdf8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointPlayer: {x: -14.55, y: 5.55}
+  playerSpawnPoint: {x: -14, y: 7}
+  playerSpeed: 4
 --- !u!114 &1780000282
 MonoBehaviour:
   m_ObjectHideFlags: 0
