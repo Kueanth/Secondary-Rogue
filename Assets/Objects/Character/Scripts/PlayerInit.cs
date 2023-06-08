@@ -22,6 +22,8 @@ public class PlayerInit : IEcsInitSystem
         Components.animator = PlayerObject.GetComponent<Animator>();
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
 
+        Components.flip = true;
+
         // Child Object Components
         Components.gun = PlayerObject.transform.Find("Gun");
         Components.bulletSpawn = Components.gun.Find("Spawn Bullet");

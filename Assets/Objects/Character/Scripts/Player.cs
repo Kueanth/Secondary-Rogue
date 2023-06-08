@@ -13,4 +13,5 @@ public struct Player
 
     public bool running;
     public bool flipping;
+    public bool flip;
 }

@@ -14,8 +14,22 @@ public class BulletShoot : IEcsRunSystem
             ref Player components = ref _filter.Get1(i);
             ref EcsEntity entity = ref _filter.GetEntity(i);
 
-            GameObject bulletObject = 
-                GameObject.Instantiate(configuration.Bullet, components.bulletSpawn.position, components.gun.rotation);
+            GameObject bulletObject = null;
+
+            if (!components.flipping)
+            {
+                bulletObject =
+                    GameObject.Instantiate(configuration.Bullet, components.bulletSpawn.position, components.gun.rotation);
+            }
+
+            if (components.flipping)
+            {
+                Debug.Log("df");
+                Vector2 temp = new Vector2(components.bulletSpawn.position.x, components.bulletSpawn.position.y + 0.32f);
+
+                 bulletObject =
+                    GameObject.Instantiate(configuration.Bullet, temp, components.gun.rotation);
+            }
 
             Rigidbody2D bpl = bulletObject.GetComponent<Rigidbody2D>();
 
