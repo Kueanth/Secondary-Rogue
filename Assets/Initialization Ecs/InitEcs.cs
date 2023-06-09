@@ -44,12 +44,14 @@ public class InitEcs : MonoBehaviour
             .Add(new PlayerRotate())
             .Add(new CameraFollow())
             .Add(new BulletShoot())
+            .Add(new PlayerOutput())
             .Inject(configuration)
             .Inject(sceneData)
             .Init();
 
         _lateSystems
             .Add(new AimFollow())
+            .Add(new CameraTrembling())
             .Inject(ui)
             .Init();
 

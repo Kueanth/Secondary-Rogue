@@ -34,7 +34,6 @@ public class BulletShoot : IEcsRunSystem
             Rigidbody2D bpl = bulletObject.GetComponent<Rigidbody2D>();
 
             bpl.velocity = bulletObject.transform.up * 20f;
-            entity.Del<Shoot>();
         }
     }
 }
