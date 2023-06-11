@@ -26,7 +26,6 @@ public class PlayerOutput : IEcsRunSystem
                 output.y = 4;
 
             Components.rigidbody2D.AddForce(output, ForceMode2D.Impulse);
-            Components.light.intensity = 0f;
         }
     }
 }

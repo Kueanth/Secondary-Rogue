@@ -31,11 +31,13 @@ public class PlayerRotate : IEcsRunSystem
             if (components.flipping)
             {
                 components.spriteRenderer.flipX = true;
-                
+                components.flipGun.flipY = true;
+
             }
             else if (!components.flipping)
             {
                 components.spriteRenderer.flipX = false;
+                components.flipGun.flipY = false;
             }
         }
     }

@@ -30,12 +30,10 @@ public class PlayerInput : IEcsRunSystem
             if (positionMouse.x < 0)
             {
                 components.flipping = true;
-                components.flipGun.flipX = true;
             }
             else
             {
                 components.flipping = false;
-                components.flipGun.flipX = false;
             }
             
             if (vertical >= 0.2f || vertical <= -0.2f)

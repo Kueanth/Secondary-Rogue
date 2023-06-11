@@ -22,11 +22,19 @@ public class CameraFollow : IEcsRunSystem
             target.z = -10;
 
             Vector3 distance = Camera.main.ScreenToWorldPoint(Input.mousePosition) - CameraComponents.transform.position;
-            distance.Normalize();
-            distance.z = -10;
 
-            CameraComponents.transform.position =
-            Vector3.SmoothDamp(CameraComponents.transform.position, target + (distance * 2f), ref velocity, smoothTime);
+            if (distance.x <= 1.5f && distance.x >= -1.5f || distance.y <= 1.5f && distance.y >= -1.5f)
+            {
+                CameraComponents.transform.position = target;
+            }
+            else
+            {
+                distance.Normalize();
+                distance.z = -10;
+
+                CameraComponents.transform.position =
+                Vector3.SmoothDamp(CameraComponents.transform.position, target + (distance * 2f), ref velocity, smoothTime);
+            }
         }
     }
 }

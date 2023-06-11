@@ -17,17 +17,21 @@ public class BulletShoot : IEcsRunSystem
 
             GameObject bulletObject = null;
 
+            Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.gun.position;
+            float rotateZ = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, rotateZ + 90f);
+
             if (!components.flipping)
             {
                 bulletObject =
-                    GameObject.Instantiate(configuration.Bullet, components.bulletSpawn.position, components.gun.rotation);
+                    GameObject.Instantiate(configuration.Bullet, components.bulletSpawn.position, rotation);
             }
             else if (components.flipping)
             {
-                Vector2 temp = new Vector2(components.bulletSpawn.position.x, components.bulletSpawn.position.y);
+                Vector2 temp = new Vector2(components.bulletSpawn.position.x, components.bulletSpawn.position.y + 0.25f);
 
                  bulletObject =
-                    GameObject.Instantiate(configuration.Bullet, temp, components.gun.rotation);
+                    GameObject.Instantiate(configuration.Bullet, temp, rotation);
             }
 
             Rigidbody2D bpl = bulletObject.GetComponent<Rigidbody2D>();
