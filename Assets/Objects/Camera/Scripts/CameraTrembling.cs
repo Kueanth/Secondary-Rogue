@@ -10,7 +10,8 @@ public class CameraTrembling : IEcsRunSystem
         foreach(var i in _filter)
         {
             EcsEntity Player = _filter.GetEntity(i);
-
+            ref Player playerComponents = ref Player.Get<Player>();
+ 
             float randomX = 0;
             float randomY = 0;
 
@@ -20,12 +21,23 @@ public class CameraTrembling : IEcsRunSystem
             float y = Components.transform.position.y;
             float z = -10;
 
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerComponents.transform.position;
+
+
             do
             {
-                randomX = Random.Range(-0.2f, 0.2f);
-                randomY = Random.Range(-0.2f, 0.2f);
+                if (mousePosition.x > 0)
+                {
+                    randomX = -0.2f;
+                    randomY = Random.Range(-0.2f, 0.2f);
+                }
+                else 
+                {
+                    randomX = 0.2f; ;
+                    randomY = Random.Range(-0.2f, 0.2f);
+                }
             }
-            while (randomX == 0 && randomY == 0);
+            while (randomY == 0f);
 
             Components.transform.position = new Vector3(x + randomX, y + randomY, z);
 

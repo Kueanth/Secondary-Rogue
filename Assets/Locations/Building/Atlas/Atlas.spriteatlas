@@ -16,7 +16,7 @@ SpriteAtlas:
       maxTextureSize: 2048
       textureCompression: 0
       filterMode: 0
-      generateMipMaps: 0
+      generateMipMaps: 1
       readable: 0
       crunchedCompression: 0
       sRGB: 1
@@ -38,101 +38,18 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 0
-      enableTightPacking: 0
+      enableRotation: 1
+      enableTightPacking: 1
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: e16f5f466da86464c87c7a043ac92878, type: 3}
-    - {fileID: 102900000, guid: 353916e3364e32c46941e9fd8fca68f5, type: 3}
-    - {fileID: 102900000, guid: 24dd6eba521ed804da93f27d502db8e5, type: 3}
-    - {fileID: 102900000, guid: b1c11dc5cf3c4c54f902cc24cd29a60e, type: 3}
+    - {fileID: 2800000, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: b4b435f00007164488963d934f7d44b8, type: 3}
-  - {fileID: -1733456764, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 572136371, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1504509468, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1546772118, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1579792356, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1504388371, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1459191334, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 778464750, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 755032124, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 187233150, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1970055850, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -405416177, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1683173585, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1293214660, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 631762761, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1397851276, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1966076949, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1307067792, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 251566970, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1702316063, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1975108467, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1113645768, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1271258829, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1175516278, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1992807931, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1981897770, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1296477564, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -534917812, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1574928558, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 421841844, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 741586532, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 993159908, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -229028465, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1717915897, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1127873589, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -749362980, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -232726539, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1594825186, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 162302374, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1603211403, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1627340875, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1155867062, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 767793516, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 2140797989, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1200810765, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1197763412, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -857773817, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1374289399, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1629619909, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -2079718740, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 2021147799, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1172555309, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1325417750, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 87346674, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1707545534, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 2081142382, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 579730363, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1117692057, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 150501114, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1454167564, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -721279405, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1001643651, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1537496626, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1582932694, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1807200586, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -82259451, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1332713170, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 42734358, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1954656383, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -477016245, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 908301361, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 402040539, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1370743455, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1126042035, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 77417351, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -951835134, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1516661274, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: 1844062426, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
-  - {fileID: -1761563716, guid: abd3f01b1cfb5484b96068bdc36116c5, type: 3}
   - {fileID: 1572888875, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 784995036, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: -459041561, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
@@ -270,101 +187,7 @@ SpriteAtlas:
   - {fileID: -670603350, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: -371937647, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 1491144291, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
-  - {fileID: -1982304604, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: 319032879, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: 682866971, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: -1419269673, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: -941368312, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: -864408193, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: -1118025496, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: -1949371584, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: -9634294, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: 235494938, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: 750182552, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: 1921208089, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: 212538664, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
-  - {fileID: -1665456151, guid: b295d50de2f21d441bd3985c500485f4, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Door
-  - Decoration for Walls_6
-  - Decoration for Walls_7
-  - Decoration for Walls_4
-  - Decoration for Walls_5
-  - Decoration for Walls_8
-  - Decoration for Walls_9
-  - Decoration for Walls_20
-  - Decoration for Walls_21
-  - Decoration for Walls_22
-  - Decoration for Walls_42
-  - Decoration for Walls_23
-  - Decoration for Walls_33
-  - Decoration for Walls_43
-  - Decoration for Walls_24
-  - Decoration for Walls_32
-  - Decoration for Walls_40
-  - Decoration for Walls_25
-  - Decoration for Walls_31
-  - Decoration for Walls_41
-  - Decoration for Walls_55
-  - Decoration for Walls_26
-  - Decoration for Walls_30
-  - Decoration for Walls_46
-  - Decoration for Walls_54
-  - Decoration for Walls_27
-  - Decoration for Walls_37
-  - Decoration for Walls_47
-  - Decoration for Walls_57
-  - Decoration for Walls_28
-  - Decoration for Walls_36
-  - Decoration for Walls_44
-  - Decoration for Walls_56
-  - Decoration for Walls_29
-  - Decoration for Walls_35
-  - Decoration for Walls_45
-  - Decoration for Walls_51
-  - Decoration for Walls_34
-  - Decoration for Walls_50
-  - Decoration for Walls_53
-  - Decoration for Walls_48
-  - Decoration for Walls_52
-  - Decoration for Walls_39
-  - Decoration for Walls_49
-  - Decoration for Walls_38
-  - Decoration for Walls_59
-  - Decoration for Walls_58
-  - Decoration for Walls_19
-  - Decoration for Walls_18
-  - Decoration for Walls_68
-  - Decoration for Walls_11
-  - Decoration for Walls_69
-  - Decoration for Walls_10
-  - Decoration for Walls_13
-  - Decoration for Walls_12
-  - Decoration for Walls_64
-  - Decoration for Walls_15
-  - Decoration for Walls_65
-  - Decoration for Walls_14
-  - Decoration for Walls_66
-  - Decoration for Walls_78
-  - Decoration for Walls_17
-  - Decoration for Walls_67
-  - Decoration for Walls_77
-  - Decoration for Walls_16
-  - Decoration for Walls_60
-  - Decoration for Walls_76
-  - Decoration for Walls_61
-  - Decoration for Walls_75
-  - Decoration for Walls_62
-  - Decoration for Walls_74
-  - Decoration for Walls_63
-  - Decoration for Walls_73
-  - Decoration for Walls_72
-  - Decoration for Walls_71
-  - Decoration for Walls_70
-  - Decoration for Walls_2
-  - Decoration for Walls_3
-  - Decoration for Walls_0
-  - Decoration for Walls_1
   - Walls and Ground_38
   - Walls and Ground_70
   - Walls and Ground_66
@@ -502,20 +325,6 @@ SpriteAtlas:
   - Walls and Ground_76
   - Walls and Ground_77
   - Walls and Ground_67
-  - Hero_11
-  - Hero_10
-  - Hero_13
-  - Hero_12
-  - Hero_2
-  - Hero_3
-  - Hero_0
-  - Hero_1
-  - Hero_6
-  - Hero_7
-  - Hero_4
-  - Hero_5
-  - Hero_8
-  - Hero_9
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0

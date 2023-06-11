@@ -1,5 +1,6 @@
 using UnityEngine;
 using Leopotam.Ecs;
+using System.Threading;
 
 public class BulletShoot : IEcsRunSystem
 {
@@ -21,10 +22,8 @@ public class BulletShoot : IEcsRunSystem
                 bulletObject =
                     GameObject.Instantiate(configuration.Bullet, components.bulletSpawn.position, components.gun.rotation);
             }
-
-            if (components.flipping)
+            else if (components.flipping)
             {
-                Debug.Log("df");
                 Vector2 temp = new Vector2(components.bulletSpawn.position.x, components.bulletSpawn.position.y + 0.32f);
 
                  bulletObject =

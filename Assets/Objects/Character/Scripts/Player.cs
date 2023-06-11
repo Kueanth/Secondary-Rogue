@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public struct Player
 {
@@ -8,6 +9,7 @@ public struct Player
     public SpriteRenderer spriteRenderer;
 
     public Transform gun;
+    public Light2D light;
     public Transform bulletSpawn;
     public SpriteRenderer flipGun;
 
