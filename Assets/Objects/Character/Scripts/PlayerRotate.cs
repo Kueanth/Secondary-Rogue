@@ -11,10 +11,13 @@ public class PlayerRotate : IEcsRunSystem
         foreach (var i in _filter)
         {
             ref Player components = ref _filter.Get1(i);
+            ref EcsEntity entity = ref _filter.GetEntity(i);
+
+            ref CameraComponents cameraComponents = ref entity.Get<CameraComponents>();
 
             // Get mouse position and set rotation for hand
-            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float rotateZ = Mathf.Atan2(positionMouse.y, positionMouse.x) * Mathf.Rad2Deg;
+            Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.gun.transform.position;
+            float rotateZ = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;
             components.gun.transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
 
             // Set bool for animator

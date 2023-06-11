@@ -24,7 +24,7 @@ public class BulletShoot : IEcsRunSystem
             }
             else if (components.flipping)
             {
-                Vector2 temp = new Vector2(components.bulletSpawn.position.x, components.bulletSpawn.position.y + 0.32f);
+                Vector2 temp = new Vector2(components.bulletSpawn.position.x, components.bulletSpawn.position.y);
 
                  bulletObject =
                     GameObject.Instantiate(configuration.Bullet, temp, components.gun.rotation);
@@ -32,7 +32,7 @@ public class BulletShoot : IEcsRunSystem
 
             Rigidbody2D bpl = bulletObject.GetComponent<Rigidbody2D>();
 
-            bpl.velocity = bulletObject.transform.right * 20f;
+            bpl.velocity = components.bulletSpawn.right * 20f;
         }
     }
 }
