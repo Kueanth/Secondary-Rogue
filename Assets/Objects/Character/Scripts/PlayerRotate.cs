@@ -14,7 +14,8 @@ public class PlayerRotate : IEcsRunSystem
 
             // Get mouse position and set rotation for hand
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            components.gun.rotation = Quaternion.LookRotation(Vector3.forward, positionMouse);
+            float rotateZ = Mathf.Atan2(positionMouse.y, positionMouse.x) * Mathf.Rad2Deg;
+            components.gun.transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
 
             // Set bool for animator
             if (components.running)
@@ -27,6 +28,7 @@ public class PlayerRotate : IEcsRunSystem
             if (components.flipping)
             {
                 components.spriteRenderer.flipX = true;
+                
             }
             else if (!components.flipping)
             {

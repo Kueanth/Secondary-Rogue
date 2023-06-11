@@ -1,5 +1,5 @@
-using UnityEngine;
 using Leopotam.Ecs;
+using UnityEngine;
 
 public class PlayerInput : IEcsRunSystem
 {
@@ -24,7 +24,7 @@ public class PlayerInput : IEcsRunSystem
 
             // Get position
             Vector3 positionPlayer = components.transform.position;
-            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.transform.position;
 
             // A great code for the correct rotation of the character
             if (positionMouse.x < 0)

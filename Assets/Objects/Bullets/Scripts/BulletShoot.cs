@@ -32,7 +32,7 @@ public class BulletShoot : IEcsRunSystem
 
             Rigidbody2D bpl = bulletObject.GetComponent<Rigidbody2D>();
 
-            bpl.velocity = bulletObject.transform.up * 20f;
+            bpl.velocity = bulletObject.transform.right * 20f;
         }
     }
 }

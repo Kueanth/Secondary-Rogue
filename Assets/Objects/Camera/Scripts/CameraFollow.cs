@@ -21,7 +21,7 @@ public class CameraFollow : IEcsRunSystem
             Vector3 target = PlayerComponents.transform.position;
             target.z = -10;
 
-            Vector3 distance = Camera.main.ScreenToWorldPoint(Input.mousePosition) - PlayerComponents.transform.position;
+            Vector3 distance = Camera.main.ScreenToWorldPoint(Input.mousePosition) - CameraComponents.transform.position;
             distance.Normalize();
             distance.z = -10;
 
