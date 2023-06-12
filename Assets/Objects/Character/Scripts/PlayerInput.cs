@@ -1,5 +1,7 @@
 using Leopotam.Ecs;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerInput : IEcsRunSystem
 {
@@ -9,11 +11,11 @@ public class PlayerInput : IEcsRunSystem
 
     public void Run()
     {
-        foreach(var i in _filter)
+        foreach (var i in _filter)
         {
             ref Player components = ref _filter.Get1(i);
-            ref EcsEntity entity = ref _filter.GetEntity(i);       
-            
+            ref EcsEntity entity = ref _filter.GetEntity(i);
+
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
 
@@ -30,12 +32,27 @@ public class PlayerInput : IEcsRunSystem
             if (positionMouse.x < 0)
             {
                 components.flipping = true;
+
+                if(components.flip == false)
+                {
+                    components.flip = true;
+
+                    if (components.light.transform.localPosition.y != -0.3f)
+                        components.light.transform.localPosition =
+                            new Vector2(components.light.transform.localPosition.x, -0.3f);
+                }
             }
             else
             {
                 components.flipping = false;
+
+                components.flip = false;
+
+                if (components.light.transform.localPosition.y != 0.3f)
+                    components.light.transform.localPosition =
+                        new Vector2(components.light.transform.localPosition.x, 0.3f);
             }
-            
+
             if (vertical >= 0.2f || vertical <= -0.2f)
             {
                 components.running = true;
@@ -61,9 +78,10 @@ public class PlayerInput : IEcsRunSystem
                 }
             }
 
-            // A great code for the correct rotation of the hand
+            // A great code for the correct rotation of the hand and light
             if (components.flipping)
             {
+
                 components.gun.position =
                     new Vector3(positionPlayer.x + 0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
             }
