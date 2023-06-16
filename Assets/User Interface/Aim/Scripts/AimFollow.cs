@@ -9,6 +9,8 @@ public class AimFollow : IEcsRunSystem
 
     public void Run()
     {
+        // For cursor
+
         if (Cursor.visible) Cursor.visible = false;
 
         ui.gameScreen.aim.transform.position = Input.mousePosition;
