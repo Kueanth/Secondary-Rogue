@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_New Shader Graph
+  m_Name: Material
   m_Shader: {fileID: -6465566751694194690, guid: 37d33e525d7198b4db8396537d78aeae, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -43,5 +43,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0, g: 51.377876, b: 30.934322, a: 0}
+    - _Color: {r: 0, g: 0.0007314645, b: 0.00042126226, a: 0}
   m_BuildTextureStacks: []
