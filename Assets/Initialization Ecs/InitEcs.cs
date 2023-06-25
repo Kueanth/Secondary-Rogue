@@ -30,10 +30,13 @@ public class InitEcs : MonoBehaviour
             .Init();
 
         _startSystems
+            .Add(new EnemyInit())
+            .Add(new FadeInit())
             .Add(new PlayerInit())
             .Add(new CameraInit())
             .Inject(configuration)
             .Inject(sceneData)
+            .Inject(ui)
             .Init();
 
         _fixedSystems
