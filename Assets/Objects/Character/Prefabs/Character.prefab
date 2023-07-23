@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6991621101398091899}
   - component: {fileID: 8575738370499726317}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 189673660530422830}
   - component: {fileID: 1533831088310765980}
   - component: {fileID: 8145288122152947152}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3257038365034703178}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawn Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7567929976495076199}
   - component: {fileID: 1073621574779508836}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

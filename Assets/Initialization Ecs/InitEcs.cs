@@ -48,6 +48,7 @@ public class InitEcs : MonoBehaviour
             .Add(new CameraFollow())
             .Add(new BulletShoot())
             .Add(new PlayerOutput())
+            .Add(new EnemyFollow())
             .Inject(configuration)
             .Inject(sceneData)
             .Init();

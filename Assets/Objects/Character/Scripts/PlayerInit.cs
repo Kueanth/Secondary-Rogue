@@ -24,6 +24,7 @@ public class PlayerInit : IEcsInitSystem
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
 
         Components.flip = true;
+        sceneData.playerPosition = Components.transform;
 
         // Child Object Components
         Components.gun = PlayerObject.transform.Find("Gun");
