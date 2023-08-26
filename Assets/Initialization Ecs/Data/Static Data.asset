@@ -17,3 +17,4 @@ MonoBehaviour:
   Camera: {fileID: 8770490745442471739, guid: ef0c5a1d29addcf4aa08430c4a1260aa, type: 3}
   Bullet: {fileID: 2140815583976980764, guid: 60d6071b626fba744a80275eb1601a5d, type: 3}
   spawnPointEnemy: {fileID: 1540271287726494234, guid: f07a10d776f9ca14c92fb5f61d87ab4f, type: 3}
+  particleBullet: {fileID: 516613950262372861, guid: 9b7c1d911f5846348afd2847d06fa72d, type: 3}

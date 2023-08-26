@@ -10,4 +10,6 @@ public class StaticData : ScriptableObject
     public GameObject Bullet;
 
     public GameObject spawnPointEnemy;
+
+    public GameObject particleBullet;
 }

@@ -34,14 +34,9 @@ public class BulletShoot : IEcsRunSystem
                     GameObject.Instantiate(configuration.Bullet, temp, rotation);
             }
 
-            ParticleSystem ps = bulletObject.GetComponent<ParticleSystem>();
-            ps.
-            BulletTrigger bo = bulletObject.GetComponent<BulletTrigger>();
-            bo.particle = ps;
+            bulletObject.GetComponent<BulletTrigger>().particle = configuration.particleBullet;
 
-            Rigidbody2D bpl = bulletObject.GetComponent<Rigidbody2D>();
-
-            bpl.velocity = components.bulletSpawn.right * 20f;
+            bulletObject.GetComponent<Rigidbody2D>().velocity = components.bulletSpawn.right * 20f;
         }
     }
 }

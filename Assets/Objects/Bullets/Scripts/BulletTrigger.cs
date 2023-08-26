@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class BulletTrigger : MonoBehaviour
 {
-    public ParticleSystem particle;
+    public GameObject particle;
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        particle.Play();
-
-        if (particle.isPlaying) Debug.Log("viebvaetsa");
-
         if (collider.gameObject.tag == "Walls and Decoration")
         {
+            GameObject effect = Instantiate(particle, gameObject.transform);
+            effect.transform.parent = null;
             Destroy(gameObject);
         }
 
         if (collider.gameObject.tag == "Enemy")
         {
+            GameObject effect = Instantiate(particle, gameObject.transform);
+            effect.transform.parent = null;
             Destroy(gameObject);
         }
     }
