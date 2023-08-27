@@ -15,7 +15,16 @@ public class EnemyTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Check")
+        ref EnemyData components = ref entity.Get<EnemyData>();
+
+        int temp = 0;
+
+        foreach(var i in components.targets)
+        {
+            if (i.gameObject.transform == collision.transform) ++temp;
+        }
+
+        if (collision.gameObject.tag == "Check" && temp == 1)
         {
             entity.Get<EnemyNewFollow>();
         };

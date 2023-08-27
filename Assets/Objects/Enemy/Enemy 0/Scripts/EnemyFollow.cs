@@ -16,11 +16,11 @@ public class EnemyFollow : IEcsRunSystem
 
             components.rigidbody2D.velocity = Vector2.zero;
             
-            int temp = Random.Range(1, 5);
+            int temp = Random.Range(1, components.targets.Length);
 
             while(components.number == temp)
             {
-                temp = Random.Range(1, 5);
+                temp = Random.Range(1, components.targets.Length);
             }
 
             components.number = temp;

@@ -16,7 +16,7 @@ public class EnemyInit : IEcsInitSystem
         foreach(var i in sceneData.positionsEnemy)
         {
             if (i.name == "SpawnEnemy") continue;
-            if (i.tag == "Check") continue;
+            if (i.name == "Check") continue;
 
             GameObject enemyObject = GameObject.Instantiate(configuration.Enemy, i.position, Quaternion.identity);
 
@@ -30,10 +30,13 @@ public class EnemyInit : IEcsInitSystem
             components.transform = enemyObject.transform;
             components.rigidbody2D = enemyObject.GetComponent<Rigidbody2D>();
 
-            EnemyTrigger script = enemyObject.GetComponent<EnemyTrigger>();
-            script.entity = enemy;
+            enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
 
             components.targets = i.transform.GetComponentsInChildren<Transform>();
+            foreach(var meow in components.targets)
+            {
+                Debug.Log(meow);
+            }
         }
     }   
 }
