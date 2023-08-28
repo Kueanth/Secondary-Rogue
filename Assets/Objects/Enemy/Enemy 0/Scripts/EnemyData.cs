@@ -11,4 +11,6 @@ public struct EnemyData
     public int number;
 
     public Transform[] targets;
+
+    public float timerForShoot;
 }

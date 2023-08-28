@@ -30,11 +30,13 @@ public class EnemyInit : IEcsInitSystem
             components.transform = enemyObject.transform;
             components.rigidbody2D = enemyObject.GetComponent<Rigidbody2D>();
             components.animator = enemyObject.GetComponent<Animator>();
+            components.transform.GetComponent<EnemyShoot>().target = sceneData.playerPosition;
+            components.timerForShoot = Random.Range(3, 6);
 
+            enemyObject.GetComponent<EnemyShoot>().entity = enemy;
             enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
 
             components.targets = i.transform.GetComponentsInChildren<Transform>();
-            components.transform.GetComponent<EnemyShoot>().target = sceneData.playerPosition;
         }
     }   
 }

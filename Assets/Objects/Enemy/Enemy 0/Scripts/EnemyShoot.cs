@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using Leopotam.Ecs;
 using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
     public GameObject bullet;
-
     public Transform target;
+
+    public EcsEntity entity;
 
     public void StartAttack()
     {
@@ -21,8 +21,14 @@ public class EnemyShoot : MonoBehaviour
 
         GameObject bulletObject = Instantiate(bullet, transform.position, rotation);
 
-        bulletObject.GetComponent<Rigidbody2D>().velocity = target.position.normalized * 10f;
+        
+        bulletObject.GetComponent<Rigidbody2D>().velocity = (target.position - transform.position).normalized * 10f;
 
         Destroy(bulletObject, 10);
+    }
+
+    public void EndAttack()
+    {
+        entity.Get<EnemyNewFollow>();
     }
 }
