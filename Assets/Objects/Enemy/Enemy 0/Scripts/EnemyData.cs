@@ -4,6 +4,7 @@ public struct EnemyData
 {
     public Transform transform;
     public Rigidbody2D rigidbody2D;
+    public Animator animator;
 
     public Vector2 target;
 

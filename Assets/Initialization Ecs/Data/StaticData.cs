@@ -8,8 +8,5 @@ public class StaticData : ScriptableObject
     public GameObject Enemy;
     public GameObject Camera;
     public GameObject Bullet;
-
-    public GameObject spawnPointEnemy;
-
     public GameObject particleBullet;
 }

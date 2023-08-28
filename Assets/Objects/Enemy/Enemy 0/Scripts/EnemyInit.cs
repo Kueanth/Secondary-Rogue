@@ -29,14 +29,12 @@ public class EnemyInit : IEcsInitSystem
             components.number = 0;
             components.transform = enemyObject.transform;
             components.rigidbody2D = enemyObject.GetComponent<Rigidbody2D>();
+            components.animator = enemyObject.GetComponent<Animator>();
 
             enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
 
             components.targets = i.transform.GetComponentsInChildren<Transform>();
-            foreach(var meow in components.targets)
-            {
-                Debug.Log(meow);
-            }
+            components.transform.GetComponent<EnemyShoot>().target = sceneData.playerPosition;
         }
     }   
 }

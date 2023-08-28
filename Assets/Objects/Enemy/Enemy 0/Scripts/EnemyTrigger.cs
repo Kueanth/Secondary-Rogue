@@ -17,11 +17,23 @@ public class EnemyTrigger : MonoBehaviour
     {
         ref EnemyData components = ref entity.Get<EnemyData>();
 
+        bool tempBool = false;
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            entity.Destroy();
+            Destroy(gameObject);
+            tempBool = true;
+        }
+
         int temp = 0;
 
-        foreach(var i in components.targets)
+        if (!tempBool)
         {
-            if (i.gameObject.transform == collision.transform) ++temp;
+            foreach (var i in components.targets)
+            {
+                if (i.gameObject.transform == collision.transform) ++temp;
+            }
         }
 
         if (collision.gameObject.tag == "Check" && temp == 1)
