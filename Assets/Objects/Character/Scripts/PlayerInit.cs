@@ -18,6 +18,7 @@ public class PlayerInit : IEcsInitSystem
         GameObject PlayerObject = GameObject.Instantiate(configuration.Player, sceneData.playerSpawnPoint, Quaternion.identity);
 
         // Main Object Components
+        Components.hp = 3;
         Components.transform = PlayerObject.GetComponent<Transform>();
         Components.rigidbody2D = PlayerObject.GetComponent<Rigidbody2D>();
         Components.animator = PlayerObject.GetComponent<Animator>();

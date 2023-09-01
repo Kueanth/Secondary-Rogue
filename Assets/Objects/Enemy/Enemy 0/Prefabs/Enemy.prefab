@@ -183,6 +183,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4223907155342481176, guid: 2d721a05ea0bc3c4c82def12e6ae62d7, type: 3}
   target: {fileID: 0}
+  detected:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &9027679354344430041
 GameObject:
   m_ObjectHideFlags: 0

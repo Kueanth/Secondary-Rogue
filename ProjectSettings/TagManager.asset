@@ -8,6 +8,9 @@ TagManager:
   - SpawnEnemy
   - Check
   - Enemy
+  - Bullet
+  - EnemyBullet
+  - Pit
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Check
   - Enemy
   - Bullet
-  - 
+  - Detected
   - 
   - 
   - 

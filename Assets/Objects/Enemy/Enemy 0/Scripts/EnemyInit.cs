@@ -27,6 +27,7 @@ public class EnemyInit : IEcsInitSystem
             enemy.Get<EnemyNewFollow>();
 
             components.number = 0;
+            components.hp = 5;
             components.transform = enemyObject.transform;
             components.rigidbody2D = enemyObject.GetComponent<Rigidbody2D>();
             components.animator = enemyObject.GetComponent<Animator>();

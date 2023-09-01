@@ -21,9 +21,16 @@ public class EnemyTrigger : MonoBehaviour
 
         if (collision.gameObject.tag == "Bullet")
         {
-            entity.Destroy();
-            Destroy(gameObject);
-            tempBool = true;
+            if(components.hp != 0)
+            {
+                components.hp -= 1;
+            }
+            else
+            {
+                entity.Destroy();
+                Destroy(gameObject);
+                tempBool = true;
+            }
         }
 
         int temp = 0;

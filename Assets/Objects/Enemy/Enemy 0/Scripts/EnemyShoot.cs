@@ -5,7 +5,7 @@ public class EnemyShoot : MonoBehaviour
 {
     public GameObject bullet;
     public Transform target;
-
+    public LayerMask detected;
     public EcsEntity entity;
 
     private RaycastHit2D hit;
@@ -39,24 +39,17 @@ public class EnemyShoot : MonoBehaviour
 
     public void Check()
     {
-        hit = Physics2D.Raycast(transform.position + (target.position - transform.position).normalized, target.position);
+        if (target != null)
+            hit = Physics2D.Raycast(transform.position + (target.position - transform.position).normalized, target.position - transform.position - (target.position - transform.position).normalized, Vector3.Distance(target.position, transform.position) - 2f, detected.value);
+        else return;
 
+        if (hit.collider == null)
+        {
+            return;
+        }
         if (hit.collider.tag == "Walls and Decoration")
         {
             transform.GetComponent<Animator>().SetBool("Attack", false);
-            Debug.Log("meow " + hit.collider.tag);
         }
-        else
-        {
-            transform.GetComponent<Animator>().SetBool("Attack", true);
-            Debug.Log("gow" + hit.collider.tag);
-        }
-    }
-
-    public void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position + (target.position - transform.position).normalized, target.position);
-        Gizmos.DrawSphere(hit.point, 0.3f);
     }
 }
