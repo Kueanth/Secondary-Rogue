@@ -21,7 +21,6 @@ public class EnemyInput : IEcsRunSystem
             else
             {
                 components.timerForShoot -= Time.deltaTime;
-                animator.SetBool("Attack", false);
             }
         }
     }

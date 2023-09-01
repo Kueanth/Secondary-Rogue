@@ -23,6 +23,8 @@ public class PlayerInit : IEcsInitSystem
         Components.animator = PlayerObject.GetComponent<Animator>();
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
 
+        PlayerObject.GetComponent<PlayerTrigger>().entity = Entity;
+
         Components.flip = true;
         sceneData.playerPosition = Components.transform;
 
