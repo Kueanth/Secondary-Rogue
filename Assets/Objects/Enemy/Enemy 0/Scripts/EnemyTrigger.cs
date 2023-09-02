@@ -7,7 +7,7 @@ public class EnemyTrigger : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Walls and Decoration")
+        if (collision.gameObject.tag == "Walls and Decoration" || collision.gameObject.tag == "Table")
         {
             entity.Get<EnemyNewFollow>();
         };
@@ -23,8 +23,9 @@ public class EnemyTrigger : MonoBehaviour
         {
             if(components.hp != 0)
             {
+                components.rigidbody2D.AddForce(new Vector2(-(collision.transform.position.x - transform.position.x), -(collision.transform.position.y - transform.position.y)).normalized * 2f, ForceMode2D.Impulse);
                 components.hp -= 1;
-            }
+            }   
             else
             {
                 entity.Destroy();
