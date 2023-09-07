@@ -10,14 +10,21 @@ public class PlayerTrigger : MonoBehaviour
     {
         ref Player components = ref entity.Get<Player>();  
 
-        if (collider.gameObject.tag == "Pit")
+        if (collider.gameObject.tag == "Pit" && !components.pit)
         {
             if (components.hp != 0)
             {
-                RaycastHit2D hit = Physics2D.Raycast(components.rigidbody2D.velocity, components.rigidbody2D.velocity);
+                
+                RaycastHit2D hit = Physics2D.Raycast(components.transform.position + Vector3.down * 2f, Vector3.down);
+
+                if(hit.transform.tag != "Pit")
+                {
+                    return;
+                }
+
                 components.pit = true;
                 components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = false;
-                components.positionForPit = new Vector2(components.transform.position.x, components.transform.position.y) - (components.rigidbody2D.velocity).normalized * 1.5f;
+                components.positionForPit = new Vector2(components.transform.position.x, components.transform.position.y) - (components.rigidbody2D.velocity).normalized;
                 StartCoroutine(Animation(components));
                 components.hp -= 1;
             }
@@ -55,5 +62,11 @@ public class PlayerTrigger : MonoBehaviour
         components.playerObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         components.gun.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         return;
+    }
+
+    private void OnDrawGizmos()
+    {
+        ref Player components = ref entity.Get<Player>();
+        Debug.DrawRay(components.transform.position + Vector3.down * 2f, Vector3.down);
     }
 }
