@@ -5,6 +5,9 @@ public struct Player
 {
     public int hp;
 
+    public GameObject playerObject;
+    public Vector3 positionForPit;
+
     public Transform transform;
     public Rigidbody2D rigidbody2D;
     public Animator animator;
@@ -15,6 +18,7 @@ public struct Player
     public Transform bulletSpawn;
     public SpriteRenderer flipGun;
 
+    public bool pit;
     public bool running;
     public bool flipping;
     public bool flip;

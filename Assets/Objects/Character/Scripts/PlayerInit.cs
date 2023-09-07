@@ -18,13 +18,16 @@ public class PlayerInit : IEcsInitSystem
         GameObject PlayerObject = GameObject.Instantiate(configuration.Player, sceneData.playerSpawnPoint, Quaternion.identity);
 
         // Main Object Components
-        Components.hp = 3;
+        Components.hp = 100;
+        Components.pit = false;
+        Components.playerObject = PlayerObject;
         Components.transform = PlayerObject.GetComponent<Transform>();
         Components.rigidbody2D = PlayerObject.GetComponent<Rigidbody2D>();
         Components.animator = PlayerObject.GetComponent<Animator>();
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
 
-        PlayerObject.GetComponent<PlayerTrigger>().entity = Entity;
+        PlayerObject.GetComponentInChildren<PlayerTrigger>().entity = Entity;
+        PlayerObject.GetComponentInChildren<BodyTrigger>().entity = Entity;
 
         Components.flip = true;
         sceneData.playerPosition = Components.transform;

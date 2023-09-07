@@ -22,7 +22,11 @@ public class PlayerInput : IEcsRunSystem
             // Movement
             Vector2 movement = new Vector2(horizontal, vertical);
             movement.Normalize();
-            components.rigidbody2D.velocity = movement * sceneData.playerSpeed;
+
+            if (!components.pit)
+            {
+                components.rigidbody2D.velocity = movement * sceneData.playerSpeed;
+            }
 
             // Get position
             Vector3 positionPlayer = components.transform.position;
@@ -92,7 +96,7 @@ public class PlayerInput : IEcsRunSystem
             }
 
             // For shots
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !components.pit)
             {
                 entity.Get<Shoot>();
             }
