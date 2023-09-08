@@ -14,17 +14,34 @@ public class PlayerTrigger : MonoBehaviour
         {
             if (components.hp != 0)
             {
-                
-                RaycastHit2D hit = Physics2D.Raycast(components.transform.position + Vector3.down * 2f, Vector3.down);
+                RaycastHit2D hit1 = Physics2D.Raycast(components.transform.position + Vector3.down, Vector3.down, 5f);
+                RaycastHit2D hit2 = Physics2D.Raycast(components.transform.position + Vector3.down + new Vector3(2f, 1f, 0f), Vector3.down, 5f);
+                RaycastHit2D hit3 = Physics2D.Raycast(components.transform.position + Vector3.down + new Vector3(-2f, 1f, 0f), Vector3.down, 5f);
 
-                if(hit.transform.tag != "Pit")
+                components.positionForPit = new Vector2(components.transform.position.x, components.transform.position.y) - (components.rigidbody2D.velocity).normalized;
+
+                if (hit1.transform != null)
                 {
-                    return;
+                    if (hit1.transform.tag == "Pit")
+                        components.rigidbody2D.velocity = (Vector2.down * 4f);
+                }
+                else if (hit2.transform != null)
+                {
+                    if (hit2.transform.tag == "Pit")
+                        components.rigidbody2D.velocity = (Vector2.down * 3f) + (Vector2.right * 3f);
+                }
+                else if (hit3.transform != null)
+                {
+                    if (hit3.transform.tag == "Pit")
+                        components.rigidbody2D.velocity = (Vector2.down * 3f) + (Vector2.left * 3f);
+                }
+                else
+                {
+                    components.rigidbody2D.velocity = (Vector2.up * 3f);
                 }
 
                 components.pit = true;
                 components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = false;
-                components.positionForPit = new Vector2(components.transform.position.x, components.transform.position.y) - (components.rigidbody2D.velocity).normalized;
                 StartCoroutine(Animation(components));
                 components.hp -= 1;
             }
@@ -67,6 +84,8 @@ public class PlayerTrigger : MonoBehaviour
     private void OnDrawGizmos()
     {
         ref Player components = ref entity.Get<Player>();
-        Debug.DrawRay(components.transform.position + Vector3.down * 2f, Vector3.down);
+        Gizmos.DrawRay(components.transform.position + Vector3.down + new Vector3(1f, 0f, 0f), Vector3.down);
+        Gizmos.DrawRay(components.transform.position + Vector3.down + new Vector3(-1f, 0f, 0f), Vector3.down);
+        Gizmos.DrawRay(components.transform.position + Vector3.down, Vector3.down);
     }
 }
