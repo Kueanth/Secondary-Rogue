@@ -18,7 +18,7 @@ public class PlayerLight : MonoBehaviour
 
     IEnumerator EffectLight(Light2D light)
     {
-        for (float x = 2f; x >= 0; x -= 0.2f)
+        for (float x = 2f; x > -0.1f; x -= 0.2f)
         {
             light.intensity = x;
 

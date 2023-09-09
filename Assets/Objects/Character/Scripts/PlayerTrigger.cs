@@ -1,10 +1,12 @@
 using UnityEngine;
 using Leopotam.Ecs;
 using System.Collections;
+using System.Threading;
 
 public class PlayerTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public float x, y;
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
@@ -14,30 +16,27 @@ public class PlayerTrigger : MonoBehaviour
         {
             if (components.hp != 0)
             {
-                RaycastHit2D hit1 = Physics2D.Raycast(components.transform.position + Vector3.down, Vector3.down, 5f);
-                RaycastHit2D hit2 = Physics2D.Raycast(components.transform.position + Vector3.down + new Vector3(2f, 1f, 0f), Vector3.down, 5f);
-                RaycastHit2D hit3 = Physics2D.Raycast(components.transform.position + Vector3.down + new Vector3(-2f, 1f, 0f), Vector3.down, 5f);
-
                 components.positionForPit = new Vector2(components.transform.position.x, components.transform.position.y) - (components.rigidbody2D.velocity).normalized;
 
-                if (hit1.transform != null)
+                RaycastHit2D[] hit = Physics2D.RaycastAll(new Vector2(components.transform.position.x, components.transform.position.y + 1f), Vector2.down, 2f);
+
+                bool temp = false;
+
+                foreach(var h in hit)
                 {
-                    if (hit1.transform.tag == "Pit")
-                        components.rigidbody2D.velocity = (Vector2.down * 4f);
+                    if (h.collider.tag == "Pit")
+                    {
+                        Debug.Log("Work");
+                        break;
+                    }
                 }
-                else if (hit2.transform != null)
+
+                    x = (collider.bounds.center.x);
+                y = (collider.bounds.center.y);
+
+                if(components.transform.position.y > y)
                 {
-                    if (hit2.transform.tag == "Pit")
-                        components.rigidbody2D.velocity = (Vector2.down * 3f) + (Vector2.right * 3f);
-                }
-                else if (hit3.transform != null)
-                {
-                    if (hit3.transform.tag == "Pit")
-                        components.rigidbody2D.velocity = (Vector2.down * 3f) + (Vector2.left * 3f);
-                }
-                else
-                {
-                    components.rigidbody2D.velocity = (Vector2.up * 3f);
+                    components.rigidbody2D.velocity -= Vector2.up * 5f + new Vector2(x,y).normalized;
                 }
 
                 components.pit = true;
@@ -47,7 +46,7 @@ public class PlayerTrigger : MonoBehaviour
             }
             else
             {
-                entity.Del<Player>();
+                entity.Del<Player>();   
                 Destroy(gameObject);
             }
         }
@@ -59,12 +58,17 @@ public class PlayerTrigger : MonoBehaviour
         { 
             if(x == 0.09999993f)
             {
+                yield return new WaitForSeconds(2f);
                 EndAnimation();
                 yield break;
             }
 
-            components.playerObject.GetComponentInChildren<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.1f);
-            components.gun.GetComponent<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.1f);
+            components.playerObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+            components.gun.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+
+            components.playerObject.GetComponentInChildren<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.2f);
+            components.gun.GetComponent<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.2f);
+
             yield return new WaitForSeconds(.06f);
         }
     }
@@ -72,20 +76,27 @@ public class PlayerTrigger : MonoBehaviour
     public void EndAnimation()
     {
         ref Player components = ref entity.Get<Player>();
+
         components.transform.position = components.positionForPit;
         components.pit = false;
         components.rigidbody2D.velocity = Vector2.zero;
+
         components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
+
+        components.playerObject.transform.localScale = new Vector3(1f, 1f, 1f);
+        components.gun.transform.localScale = new Vector3(0.633f, 0.633f, 1f);
+
         components.playerObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         components.gun.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
         return;
     }
 
-    private void OnDrawGizmos()
+    public void OnDrawGizmos()
     {
         ref Player components = ref entity.Get<Player>();
-        Gizmos.DrawRay(components.transform.position + Vector3.down + new Vector3(1f, 0f, 0f), Vector3.down);
-        Gizmos.DrawRay(components.transform.position + Vector3.down + new Vector3(-1f, 0f, 0f), Vector3.down);
-        Gizmos.DrawRay(components.transform.position + Vector3.down, Vector3.down);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(new Vector2(components.transform.position.x, components.transform.position.y + 1f), Vector2.down * 2f);
     }
 }
