@@ -13,14 +13,7 @@ public class PlayerOutput : IEcsRunSystem
 
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (Components.flipping)
-            {
-                Components.rigidbody2D.AddForce(mousePosition.normalized * -5f, ForceMode2D.Impulse);
-            }
-            else
-            {
-                Components.rigidbody2D.AddForce(mousePosition.normalized * 5f, ForceMode2D.Impulse);
-            }
+            Components.rigidbody2D.AddForce(new Vector2(mousePosition.x - Components.transform.position.x, mousePosition.y - Components.transform.position.y).normalized * -5f, ForceMode2D.Impulse);
         }
     }
 }

@@ -30,6 +30,8 @@ public class PlayerInit : IEcsInitSystem
         PlayerObject.GetComponentInChildren<BodyTrigger>().entity = Entity;
 
         Components.flip = true;
+
+        sceneData.playerEntity = Entity;
         sceneData.playerPosition = Components.transform;
 
         // Child Object Components

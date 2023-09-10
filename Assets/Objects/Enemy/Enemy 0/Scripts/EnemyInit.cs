@@ -35,6 +35,7 @@ public class EnemyInit : IEcsInitSystem
             components.timerForShoot = Random.Range(3, 6);
 
             enemyObject.GetComponent<EnemyShoot>().entity = enemy;
+            enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
             enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
 
             components.targets = i.transform.GetComponentsInChildren<Transform>();

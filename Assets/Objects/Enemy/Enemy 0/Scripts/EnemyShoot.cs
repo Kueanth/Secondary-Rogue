@@ -6,6 +6,7 @@ public class EnemyShoot : MonoBehaviour
     public GameObject bullet;
     public Transform target;
     public LayerMask detected;
+    public EcsEntity entityPlayer;
     public EcsEntity entity;
 
     private RaycastHit2D hit;
@@ -17,7 +18,9 @@ public class EnemyShoot : MonoBehaviour
 
     public void Shoot()
     {
-        if (target == null) return;
+        ref Player componentsPlayer = ref entityPlayer.Get<Player>();
+
+        if (target == null || componentsPlayer.pit) return;
 
         Vector3 diference = target.position - transform.position;
         float rotateZ = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;

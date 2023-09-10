@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Leopotam.Ecs;
 
 public class SceneData : MonoBehaviour
 {
@@ -9,4 +10,5 @@ public class SceneData : MonoBehaviour
     public Transform playerPosition;
     public Transform posEnemy;
     public Transform[] positionsEnemy;
+    public EcsEntity playerEntity; 
 }

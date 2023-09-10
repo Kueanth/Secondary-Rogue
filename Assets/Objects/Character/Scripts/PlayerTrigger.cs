@@ -18,25 +18,57 @@ public class PlayerTrigger : MonoBehaviour
             {
                 components.positionForPit = new Vector2(components.transform.position.x, components.transform.position.y) - (components.rigidbody2D.velocity).normalized;
 
-                RaycastHit2D[] hit = Physics2D.RaycastAll(new Vector2(components.transform.position.x, components.transform.position.y + 1f), Vector2.down, 2f);
+                x = collider.bounds.center.x;
+                y = collider.bounds.center.y;
+
+                RaycastHit2D[] hitRight = Physics2D.RaycastAll(new Vector2(components.transform.position.x - 1f, components.transform.position.y - 0.4f), Vector2.right, 2f);
+                RaycastHit2D[] hitDown = Physics2D.RaycastAll(new Vector2(components.transform.position.x, components.transform.position.y + 3f), Vector2.down, 5f);
 
                 bool temp = false;
 
-                foreach(var h in hit)
+                foreach(var h in hitRight)
                 {
                     if (h.collider.tag == "Pit")
                     {
-                        Debug.Log("Work");
-                        break;
+                        Debug.Log("asd");
+                        temp = true;
                     }
                 }
 
-                    x = (collider.bounds.center.x);
-                y = (collider.bounds.center.y);
-
-                if(components.transform.position.y > y)
+                foreach (var h in hitDown)
                 {
-                    components.rigidbody2D.velocity -= Vector2.up * 5f + new Vector2(x,y).normalized;
+                    if (h.collider.tag == "Pit")
+                    {
+                        Debug.Log("qwe");
+                        temp = true;
+                    }
+                }
+
+                if (components.transform.position.y > y)
+                {
+                    components.rigidbody2D.velocity -= Vector2.up * 5f + new Vector2(x, y).normalized;
+
+                    if (components.transform.position.x < x && !temp)
+                    {
+                        components.rigidbody2D.velocity += Vector2.right * 3f;
+                    }
+                    else if (!temp)
+                    {
+                        components.rigidbody2D.velocity += Vector2.left * 3f;
+                    }
+                }
+                else if(components.transform.position.y < y)
+                {
+                    components.rigidbody2D.velocity -= Vector2.up * 2f + new Vector2(x, y).normalized;
+
+                    if (components.transform.position.x < x && !temp)
+                    {
+                        components.rigidbody2D.velocity += Vector2.right * 3f;
+                    }
+                    else if (!temp)
+                    {
+                        components.rigidbody2D.velocity += Vector2.left * 3f;
+                    }
                 }
 
                 components.pit = true;
@@ -90,13 +122,5 @@ public class PlayerTrigger : MonoBehaviour
         components.gun.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
         return;
-    }
-
-    public void OnDrawGizmos()
-    {
-        ref Player components = ref entity.Get<Player>();
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(new Vector2(components.transform.position.x, components.transform.position.y + 1f), Vector2.down * 2f);
     }
 }
