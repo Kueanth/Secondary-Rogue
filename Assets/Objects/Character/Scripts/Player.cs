@@ -11,6 +11,7 @@ public struct Player
     public Transform transform;
     public Rigidbody2D rigidbody2D;
     public Animator animator;
+    public Animator vignetteEffect;
     public SpriteRenderer spriteRenderer;
 
     public Transform gun;

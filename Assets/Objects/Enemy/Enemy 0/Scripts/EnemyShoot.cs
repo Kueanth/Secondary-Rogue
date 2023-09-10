@@ -49,7 +49,7 @@ public class EnemyShoot : MonoBehaviour
         if (hit.collider == null)
         {
             return;
-        }
+        }   
         if (hit.collider.tag == "Walls and Decoration")
         {
             transform.GetComponent<Animator>().SetBool("Attack", false);

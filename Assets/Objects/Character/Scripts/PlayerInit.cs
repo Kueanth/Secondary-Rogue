@@ -26,6 +26,8 @@ public class PlayerInit : IEcsInitSystem
         Components.animator = PlayerObject.GetComponent<Animator>();
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
 
+        Components.vignetteEffect = sceneData.vignetteEffect;
+
         PlayerObject.GetComponentInChildren<PlayerTrigger>().entity = Entity;
         PlayerObject.GetComponentInChildren<BodyTrigger>().entity = Entity;
 

@@ -10,5 +10,6 @@ public class SceneData : MonoBehaviour
     public Transform playerPosition;
     public Transform posEnemy;
     public Transform[] positionsEnemy;
-    public EcsEntity playerEntity; 
+    public EcsEntity playerEntity;
+    public Animator vignetteEffect;
 }

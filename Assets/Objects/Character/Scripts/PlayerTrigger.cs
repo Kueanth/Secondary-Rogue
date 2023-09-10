@@ -16,6 +16,8 @@ public class PlayerTrigger : MonoBehaviour
         {
             if (components.hp != 0)
             {
+                components.vignetteEffect.SetTrigger("Effect");
+
                 components.positionForPit = new Vector2(components.transform.position.x, components.transform.position.y) - (components.rigidbody2D.velocity).normalized;
 
                 x = collider.bounds.center.x;

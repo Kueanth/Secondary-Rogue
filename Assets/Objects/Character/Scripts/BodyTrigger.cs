@@ -13,6 +13,7 @@ public class BodyTrigger : MonoBehaviour
         {
             if (components.hp != 0)
             {
+                components.vignetteEffect.SetTrigger("Effect");
                 components.hp -= 1;
             }
             else
