@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Leopotam.Ecs;
 
 public class ChestTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public EcsEntity entity;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.tag == "Player")
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().material.color = new Color32(255, 230, 0, 255);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if(collision.tag == "Player")
+        {
+            gameObject.GetComponentInParent<SpriteRenderer>().material.color = new Color32(0, 0, 0, 0);
+        }
     }
 }

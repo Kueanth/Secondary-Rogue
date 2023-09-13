@@ -22,11 +22,15 @@ public class ChestInit : IEcsInitSystem
 
             GameObject chestObject = GameObject.Instantiate(configuration.Chest, chest.position, Quaternion.identity);
 
+            chestObject.GetComponent<ChestTrigger>().entity = chestEntity;
+
             chestObject.transform.SetParent(chest);
 
             Material chestMaterial = new Material(Shader.Find("Shader Graphs/Outlines"));
             
             chestObject.GetComponent<SpriteRenderer>().material = chestMaterial;
+
+            chestObject.GetComponent<SpriteRenderer>().material.color = new Color32(0, 0, 0, 0);
         }
     }
 }

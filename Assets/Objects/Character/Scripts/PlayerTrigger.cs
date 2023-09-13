@@ -32,7 +32,6 @@ public class PlayerTrigger : MonoBehaviour
                 {
                     if (h.collider.tag == "Pit")
                     {
-                        Debug.Log("asd");
                         temp = true;
                     }
                 }
@@ -41,7 +40,6 @@ public class PlayerTrigger : MonoBehaviour
                 {
                     if (h.collider.tag == "Pit")
                     {
-                        Debug.Log("qwe");
                         temp = true;
                     }
                 }
