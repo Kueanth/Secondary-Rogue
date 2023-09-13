@@ -22,7 +22,9 @@ public class ChestInit : IEcsInitSystem
 
             GameObject chestObject = GameObject.Instantiate(configuration.Chest, chest.position, Quaternion.identity);
 
-            chestObject.GetComponent<ChestTrigger>().entity = chestEntity;
+            chestComponents.open = false;
+
+            chestObject.GetComponentInChildren<ChestTrigger>().entity = chestEntity;
 
             chestObject.transform.SetParent(chest);
 

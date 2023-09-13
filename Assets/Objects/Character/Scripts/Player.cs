@@ -23,4 +23,7 @@ public struct Player
     public bool running;
     public bool flipping;
     public bool flip;
+    public bool nearChest;
+
+    public Transform chest;
 }

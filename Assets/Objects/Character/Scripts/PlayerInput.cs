@@ -37,7 +37,7 @@ public class PlayerInput : IEcsRunSystem
             {
                 components.flipping = true;
 
-                if(components.flip == false)
+                if (components.flip == false)
                 {
                     components.flip = true;
 
@@ -99,6 +99,11 @@ public class PlayerInput : IEcsRunSystem
             if (Input.GetMouseButtonDown(0) && !components.pit)
             {
                 entity.Get<Shoot>();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F) && components.nearChest)
+            {
+                components.chest.GetComponent<ChestTrigger>().OpenChest();
             }
         }
     }

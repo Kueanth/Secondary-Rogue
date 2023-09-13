@@ -2,5 +2,6 @@ using UnityEngine;
 
 public struct ChestData
 {
-    string gun;
+    public string gun;
+    public bool open;
 }
