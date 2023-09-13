@@ -144,9 +144,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 16
-        height: 12
+        y: 45
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: Chests_1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 48
-        width: 16
-        height: 12
+        x: 18
+        y: 45
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: Chests_2
       rect:
         serializedVersion: 2
-        x: 34
-        y: 48
-        width: 16
-        height: 12
+        x: 36
+        y: 45
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Chests_3
       rect:
         serializedVersion: 2
-        x: 51
-        y: 48
-        width: 16
-        height: 13
+        x: 54
+        y: 45
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +227,10 @@ TextureImporter:
       name: Chests_4
       rect:
         serializedVersion: 2
-        x: 68
-        y: 48
-        width: 16
-        height: 13
+        x: 72
+        y: 45
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,9 +249,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 16
-        height: 12
+        y: 30
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,10 +269,10 @@ TextureImporter:
       name: Chests_6
       rect:
         serializedVersion: 2
-        x: 17
-        y: 32
-        width: 16
-        height: 12
+        x: 18
+        y: 30
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,10 +290,10 @@ TextureImporter:
       name: Chests_7
       rect:
         serializedVersion: 2
-        x: 34
-        y: 32
-        width: 16
-        height: 12
+        x: 36
+        y: 30
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,10 +311,10 @@ TextureImporter:
       name: Chests_8
       rect:
         serializedVersion: 2
-        x: 51
-        y: 32
-        width: 16
-        height: 13
+        x: 54
+        y: 30
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,10 +332,10 @@ TextureImporter:
       name: Chests_9
       rect:
         serializedVersion: 2
-        x: 68
-        y: 32
-        width: 16
-        height: 13
+        x: 72
+        y: 30
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,9 +354,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 12
+        y: 15
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,10 +374,10 @@ TextureImporter:
       name: Chests_11
       rect:
         serializedVersion: 2
-        x: 17
-        y: 16
-        width: 16
-        height: 12
+        x: 18
+        y: 15
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,10 +395,10 @@ TextureImporter:
       name: Chests_12
       rect:
         serializedVersion: 2
-        x: 34
-        y: 16
-        width: 16
-        height: 12
+        x: 36
+        y: 15
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,10 +416,10 @@ TextureImporter:
       name: Chests_13
       rect:
         serializedVersion: 2
-        x: 51
-        y: 16
-        width: 16
-        height: 13
+        x: 54
+        y: 15
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,10 +437,10 @@ TextureImporter:
       name: Chests_14
       rect:
         serializedVersion: 2
-        x: 68
-        y: 16
-        width: 16
-        height: 13
+        x: 72
+        y: 15
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -460,8 +460,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 12
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -479,10 +479,10 @@ TextureImporter:
       name: Chests_16
       rect:
         serializedVersion: 2
-        x: 17
+        x: 18
         y: 0
-        width: 16
-        height: 12
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,10 +500,10 @@ TextureImporter:
       name: Chests_17
       rect:
         serializedVersion: 2
-        x: 34
+        x: 36
         y: 0
-        width: 16
-        height: 12
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -521,10 +521,10 @@ TextureImporter:
       name: Chests_18
       rect:
         serializedVersion: 2
-        x: 51
+        x: 54
         y: 0
-        width: 16
-        height: 13
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -542,10 +542,10 @@ TextureImporter:
       name: Chests_19
       rect:
         serializedVersion: 2
-        x: 68
+        x: 72
         y: 0
-        width: 16
-        height: 13
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

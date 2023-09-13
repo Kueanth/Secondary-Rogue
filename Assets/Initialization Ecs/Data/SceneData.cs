@@ -4,12 +4,20 @@ using Leopotam.Ecs;
 
 public class SceneData : MonoBehaviour
 {
-    public Transform mousePosition;
-    public Vector2 playerSpawnPoint;
-    public float playerSpeed;
-    public Transform playerPosition;
-    public Transform posEnemy;
-    public Transform[] positionsEnemy;
     public EcsEntity playerEntity;
+
+    public Vector2 playerSpawnPoint;
+
+    public float playerSpeed;
+
+    public Transform playerPosition;
+    public Transform mousePosition;
+
+    public Transform posChest;
+    public Transform posEnemy;
+
+    public Transform[] positionsEnemy;
+    public Transform[] positionsChests;
+
     public Animator vignetteEffect;
 }

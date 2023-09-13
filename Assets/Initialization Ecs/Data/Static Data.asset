@@ -17,3 +17,4 @@ MonoBehaviour:
   Camera: {fileID: 8770490745442471739, guid: ef0c5a1d29addcf4aa08430c4a1260aa, type: 3}
   Bullet: {fileID: 2140815583976980764, guid: e7db41dfe4e765a49848053235e747a0, type: 3}
   particleBullet: {fileID: 516613950262372861, guid: c66d4f42fc0b50542a4d59680faa33e5, type: 3}
+  Chest: {fileID: 3910838994740863551, guid: 9abfba616f0d6014e881b1211422bc0d, type: 3}

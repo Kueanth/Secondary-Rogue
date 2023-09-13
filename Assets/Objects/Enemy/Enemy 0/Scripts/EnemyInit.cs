@@ -20,6 +20,8 @@ public class EnemyInit : IEcsInitSystem
 
             GameObject enemyObject = GameObject.Instantiate(configuration.Enemy, i.position, Quaternion.identity);
 
+            enemyObject.transform.SetParent(i);
+
             EcsEntity enemy = _world.NewEntity();
 
             ref EnemyData components = ref enemy.Get<EnemyData>();

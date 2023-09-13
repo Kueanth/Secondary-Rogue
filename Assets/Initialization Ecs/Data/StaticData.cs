@@ -9,4 +9,5 @@ public class StaticData : ScriptableObject
     public GameObject Camera;
     public GameObject Bullet;
     public GameObject particleBullet;
+    public GameObject Chest;
 }
