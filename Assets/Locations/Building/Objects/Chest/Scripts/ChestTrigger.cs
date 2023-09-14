@@ -9,13 +9,35 @@ public class ChestTrigger : MonoBehaviour
     {
         ref ChestData chestComponents = ref entity.Get<ChestData>();
 
-        if(collision.tag == "Player" && chestComponents.open)
+        Material material = gameObject.GetComponentInParent<SpriteRenderer>().material;
+
+        if (collision.tag == "Player" && chestComponents.open)
         {
-            gameObject.GetComponentInParent<SpriteRenderer>().material.color = new Color32(128, 128, 128, 255);
+            EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
+            ref Player components = ref meow.Get<Player>();
+
+            material.color = new Color32(128, 128, 128, 255);
+            material.SetVector("_Right", new Vector2(0.8f, 0f));
+            material.SetVector("_Left", new Vector2(-0.8f, 0f));
+            material.SetVector("_Up", new Vector2(0f, 0.8f));
+            material.SetVector("_Down", new Vector2(0f, -0.8f));
+
+            components.chest = this.transform;
+            components.nearChest = false;
         }
         else if (collision.tag == "Player" && !chestComponents.open)
         {
-            gameObject.GetComponentInParent<SpriteRenderer>().material.color = new Color32(255, 230, 0, 255);
+            EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
+            ref Player components = ref meow.Get<Player>();
+
+            material.color = new Color32(255, 230, 0, 255);
+            material.SetVector("_Right", new Vector2(0.8f, 0f));
+            material.SetVector("_Left", new Vector2(-0.8f, 0f));
+            material.SetVector("_Up", new Vector2(0f, 0.8f));
+            material.SetVector("_Down", new Vector2(0f, -0.8f));
+
+            components.chest = this.transform;
+            components.nearChest = true;
         }
     }
 
@@ -23,7 +45,19 @@ public class ChestTrigger : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            gameObject.GetComponentInParent<SpriteRenderer>().material.color = new Color32(0, 0, 0, 0);
+            Material material = gameObject.GetComponentInParent<SpriteRenderer>().material;
+
+            EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
+            ref Player components = ref meow.Get<Player>();
+
+            material.color = new Color32(0, 0, 0, 0);
+            material.SetVector("_Right", new Vector2(0f, 0f));
+            material.SetVector("_Left", new Vector2(0f, 0f));
+            material.SetVector("_Up", new Vector2(0f, 0f));
+            material.SetVector("_Down", new Vector2(0f, 0f));
+
+            components.chest = this.transform;
+            components.nearChest = false;
         }
     }
 
@@ -33,7 +67,10 @@ public class ChestTrigger : MonoBehaviour
 
         if (chestComponents.open) return;
 
-        gameObject.GetComponent<Animator>().SetTrigger("Open");
+        ref ChestData components = ref entity.Get<ChestData>();
+
+        components.animator.SetTrigger("Open");
+
         chestComponents.open = true;
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - EnemyBullet
   - Pit
+  - Chest
   layers:
   - Default
   - TransparentFX
