@@ -5,6 +5,7 @@ public class HatchInit : IEcsInitSystem
 {
     private SceneData sceneData;
     private StaticData configuration;
+    private UI ui;
 
     private EcsWorld _world;
 
@@ -12,7 +13,9 @@ public class HatchInit : IEcsInitSystem
     {
         sceneData.positionsHatchs = sceneData.posHatch.transform.GetComponentsInChildren<Transform>();
 
-        foreach (var hatch in sceneData.positionsChests)
+        int temp = 0;
+
+        foreach (var hatch in sceneData.positionsHatchs)
         {
             if (hatch.name == "SpawnHatch") continue;
 
@@ -22,10 +25,15 @@ public class HatchInit : IEcsInitSystem
 
             GameObject hatchObject = GameObject.Instantiate(configuration.Hatch, hatch.position, Quaternion.identity);
 
+            sceneData.hatchs[temp] = hatchObject;
+            ++temp;
+
             hatchComponents.open = false;
             hatchComponents.animator = hatchObject.GetComponent<Animator>();
 
             hatchObject.GetComponentInChildren<HatchTrigger>().entity = hatchEntity;
+            hatchObject.GetComponentInChildren<HatchTrigger>().sceneData = sceneData;
+            hatchObject.GetComponentInChildren<HatchTrigger>().ui = ui;
 
             hatchObject.transform.SetParent(hatch);
 

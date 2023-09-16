@@ -8,10 +8,12 @@ public class EnemyInit : IEcsInitSystem
 
     private SceneData sceneData;
     private StaticData configuration;
+    private UI ui;
 
     public void Init()
     {
         sceneData.positionsEnemy = sceneData.posEnemy.transform.GetComponentsInChildren<Transform>();
+        sceneData.enemyCount = 0;
 
         foreach(var i in sceneData.positionsEnemy)
         {
@@ -39,8 +41,12 @@ public class EnemyInit : IEcsInitSystem
             enemyObject.GetComponent<EnemyShoot>().entity = enemy;
             enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
             enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
+            enemyObject.GetComponent<EnemyTrigger>().sceneData = sceneData;
+            enemyObject.GetComponent<EnemyTrigger>().ui = ui;
 
             components.targets = i.transform.GetComponentsInChildren<Transform>();
+
+            sceneData.enemyCount += 1;
         }
     }   
 }

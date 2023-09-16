@@ -105,6 +105,11 @@ public class PlayerInput : IEcsRunSystem
             {
                 components.chest.GetComponent<ChestTrigger>().OpenChest();
             }
+
+            if (Input.GetKeyDown(KeyCode.F) && components.nearHatch)
+            {
+                components.hatch.GetComponent<HatchTrigger>().OpenHatch();
+            }
         }
     }
 }

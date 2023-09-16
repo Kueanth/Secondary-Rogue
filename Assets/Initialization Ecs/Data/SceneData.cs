@@ -10,6 +10,10 @@ public class SceneData : MonoBehaviour
 
     public float playerSpeed;
 
+    public int enemyCount;
+
+    public bool levelComplete;
+
     public Transform playerPosition;
     public Transform mousePosition;
 
@@ -17,9 +21,10 @@ public class SceneData : MonoBehaviour
     public Transform posEnemy;
     public Transform posHatch;
 
+    public Animator vignetteEffect;
+
     public Transform[] positionsEnemy;
     public Transform[] positionsChests;
     public Transform[] positionsHatchs;
-
-    public Animator vignetteEffect;
+    public GameObject[] hatchs;
 }

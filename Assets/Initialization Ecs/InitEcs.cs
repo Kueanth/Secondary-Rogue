@@ -6,6 +6,7 @@ public class InitEcs : MonoBehaviour
     [SerializeField] private SceneData sceneData; // MonoBehaviour
     [SerializeField] private StaticData configuration; // ScriptableObject
     [SerializeField] private UI ui; // User Interface Components 
+    [SerializeField] private RoomData rooms; // Rooms for Initialization
 
     private EcsWorld _world;
 

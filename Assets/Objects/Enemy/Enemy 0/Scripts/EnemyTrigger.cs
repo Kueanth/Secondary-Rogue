@@ -4,6 +4,8 @@ using Leopotam.Ecs;
 public class EnemyTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public SceneData sceneData;
+    public UI ui;
 
     public GameObject particle;
 
@@ -37,6 +39,19 @@ public class EnemyTrigger : MonoBehaviour
                 entity.Destroy();
                 Destroy(gameObject);
                 tempBool = true;
+                sceneData.enemyCount -= 1;
+
+                if(sceneData.enemyCount == 0)
+                {
+                    sceneData.levelComplete = true;
+
+                    foreach(var hatch in sceneData.hatchs)
+                    {
+                        hatch.GetComponent<Animator>().SetTrigger("Open");
+                        hatch.GetComponentInChildren<HatchTrigger>().levelComplete();
+                    }
+
+                }
             }
         }
 

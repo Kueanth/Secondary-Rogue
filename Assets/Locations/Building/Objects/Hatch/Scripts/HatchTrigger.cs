@@ -4,6 +4,11 @@ using Leopotam.Ecs;
 public class HatchTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public SceneData sceneData;
+    public EcsEntity player;
+    public UI ui;
+
+    private bool nearPlayer;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,10 +16,12 @@ public class HatchTrigger : MonoBehaviour
 
         Material material = gameObject.GetComponentInParent<SpriteRenderer>().material;
 
-        if (collision.tag == "Player" && !hatchComponents.open)
+        if (collision.tag == "Player" && !sceneData.levelComplete)
         {
             EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
+            player = meow;
             ref Player components = ref meow.Get<Player>();
+            
 
             material.color = new Color32(128, 128, 128, 255);
             material.SetVector("_Right", new Vector2(0.8f, 0f));
@@ -22,10 +29,11 @@ public class HatchTrigger : MonoBehaviour
             material.SetVector("_Up", new Vector2(0f, 0.8f));
             material.SetVector("_Down", new Vector2(0f, -0.8f));
 
-            components.chest = this.transform;
-            components.nearChest = false;
+            components.hatch = this.transform;
+            components.nearHatch = false;
+            nearPlayer = true;
         }
-        else if (collision.tag == "Player" && hatchComponents.open)
+        else if (collision.tag == "Player" && sceneData.levelComplete)
         {
             EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
             ref Player components = ref meow.Get<Player>();
@@ -36,8 +44,9 @@ public class HatchTrigger : MonoBehaviour
             material.SetVector("_Up", new Vector2(0f, 0.8f));
             material.SetVector("_Down", new Vector2(0f, -0.8f));
 
-            components.chest = this.transform;
-            components.nearChest = true;
+            components.hatch = this.transform;
+            components.nearHatch = true;
+            nearPlayer = true;
         }
     }
 
@@ -58,27 +67,31 @@ public class HatchTrigger : MonoBehaviour
 
             components.hatch = this.transform;
             components.nearHatch = false;
+            nearPlayer = false;
         }
     }
 
-    public void OpenChest()
+    public void OpenHatch()
     {
-        ref Hatch hatchComponents = ref entity.Get<Hatch>();
+        ui.gameScreen.fade.GetComponent<Animator>().SetTrigger("Meow");
+    }
 
-        if (hatchComponents.open) return;
+    public void levelComplete()
+    {
+        if (nearPlayer)
+        {
+            ref Player gow = ref player.Get<Player>();
 
-        ref Hatch components = ref entity.Get<Hatch>();
+            gow.nearHatch = true;
 
-        components.animator.SetTrigger("Open");
+            Material material = gameObject.GetComponentInParent<SpriteRenderer>().material;
+            ref Hatch hatchComponents = ref entity.Get<Hatch>();
 
-        hatchComponents.open = true;
-
-        Material material = gameObject.GetComponentInParent<SpriteRenderer>().material;
-
-        material.color = new Color32(0, 0, 0, 0);
-        material.SetVector("_Right", new Vector2(0f, 0f));
-        material.SetVector("_Left", new Vector2(0f, 0f));
-        material.SetVector("_Up", new Vector2(0f, 0f));
-        material.SetVector("_Down", new Vector2(0f, 0f));
+            material.color = new Color32(255, 230, 0, 255);
+            material.SetVector("_Right", new Vector2(0.8f, 0f));
+            material.SetVector("_Left", new Vector2(-0.8f, 0f));
+            material.SetVector("_Up", new Vector2(0f, 0.8f));
+            material.SetVector("_Down", new Vector2(0f, -0.8f));
+        }
     }
 }
