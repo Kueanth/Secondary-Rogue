@@ -35,6 +35,7 @@ public class InitEcs : MonoBehaviour
             .Add(new CameraInit())
             .Add(new EnemyInit())
             .Add(new ChestInit())
+            .Add(new HatchInit())
             .Inject(configuration)
             .Inject(sceneData)
             .Inject(ui)

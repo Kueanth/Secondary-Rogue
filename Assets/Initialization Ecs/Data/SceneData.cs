@@ -15,9 +15,11 @@ public class SceneData : MonoBehaviour
 
     public Transform posChest;
     public Transform posEnemy;
+    public Transform posHatch;
 
     public Transform[] positionsEnemy;
     public Transform[] positionsChests;
+    public Transform[] positionsHatchs;
 
     public Animator vignetteEffect;
 }

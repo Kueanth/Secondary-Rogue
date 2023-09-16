@@ -608,6 +608,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &749795409 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3178206216927752623, guid: 786aaf231dd2eca42a0f23309cfb8040, type: 3}
+  m_PrefabInstance: {fileID: 949854187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &824122432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,8 +2297,10 @@ MonoBehaviour:
   mousePosition: {fileID: 0}
   posChest: {fileID: 1814401735}
   posEnemy: {fileID: 27666061}
+  posHatch: {fileID: 749795409}
   positionsEnemy: []
   positionsChests: []
+  positionsHatchs: []
   vignetteEffect: {fileID: 179700747}
 --- !u!114 &1780000282
 MonoBehaviour:

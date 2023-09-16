@@ -10,4 +10,5 @@ public class StaticData : ScriptableObject
     public GameObject Bullet;
     public GameObject particleBullet;
     public GameObject Chest;
+    public GameObject Hatch;
 }

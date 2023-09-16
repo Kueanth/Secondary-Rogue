@@ -18,3 +18,4 @@ MonoBehaviour:
   Bullet: {fileID: 2140815583976980764, guid: e7db41dfe4e765a49848053235e747a0, type: 3}
   particleBullet: {fileID: 516613950262372861, guid: c66d4f42fc0b50542a4d59680faa33e5, type: 3}
   Chest: {fileID: 3910838994740863551, guid: 9abfba616f0d6014e881b1211422bc0d, type: 3}
+  Hatch: {fileID: 3417937545308619820, guid: 1acfb5986ee9ab940b0fba0d73fcf232, type: 3}

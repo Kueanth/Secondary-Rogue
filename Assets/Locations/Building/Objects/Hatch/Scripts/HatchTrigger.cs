@@ -1,17 +1,17 @@
 using UnityEngine;
 using Leopotam.Ecs;
 
-public class ChestTrigger : MonoBehaviour
+public class HatchTrigger : MonoBehaviour
 {
     public EcsEntity entity;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ref ChestData chestComponents = ref entity.Get<ChestData>();
+        ref Hatch hatchComponents = ref entity.Get<Hatch>();
 
         Material material = gameObject.GetComponentInParent<SpriteRenderer>().material;
 
-        if (collision.tag == "Player" && chestComponents.open)
+        if (collision.tag == "Player" && !hatchComponents.open)
         {
             EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
             ref Player components = ref meow.Get<Player>();
@@ -25,7 +25,7 @@ public class ChestTrigger : MonoBehaviour
             components.chest = this.transform;
             components.nearChest = false;
         }
-        else if (collision.tag == "Player" && !chestComponents.open)
+        else if (collision.tag == "Player" && hatchComponents.open)
         {
             EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
             ref Player components = ref meow.Get<Player>();
@@ -43,7 +43,7 @@ public class ChestTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             Material material = gameObject.GetComponentInParent<SpriteRenderer>().material;
 
@@ -56,22 +56,22 @@ public class ChestTrigger : MonoBehaviour
             material.SetVector("_Up", new Vector2(0f, 0f));
             material.SetVector("_Down", new Vector2(0f, 0f));
 
-            components.chest = this.transform;
-            components.nearChest = false;
+            components.hatch = this.transform;
+            components.nearHatch = false;
         }
     }
 
     public void OpenChest()
     {
-        ref ChestData chestComponents = ref entity.Get<ChestData>();
+        ref Hatch hatchComponents = ref entity.Get<Hatch>();
 
-        if (chestComponents.open) return;
+        if (hatchComponents.open) return;
 
-        ref ChestData components = ref entity.Get<ChestData>();
+        ref Hatch components = ref entity.Get<Hatch>();
 
         components.animator.SetTrigger("Open");
 
-        chestComponents.open = true;
+        hatchComponents.open = true;
 
         Material material = gameObject.GetComponentInParent<SpriteRenderer>().material;
 

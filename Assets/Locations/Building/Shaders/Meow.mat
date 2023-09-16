@@ -39,10 +39,10 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _Color: {r: 0.50980395, g: 0.5372549, b: 0.5, a: 0}
-    - _Down: {r: 0, g: 0, b: 0, a: 0}
-    - _Left: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 0.9747521, b: 0, a: 0}
+    - _Down: {r: 0, g: -0.8, b: 0, a: 0}
+    - _Left: {r: -0.8, g: 0, b: 0, a: 0}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Right: {r: 0, g: 0, b: 0, a: 0}
-    - _Up: {r: 0, g: 0, b: 0, a: 0}
+    - _Right: {r: 0.8, g: 0, b: 0, a: 0}
+    - _Up: {r: 0, g: 0.8, b: 0, a: 0}
   m_BuildTextureStacks: []
