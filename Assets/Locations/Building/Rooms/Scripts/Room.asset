@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d9d05706c925024a8c0095ce286e57b, type: 3}
-  m_Name: Rooms
+  m_Script: {fileID: 11500000, guid: d9b04f876bcf3094bba4b58fe2362f59, type: 3}
+  m_Name: Room
   m_EditorClassIdentifier: 
-  Rooms:
-  - {fileID: 11400000, guid: 49ef553982831124bb464779f67717b9, type: 2}
+  RoomPrefab: {fileID: 1820217994692529692, guid: 786aaf231dd2eca42a0f23309cfb8040, type: 3}
+  spawnPositionPlayer: {x: -14, y: 4}

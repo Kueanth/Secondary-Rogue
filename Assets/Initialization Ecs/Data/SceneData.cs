@@ -5,6 +5,7 @@ using Leopotam.Ecs;
 public class SceneData : MonoBehaviour
 {
     public EcsEntity playerEntity;
+    public EcsEntity roomEntity;
 
     public Vector2 playerSpawnPoint;
 

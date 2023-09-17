@@ -73,6 +73,10 @@ public class HatchTrigger : MonoBehaviour
 
     public void OpenHatch()
     {
+        ref Hatch hatchComponents = ref entity.Get<Hatch>();
+
+        hatchComponents.open = false;
+
         ui.gameScreen.fade.GetComponent<Animator>().SetTrigger("Meow");
     }
 

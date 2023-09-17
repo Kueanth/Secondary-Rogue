@@ -7,6 +7,8 @@ public class PlayerInit : IEcsInitSystem
     private SceneData sceneData;
     private StaticData configuration;
 
+    private EcsFilter<RoomDestroy> _filter;
+
     private EcsWorld _world;
 
     public void Init()

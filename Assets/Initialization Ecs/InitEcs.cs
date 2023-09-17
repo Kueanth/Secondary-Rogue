@@ -31,21 +31,23 @@ public class InitEcs : MonoBehaviour
             .Init();
 
         _startSystems
-            .Add(new FadeInit())
             .Add(new PlayerInit())
             .Add(new CameraInit())
-            .Add(new EnemyInit())
-            .Add(new ChestInit())
-            .Add(new HatchInit())
             .Inject(configuration)
             .Inject(sceneData)
             .Inject(ui)
+            .Inject(rooms)
             .Init();
 
         _fixedSystems
             .Init();
 
         _updateSystems
+            .Add(new RoomInit())
+            .Add(new HatchInit())
+            .Add(new EnemyInit())
+            .Add(new ChestInit())
+            .Add(new FadeInit())
             .Add(new PlayerInput())
             .Add(new PlayerRotate())
             .Add(new CameraFollow())
@@ -55,6 +57,8 @@ public class InitEcs : MonoBehaviour
             .Add(new EnemyInput())
             .Inject(configuration)
             .Inject(sceneData)
+            .Inject(rooms)
+            .Inject(ui)
             .Init();
 
         _lateSystems
