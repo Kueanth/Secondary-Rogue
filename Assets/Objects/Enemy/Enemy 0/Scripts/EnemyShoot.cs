@@ -52,6 +52,7 @@ public class EnemyShoot : MonoBehaviour
         }   
         if (hit.collider.tag == "Walls and Decoration")
         {
+            entity.Get<EnemyNewFollow>();
             transform.GetComponent<Animator>().SetBool("Attack", false);
         }
     }
