@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f03bd30aa206374f839e1a29e65cece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guns: []
+  gun: {fileID: 0}
 --- !u!1 &2517454217903239011
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5012140744723099983}
-  - component: {fileID: 5031508418781426207}
+  - component: {fileID: 7836298891308772916}
   m_Layer: 11
   m_Name: BoxCollider
   m_TagString: Untagged
@@ -93,8 +95,8 @@ Transform:
   m_Father: {fileID: 3910838994740863549}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5031508418781426207
-BoxCollider2D:
+--- !u!60 &7836298891308772916
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,7 +108,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.032468528}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -116,9 +118,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.75935096}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.37187433, y: 0.28053772}
+      - {x: 0.24565342, y: 0.34140727}
+      - {x: -0.011609215, y: 0.34756136}
+      - {x: -0.24814822, y: 0.3428586}
+      - {x: -0.37274927, y: 0.2848034}
+      - {x: -0.43394727, y: 0.21708637}
+      - {x: -0.50519335, y: 0.15043676}
+      - {x: -0.5004831, y: -0.40742767}
+      - {x: 0.5004833, y: -0.4030625}
+      - {x: 0.49955186, y: 0.15851563}
 --- !u!1 &3910838994740863551
 GameObject:
   m_ObjectHideFlags: 0
