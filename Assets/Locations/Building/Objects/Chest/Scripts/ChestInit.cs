@@ -7,6 +7,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
     private StaticData configuration;
     private EcsEntity roomEntity;
     private EcsFilter<RoomDestroy, RoomCreate> _filter;
+    private GunArray guns;
 
     private EcsWorld _world;
 
@@ -26,8 +27,15 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
 
             ref ChestData chestComponents = ref chestEntity.Get<ChestData>();
 
+            random = Random.Range(0, guns.guns.Length - 1);
+
+            chestComponents.gun = guns.guns[random].nameGun;
+
+            chestComponents.prefabGun = guns.guns[random].prefabForChest;
+
             GameObject chestObject = GameObject.Instantiate(configuration.Chest, chest.position, Quaternion.identity);
 
+            chestComponents.transformForGun = chest.position;
             chestComponents.open = false;
             chestComponents.animator = chestObject.GetComponent<Animator>();
 
@@ -67,8 +75,14 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
 
                 ref ChestData chestComponents = ref chestEntity.Get<ChestData>();
 
+                random = Random.Range(0, guns.guns.Length - 1);
+
+                chestComponents.gun = guns.guns[random].nameGun;
+                chestComponents.prefabGun = guns.guns[random].prefabForChest;
+
                 GameObject chestObject = GameObject.Instantiate(configuration.Chest, chest.position, Quaternion.identity);
 
+                chestComponents.transformForGun = chest.position;
                 chestComponents.open = false;
                 chestComponents.animator = chestObject.GetComponent<Animator>();
 

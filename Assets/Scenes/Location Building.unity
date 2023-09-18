@@ -901,6 +901,7 @@ MonoBehaviour:
   configuration: {fileID: 11400000, guid: 69c2ab716982ae04b959ec5930ebfe50, type: 2}
   ui: {fileID: 1862044585}
   rooms: {fileID: 11400000, guid: 2134ad0ffeee3884cb5ff49e1452bb45, type: 2}
+  guns: {fileID: 11400000, guid: bf3b5c1ab8e6acf45887e40327c212fa, type: 2}
 --- !u!1 &1842580563
 GameObject:
   m_ObjectHideFlags: 0

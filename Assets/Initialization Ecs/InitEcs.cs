@@ -7,6 +7,7 @@ public class InitEcs : MonoBehaviour
     [SerializeField] private StaticData configuration; // ScriptableObject
     [SerializeField] private UI ui; // User Interface Components 
     [SerializeField] private RoomData rooms; // Rooms for Initialization
+    [SerializeField] private GunArray guns; // Guns for Initialization
 
     private EcsWorld _world;
 
@@ -58,6 +59,7 @@ public class InitEcs : MonoBehaviour
             .Inject(configuration)
             .Inject(sceneData)
             .Inject(rooms)
+            .Inject(guns)
             .Inject(ui)
             .Init();
 

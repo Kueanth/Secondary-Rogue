@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 224344503
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9bf30de498904d94e8cd01066bf185ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f23ec7c59e3b97b42adb99e317bf91ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4375, y: 0.9375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 3167797347898922124}
   - component: {fileID: 3167797347898922161}
   - component: {fileID: 1533831088310765980}
-  - component: {fileID: 8145288122152947152}
+  - component: {fileID: 7029329853479415530}
   m_Layer: 3
   m_Name: Character
   m_TagString: Player
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lighting: {fileID: 1073621574779508836}
---- !u!114 &8145288122152947152
+--- !u!114 &7029329853479415530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3167797347898922125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07235cd02642ae649a60a7ddd8d60d90, type: 3}
+  m_Script: {fileID: 11500000, guid: cd1625462f520474ebc156e0646817bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4427846303102594658

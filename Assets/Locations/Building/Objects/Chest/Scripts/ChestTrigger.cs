@@ -4,6 +4,7 @@ using Leopotam.Ecs;
 public class ChestTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public DataGun[] guns;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -67,9 +68,9 @@ public class ChestTrigger : MonoBehaviour
 
         if (chestComponents.open) return;
 
-        ref ChestData components = ref entity.Get<ChestData>();
+        Debug.Log(chestComponents.gun);
 
-        components.animator.SetTrigger("Open");
+        chestComponents.animator.SetTrigger("Open");
 
         chestComponents.open = true;
 
@@ -80,5 +81,18 @@ public class ChestTrigger : MonoBehaviour
         material.SetVector("_Left", new Vector2(0f, 0f));
         material.SetVector("_Up", new Vector2(0f, 0f));
         material.SetVector("_Down", new Vector2(0f, 0f));
+
+        GameObject Gun = GameObject.Instantiate(chestComponents.prefabGun, chestComponents.transformForGun, Quaternion.identity);
+
+        Material gunMaterial = new Material(Shader.Find("Shader Graphs/Outlines"));
+
+        gunMaterial.SetVector("_Right", new Vector2(0.8f, 0f));
+        gunMaterial.SetVector("_Left", new Vector2(-0.8f, 0f));
+        gunMaterial.SetVector("_Up", new Vector2(0f, 0.8f));
+        gunMaterial.SetVector("_Down", new Vector2(0f, -0.8f));
+
+        gunMaterial.color = new Color32(255, 230, 0, 255);
+
+        Gun.GetComponent<SpriteRenderer>().material = gunMaterial;
     }
 }
