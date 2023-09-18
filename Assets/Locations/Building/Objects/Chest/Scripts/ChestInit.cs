@@ -30,7 +30,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
             random = Random.Range(0, guns.guns.Length - 1);
 
             chestComponents.gun = guns.guns[random].nameGun;
-
+            chestComponents.gunData = guns.guns[random];
             chestComponents.prefabGun = guns.guns[random].prefabForChest;
 
             GameObject chestObject = GameObject.Instantiate(configuration.Chest, chest.position, Quaternion.identity);
@@ -78,6 +78,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
                 random = Random.Range(0, guns.guns.Length - 1);
 
                 chestComponents.gun = guns.guns[random].nameGun;
+                chestComponents.gunData = guns.guns[random];
                 chestComponents.prefabGun = guns.guns[random].prefabForChest;
 
                 GameObject chestObject = GameObject.Instantiate(configuration.Chest, chest.position, Quaternion.identity);

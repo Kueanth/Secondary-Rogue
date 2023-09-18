@@ -28,6 +28,24 @@ public class PlayerInput : IEcsRunSystem
                 components.rigidbody2D.velocity = movement * sceneData.playerSpeed;
             }
 
+            if (Input.GetKeyDown(KeyCode.F) && components.nearChest)
+            {
+                components.chest.GetComponent<ChestTrigger>().OpenChest();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F) && components.nearHatch)
+            {
+                components.hatch.GetComponent<HatchTrigger>().OpenHatch();
+
+                components.nearHatch = false;
+                components.nearChest = false;
+            }
+            
+            if(Input.GetKeyDown(KeyCode.F) && components.nearGun)
+            {
+                components.gunInChest.GetComponent<GunTrigger>().GetGun(components);
+            }
+
             // Get position
             Vector3 positionPlayer = components.transform.position;
             Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.transform.position;
@@ -99,19 +117,6 @@ public class PlayerInput : IEcsRunSystem
             if (Input.GetMouseButtonDown(0) && !components.pit)
             {
                 entity.Get<Shoot>();
-            }
-
-            if (Input.GetKeyDown(KeyCode.F) && components.nearChest)
-            {
-                components.chest.GetComponent<ChestTrigger>().OpenChest();
-            }
-
-            if (Input.GetKeyDown(KeyCode.F) && components.nearHatch)
-            {
-                components.hatch.GetComponent<HatchTrigger>().OpenHatch();
-
-                components.nearHatch = false;
-                components.nearChest = false;
             }
         }
     }

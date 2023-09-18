@@ -5,6 +5,7 @@ public class ChestTrigger : MonoBehaviour
 {
     public EcsEntity entity;
     public DataGun[] guns;
+    public GameObject gun;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -68,8 +69,6 @@ public class ChestTrigger : MonoBehaviour
 
         if (chestComponents.open) return;
 
-        Debug.Log(chestComponents.gun);
-
         chestComponents.animator.SetTrigger("Open");
 
         chestComponents.open = true;
@@ -84,6 +83,10 @@ public class ChestTrigger : MonoBehaviour
 
         GameObject Gun = GameObject.Instantiate(chestComponents.prefabGun, chestComponents.transformForGun, Quaternion.identity);
 
+        Gun.GetComponent<GunTrigger>().gun = chestComponents.gunData;
+
+        gun = Gun;
+
         Material gunMaterial = new Material(Shader.Find("Shader Graphs/Outlines"));
 
         gunMaterial.SetVector("_Right", new Vector2(0.8f, 0f));
@@ -94,5 +97,10 @@ public class ChestTrigger : MonoBehaviour
         gunMaterial.color = new Color32(255, 230, 0, 255);
 
         Gun.GetComponent<SpriteRenderer>().material = gunMaterial;
+    }
+
+    public void OnDestroy()
+    {
+        Destroy(gun);
     }
 }
