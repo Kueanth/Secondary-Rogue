@@ -11,6 +11,7 @@ public class PlayerTrigger : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider)
     {
         ref Player components = ref entity.Get<Player>();  
+        ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
         if (collider.gameObject.tag == "Pit" && !components.pit)
         {
@@ -73,7 +74,7 @@ public class PlayerTrigger : MonoBehaviour
 
                 components.pit = true;
                 components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = false;
-                StartCoroutine(Animation(components));
+                StartCoroutine(Animation(components, gunComponents));
                 components.hp -= 1;
             }
             else
@@ -84,7 +85,7 @@ public class PlayerTrigger : MonoBehaviour
         }
     }
 
-    private IEnumerator Animation(Player components)
+    private IEnumerator Animation(Player components, GunComponents gunComponents)
     {
         for (float x = 1f; x >= 0f; x -= 0.1f)
         { 
@@ -96,10 +97,10 @@ public class PlayerTrigger : MonoBehaviour
             }
 
             components.playerObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
-            components.gun.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+            gunComponents.gun.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
 
             components.playerObject.GetComponentInChildren<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.2f);
-            components.gun.GetComponent<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.2f);
+            gunComponents.gun.GetComponent<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.2f);
 
             yield return new WaitForSeconds(.06f);
         }
@@ -108,6 +109,7 @@ public class PlayerTrigger : MonoBehaviour
     public void EndAnimation()
     {
         ref Player components = ref entity.Get<Player>();
+        ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
         components.transform.position = components.positionForPit;
         components.pit = false;
@@ -116,10 +118,10 @@ public class PlayerTrigger : MonoBehaviour
         components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
 
         components.playerObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        components.gun.transform.localScale = new Vector3(0.633f, 0.633f, 1f);
+        gunComponents.gun.transform.localScale = new Vector3(0.633f, 0.633f, 1f);
 
         components.playerObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        components.gun.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        gunComponents.gun.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
         return;
     }

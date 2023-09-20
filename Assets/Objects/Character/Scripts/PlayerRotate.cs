@@ -14,11 +14,12 @@ public class PlayerRotate : IEcsRunSystem
             ref EcsEntity entity = ref _filter.GetEntity(i);
 
             ref CameraComponents cameraComponents = ref entity.Get<CameraComponents>();
+            ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
             // Get mouse position and set rotation for hand
-            Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - components.gun.transform.position;
+            Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - gunComponents.gun.transform.position;
             float rotateZ = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;
-            components.gun.transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
+            gunComponents.gun.transform.rotation = Quaternion.Euler(0f, 0f, rotateZ);
 
             // Set bool for animator
             if (components.running)
@@ -31,13 +32,13 @@ public class PlayerRotate : IEcsRunSystem
             if (components.flipping)
             {
                 components.spriteRenderer.flipX = true;
-                components.flipGun.flipY = true;
+                gunComponents.flipGun.flipY = true;
 
             }
             else if (!components.flipping)
             {
                 components.spriteRenderer.flipX = false;
-                components.flipGun.flipY = false;
+                gunComponents.flipGun.flipY = false;
             }
         }
     }

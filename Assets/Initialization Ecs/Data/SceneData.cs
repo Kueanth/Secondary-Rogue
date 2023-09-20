@@ -27,5 +27,6 @@ public class SceneData : MonoBehaviour
     public Transform[] positionsEnemy;
     public Transform[] positionsChests;
     public Transform[] positionsHatchs;
+
     public GameObject[] hatchs;
 }

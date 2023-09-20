@@ -5,15 +5,17 @@ using UnityEngine.Rendering.Universal;
 
 public class PlayerInput : IEcsRunSystem
 {
-    private EcsFilter<Player> _filter;
+    private EcsFilter<Player, GunComponents> _filter;
 
     public SceneData sceneData;
+    public UI ui;
 
     public void Run()
     {
         foreach (var i in _filter)
         {
             ref Player components = ref _filter.Get1(i);
+            ref GunComponents gunComponents = ref _filter.Get2(i);
             ref EcsEntity entity = ref _filter.GetEntity(i);
 
             float horizontal = Input.GetAxis("Horizontal");
@@ -40,10 +42,10 @@ public class PlayerInput : IEcsRunSystem
                 components.nearHatch = false;
                 components.nearChest = false;
             }
-            
-            if(Input.GetKeyDown(KeyCode.F) && components.nearGun)
+
+            if (Input.GetKeyDown(KeyCode.F) && components.nearGun)
             {
-                components.gunInChest.GetComponent<GunTrigger>().GetGun(components);
+                components.gunInChest.GetComponent<GunTrigger>().GetGun(gunComponents);
             }
 
             // Get position
@@ -59,9 +61,9 @@ public class PlayerInput : IEcsRunSystem
                 {
                     components.flip = true;
 
-                    if (components.light.transform.localPosition.y != -0.3f)
-                        components.light.transform.localPosition =
-                            new Vector2(components.light.transform.localPosition.x, -0.3f);
+                    if (gunComponents.light.transform.localPosition.y != -0.3f)
+                        gunComponents.light.transform.localPosition =
+                            new Vector2(gunComponents.light.transform.localPosition.x, -0.3f);
                 }
             }
             else
@@ -70,9 +72,9 @@ public class PlayerInput : IEcsRunSystem
 
                 components.flip = false;
 
-                if (components.light.transform.localPosition.y != 0.3f)
-                    components.light.transform.localPosition =
-                        new Vector2(components.light.transform.localPosition.x, 0.3f);
+                if (gunComponents.light.transform.localPosition.y != 0.3f)
+                    gunComponents.light.transform.localPosition =
+                        new Vector2(gunComponents.light.transform.localPosition.x, 0.3f);
             }
 
             if (vertical >= 0.2f || vertical <= -0.2f)
@@ -104,19 +106,13 @@ public class PlayerInput : IEcsRunSystem
             if (components.flipping)
             {
 
-                components.gun.position =
+                gunComponents.gun.position =
                     new Vector3(positionPlayer.x + 0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
             }
             else
             {
-                components.gun.position =
+                gunComponents.gun.position =
                     new Vector3(positionPlayer.x + -0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
-            }
-
-            // For shots
-            if (Input.GetMouseButtonDown(0) && !components.pit)
-            {
-                entity.Get<Shoot>();
             }
         }
     }

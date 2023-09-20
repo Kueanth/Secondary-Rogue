@@ -3,7 +3,7 @@ using Leopotam.Ecs;
 
 public class GunTrigger : MonoBehaviour
 {
-    public DataGun gun;
+    public GunData gun;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,8 +29,9 @@ public class GunTrigger : MonoBehaviour
         }
     }
 
-    public void GetGun(Player components)
+    public void GetGun(GunComponents components)
     {
+        components.gunData = gun;
         components.gun.GetComponent<SpriteRenderer>().sprite = gun.spriteForHand;
         Destroy(gameObject);
     }

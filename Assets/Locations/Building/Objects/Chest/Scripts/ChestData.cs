@@ -5,7 +5,7 @@ public struct ChestData
     public string gun;
     public bool open;
 
-    public DataGun gunData;
+    public GunData gunData;
     public GameObject prefabGun;
 
     public Vector3 transformForGun;

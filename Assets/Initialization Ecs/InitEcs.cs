@@ -33,9 +33,11 @@ public class InitEcs : MonoBehaviour
 
         _startSystems
             .Add(new PlayerInit())
+            .Add(new GunInit())
             .Add(new CameraInit())
             .Inject(configuration)
             .Inject(sceneData)
+            .Inject(guns)
             .Inject(ui)
             .Inject(rooms)
             .Init();
@@ -50,6 +52,7 @@ public class InitEcs : MonoBehaviour
             .Add(new ChestInit())
             .Add(new FadeInit())
             .Add(new PlayerInput())
+            .Add(new GunInput())
             .Add(new PlayerRotate())
             .Add(new CameraFollow())
             .Add(new BulletShoot())

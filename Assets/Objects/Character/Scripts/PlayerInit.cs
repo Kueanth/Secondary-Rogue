@@ -6,6 +6,8 @@ public class PlayerInit : IEcsInitSystem
 {
     private SceneData sceneData;
     private StaticData configuration;
+    private GunArray gunArray;
+    private UI ui;
 
     private EcsFilter<RoomDestroy> _filter;
 
@@ -16,10 +18,10 @@ public class PlayerInit : IEcsInitSystem
         EcsEntity Entity = _world.NewEntity();
 
         ref Player Components = ref Entity.Get<Player>();
+        ref GunComponents gunComponents = ref Entity.Get<GunComponents>();
 
         GameObject PlayerObject = GameObject.Instantiate(configuration.Player, sceneData.playerSpawnPoint, Quaternion.identity);
 
-        // Main Object Components
         Components.hp = 100;
         Components.pit = false;
         Components.playerObject = PlayerObject;
@@ -32,16 +34,11 @@ public class PlayerInit : IEcsInitSystem
 
         PlayerObject.GetComponentInChildren<PlayerTrigger>().entity = Entity;
         PlayerObject.GetComponentInChildren<BodyTrigger>().entity = Entity;
+        PlayerObject.GetComponent<PlayerLight>().components = gunComponents;
 
         Components.flip = true;
 
         sceneData.playerEntity = Entity;
         sceneData.playerPosition = Components.transform;
-
-        // Child Object Components
-        Components.gun = PlayerObject.transform.Find("Gun");
-        Components.light = Components.gun.Find("Light").GetComponent<Light2D>();
-        Components.bulletSpawn = Components.gun.Find("Spawn Bullet");
-        Components.flipGun = Components.gun.GetComponent<SpriteRenderer>();
     }
 }

@@ -4,7 +4,7 @@ using Leopotam.Ecs;
 public class ChestTrigger : MonoBehaviour
 {
     public EcsEntity entity;
-    public DataGun[] guns;
+    public GunData[] guns;
     public GameObject gun;
 
     private void OnTriggerEnter2D(Collider2D collision)

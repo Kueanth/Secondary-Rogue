@@ -6,11 +6,11 @@ public class PlayerLight : MonoBehaviour
 {
     [SerializeField] private Light2D lighting;
 
-
+    public GunComponents components;
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && components.ammo != 0 )
         {
             StartCoroutine(EffectLight(lighting));
         }
