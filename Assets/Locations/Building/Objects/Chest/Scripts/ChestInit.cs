@@ -27,7 +27,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
 
             ref ChestData chestComponents = ref chestEntity.Get<ChestData>();
 
-            random = Random.Range(0, guns.guns.Length - 1);
+            random = Random.Range(0, guns.guns.Length);
 
             chestComponents.gun = guns.guns[random].nameGun;
             chestComponents.gunData = guns.guns[random];
@@ -75,7 +75,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
 
                 ref ChestData chestComponents = ref chestEntity.Get<ChestData>();
 
-                random = Random.Range(0, guns.guns.Length - 1);
+                random = Random.Range(0, guns.guns.Length);
 
                 chestComponents.gun = guns.guns[random].nameGun;
                 chestComponents.gunData = guns.guns[random];
