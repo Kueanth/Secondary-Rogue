@@ -118,7 +118,7 @@ public class PlayerTrigger : MonoBehaviour
         components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
 
         components.playerObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        gunComponents.gun.transform.localScale = new Vector3(0.633f, 0.633f, 1f);
+        gunComponents.gun.transform.localScale = new Vector3(1f, 1f, 1f);
 
         components.playerObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         gunComponents.gun.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);

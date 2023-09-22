@@ -9,6 +9,9 @@ public struct GunComponents
     public int maxAmmo;
     public int store;
     public int maxStore;
+    public float timeShoot;
+
+    public bool canShoot;
 
     public bool reolading;
 

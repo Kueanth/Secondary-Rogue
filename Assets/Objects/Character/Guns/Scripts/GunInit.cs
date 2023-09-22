@@ -22,6 +22,8 @@ public class GunInit : IEcsInitSystem
         components.bulletSpawn = components.gun.Find("Spawn Bullet");
         components.reload = components.gun.GetComponent<GunReload>();
         components.flipGun = components.gun.GetComponent<SpriteRenderer>();
+        components.timeShoot = gunArray.guns[0].timeShoot;
+        components.canShoot = true;
 
         ui.gameScreen.entity = gunEntity;
 

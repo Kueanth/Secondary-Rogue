@@ -12,4 +12,6 @@ public class GunData : ScriptableObject
     public int maxAmmo;
     public int store;
     public int maxStore;
+
+    [Range(0f,10f)] public float timeShoot;
 }

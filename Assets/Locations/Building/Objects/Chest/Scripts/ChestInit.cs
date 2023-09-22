@@ -8,6 +8,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
     private EcsEntity roomEntity;
     private EcsFilter<RoomDestroy, RoomCreate> _filter;
     private GunArray guns;
+    private UI ui;
 
     private EcsWorld _world;
 
@@ -38,6 +39,8 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
             chestComponents.transformForGun = chest.position;
             chestComponents.open = false;
             chestComponents.animator = chestObject.GetComponent<Animator>();
+
+            chestObject.GetComponentInChildren<ChestTrigger>().ui = ui;
 
             chestObject.GetComponentInChildren<ChestTrigger>().entity = chestEntity;
 
@@ -88,6 +91,8 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
                 chestComponents.animator = chestObject.GetComponent<Animator>();
 
                 chestObject.GetComponentInChildren<ChestTrigger>().entity = chestEntity;
+
+                chestObject.GetComponentInChildren<ChestTrigger>().ui = ui;
 
                 chestObject.transform.SetParent(chest);
 

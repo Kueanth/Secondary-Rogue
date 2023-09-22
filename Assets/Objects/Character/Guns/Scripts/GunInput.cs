@@ -1,9 +1,12 @@
 using UnityEngine;
 using Leopotam.Ecs;
+using System.Collections;
 
 public class GunInput : IEcsRunSystem
 {
     private UI ui;
+
+    private bool temp;
 
     private EcsFilter<Player, GunComponents> _filter;
 
@@ -16,10 +19,12 @@ public class GunInput : IEcsRunSystem
             ref Player playerComponents = ref _filter.Get1(i);
             ref GunComponents gunComponents = ref _filter.Get2(i);
 
-            if (Input.GetMouseButtonDown(0) && !playerComponents.pit && !gunComponents.reolading)
+            if (Input.GetMouseButton(0) && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
             {
                 if (gunComponents.ammo != 0)
                 {
+                    gunComponents.canShoot = false;
+                    gunComponents.reload.ShootGun(ref entity);
                     ui.gameScreen.ShootUpdate(ref gunComponents.ammo, ref gunComponents.store);
                     entity.Get<Shoot>();
                 }

@@ -18,6 +18,11 @@ public class GameScreen : MonoBehaviour
         textMeshPro.text = ammo + "/" + store;
     }
 
+    public void GetGun(int ammo, int store)
+    {
+        textMeshPro.text = ammo + "/" + store;
+    }
+
     public void AmmoUpdate()
     {
         ref GunComponents gunComponents = ref entity.Get<GunComponents>();

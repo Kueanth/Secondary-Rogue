@@ -45,7 +45,7 @@ public class PlayerInput : IEcsRunSystem
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearGun)
             {
-                components.gunInChest.GetComponent<GunTrigger>().GetGun(gunComponents);
+                components.gunInChest.GetComponent<GunTrigger>().GetGun(ref gunComponents);
             }
 
             // Get position

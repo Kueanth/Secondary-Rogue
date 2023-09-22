@@ -7,6 +7,8 @@ public class ChestTrigger : MonoBehaviour
     public GunData[] guns;
     public GameObject gun;
 
+    public UI ui;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ref ChestData chestComponents = ref entity.Get<ChestData>();
@@ -84,6 +86,7 @@ public class ChestTrigger : MonoBehaviour
         GameObject Gun = GameObject.Instantiate(chestComponents.prefabGun, chestComponents.transformForGun, Quaternion.identity);
 
         Gun.GetComponent<GunTrigger>().gun = chestComponents.gunData;
+        Gun.GetComponent<GunTrigger>().ui = ui;
 
         gun = Gun;
 
