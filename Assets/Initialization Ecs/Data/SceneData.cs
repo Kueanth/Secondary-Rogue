@@ -6,6 +6,7 @@ public class SceneData : MonoBehaviour
 {
     public EcsEntity playerEntity;
     public EcsEntity roomEntity;
+    public EcsEntity gunEntity;
 
     public Vector2 playerSpawnPoint;
 

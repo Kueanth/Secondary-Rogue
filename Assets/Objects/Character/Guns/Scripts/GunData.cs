@@ -13,5 +13,7 @@ public class GunData : ScriptableObject
     public int store;
     public int maxStore;
 
+    public Vector2 spawnPointShoot;
+
     [Range(0f,10f)] public float timeShoot;
 }

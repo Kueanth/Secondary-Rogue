@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fff7753c23a57d41a1550e91526b575, type: 3}
   m_Name: Drobovik
   m_EditorClassIdentifier: 
-  spriteForHand: {fileID: 21300000, guid: 00532fb9c4786554da6e78cc658dc0f5, type: 3}
+  spriteForHand: {fileID: 21300000, guid: 4a195a054a8580945b8e411806376f79, type: 3}
   prefabForChest: {fileID: 3437561567889627965, guid: 26793f82ea31dcc46b761b71731fb77a, type: 3}
   nameGun: Drobovik
   ammo: 5
   maxAmmo: 5
   store: 24
   maxStore: 24
+  spawnPointShoot: {x: 0.924, y: 0.197}
+  timeShoot: 0.5

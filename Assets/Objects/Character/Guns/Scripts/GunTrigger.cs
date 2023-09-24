@@ -39,6 +39,9 @@ public class GunTrigger : MonoBehaviour
         components.store = gun.store;
         components.maxStore = gun.maxStore;
         components.timeShoot = gun.timeShoot;
+        components.spawnPointBulltet = gun.spawnPointShoot;
+
+        components.gun.Find("Spawn Bullet").localPosition = components.spawnPointBulltet;
 
         ui.gameScreen.GetGun(components.ammo, components.store);
 

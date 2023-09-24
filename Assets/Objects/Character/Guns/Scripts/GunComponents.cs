@@ -10,6 +10,7 @@ public struct GunComponents
     public int store;
     public int maxStore;
     public float timeShoot;
+    public Vector2 spawnPointBulltet;
 
     public bool canShoot;
 

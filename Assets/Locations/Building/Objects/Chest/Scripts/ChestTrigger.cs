@@ -4,6 +4,10 @@ using Leopotam.Ecs;
 public class ChestTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public EcsEntity entityGun;
+
+    private SceneData sceneData;
+
     public GunData[] guns;
     public GameObject gun;
 
@@ -68,6 +72,7 @@ public class ChestTrigger : MonoBehaviour
     public void OpenChest()
     {
         ref ChestData chestComponents = ref entity.Get<ChestData>();
+        ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
         if (chestComponents.open) return;
 

@@ -29,10 +29,10 @@ public class BulletShoot : IEcsRunSystem
             }
             else if (components.flipping)
             {
-                Vector2 temp = new Vector2(gunComponents.bulletSpawn.position.x, gunComponents.bulletSpawn.position.y + 0.25f);
+                Vector2 temp = new Vector2(gunComponents.bulletSpawn.position.x, gunComponents.bulletSpawn.position.y + 0.35f);
 
-                 bulletObject =
-                    GameObject.Instantiate(configuration.Bullet, temp, rotation);
+                bulletObject =
+                   GameObject.Instantiate(configuration.Bullet, temp, rotation);
             }
 
             bulletObject.GetComponent<BulletTrigger>().particle = configuration.particleBullet;

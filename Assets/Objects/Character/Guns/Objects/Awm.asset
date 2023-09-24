@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fff7753c23a57d41a1550e91526b575, type: 3}
   m_Name: Awm
   m_EditorClassIdentifier: 
-  spriteForHand: {fileID: 21300000, guid: 0ef0fc8d437e06e48a578ca6f8a16728, type: 3}
+  spriteForHand: {fileID: 21300000, guid: 7c9292965e847074fbb258000a70389f, type: 3}
   prefabForChest: {fileID: 6891058203277179108, guid: b5e41633e2c4cab49a8fc8baed2eaaf9, type: 3}
   nameGun: Awm
   ammo: 10
   maxAmmo: 10
   store: 30
   maxStore: 30
+  spawnPointShoot: {x: 1.021, y: 0.09}
+  timeShoot: 1

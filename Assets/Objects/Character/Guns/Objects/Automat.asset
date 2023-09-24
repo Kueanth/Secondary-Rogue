@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fff7753c23a57d41a1550e91526b575, type: 3}
   m_Name: Automat
   m_EditorClassIdentifier: 
-  spriteForHand: {fileID: 21300000, guid: bed75d80bed75ee49918dfc58bb46d38, type: 3}
+  spriteForHand: {fileID: 21300000, guid: 6029f099544e8a84aaa5567ee4e71fde, type: 3}
   prefabForChest: {fileID: 1259738091858374012, guid: 148fd8624435ab24db37f9b038f75e7b, type: 3}
   nameGun: Automat
   ammo: 30
   maxAmmo: 30
   store: 90
   maxStore: 90
+  spawnPointShoot: {x: 0.9861, y: 0.12}
+  timeShoot: 0.2
