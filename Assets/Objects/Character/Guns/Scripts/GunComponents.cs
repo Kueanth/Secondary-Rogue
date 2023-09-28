@@ -13,7 +13,7 @@ public struct GunComponents
     public Vector2 spawnPointBulltet;
 
     public bool canShoot;
-
+    public bool rayLazer;
     public bool reolading;
 
     public Transform gun;

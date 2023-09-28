@@ -30,8 +30,10 @@ public class GunTrigger : MonoBehaviour
         }
     }
 
-    public void GetGun(ref GunComponents components)
+    public void GetGun(ref EcsEntity entity, ref UI ui)
     {
+        ref GunComponents components = ref entity.Get<GunComponents>();
+
         components.gunData = gun;
         components.gun.GetComponent<SpriteRenderer>().sprite = gun.spriteForHand;
         components.ammo = gun.ammo;
@@ -40,6 +42,17 @@ public class GunTrigger : MonoBehaviour
         components.maxStore = gun.maxStore;
         components.timeShoot = gun.timeShoot;
         components.spawnPointBulltet = gun.spawnPointShoot;
+        
+        if(components.gunData.nameGun == "Awm")
+        {
+            ui.gameScreen.aim.enabled = false;
+            components.rayLazer = true;
+        }
+        else
+        {
+            ui.gameScreen.aim.enabled = true;
+            components.rayLazer = false;
+        }
 
         components.gun.Find("Spawn Bullet").localPosition = components.spawnPointBulltet;
 
