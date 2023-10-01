@@ -16,6 +16,8 @@ public struct GunComponents
     public bool rayLazer;
     public bool reolading;
 
+    public Transform lazer;
+
     public Transform gun;
 
     public Light2D light;

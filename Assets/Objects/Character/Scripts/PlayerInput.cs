@@ -64,6 +64,10 @@ public class PlayerInput : IEcsRunSystem
                     if (gunComponents.light.transform.localPosition.y != -0.3f)
                         gunComponents.light.transform.localPosition =
                             new Vector2(gunComponents.light.transform.localPosition.x, -0.3f);
+
+                    if (gunComponents.lazer.transform.localPosition.y != -0.094f)
+                        gunComponents.lazer.transform.localPosition =
+                            new Vector2(gunComponents.lazer.transform.localPosition.x, -0.094f);
                 }
             }
             else
@@ -75,6 +79,10 @@ public class PlayerInput : IEcsRunSystem
                 if (gunComponents.light.transform.localPosition.y != 0.3f)
                     gunComponents.light.transform.localPosition =
                         new Vector2(gunComponents.light.transform.localPosition.x, 0.3f);
+
+                if (gunComponents.lazer.transform.localPosition.y != 0.094f)
+                    gunComponents.lazer.transform.localPosition =
+                        new Vector2(gunComponents.lazer.transform.localPosition.x, 0.094f);
             }
 
             if (vertical >= 0.2f || vertical <= -0.2f)
@@ -105,7 +113,6 @@ public class PlayerInput : IEcsRunSystem
             // A great code for the correct rotation of the hand and light
             if (components.flipping)
             {
-
                 gunComponents.gun.position =
                     new Vector3(positionPlayer.x + 0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
             }

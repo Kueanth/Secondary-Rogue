@@ -24,20 +24,74 @@ public class BulletShoot : IEcsRunSystem
 
             if (!components.flipping)
             {
-                bulletObject =
+                if(gunComponents.gunData.nameGun == "Drobovik")
+                {
+                    for(int x = 0; x <= 5; x++)
+                    {
+                        int randomRotation = Random.Range(-10, 10);
+
+                        Quaternion tempRotation = Quaternion.Euler(0f, 0f, rotateZ + randomRotation - 90f);
+
+                        int randomVelocity = Random.Range(15, 30);
+
+                        bulletObject =
+                            GameObject.Instantiate(configuration.Bullet, gunComponents.bulletSpawn.position, tempRotation);
+
+                        bulletObject.GetComponent<BulletTrigger>().particle = configuration.particleBullet;
+                        
+                        bulletObject.GetComponent<Rigidbody2D>().velocity =
+                            bulletObject.transform.up * randomVelocity;
+
+                        GameObject.Destroy(bulletObject, 0.4f);
+                    }
+                }
+                else
+                {
+                    bulletObject =
                     GameObject.Instantiate(configuration.Bullet, gunComponents.bulletSpawn.position, rotation);
+
+                    bulletObject.GetComponent<BulletTrigger>().particle = configuration.particleBullet;
+
+                    bulletObject.GetComponent<Rigidbody2D>().velocity = gunComponents.bulletSpawn.right * 20f;
+                }
             }
             else if (components.flipping)
             {
-                Vector2 temp = new Vector2(gunComponents.bulletSpawn.position.x, gunComponents.bulletSpawn.position.y + 0.35f);
+                if (gunComponents.gunData.nameGun == "Drobovik")
+                {
+                    for (int x = 0; x <= 5; x++)
+                    {
+                        int randomRotation = Random.Range(-10, 10);
 
-                bulletObject =
-                   GameObject.Instantiate(configuration.Bullet, temp, rotation);
+                        Quaternion tempRotation = Quaternion.Euler(0f, 0f, rotateZ + randomRotation - 90f);
+
+                        int randomVelocity = Random.Range(15, 30);
+
+                        Vector2 temp = new Vector2(gunComponents.bulletSpawn.position.x, gunComponents.bulletSpawn.position.y + 0.35f);
+
+                        bulletObject =
+                           GameObject.Instantiate(configuration.Bullet, temp, tempRotation);
+
+                        bulletObject.GetComponent<BulletTrigger>().particle = configuration.particleBullet;
+
+                        bulletObject.GetComponent<Rigidbody2D>().velocity =
+                            bulletObject.transform.up * randomVelocity;
+
+                        GameObject.Destroy(bulletObject, 0.4f);
+                    }
+                }
+                else
+                {
+                    Vector2 temp = new Vector2(gunComponents.bulletSpawn.position.x, gunComponents.bulletSpawn.position.y + 0.35f);
+
+                    bulletObject =
+                       GameObject.Instantiate(configuration.Bullet, temp, rotation);
+
+                    bulletObject.GetComponent<BulletTrigger>().particle = configuration.particleBullet;
+
+                    bulletObject.GetComponent<Rigidbody2D>().velocity = gunComponents.bulletSpawn.right * 20f;
+                }
             }
-
-            bulletObject.GetComponent<BulletTrigger>().particle = configuration.particleBullet;
-
-            bulletObject.GetComponent<Rigidbody2D>().velocity = gunComponents.bulletSpawn.right * 20f;
         }
     }
 }

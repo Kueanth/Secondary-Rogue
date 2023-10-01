@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
+  ui: {fileID: 0}
 --- !u!58 &8613847976597516839
 CircleCollider2D:
   m_ObjectHideFlags: 0

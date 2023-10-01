@@ -18,6 +18,7 @@ public class GunInit : IEcsInitSystem
 
         components.gun = sceneData.playerPosition.transform.Find("Gun");
         components.gunData = gunArray.guns[0];
+        components.lazer = components.gun.Find("Lazer");
         components.light = components.gun.Find("Light").GetComponent<Light2D>();
         components.bulletSpawn = components.gun.Find("Spawn Bullet");
         components.reload = components.gun.GetComponent<GunReload>();

@@ -12,6 +12,7 @@ TagManager:
   - EnemyBullet
   - Pit
   - Chest
+  - Lazer
   layers:
   - Default
   - TransparentFX

@@ -20,10 +20,13 @@ public class GunInput : IEcsRunSystem
             ref Player playerComponents = ref _filter.Get1(i);
             ref GunComponents gunComponents = ref _filter.Get2(i);
 
-            if (gunComponents.rayLazer)
+            if (gunComponents.rayLazer && gunComponents.canShoot)
             {
-                RaycastHit2D hit = Physics2D.Raycast(gunComponents.bulletSpawn.position, (Camera.main.ScreenToWorldPoint(Input.mousePosition) - gunComponents.bulletSpawn.position).normalized, 100f);
-                Debug.DrawRay(gunComponents.bulletSpawn.position, (Camera.main.ScreenToWorldPoint(Input.mousePosition) - gunComponents.bulletSpawn.position) * 100f, Color.red, 100f);
+                gunComponents.lazer.gameObject.SetActive(true);
+            }
+            else
+            {
+                gunComponents.lazer.gameObject.SetActive(false);
             }
 
             if (Input.GetMouseButton(0) && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
