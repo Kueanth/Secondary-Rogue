@@ -2,16 +2,36 @@ using UnityEngine;
 using Leopotam.Ecs;
 using System.Collections;
 using System.Threading;
+using UnityEngine.UI;
 
 public class PlayerTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public UI ui;
     public float x, y;
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
         ref Player components = ref entity.Get<Player>();  
         ref GunComponents gunComponents = ref entity.Get<GunComponents>();
+
+        if(collider.gameObject.tag == "EnemyBullet")
+        {
+            if (components.hp != 0)
+            {
+                components.vignetteEffect.SetTrigger("Effect");
+                Debug.Log("Work");
+                components.hp -= 1;
+                ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
+
+            }
+            else
+            {
+                ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
+                entity.Del<Player>();
+                Destroy(gameObject);
+            }
+        }
 
         if (collider.gameObject.tag == "Pit" && !components.pit)
         {
@@ -76,9 +96,12 @@ public class PlayerTrigger : MonoBehaviour
                 components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = false;
                 StartCoroutine(Animation(components, gunComponents));
                 components.hp -= 1;
+
+                ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
             }
             else
             {
+                ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
                 entity.Del<Player>();   
                 Destroy(gameObject);
             }

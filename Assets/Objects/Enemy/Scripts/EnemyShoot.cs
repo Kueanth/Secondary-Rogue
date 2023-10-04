@@ -202,31 +202,31 @@ public class EnemyShoot : MonoBehaviour
 
             case "Enemy-6":
                 GameObject bulletObject32 = Instantiate(bullet, transform.position, rotation);
-                bulletObject32.GetComponent<Rigidbody2D>().velocity = (target.position - transform.position).normalized * 4f;
+                bulletObject32.GetComponent<Rigidbody2D>().velocity = (target.position - transform.position).normalized * 6f;
 
                 GameObject bulletObject33 = Instantiate(bullet, transform.position, rotation);
                 bulletObject33.GetComponent<Rigidbody2D>().velocity =
-                    (new Vector3(target.position.x, target.position.y - 2f) - transform.position).normalized * 4f;
+                    (new Vector3(target.position.x, target.position.y - 2f) - transform.position).normalized * 6f;
 
                 GameObject bulletObject34 = Instantiate(bullet, transform.position, rotation);
                 bulletObject34.GetComponent<Rigidbody2D>().velocity =
-                    (new Vector3(target.position.x, target.position.y + 2f) - transform.position).normalized * 4f;
+                    (new Vector3(target.position.x, target.position.y + 2f) - transform.position).normalized * 6f;
 
                 GameObject bulletObject35 = Instantiate(bullet, transform.position, rotation);
                 bulletObject35.GetComponent<Rigidbody2D>().velocity =
-                    (new Vector3(target.position.x, target.position.y - 4f) - transform.position).normalized * 4f;
+                    (new Vector3(target.position.x, target.position.y - 4f) - transform.position).normalized * 6f;
 
                 GameObject bulletObject36 = Instantiate(bullet, transform.position, rotation);
                 bulletObject36.GetComponent<Rigidbody2D>().velocity =
-                    (new Vector3(target.position.x, target.position.y + 4f) - transform.position).normalized * 4f;
+                    (new Vector3(target.position.x, target.position.y + 4f) - transform.position).normalized * 6f;
 
                 GameObject bulletObject37 = Instantiate(bullet, transform.position, rotation);
                 bulletObject37.GetComponent<Rigidbody2D>().velocity =
-                    (new Vector3(target.position.x, target.position.y - 6f) - transform.position).normalized * 4f;
+                    (new Vector3(target.position.x, target.position.y - 6f) - transform.position).normalized * 6f;
 
                 GameObject bulletObject38 = Instantiate(bullet, transform.position, rotation);
                 bulletObject38.GetComponent<Rigidbody2D>().velocity =
-                    (new Vector3(target.position.x, target.position.y + 6f) - transform.position).normalized * 4f;
+                    (new Vector3(target.position.x, target.position.y + 6f) - transform.position).normalized * 6f;
 
                 Destroy(bulletObject32, 10);
                 Destroy(bulletObject33, 10);

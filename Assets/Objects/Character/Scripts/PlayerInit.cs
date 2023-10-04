@@ -22,7 +22,7 @@ public class PlayerInit : IEcsInitSystem
 
         GameObject PlayerObject = GameObject.Instantiate(configuration.Player, sceneData.playerSpawnPoint, Quaternion.identity);
 
-        Components.hp = 100;
+        Components.hp = 3;
         Components.pit = false;
         Components.playerObject = PlayerObject;
         Components.transform = PlayerObject.GetComponent<Transform>();
@@ -33,6 +33,7 @@ public class PlayerInit : IEcsInitSystem
         Components.vignetteEffect = sceneData.vignetteEffect;
 
         PlayerObject.GetComponentInChildren<PlayerTrigger>().entity = Entity;
+        PlayerObject.GetComponentInChildren<PlayerTrigger>().ui = ui;
         PlayerObject.GetComponentInChildren<BodyTrigger>().entity = Entity;
         PlayerObject.GetComponent<PlayerLight>().components = gunComponents;
 

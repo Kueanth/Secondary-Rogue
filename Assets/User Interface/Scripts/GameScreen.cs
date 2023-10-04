@@ -7,6 +7,7 @@ public class GameScreen : MonoBehaviour
 {
     public Image aim;
     public Image fade;
+    public Image hp;
 
     public TextMeshProUGUI textMeshPro;
 
@@ -44,5 +45,10 @@ public class GameScreen : MonoBehaviour
 
         textMeshPro.text = gunComponents.ammo + "/" + gunComponents.store;
         gunComponents.reolading = false;
+    }
+
+    public void EditHpBar(int hp, Sprite sprite)
+    {
+        this.hp.sprite = sprite;
     }
 }
