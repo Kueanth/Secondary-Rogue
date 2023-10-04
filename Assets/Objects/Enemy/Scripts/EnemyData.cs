@@ -3,6 +3,7 @@ using UnityEngine;
 public struct EnemyData
 {
     public int hp;
+    public string name;
 
     public Transform transform;
     public Rigidbody2D rigidbody2D;

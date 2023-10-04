@@ -8,6 +8,7 @@ public class InitEcs : MonoBehaviour
     [SerializeField] private UI ui; // User Interface Components 
     [SerializeField] private RoomData rooms; // Rooms for Initialization
     [SerializeField] private GunArray guns; // Guns for Initialization
+    [SerializeField] private EnemyObject[] enemyObjects; // Enemy for Initialization
 
     private EcsWorld _world;
 
@@ -37,6 +38,7 @@ public class InitEcs : MonoBehaviour
             .Add(new CameraInit())
             .Inject(configuration)
             .Inject(sceneData)
+            .Inject(enemyObjects)
             .Inject(guns)
             .Inject(ui)
             .Inject(rooms)
@@ -61,6 +63,7 @@ public class InitEcs : MonoBehaviour
             .Add(new EnemyInput())
             .Inject(configuration)
             .Inject(sceneData)
+            .Inject(enemyObjects)
             .Inject(rooms)
             .Inject(guns)
             .Inject(ui)

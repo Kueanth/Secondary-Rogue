@@ -11,6 +11,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
     private SceneData sceneData;
     private StaticData configuration;
     private UI ui;
+    private EnemyObject[] enemyObjects;
 
     public void Init()
     {
@@ -22,7 +23,9 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             if (i.name == "SpawnEnemy") continue;
             if (i.name == "Check") continue;
 
-            GameObject enemyObject = GameObject.Instantiate(configuration.Enemy, i.position, Quaternion.identity);
+            int temp = Random.Range(0, enemyObjects.Length);
+
+            GameObject enemyObject = GameObject.Instantiate(enemyObjects[temp].enemyObject, i.position, Quaternion.identity);
 
             enemyObject.transform.SetParent(i);
 
@@ -33,7 +36,8 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             enemy.Get<EnemyNewFollow>();
 
             components.number = 0;
-            components.hp = 5;
+            components.hp = enemyObjects[temp].hp;
+            components.name = enemyObjects[temp].name;
             components.transform = enemyObject.transform;
             components.rigidbody2D = enemyObject.GetComponent<Rigidbody2D>();
             components.animator = enemyObject.GetComponent<Animator>();
@@ -64,7 +68,9 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 if (i.name == "SpawnEnemy") continue;
                 if (i.name == "Check") continue;
 
-                GameObject enemyObject = GameObject.Instantiate(configuration.Enemy, i.position, Quaternion.identity);
+                int temp = Random.Range(0, enemyObjects.Length);
+
+                GameObject enemyObject = GameObject.Instantiate(enemyObjects[temp].enemyObject, i.position, Quaternion.identity);
 
                 enemyObject.transform.SetParent(i);
 
@@ -75,7 +81,8 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 enemy.Get<EnemyNewFollow>();
 
                 components.number = 0;
-                components.hp = 5;
+                components.hp = enemyObjects[temp].hp;
+                components.name = enemyObjects[temp].name;
                 components.transform = enemyObject.transform;
                 components.rigidbody2D = enemyObject.GetComponent<Rigidbody2D>();
                 components.animator = enemyObject.GetComponent<Animator>();

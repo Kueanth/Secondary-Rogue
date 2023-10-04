@@ -31,8 +31,6 @@ public class GunInput : IEcsRunSystem
 
             if (Input.GetMouseButton(0) && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
             {
-                Debug.Log(gunComponents.rayLazer);
-
                 if (gunComponents.ammo != 0)
                 {
                     gunComponents.canShoot = false;

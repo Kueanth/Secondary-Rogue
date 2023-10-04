@@ -902,6 +902,14 @@ MonoBehaviour:
   ui: {fileID: 1862044585}
   rooms: {fileID: 11400000, guid: 2134ad0ffeee3884cb5ff49e1452bb45, type: 2}
   guns: {fileID: 11400000, guid: bf3b5c1ab8e6acf45887e40327c212fa, type: 2}
+  enemyObjects:
+  - {fileID: 11400000, guid: 1dcdfc8e1b3b155469c3a812c9dab449, type: 2}
+  - {fileID: 11400000, guid: e9845eaad2febf24ca9b02b29aa1a263, type: 2}
+  - {fileID: 11400000, guid: 1fbe3b23b40a36c4e985bcddbcf2c6f4, type: 2}
+  - {fileID: 11400000, guid: b74163377c9a41141b83065e23c2c8ab, type: 2}
+  - {fileID: 11400000, guid: f8d4962909606c8418788b40555b6ef1, type: 2}
+  - {fileID: 11400000, guid: 1a8c9295a646df5499e03bee291161af, type: 2}
+  - {fileID: 11400000, guid: 026d1f98d4a0437468d935a69f94f8fc, type: 2}
 --- !u!1 &1842580563
 GameObject:
   m_ObjectHideFlags: 0
