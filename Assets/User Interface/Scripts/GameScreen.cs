@@ -49,6 +49,7 @@ public class GameScreen : MonoBehaviour
 
     public void EditHpBar(int hp, Sprite sprite)
     {
+        Debug.Log("Work");
         this.hp.sprite = sprite;
     }
 }

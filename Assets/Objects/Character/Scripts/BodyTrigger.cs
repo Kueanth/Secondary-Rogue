@@ -4,6 +4,7 @@ using Leopotam.Ecs;
 public class BodyTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public UI ui;
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
@@ -17,15 +18,18 @@ public class BodyTrigger : MonoBehaviour
 
         if (collider.gameObject.tag == "EnemyBullet")
         {
+            components.hp -= 1;
+
             if (components.hp != 0)
             {
                 components.vignetteEffect.SetTrigger("Effect");
-                components.hp -= 1;
+                ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
             }
             else
             {
-                entity.Del<Player>();
-                Destroy(gameObject);
+                ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
+                GameObject temp = components.playerObject;
+                Destroy(temp);
             }
         }
     }

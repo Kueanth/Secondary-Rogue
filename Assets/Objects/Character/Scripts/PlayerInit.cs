@@ -34,6 +34,7 @@ public class PlayerInit : IEcsInitSystem
 
         PlayerObject.GetComponentInChildren<PlayerTrigger>().entity = Entity;
         PlayerObject.GetComponentInChildren<PlayerTrigger>().ui = ui;
+        PlayerObject.GetComponentInChildren<BodyTrigger>().ui = ui;
         PlayerObject.GetComponentInChildren<BodyTrigger>().entity = Entity;
         PlayerObject.GetComponent<PlayerLight>().components = gunComponents;
 

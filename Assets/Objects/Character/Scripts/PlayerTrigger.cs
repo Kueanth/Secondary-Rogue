@@ -15,26 +15,10 @@ public class PlayerTrigger : MonoBehaviour
         ref Player components = ref entity.Get<Player>();  
         ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
-        if(collider.gameObject.tag == "EnemyBullet")
-        {
-            if (components.hp != 0)
-            {
-                components.vignetteEffect.SetTrigger("Effect");
-                Debug.Log("Work");
-                components.hp -= 1;
-                ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
-
-            }
-            else
-            {
-                ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
-                entity.Del<Player>();
-                Destroy(gameObject);
-            }
-        }
-
         if (collider.gameObject.tag == "Pit" && !components.pit)
         {
+            components.hp -= 1;
+
             if (components.hp != 0)
             {
                 components.vignetteEffect.SetTrigger("Effect");
@@ -95,15 +79,13 @@ public class PlayerTrigger : MonoBehaviour
                 components.pit = true;
                 components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = false;
                 StartCoroutine(Animation(components, gunComponents));
-                components.hp -= 1;
-
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
             }
             else
             {
+                GameObject temp = components.playerObject;
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
-                entity.Del<Player>();   
-                Destroy(gameObject);
+                Destroy(temp);
             }
         }
     }
