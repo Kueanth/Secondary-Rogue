@@ -15,9 +15,10 @@ MonoBehaviour:
   spriteForHand: {fileID: 21300000, guid: 7c9292965e847074fbb258000a70389f, type: 3}
   prefabForChest: {fileID: 6891058203277179108, guid: b5e41633e2c4cab49a8fc8baed2eaaf9, type: 3}
   nameGun: Awm
+  damage: 10
   ammo: 10
   maxAmmo: 10
-  store: 30
-  maxStore: 30
+  store: 20
+  maxStore: 20
   spawnPointShoot: {x: 1.021, y: 0.09}
   timeShoot: 1

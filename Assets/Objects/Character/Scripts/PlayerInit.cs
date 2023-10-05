@@ -29,6 +29,7 @@ public class PlayerInit : IEcsInitSystem
         Components.rigidbody2D = PlayerObject.GetComponent<Rigidbody2D>();
         Components.animator = PlayerObject.GetComponent<Animator>();
         Components.spriteRenderer = PlayerObject.GetComponent<SpriteRenderer>();
+        Components.particleSystem = PlayerObject.GetComponentInChildren<ParticleSystem>();
 
         Components.vignetteEffect = sceneData.vignetteEffect;
 

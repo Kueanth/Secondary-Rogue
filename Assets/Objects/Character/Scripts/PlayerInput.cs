@@ -21,6 +21,15 @@ public class PlayerInput : IEcsRunSystem
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
 
+            if (horizontal != 0f || vertical != 0)
+            {
+                components.particleSystem.Play();
+            }
+            else
+            {
+                components.particleSystem.Stop();
+            }
+
             // Movement
             Vector2 movement = new Vector2(horizontal, vertical);
             movement.Normalize();

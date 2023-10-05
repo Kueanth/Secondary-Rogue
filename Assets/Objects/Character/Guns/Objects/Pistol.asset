@@ -15,9 +15,10 @@ MonoBehaviour:
   spriteForHand: {fileID: 21300000, guid: f23ec7c59e3b97b42adb99e317bf91ec, type: 3}
   prefabForChest: {fileID: 8262585909328699044, guid: f61c8c6ee4e85fe4ba9fad8577e0cacc, type: 3}
   nameGun: Pistol
-  ammo: 24
-  maxAmmo: 24
-  store: 80
-  maxStore: 80
+  damage: 1
+  ammo: 15
+  maxAmmo: 15
+  store: 60
+  maxStore: 60
   spawnPointShoot: {x: 0.462, y: 0.192}
   timeShoot: 0.4

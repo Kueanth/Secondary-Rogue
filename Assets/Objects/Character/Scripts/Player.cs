@@ -18,6 +18,8 @@ public struct Player
 
     public Light2D light;
 
+    public ParticleSystem particleSystem;
+
     public bool pit;
     public bool running;
     public bool flipping;

@@ -6,6 +6,7 @@ public class EnemyTrigger : MonoBehaviour
     public EcsEntity entity;
     public SceneData sceneData;
     public UI ui;
+    public EcsEntity gunEntity;
 
     public GameObject particle;
 
@@ -20,6 +21,7 @@ public class EnemyTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ref EnemyData components = ref entity.Get<EnemyData>();
+        ref GunComponents componentsGun = ref sceneData.gunEntity.Get<GunComponents>();
 
         bool tempBool = false;
 
@@ -29,7 +31,7 @@ public class EnemyTrigger : MonoBehaviour
             {
                 gameObject.GetComponent<Animator>().SetTrigger("Get Attack");
                 components.rigidbody2D.AddForce(new Vector2(-(collision.transform.position.x - transform.position.x), -(collision.transform.position.y - transform.position.y)).normalized * 2f, ForceMode2D.Impulse);
-                components.hp -= 1;
+                components.hp -= componentsGun.damage;
             }   
             else
             {

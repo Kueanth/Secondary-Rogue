@@ -6,4 +6,5 @@ public class UI : MonoBehaviour
 {
     public GameScreen gameScreen;
     public Sprite[] imageHp;
+    public Sprite[] imageGun;
 }

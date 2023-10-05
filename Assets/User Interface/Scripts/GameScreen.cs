@@ -8,6 +8,7 @@ public class GameScreen : MonoBehaviour
     public Image aim;
     public Image fade;
     public Image hp;
+    public Image gun;
 
     public TextMeshProUGUI textMeshPro;
 
@@ -49,7 +50,11 @@ public class GameScreen : MonoBehaviour
 
     public void EditHpBar(int hp, Sprite sprite)
     {
-        Debug.Log("Work");
         this.hp.sprite = sprite;
+    }
+
+    public void EditGun(Sprite sprite)
+    {
+        this.gun.sprite = sprite;
     }
 }

@@ -16,6 +16,8 @@ public class SceneData : MonoBehaviour
 
     public bool levelComplete;
 
+    public ParticleSystem particleSystemForPlayer;
+
     public Transform playerPosition;
     public Transform mousePosition;
 

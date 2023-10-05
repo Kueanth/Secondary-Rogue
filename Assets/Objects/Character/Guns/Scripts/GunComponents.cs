@@ -6,6 +6,7 @@ public struct GunComponents
     public GunData gunData;
 
     public int ammo;
+    public int damage;
     public int maxAmmo;
     public int store;
     public int maxStore;

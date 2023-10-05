@@ -43,6 +43,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
             chestObject.GetComponentInChildren<ChestTrigger>().ui = ui;
 
             chestObject.GetComponentInChildren<ChestTrigger>().entity = chestEntity;
+            chestObject.GetComponentInChildren<ChestTrigger>().sceneData = sceneData;
             chestObject.GetComponentInChildren<ChestTrigger>().entityGun = sceneData.playerEntity;
 
             chestObject.transform.SetParent(chest);

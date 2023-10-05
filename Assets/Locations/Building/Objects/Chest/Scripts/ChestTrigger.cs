@@ -6,7 +6,7 @@ public class ChestTrigger : MonoBehaviour
     public EcsEntity entity;
     public EcsEntity entityGun;
 
-    private SceneData sceneData;
+    public SceneData sceneData;
 
     public GunData[] guns;
     public GameObject gun;
@@ -91,6 +91,7 @@ public class ChestTrigger : MonoBehaviour
         GameObject Gun = GameObject.Instantiate(chestComponents.prefabGun, chestComponents.transformForGun, Quaternion.identity);
 
         Gun.GetComponent<GunTrigger>().gun = chestComponents.gunData;
+        Gun.GetComponent<GunTrigger>().scene = sceneData;
         Gun.GetComponent<GunTrigger>().ui = ui;
 
         gun = Gun;

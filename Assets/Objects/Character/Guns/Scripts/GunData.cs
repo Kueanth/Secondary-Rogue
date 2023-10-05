@@ -8,6 +8,7 @@ public class GunData : ScriptableObject
 
     public string nameGun;
 
+    public int damage;
     public int ammo;
     public int maxAmmo;
     public int store;
