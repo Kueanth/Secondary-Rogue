@@ -16,7 +16,9 @@ public class SceneData : MonoBehaviour
 
     public bool levelComplete;
 
-    public ParticleSystem particleSystemForPlayer;
+    public PlayerParticle playerParticle;
+
+    public GameObject particleSystemForPlayer;
 
     public Transform playerPosition;
     public Transform mousePosition;

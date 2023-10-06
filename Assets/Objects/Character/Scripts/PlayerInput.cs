@@ -7,6 +7,8 @@ public class PlayerInput : IEcsRunSystem
 {
     private EcsFilter<Player, GunComponents> _filter;
 
+    public bool particleRun;
+
     public SceneData sceneData;
     public UI ui;
 
@@ -21,13 +23,9 @@ public class PlayerInput : IEcsRunSystem
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
 
-            if (horizontal != 0f || vertical != 0)
+            if ((horizontal != 0f || vertical != 0) && components.transform.GetComponent<PlayerParticle>().particleRun)
             {
-                sceneData.particleSystemForPlayer.Play();
-            }
-            else
-            {
-                sceneData.particleSystemForPlayer.Stop();
+                components.transform.GetComponent<PlayerParticle>().MethodForReloadParticle();
             }
 
             // Movement

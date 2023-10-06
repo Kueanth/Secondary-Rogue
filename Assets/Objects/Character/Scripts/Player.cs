@@ -5,6 +5,8 @@ public struct Player
 {
     public int hp;
 
+    public bool particleRun;
+
     public GameObject playerObject;
 
     public Vector3 positionForPit;

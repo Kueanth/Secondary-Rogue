@@ -24,6 +24,7 @@ public class PlayerInit : IEcsInitSystem
 
         Components.hp = 3;
         Components.pit = false;
+        Components.particleRun = true;
         Components.playerObject = PlayerObject;
         Components.transform = PlayerObject.GetComponent<Transform>();
         Components.rigidbody2D = PlayerObject.GetComponent<Rigidbody2D>();
@@ -38,6 +39,9 @@ public class PlayerInit : IEcsInitSystem
         PlayerObject.GetComponentInChildren<BodyTrigger>().ui = ui;
         PlayerObject.GetComponentInChildren<BodyTrigger>().entity = Entity;
         PlayerObject.GetComponent<PlayerLight>().components = gunComponents;
+        PlayerObject.GetComponent<PlayerParticle>().entity = Entity;
+        PlayerObject.GetComponent<PlayerParticle>().sceneData = sceneData;
+        PlayerObject.GetComponent<PlayerParticle>().particleRun = true;
 
         Components.flip = true;
 

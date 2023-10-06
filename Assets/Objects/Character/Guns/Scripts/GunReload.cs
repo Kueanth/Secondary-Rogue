@@ -29,7 +29,7 @@ public class GunReload : MonoBehaviour
     {
         StartReloadBar(ref components, ref ui);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         EndReloadBar(ref components, ref ui);
 
