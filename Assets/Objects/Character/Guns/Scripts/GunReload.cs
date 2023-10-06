@@ -27,7 +27,11 @@ public class GunReload : MonoBehaviour
 
     private IEnumerator CoroutineReload(GunComponents components, UI ui)
     {
-        yield return new WaitForSeconds(3);
+        StartReloadBar(ref components, ref ui);
+
+        yield return new WaitForSeconds(3f);
+
+        EndReloadBar(ref components, ref ui);
 
         Reload(ref components, ref ui);
 
@@ -38,6 +42,18 @@ public class GunReload : MonoBehaviour
     {
         ui.gameScreen.AmmoUpdate();
     }
+
+    private void StartReloadBar(ref GunComponents components, ref UI ui)
+    {
+        ui.gameScreen.StartReloadBar();
+    }
+
+    private void EndReloadBar(ref GunComponents components, ref UI ui)
+    {
+        ui.gameScreen.EndReloadBar();
+    }
+
+
 
     private void Shoot(ref EcsEntity entity)
     {

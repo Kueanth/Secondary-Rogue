@@ -10,5 +10,7 @@ public class FadeInit : IEcsInitSystem
     {
         ui.gameScreen.fade.GetComponent<FadeNextRoom>().room = sceneData.roomEntity;
         ui.gameScreen.fade.GetComponent<Animator>().SetTrigger("Start");
+        ui.gameScreen.bar.enabled = false;
+        ui.gameScreen.kristal.enabled = false;
     }
 }

@@ -9,6 +9,10 @@ public class GameScreen : MonoBehaviour
     public Image fade;
     public Image hp;
     public Image gun;
+    public Image kristal;
+    public Image bar;
+
+    public Vector2 startPosition;
 
     public TextMeshProUGUI textMeshPro;
 
@@ -56,5 +60,17 @@ public class GameScreen : MonoBehaviour
     public void EditGun(Sprite sprite)
     {
         this.gun.sprite = sprite;
+    }
+
+    public void StartReloadBar()
+    {
+        kristal.enabled = true;
+        bar.enabled = true;
+        kristal.GetComponent<Animator>().SetTrigger("Trigger");
+    }
+    public void EndReloadBar()
+    {
+        kristal.enabled = false;
+        bar.enabled = false;
     }
 }

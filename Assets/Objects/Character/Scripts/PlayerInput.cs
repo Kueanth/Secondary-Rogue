@@ -23,11 +23,11 @@ public class PlayerInput : IEcsRunSystem
 
             if (horizontal != 0f || vertical != 0)
             {
-                components.particleSystem.Play();
+                sceneData.particleSystemForPlayer.Play();
             }
             else
             {
-                components.particleSystem.Stop();
+                sceneData.particleSystemForPlayer.Stop();
             }
 
             // Movement
