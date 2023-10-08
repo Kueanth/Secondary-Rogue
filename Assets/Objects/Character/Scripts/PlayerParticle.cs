@@ -20,6 +20,7 @@ public class PlayerParticle : MonoBehaviour
             particleRun = false;
             GameObject particle = GameObject.Instantiate(sceneData.particleSystemForPlayer, new Vector3(components.transform.position.x, components.transform.position.y - 0.5f), Quaternion.identity);
             particle.transform.parent = null;
+            Destroy(particle, 0.8f);
             StartCoroutine(ReloadParticle());
         }
     }

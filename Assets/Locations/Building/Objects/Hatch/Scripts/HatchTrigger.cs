@@ -78,6 +78,8 @@ public class HatchTrigger : MonoBehaviour
         hatchComponents.open = false;
 
         ui.gameScreen.fade.GetComponent<Animator>().SetTrigger("Meow");
+
+        sceneData.countLevel += 1;
     }
 
     public void levelComplete()

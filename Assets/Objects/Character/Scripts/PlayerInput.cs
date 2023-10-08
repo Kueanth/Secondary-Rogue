@@ -23,7 +23,7 @@ public class PlayerInput : IEcsRunSystem
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
 
-            if ((horizontal != 0f || vertical != 0) && components.transform.GetComponent<PlayerParticle>().particleRun)
+            if ((horizontal != 0f || vertical != 0) && components.transform.GetComponent<PlayerParticle>().particleRun && !components.pit)
             {
                 components.transform.GetComponent<PlayerParticle>().MethodForReloadParticle();
             }

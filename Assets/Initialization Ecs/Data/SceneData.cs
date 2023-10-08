@@ -16,6 +16,8 @@ public class SceneData : MonoBehaviour
 
     public bool levelComplete;
 
+    public int countLevel;
+
     public PlayerParticle playerParticle;
 
     public GameObject particleSystemForPlayer;

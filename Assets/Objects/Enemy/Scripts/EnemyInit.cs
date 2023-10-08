@@ -13,6 +13,9 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
     private UI ui;
     private EnemyObject[] enemyObjects;
 
+    private int tempMax;
+    private int[] mapping;
+
     public void Init()
     {
         sceneData.positionsEnemy = sceneData.posEnemy.transform.GetComponentsInChildren<Transform>();
@@ -23,9 +26,16 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             if (i.name == "SpawnEnemy") continue;
             if (i.name == "Check") continue;
 
-            int temp = Random.Range(0, enemyObjects.Length);
+            mapping = new int[15] { 0,0,0,1,1,1,2,2,2,3,3,4,4,5,6 };
 
-            GameObject enemyObject = GameObject.Instantiate(enemyObjects[temp].enemyObject, i.position, Quaternion.identity);
+            if (sceneData.countLevel + 5 > 15)
+                tempMax = 15;
+            else
+                tempMax = sceneData.countLevel + 5;
+
+            int temp = Random.Range(sceneData.countLevel, tempMax);
+
+            GameObject enemyObject = GameObject.Instantiate(enemyObjects[mapping[temp]].enemyObject, i.position, Quaternion.identity);
 
             enemyObject.transform.SetParent(i);
 
@@ -36,8 +46,8 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             enemy.Get<EnemyNewFollow>();
 
             components.number = 0;
-            components.hp = enemyObjects[temp].hp;
-            components.name = enemyObjects[temp].name;
+            components.hp = enemyObjects[mapping[temp]].hp;
+            components.name = enemyObjects[mapping[temp]].name;
             components.transform = enemyObject.transform;
             components.rigidbody2D = enemyObject.GetComponent<Rigidbody2D>();
             components.animator = enemyObject.GetComponent<Animator>();
@@ -69,9 +79,14 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 if (i.name == "SpawnEnemy") continue;
                 if (i.name == "Check") continue;
 
-                int temp = Random.Range(0, enemyObjects.Length);
+                if (sceneData.countLevel + 5 > 15)
+                    tempMax = 15;
+                else
+                    tempMax = sceneData.countLevel + 5;
 
-                GameObject enemyObject = GameObject.Instantiate(enemyObjects[temp].enemyObject, i.position, Quaternion.identity);
+                int temp = Random.Range(sceneData.countLevel, tempMax);
+
+                GameObject enemyObject = GameObject.Instantiate(enemyObjects[mapping[temp]].enemyObject, i.position, Quaternion.identity);
 
                 enemyObject.transform.SetParent(i);
 
@@ -82,8 +97,8 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 enemy.Get<EnemyNewFollow>();
 
                 components.number = 0;
-                components.hp = enemyObjects[temp].hp;
-                components.name = enemyObjects[temp].name;
+                components.hp = enemyObjects[mapping[temp]].hp;
+                components.name = enemyObjects[mapping[temp]].name;
                 components.transform = enemyObject.transform;
                 components.rigidbody2D = enemyObject.GetComponent<Rigidbody2D>();
                 components.animator = enemyObject.GetComponent<Animator>();

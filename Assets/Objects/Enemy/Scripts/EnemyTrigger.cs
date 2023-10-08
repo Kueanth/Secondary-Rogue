@@ -27,11 +27,12 @@ public class EnemyTrigger : MonoBehaviour
 
         if (collision.gameObject.tag == "Bullet")
         {
-            if(components.hp != 0)
+            components.hp -= componentsGun.damage;
+
+            if (components.hp > 0)
             {
                 gameObject.GetComponent<Animator>().SetTrigger("Get Attack");
                 components.rigidbody2D.AddForce(new Vector2(-(collision.transform.position.x - transform.position.x), -(collision.transform.position.y - transform.position.y)).normalized * 2f, ForceMode2D.Impulse);
-                components.hp -= componentsGun.damage;
             }   
             else
             {
