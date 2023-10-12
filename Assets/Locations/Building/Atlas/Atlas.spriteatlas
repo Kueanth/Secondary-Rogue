@@ -99,6 +99,7 @@ SpriteAtlas:
   - {fileID: -1873052450, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 986217041, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 1327706822, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
+  - {fileID: -522101655, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: -1946541309, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 2019641192, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 1871934407, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
@@ -122,6 +123,7 @@ SpriteAtlas:
   - {fileID: -247997899, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 465299939, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: -1435185231, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
+  - {fileID: 2059865926, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 286238228, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: -614199009, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
   - {fileID: 1433917479, guid: 0daab04b729b62648bf68a45310e31cf, type: 3}
@@ -237,6 +239,7 @@ SpriteAtlas:
   - Walls and Ground_125
   - Walls and Ground_126
   - Walls and Ground_127
+  - Walls and Ground_137
   - Walls and Ground_120
   - Walls and Ground_136
   - Walls and Ground_121
@@ -260,6 +263,7 @@ SpriteAtlas:
   - Walls and Ground_101
   - Walls and Ground_115
   - Walls and Ground_96
+  - Walls and Ground_138
   - Walls and Ground_106
   - Walls and Ground_114
   - Walls and Ground_97
