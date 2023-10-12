@@ -50,14 +50,6 @@ public class HatchInit : IEcsInitSystem, IEcsRunSystem
 
             hatchObject.GetComponent<SpriteRenderer>().material = hatchMaterial;
         }
-
-        int random = Random.Range(0, 2);
-
-        for(int x = 0; x <= 2; x++)
-        {
-            if (x == random) continue;
-            else sceneData.hatchs[x].SetActive(false);
-        }
     }
 
     public void Run()
@@ -100,14 +92,6 @@ public class HatchInit : IEcsInitSystem, IEcsRunSystem
                 hatchMaterial.color = new Color32(0, 0, 0, 0);
 
                 hatchObject.GetComponent<SpriteRenderer>().material = hatchMaterial;
-            }
-
-            int random = Random.Range(0, 2);
-
-            for (int x = 0; x <= 2; x++)
-            {
-                if (x == random) continue;
-                else sceneData.hatchs[x].SetActive(false);
             }
         }
     }

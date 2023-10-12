@@ -47,5 +47,7 @@ public class PlayerInit : IEcsInitSystem
 
         sceneData.playerEntity = Entity;
         sceneData.playerPosition = Components.transform;
+
+        Components.transform.position = sceneData.playerSpawnPoint;
     }
 }

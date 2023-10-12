@@ -1493,6 +1493,7 @@ MonoBehaviour:
   playerSpeed: 4
   enemyCount: 0
   levelComplete: 0
+  countLevel: 0
   playerParticle: {fileID: 0}
   particleSystemForPlayer: {fileID: 3748434623420071501, guid: d33b9666d3ac3eb4bbcda4c18cfa6233, type: 3}
   playerPosition: {fileID: 0}

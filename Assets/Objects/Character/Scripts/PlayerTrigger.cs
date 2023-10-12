@@ -82,7 +82,7 @@ public class PlayerTrigger : MonoBehaviour
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
             }
             else
-            {
+            {   
                 GameObject temp = components.playerObject;
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
                 Destroy(temp);

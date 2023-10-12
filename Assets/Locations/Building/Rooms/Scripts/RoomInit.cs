@@ -14,16 +14,22 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
     public void Init()
     {
-        EcsEntity roomEntity = _world.NewEntity();
+        sceneData.levelComplete = false;
 
-        ref RoomDestroy components = ref roomEntity.Get<RoomDestroy>();
+        EcsEntity entity = _world.NewEntity();
+        ref RoomDestroy gow = ref entity.Get<RoomDestroy>();
 
-        int temp = Random.Range(0, rooms.Rooms.Length - 1);
+        ref Player componentsPlayer = ref sceneData.playerEntity.Get<Player>();
+
+        int temp = Random.Range(0, rooms.Rooms.Length);
+
+        componentsPlayer.transform.position = rooms.Rooms[temp].spawnPositionPlayer;
 
         GameObject roomObject = GameObject.Instantiate(rooms.Rooms[temp].RoomPrefab, Vector2.zero, Quaternion.identity);
 
-        components.room = roomObject;
-        sceneData.roomEntity = roomEntity;
+        sceneData.roomEntity = entity;
+
+        gow.room = roomObject;
 
         sceneData.posChest = roomObject.transform.Find("SpawnChest");
         sceneData.posEnemy = roomObject.transform.Find("SpawnEnemy");
@@ -43,7 +49,7 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
             GameObject.Destroy(gow.room);
 
-            int temp = Random.Range(0, rooms.Rooms.Length - 1);
+            int temp = Random.Range(0, rooms.Rooms.Length);
 
             componentsPlayer.transform.position = rooms.Rooms[temp].spawnPositionPlayer;
 

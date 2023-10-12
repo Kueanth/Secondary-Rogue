@@ -36,25 +36,26 @@ public class EnemyTrigger : MonoBehaviour
             }   
             else
             {
-                GameObject effect = Instantiate(particle, gameObject.transform);
-                effect.transform.parent = null;
-                gameObject.GetComponent<Animator>().SetTrigger("Get Attack");
-                entity.Destroy();
-                Destroy(gameObject);
-                tempBool = true;
                 sceneData.enemyCount -= 1;
 
-                if(sceneData.enemyCount == 0)
+                if (sceneData.enemyCount == 0)
                 {
                     sceneData.levelComplete = true;
 
-                    foreach(var hatch in sceneData.hatchs)
+                    foreach (var hatch in sceneData.hatchs)
                     {
                         hatch.GetComponent<Animator>().SetTrigger("Open");
                         hatch.GetComponentInChildren<HatchTrigger>().levelComplete();
                     }
 
                 }
+
+                GameObject effect = Instantiate(particle, gameObject.transform);
+                effect.transform.parent = null;
+                gameObject.GetComponent<Animator>().SetTrigger("Get Attack");
+                entity.Destroy();
+                Destroy(gameObject);
+                tempBool = true;
             }
         }
 
