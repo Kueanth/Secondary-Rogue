@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: Rooms
   m_EditorClassIdentifier: 
   Rooms:
+  - {fileID: 11400000, guid: 49ef553982831124bb464779f67717b9, type: 2}
+  - {fileID: 11400000, guid: 8cdd05ef57556e94d884c27d5c601f5e, type: 2}
+  - {fileID: 11400000, guid: 8360281e1697eec47b31f41f2130f004, type: 2}
   - {fileID: 11400000, guid: c0efd5129d045a44b8b7985a75c1906b, type: 2}
-  - {fileID: 11400000, guid: c0efd5129d045a44b8b7985a75c1906b, type: 2}
-  - {fileID: 11400000, guid: c0efd5129d045a44b8b7985a75c1906b, type: 2}
-  - {fileID: 11400000, guid: c0efd5129d045a44b8b7985a75c1906b, type: 2}
+  - {fileID: 11400000, guid: 7521114e09986294ebb81bf754a52f72, type: 2}
+  - {fileID: 11400000, guid: 962ecedb04bfa9448a5da7d57db2ad49, type: 2}
+  - {fileID: 11400000, guid: dbafb895ab3b19a43af32afe731a8d57, type: 2}
+  - {fileID: 11400000, guid: 4cbe0f7037301f047a88c2546f70da6b, type: 2}
+  - {fileID: 11400000, guid: 2cb06c67d449a104ca7eed276f9d3591, type: 2}
+  - {fileID: 11400000, guid: c734ac1e49baf88439513c6e4f93307b, type: 2}

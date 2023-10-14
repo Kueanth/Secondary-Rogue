@@ -5,6 +5,7 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 {
     public RoomData rooms;
     public SceneData sceneData;
+    public UI ui;
 
     private EcsWorld _world;
 
@@ -40,6 +41,8 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
     {
         foreach(var meow in _filter)
         {
+            ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
+
             sceneData.levelComplete = false;
 
             ref RoomDestroy gow = ref _filter.Get1(meow);

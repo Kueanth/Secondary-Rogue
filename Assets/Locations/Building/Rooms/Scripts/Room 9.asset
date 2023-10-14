@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9b04f876bcf3094bba4b58fe2362f59, type: 3}
-  m_Name: Room 4
+  m_Name: Room 9
   m_EditorClassIdentifier: 
-  RoomPrefab: {fileID: 1820217994692529692, guid: b83ffab0553f47444b0268a166d8a281, type: 3}
-  spawnPositionPlayer: {x: 0, y: 0}
+  RoomPrefab: {fileID: 1820217994692529692, guid: c7ece6b9970560044abb30c523884580, type: 3}
+  spawnPositionPlayer: {x: 25.37, y: -24.82336}

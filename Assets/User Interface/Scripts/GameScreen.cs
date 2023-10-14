@@ -11,6 +11,7 @@ public class GameScreen : MonoBehaviour
     public Image gun;
     public Image kristal;
     public Image bar;
+    public Image infoBar;
 
     public Vector2 startPosition;
 
@@ -72,5 +73,11 @@ public class GameScreen : MonoBehaviour
     {
         kristal.enabled = false;
         bar.enabled = false;
+    }
+
+    public void EditInfoBar(string text)
+    {
+        infoBar.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        infoBar.GetComponent<Animator>().SetTrigger("SetBar");
     }
 }

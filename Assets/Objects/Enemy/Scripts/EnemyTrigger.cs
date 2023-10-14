@@ -48,6 +48,8 @@ public class EnemyTrigger : MonoBehaviour
                         hatch.GetComponentInChildren<HatchTrigger>().levelComplete();
                     }
 
+                    ui.gameScreen.EditInfoBar("щрюф опнидем");
+
                 }
 
                 GameObject effect = Instantiate(particle, gameObject.transform);
