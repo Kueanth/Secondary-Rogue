@@ -72,6 +72,8 @@ public class InitEcs : MonoBehaviour
         _lateSystems
             .Add(new AimFollow())
             .Add(new CameraTrembling())
+            .Inject(sceneData)
+            .Inject(configuration)
             .Inject(ui)
             .Init();
 
@@ -85,12 +87,18 @@ public class InitEcs : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _fixedSystems.Run();
+        if (!sceneData.paused)
+        {
+            _fixedSystems.Run();
+        }
     }
 
     private void Update()
     {
-        _updateSystems.Run();
+        if (!sceneData.paused)
+        {
+            _updateSystems.Run();
+        }
     }
 
     private void LateUpdate()

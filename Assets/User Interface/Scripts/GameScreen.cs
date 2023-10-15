@@ -12,6 +12,7 @@ public class GameScreen : MonoBehaviour
     public Image kristal;
     public Image bar;
     public Image infoBar;
+    public GameObject gameScreen;
 
     public Vector2 startPosition;
 

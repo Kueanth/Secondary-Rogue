@@ -11,4 +11,5 @@ public class StaticData : ScriptableObject
     public GameObject particleBullet;
     public GameObject Chest;
     public GameObject Hatch;
+    public Texture2D Cursor;
 }

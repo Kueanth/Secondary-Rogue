@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public SceneData sceneData;
     public UI ui;
     public float x, y;
 
@@ -85,7 +86,10 @@ public class PlayerTrigger : MonoBehaviour
             {   
                 GameObject temp = components.playerObject;
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
-                Destroy(temp);
+                ui.gameScreen.gameScreen.SetActive(false);
+                ui.deadScreen.deadScreen.SetActive(true);
+                sceneData.paused = true;
+                temp.SetActive(false);
             }
         }
     }

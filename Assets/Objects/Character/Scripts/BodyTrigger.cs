@@ -4,6 +4,7 @@ using Leopotam.Ecs;
 public class BodyTrigger : MonoBehaviour
 {
     public EcsEntity entity;
+    public SceneData sceneData;
     public UI ui;
 
     public void OnTriggerEnter2D(Collider2D collider)
@@ -28,8 +29,10 @@ public class BodyTrigger : MonoBehaviour
             else
             {
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
-                GameObject temp = components.playerObject;
-                Destroy(temp);
+                ui.gameScreen.gameScreen.SetActive(false);
+                ui.deadScreen.deadScreen.SetActive(true);
+                sceneData.paused = true;
+                components.playerObject.SetActive(false);
             }
         }
     }

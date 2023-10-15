@@ -71,9 +71,9 @@ public class EnemyTrigger : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Check" && temp == 1)
+        if (collision.gameObject.tag == "Check" && temp == 1 && entity.IsAlive())
         {
             entity.Get<EnemyNewFollow>();
-        };
+        }
     }
 }

@@ -36,4 +36,6 @@ public class SceneData : MonoBehaviour
     public Transform[] positionsHatchs;
 
     public GameObject[] hatchs;
+
+    public bool paused = false;
 }
