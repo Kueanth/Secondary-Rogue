@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4c55c738331bc64cbb45815e7a56ca4, type: 3}
-  m_Name: Enemy-1
+  m_Script: {fileID: 11500000, guid: a317bb3b3509bf542b98526e920b325d, type: 3}
+  m_Name: Money
   m_EditorClassIdentifier: 
-  enemyObject: {fileID: 8684791828672207134, guid: 860e32712d4c6724eabe64d3f771bb8a, type: 3}
-  enemyName: Enemy-1
-  hp: 10
-  money: 2
+  money: 0

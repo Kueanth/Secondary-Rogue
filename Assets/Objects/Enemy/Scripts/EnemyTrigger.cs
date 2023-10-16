@@ -7,6 +7,7 @@ public class EnemyTrigger : MonoBehaviour
     public SceneData sceneData;
     public UI ui;
     public EcsEntity gunEntity;
+    public Money money;
 
     public GameObject particle;
 
@@ -37,6 +38,9 @@ public class EnemyTrigger : MonoBehaviour
             else
             {
                 sceneData.enemyCount -= 1;
+                sceneData.countKillEnemy += 1;
+                money.money += components.money;
+                ui.gameScreen.InitMoney(money.money);
 
                 if (sceneData.enemyCount == 0)
                 {
@@ -71,7 +75,7 @@ public class EnemyTrigger : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "Check" && temp == 1 && entity.IsAlive())
+        if (collision.gameObject.tag == "Check" && temp == 1)
         {
             entity.Get<EnemyNewFollow>();
         }

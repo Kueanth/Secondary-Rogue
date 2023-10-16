@@ -14,6 +14,8 @@ public class SceneData : MonoBehaviour
 
     public int enemyCount;
 
+    public int countKillEnemy;
+
     public bool levelComplete;
 
     public int countLevel;

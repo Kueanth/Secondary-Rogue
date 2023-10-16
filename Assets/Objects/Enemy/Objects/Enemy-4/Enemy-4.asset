@@ -15,3 +15,4 @@ MonoBehaviour:
   enemyObject: {fileID: 3658432928545132216, guid: 6c8bb13e2440bfa41a019903ef6f9dea, type: 3}
   enemyName: Enemy-4
   hp: 15
+  money: 5

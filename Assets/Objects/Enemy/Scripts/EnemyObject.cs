@@ -6,4 +6,5 @@ public class EnemyObject : ScriptableObject
     public GameObject enemyObject;
     public string enemyName;
     public int hp;
+    public int money;
 }

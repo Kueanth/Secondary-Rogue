@@ -88,6 +88,7 @@ public class PlayerTrigger : MonoBehaviour
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
                 ui.gameScreen.gameScreen.SetActive(false);
                 ui.deadScreen.deadScreen.SetActive(true);
+                ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
                 temp.SetActive(false);
             }

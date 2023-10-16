@@ -14,6 +14,8 @@ public class GameScreen : MonoBehaviour
     public Image infoBar;
     public GameObject gameScreen;
 
+    public TextMeshProUGUI money;
+
     public Vector2 startPosition;
 
     public TextMeshProUGUI textMeshPro;
@@ -80,5 +82,10 @@ public class GameScreen : MonoBehaviour
     {
         infoBar.GetComponentInChildren<TextMeshProUGUI>().text = text;
         infoBar.GetComponent<Animator>().SetTrigger("SetBar");
+    }
+
+    public void InitMoney(int value)
+    {
+        money.text = value.ToString();
     }
 }

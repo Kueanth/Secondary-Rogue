@@ -9,6 +9,7 @@ public class InitEcs : MonoBehaviour
     [SerializeField] private RoomData rooms; // Rooms for Initialization
     [SerializeField] private GunArray guns; // Guns for Initialization
     [SerializeField] private EnemyObject[] enemyObjects; // Enemy for Initialization
+    [SerializeField] private Money money; // Money for Initialization
 
     private EcsWorld _world;
 
@@ -67,6 +68,7 @@ public class InitEcs : MonoBehaviour
             .Inject(rooms)
             .Inject(guns)
             .Inject(ui)
+            .Inject(money)
             .Init();
 
         _lateSystems

@@ -40,7 +40,7 @@ public class GunInput : IEcsRunSystem
                 }
             }
 
-            if (gunComponents.ammo != gunComponents.maxAmmo && Input.GetKeyDown(KeyCode.R) && !gunComponents.reolading || gunComponents.ammo == 0 && !gunComponents.reolading)
+            if (gunComponents.ammo != gunComponents.maxAmmo && Input.GetKeyDown(KeyCode.R) && !gunComponents.reolading && gunComponents.store != 0 || gunComponents.ammo == 0 && !gunComponents.reolading && gunComponents.store != 0)
             {
                 gunComponents.reolading = true;
                 gunComponents.reload.ReloadGun(ref gunComponents, ref ui);

@@ -10,6 +10,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
 
     private SceneData sceneData;
     private StaticData configuration;
+    private Money money;
     private UI ui;
     private EnemyObject[] enemyObjects;
 
@@ -53,6 +54,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             components.animator = enemyObject.GetComponent<Animator>();
             components.transform.GetComponent<EnemyShoot>().target = sceneData.playerPosition;
             components.timerForShoot = Random.Range(3, 6);
+            components.money = enemyObjects[mapping[temp]].money;
 
             enemyObject.GetComponent<EnemyShoot>().entity = enemy;
             enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
@@ -60,6 +62,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
             enemyObject.GetComponent<EnemyTrigger>().sceneData = sceneData;
             enemyObject.GetComponent<EnemyTrigger>().ui = ui;
+            enemyObject.GetComponent<EnemyTrigger>().money = money;
 
             components.targets = i.transform.GetComponentsInChildren<Transform>();
 
@@ -104,6 +107,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 components.animator = enemyObject.GetComponent<Animator>();
                 components.transform.GetComponent<EnemyShoot>().target = sceneData.playerPosition;
                 components.timerForShoot = Random.Range(3, 6);
+                components.money = enemyObjects[mapping[temp]].money;
 
                 enemyObject.GetComponent<EnemyShoot>().entity = enemy;
                 enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
