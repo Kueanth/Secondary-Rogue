@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class DeadScreen : MonoBehaviour
 {
     public TextMeshProUGUI textMeshProUGUI;
+    public Image fade;
 
     public GameObject deadScreen;
 
@@ -14,6 +15,11 @@ public class DeadScreen : MonoBehaviour
     public void reloadButtonClick()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void exitButtonClick()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void editText(int countLevel, int countEnemy, int countMoney)
