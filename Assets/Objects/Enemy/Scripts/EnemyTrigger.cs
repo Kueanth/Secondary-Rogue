@@ -8,6 +8,7 @@ public class EnemyTrigger : MonoBehaviour
     public UI ui;
     public EcsEntity gunEntity;
     public Money money;
+    public GameObject hpObject;
 
     public GameObject particle;
 
@@ -59,6 +60,26 @@ public class EnemyTrigger : MonoBehaviour
                 GameObject effect = Instantiate(particle, gameObject.transform);
                 effect.transform.parent = null;
                 gameObject.GetComponent<Animator>().SetTrigger("Get Attack");
+
+                int tempRange = Random.Range(0, 3);
+
+                if(tempRange == 0)
+                {
+                    GameObject hpMainObject = GameObject.Instantiate(hpObject, gameObject.transform.position, Quaternion.identity);
+
+                    Material hpMaterial = new Material(Shader.Find("Shader Graphs/Outlines"));
+
+                    hpMaterial.SetVector("_Right", new Vector2(0.8f, 0f));
+                    hpMaterial.SetVector("_Left", new Vector2(-0.8f, 0f));
+                    hpMaterial.SetVector("_Up", new Vector2(0f, 0.8f));
+                    hpMaterial.SetVector("_Down", new Vector2(0f, -0.8f));
+
+                    hpMaterial.color = new Color32(255, 230, 0, 255);
+
+                    hpMainObject.GetComponent<SpriteRenderer>().material = hpMaterial;
+
+                }
+
                 entity.Destroy();
                 Destroy(gameObject);
                 tempBool = true;

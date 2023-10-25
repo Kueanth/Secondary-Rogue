@@ -10,6 +10,8 @@ public struct EnemyData
     public Animator animator;
     public int money;
 
+    public GameObject hpObject;
+
     public Vector2 target;
 
     public int number;

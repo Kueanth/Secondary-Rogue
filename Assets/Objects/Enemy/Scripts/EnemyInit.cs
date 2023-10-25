@@ -55,6 +55,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             components.transform.GetComponent<EnemyShoot>().target = sceneData.playerPosition;
             components.timerForShoot = Random.Range(3, 6);
             components.money = enemyObjects[mapping[temp]].money;
+            components.hpObject = configuration.Hp;
 
             enemyObject.GetComponent<EnemyShoot>().entity = enemy;
             enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
@@ -62,6 +63,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
             enemyObject.GetComponent<EnemyTrigger>().sceneData = sceneData;
             enemyObject.GetComponent<EnemyTrigger>().ui = ui;
+            enemyObject.GetComponent<EnemyTrigger>().hpObject = components.hpObject;
             enemyObject.GetComponent<EnemyTrigger>().money = money;
 
             components.targets = i.transform.GetComponentsInChildren<Transform>();
@@ -108,12 +110,15 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 components.transform.GetComponent<EnemyShoot>().target = sceneData.playerPosition;
                 components.timerForShoot = Random.Range(3, 6);
                 components.money = enemyObjects[mapping[temp]].money;
+                components.hpObject = configuration.Hp;
 
                 enemyObject.GetComponent<EnemyShoot>().entity = enemy;
                 enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
                 enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
+                enemyObject.GetComponent<EnemyTrigger>().hpObject = components.hpObject;
                 enemyObject.GetComponent<EnemyTrigger>().sceneData = sceneData;
                 enemyObject.GetComponent<EnemyTrigger>().ui = ui;
+                enemyObject.GetComponent<EnemyTrigger>().money = money;
 
                 components.targets = i.transform.GetComponentsInChildren<Transform>();
 

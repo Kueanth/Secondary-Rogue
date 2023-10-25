@@ -50,6 +50,11 @@ public class PlayerInput : IEcsRunSystem
                 components.nearChest = false;
             }
 
+            if(Input.GetKeyDown(KeyCode.F) && components.nearHp)
+            {
+                components.hpTransform.GetComponent<HpTrigger>().GetHp(ref entity, ref ui);
+            }
+
             if (Input.GetKeyDown(KeyCode.F) && components.nearGun)
             {
                 components.gunInChest.GetComponent<GunTrigger>().GetGun(ref entity, ref ui);

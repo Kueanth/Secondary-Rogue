@@ -38,12 +38,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cell_Density: 1000
-    - _Float: 500000
+    - _Cell_Density: 1
+    - _Float: 500
     - _Float_1: 21.64
     - _Float_2: 0.1
-    - _Opacity: 26
-    - _Speed: 0.001
+    - _Opacity: 0.05
+    - _Speed: 5
     m_Colors:
     - _Vector2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

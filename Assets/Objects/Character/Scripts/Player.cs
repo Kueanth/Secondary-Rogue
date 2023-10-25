@@ -29,9 +29,11 @@ public struct Player
     public bool nearChest;
     public bool nearHatch;
     public bool nearGun;
+    public bool nearHp;
 
     public Transform transform;
     public Transform chest;
     public Transform hatch;
+    public Transform hpTransform;
     public Transform gunInChest;
 }
