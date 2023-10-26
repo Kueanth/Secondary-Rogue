@@ -188,7 +188,7 @@ TextureImporter:
         x: 34
         y: 16
         width: 11
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,7 +251,7 @@ TextureImporter:
         x: 19
         y: 0
         width: 10
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,7 +272,7 @@ TextureImporter:
         x: 35
         y: 0
         width: 10
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,7 +293,7 @@ TextureImporter:
         x: 51
         y: 0
         width: 10
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,7 +314,7 @@ TextureImporter:
         x: 82
         y: 0
         width: 11
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,7 +335,7 @@ TextureImporter:
         x: 97
         y: 0
         width: 13
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,7 +356,7 @@ TextureImporter:
         x: 114
         y: 0
         width: 11
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -421,7 +421,7 @@ TextureImporter:
         width: 11
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -444,7 +444,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hero_13: -631627942
       Hero_8: -1611676294
       Hero_2: 420989889
       Hero_0: -1810380726
@@ -456,6 +455,7 @@ TextureImporter:
       Hero_12: -1748073698
       Hero_11: -263819467
       Hero_7: -1683864840
+      Hero_13: -631627942
       Hero_9: 1181809610
       Hero_3: -1828180234
   spritePackingTag: 

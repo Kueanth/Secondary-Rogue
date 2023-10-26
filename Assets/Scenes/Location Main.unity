@@ -4945,6 +4945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 105951877}
   - component: {fileID: 105951876}
+  - component: {fileID: 105951878}
   m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
@@ -5019,6 +5020,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &105951878
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105951875}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.09, y: -0.05}
+  serializedVersion: 2
+  m_Radius: 2.53
 --- !u!1 &203181446
 GameObject:
   m_ObjectHideFlags: 0
@@ -25625,6 +25642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975316115}
   - component: {fileID: 1975316114}
+  - component: {fileID: 1975316116}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -25699,6 +25717,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1975316116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975316113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96c71c0c38523e4481578cf1fc73e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fade: {fileID: 0}
 --- !u!1 &2060808381
 GameObject:
   m_ObjectHideFlags: 0
