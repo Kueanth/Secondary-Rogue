@@ -41,4 +41,9 @@ public class HpTrigger : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    public void OnDestroy()
+    {
+        Destroy(gameObject);
+    }
 }
