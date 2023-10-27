@@ -568,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387a86b89ba4e5e43a8ff7fd38412c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneData: {fileID: 0}
   ui: {fileID: 0}
   x: 0
   y: 0
@@ -642,4 +643,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4559d3e5cfe4dcc44a869effff512880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneData: {fileID: 0}
   ui: {fileID: 0}

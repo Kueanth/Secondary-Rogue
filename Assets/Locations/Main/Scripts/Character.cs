@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
 
     public void Start()
     {
-        Cursor.visible = true;
+        Cursor.visible = false;
     }
 
     public void Update()
@@ -85,7 +85,7 @@ public class Character : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && isEnter)
         {
-            Fade.SetTrigger("Enter");
+            Fade.SetTrigger("Meow");
             isEnter = false;
         }
 

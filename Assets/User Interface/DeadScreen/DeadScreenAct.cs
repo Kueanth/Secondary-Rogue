@@ -35,7 +35,7 @@ public class DeadScreenAct : MonoBehaviour
 
     public void exitGameEnd()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void reloadGameEnd()

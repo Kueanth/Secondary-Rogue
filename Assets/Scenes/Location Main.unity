@@ -15635,6 +15635,7 @@ GameObject:
   - component: {fileID: 1615032639}
   - component: {fileID: 1615032638}
   - component: {fileID: 1615032636}
+  - component: {fileID: 1615032641}
   - component: {fileID: 1615032640}
   m_Layer: 5
   m_Name: Fade
@@ -15735,6 +15736,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1615032641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615032634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05578678ae0c79a41a21341329fbd69e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1622813064
 GameObject:
   m_ObjectHideFlags: 0
@@ -15953,7 +15966,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -25898,7 +25911,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &2043121884
 GameObject:
   m_ObjectHideFlags: 0
