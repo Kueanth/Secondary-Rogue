@@ -19,7 +19,7 @@ public class DeadScreen : MonoBehaviour
 
     public void exitButtonClick()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void editText(int countLevel, int countEnemy, int countMoney)
