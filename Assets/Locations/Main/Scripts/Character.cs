@@ -27,22 +27,23 @@ public class Character : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = movement * 5f;
 
-        if (vertical >= 0.2f || vertical <= -0.2f)
-        {
-            running = true;
-        }
-
         if (horizontal >= 0.2f)
         {
             running = true;
+            flipping = false;
         }
         else if (horizontal <= -0.2f)
         {
             running = true;
+            flipping = true;
         }
         else
         {
-            if (vertical >= 0.2f || vertical <= -0.2f)
+            if (vertical >= 0.2f)
+            {
+                running = true;
+            }
+            else if(vertical <= -0.2f)
             {
                 running = true;
             }
@@ -59,18 +60,6 @@ public class Character : MonoBehaviour
         else
             CharacterAnimator.SetBool("Running", false);
 
-        Vector3 positionPlayer = gameObject.transform.position;
-        Vector3 positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position;
-
-        // A great code for the correct rotation of the character
-        if (positionMouse.x < 0)
-        {
-            flipping = true;
-        }
-        else
-        {
-            flipping = false;
-        }
 
         // flipping character
         if (flipping)
