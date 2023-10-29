@@ -11,7 +11,6 @@ public class AimFollow : IEcsRunSystem, IEcsInitSystem
     public void Init()
     {
         Cursor.SetCursor(configuration.Cursor, Vector2.zero, CursorMode.Auto);
-        Cursor.visible = false;
     }
 
     public void Run()
