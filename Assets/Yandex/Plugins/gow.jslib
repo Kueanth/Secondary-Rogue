@@ -3,7 +3,8 @@
 mergeInto(LibraryManager.library, {
 
   GetDataPlayer: function () {
-    myGameInstance.SendMessage('Initialization Yandex SDK', 'GetData', player.getName());
+    myGameInstance.SendMessage('Fade', 'GetData', player.getName());
+    myGameInstance.SendMessage('Fade', 'SetPhoto', player.getPhoto('medium'));
   },
 
   });

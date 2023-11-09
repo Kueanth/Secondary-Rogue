@@ -11,7 +11,7 @@ public class InitYandex : MonoBehaviour
 
     public void Start()
     {
-        GetDataPlayer();
+        // GetDataPlayer();
     }
 
     public void GetData(string name)
