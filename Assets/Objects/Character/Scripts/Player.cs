@@ -31,6 +31,8 @@ public struct Player
     public bool nearGun;
     public bool nearHp;
 
+    public bool deadforpit;
+
     public Transform transform;
     public Transform chest;
     public Transform hatch;

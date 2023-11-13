@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 
 public class DeadScreen : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class DeadScreen : MonoBehaviour
 
     public Button reloadButton;
 
+    [DllImport("__Internal")]
+    private static extern void ShowAdWithReward();
+    
     public void reloadButtonClick()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -20,6 +24,11 @@ public class DeadScreen : MonoBehaviour
     public void exitButtonClick()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void resurrectionClick()
+    {
+        ShowAdWithReward();
     }
 
     public void editText(int countLevel, int countEnemy, int countMoney)

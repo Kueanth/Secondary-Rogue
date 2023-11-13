@@ -20,6 +20,9 @@ public class InitYandex : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void LoadPlayer();
 
+    [DllImport("__Internal")]
+    private static extern void RateGame();
+
     public void AuthButton()
     {
         AuthPlayer();
@@ -33,6 +36,11 @@ public class InitYandex : MonoBehaviour
             _name.text = name;
             _button.gameObject.SetActive(false);
         }
+    }
+
+    public void RateGameButton()
+    {
+        RateGame();
     }
 
     public void GetPhoto(string url)

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 public class Character : MonoBehaviour
 {
@@ -11,10 +13,14 @@ public class Character : MonoBehaviour
     [SerializeField] private Animator Fade;
     [SerializeField] private Animator CharacterAnimator;
     [SerializeField] private SpriteRenderer CharacterSR;
+    [SerializeField] private Texture2D CursorImage;
+
+    [DllImport("__Internal")]
+    private static extern void OpenLeaderboards();
 
     public void Start()
     {
-        Cursor.visible = false;
+        Cursor.SetCursor(CursorImage, Vector2.zero, CursorMode.Auto);
     }
 
     public void Update()
@@ -80,7 +86,7 @@ public class Character : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.F) && isLeaders)
         {
-            // Empty
+            OpenLeaderboards();
         }
     }
 
@@ -91,7 +97,7 @@ public class Character : MonoBehaviour
             isEnter = true;
         }
 
-        if(collision.name == "Leaders")
+        if(collision.name == "Sign")
         {
             isLeaders = true;
         }
@@ -104,7 +110,7 @@ public class Character : MonoBehaviour
             isEnter = false;
         }
 
-        if (collision.name == "Leaders")
+        if (collision.name == "Sign")
         {
             isLeaders = false;
         }

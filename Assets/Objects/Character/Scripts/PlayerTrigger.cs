@@ -11,6 +11,22 @@ public class PlayerTrigger : MonoBehaviour
     public UI ui;
     public float x, y;
 
+    public void resurrectionPlayer()
+    {
+        ref Player components = ref entity.Get<Player>();
+        ref GunComponents gunComponents = ref entity.Get<GunComponents>();
+
+        ui.deadScreen.deadScreen.GetComponent<Animator>().SetTrigger("Absolut");
+
+        ui.gameScreen.gameScreen.SetActive(true);
+        ui.gameScreen.infoBar.GetComponent<Animator>().enabled = false;
+        components.hp = 3;
+        sceneData.paused = false;
+        ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
+
+        if (components.deadforpit) components.transform.position = components.positionForPit;
+    }
+
     public void OnTriggerEnter2D(Collider2D collider)
     {
         ref Player components = ref entity.Get<Player>();  
@@ -85,12 +101,13 @@ public class PlayerTrigger : MonoBehaviour
             else
             {   
                 GameObject temp = components.playerObject;
+                components.rigidbody2D.velocity = Vector2.zero;
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
                 ui.gameScreen.gameScreen.SetActive(false);
                 ui.deadScreen.deadScreen.SetActive(true);
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
-                temp.SetActive(false);
+                components.deadforpit = true;
             }
         }
     }

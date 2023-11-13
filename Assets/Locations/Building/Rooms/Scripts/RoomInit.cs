@@ -1,5 +1,6 @@
 using UnityEngine;
 using Leopotam.Ecs;
+using System.Runtime.InteropServices;
 
 public class RoomInit : IEcsInitSystem, IEcsRunSystem
 {
@@ -12,6 +13,9 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
     private int meow;
 
     private EcsFilter<RoomDestroy, RoomCreate> _filter;
+
+    [DllImport("__Internal")]
+    private static extern void SetDataInLeaderboards(int value);
 
     public void Init()
     {
@@ -42,6 +46,8 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
         foreach(var meow in _filter)
         {
             ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
+
+            SetDataInLeaderboards(sceneData.countLevel);
 
             sceneData.levelComplete = false;
 

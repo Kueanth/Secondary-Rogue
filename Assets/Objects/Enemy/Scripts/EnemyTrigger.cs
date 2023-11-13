@@ -77,6 +77,7 @@ public class EnemyTrigger : MonoBehaviour
                     hpMaterial.color = new Color32(255, 230, 0, 255);
 
                     hpMainObject.GetComponent<SpriteRenderer>().material = hpMaterial;
+                    Destroy(hpMainObject, 5);
 
                 }
 

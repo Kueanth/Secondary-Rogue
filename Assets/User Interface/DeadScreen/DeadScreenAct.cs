@@ -20,7 +20,7 @@ public class DeadScreenAct : MonoBehaviour
 
     public void adGame()
     {
-
+        gameObject.SetActive(false);
     }
 
     public void reloadGameBar()

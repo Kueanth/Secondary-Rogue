@@ -9,6 +9,8 @@ public class EnemyShoot : MonoBehaviour
     public EcsEntity entityPlayer;
     public EcsEntity entity;
 
+    private SceneData sceneData;
+
     private RaycastHit2D hit;
 
     public void StartAttack()
@@ -18,6 +20,8 @@ public class EnemyShoot : MonoBehaviour
 
     public void Shoot()
     {
+        if (sceneData.paused) return;
+
         ref Player componentsPlayer = ref entityPlayer.Get<Player>();
 
         if (target == null || componentsPlayer.pit) return;
