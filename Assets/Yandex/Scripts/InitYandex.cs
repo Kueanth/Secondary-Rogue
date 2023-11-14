@@ -77,6 +77,7 @@ public class InitYandex : MonoBehaviour
             _button.gameObject.SetActive(false);
             LoadData();
             animatorAuthPlayer.SetTrigger("authComplete");
+            Progress.Instance.InfoInit();
         }
     }
 

@@ -33,14 +33,12 @@ mergeInto(LibraryManager.library, {
     ysdk.adv.showRewardedVideo({
     callbacks: {
         onOpen: () => {
-          console.log('Video ad open.');
         },
         onRewarded: () => {
           console.log('Rewarded!');
           myGameInstance.SendMessage('Initialization - Entity Component System', 'resurrectionPlayer');
         },
         onClose: () => {
-          console.log('Video ad closed.') ;
         }, 
         onError: (e) => {
           console.log('Error while open video ad:', e);

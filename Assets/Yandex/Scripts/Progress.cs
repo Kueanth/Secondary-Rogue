@@ -59,17 +59,17 @@ public class Progress : MonoBehaviour
     {
         PlayerInfoForSave = JsonUtility.FromJson<PlayerInfoForSave>(value);
 
-        info.text = "Сумма количества пройденных этажей: " + PlayerInfoForSave.levels.ToString() + '\n' +
+        info.text = "Количество пройденных этажей: " + PlayerInfoForSave.levels.ToString() + '\n' +
                     "Количество монет: " + PlayerInfoForSave.money.ToString() + '\n' +
-                    "Сумма количества убитых противников: " + PlayerInfoForSave.enemys.ToString();
+                    "Количество убитых противников: " + PlayerInfoForSave.enemys.ToString();
     }
 
     public void InfoInit()
     {
         info = GameObject.FindGameObjectWithTag("Info").GetComponent<TextMeshProUGUI>();
 
-        info.text = "Сумма количества пройденных этажей: " + PlayerInfoForSave.levels.ToString() + '\n' +
+        info.text = "Количество пройденных этажей: " + PlayerInfoForSave.levels.ToString() + '\n' +
                     "Количество монет: " + PlayerInfoForSave.money.ToString() + '\n' +
-                    "Сумма количества убитых противников: " + PlayerInfoForSave.enemys.ToString();
+                    "Количество убитых противников: " + PlayerInfoForSave.enemys.ToString();
     }
 }
