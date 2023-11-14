@@ -48,9 +48,9 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
             ui.gameScreen.infoBar.GetComponent<Animator>().enabled = true;
             ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
 
-            ++Progress.Instance.playerInfoForSave.levels;
+            ++Progress.Instance.PlayerInfoForSave.levels;
 
-            SetDataInLeaderboards(Progress.Instance.playerInfoForSave.levels);
+            SetDataInLeaderboards(Progress.Instance.PlayerInfoForSave.levels);
 
             sceneData.levelComplete = false;
 
