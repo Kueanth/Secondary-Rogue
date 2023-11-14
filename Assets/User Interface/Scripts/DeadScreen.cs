@@ -15,14 +15,16 @@ public class DeadScreen : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern void ShowAdWithReward();
-    
+
     public void reloadButtonClick()
     {
+        Progress.Instance.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void exitButtonClick()
     {
+        Progress.Instance.Save();
         SceneManager.LoadScene(0);
     }
 

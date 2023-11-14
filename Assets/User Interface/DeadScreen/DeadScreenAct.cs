@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,11 +34,13 @@ public class DeadScreenAct : MonoBehaviour
         DeadScreen.SetTrigger("Gow");
     }
 
+    [System.Obsolete]
     public void exitGameEnd()
     {
         SceneManager.LoadScene(0);
     }
 
+    [System.Obsolete]
     public void reloadGameEnd()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -42,4 +42,10 @@ public class SceneData : MonoBehaviour
     public GameObject[] hatchs;
 
     public bool paused = false;
+
+    public void resurrectionPlayer()
+    {
+        playerObject.SetActive(true);
+        playerObject.GetComponent<PlayerTrigger>().resurrectionPlayer();
+    }
 }

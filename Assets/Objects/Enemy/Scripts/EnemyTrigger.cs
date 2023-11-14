@@ -40,7 +40,9 @@ public class EnemyTrigger : MonoBehaviour
             {
                 sceneData.enemyCount -= 1;
                 sceneData.countKillEnemy += 1;
+                ++Progress.Instance.playerInfoForSave.enemys;
                 money.money += components.money;
+                Progress.Instance.playerInfoForSave.money += components.money;
                 ui.gameScreen.InitMoney(money.money);
 
                 if (sceneData.enemyCount == 0)

@@ -21,7 +21,21 @@ public class InitYandex : MonoBehaviour
     private static extern void LoadPlayer();
 
     [DllImport("__Internal")]
+    private static extern void LoadData();
+
+    [DllImport("__Internal")]
     private static extern void RateGame();
+
+    private void Awake()
+    {
+        if (Progress.Instance.playerInfoForGame.auth)
+        {
+            _button.gameObject.SetActive(false);
+            _name.text = Progress.Instance.playerInfoForGame.name;
+            _photo.texture = Progress.Instance.playerInfoForGame.icon;
+            animatorAuthPlayer.SetTrigger("authComplete");
+        }
+    }
 
     public void AuthButton()
     {
@@ -35,6 +49,7 @@ public class InitYandex : MonoBehaviour
         {
             _name.text = name;
             _button.gameObject.SetActive(false);
+            Progress.Instance.playerInfoForGame.name = name;
         }
     }
 
@@ -57,7 +72,9 @@ public class InitYandex : MonoBehaviour
         else if(_name.text != "")
         {
             _photo.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            Progress.Instance.playerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
             _button.gameObject.SetActive(false);
+            LoadData();
             animatorAuthPlayer.SetTrigger("authComplete");
         }
     }
@@ -66,6 +83,7 @@ public class InitYandex : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         LoadPlayer();
+        Progress.Instance.playerInfoForGame.auth = true;
         yield break;
     }
 }

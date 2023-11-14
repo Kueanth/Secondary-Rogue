@@ -14,6 +14,8 @@ public class GameScreen : MonoBehaviour
     public Image infoBar;
     public GameObject gameScreen;
 
+    public GameObject Player;
+
     public TextMeshProUGUI money;
 
     public Vector2 startPosition;

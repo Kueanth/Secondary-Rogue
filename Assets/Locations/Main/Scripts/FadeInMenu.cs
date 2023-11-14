@@ -12,4 +12,10 @@ public class FadeInMenu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    [System.Obsolete]
+    public void adView()
+    {
+        Application.ExternalCall("ShowAdWithoutReward");
+    }
 }

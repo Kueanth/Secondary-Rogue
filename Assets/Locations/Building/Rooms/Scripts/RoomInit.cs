@@ -45,9 +45,12 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
     {
         foreach(var meow in _filter)
         {
+            ui.gameScreen.infoBar.GetComponent<Animator>().enabled = true;
             ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
 
-            SetDataInLeaderboards(sceneData.countLevel);
+            ++Progress.Instance.playerInfoForSave.levels;
+
+            SetDataInLeaderboards(Progress.Instance.playerInfoForSave.levels);
 
             sceneData.levelComplete = false;
 

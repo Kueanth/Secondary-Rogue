@@ -3,6 +3,7 @@ using Leopotam.Ecs;
 using System.Collections;
 using System.Threading;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 public class PlayerTrigger : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class PlayerTrigger : MonoBehaviour
         ui.deadScreen.deadScreen.GetComponent<Animator>().SetTrigger("Absolut");
 
         ui.gameScreen.gameScreen.SetActive(true);
-        ui.gameScreen.infoBar.GetComponent<Animator>().enabled = false;
         components.hp = 3;
         sceneData.paused = false;
         ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
@@ -27,6 +27,7 @@ public class PlayerTrigger : MonoBehaviour
         if (components.deadforpit) components.transform.position = components.positionForPit;
     }
 
+    [System.Obsolete]
     public void OnTriggerEnter2D(Collider2D collider)
     {
         ref Player components = ref entity.Get<Player>();  
@@ -108,6 +109,7 @@ public class PlayerTrigger : MonoBehaviour
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
                 components.deadforpit = true;
+                components.playerObject.SetActive(false);
             }
         }
     }

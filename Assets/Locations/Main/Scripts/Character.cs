@@ -15,9 +15,6 @@ public class Character : MonoBehaviour
     [SerializeField] private SpriteRenderer CharacterSR;
     [SerializeField] private Texture2D CursorImage;
 
-    [DllImport("__Internal")]
-    private static extern void OpenLeaderboards();
-
     public void Start()
     {
         Cursor.SetCursor(CursorImage, Vector2.zero, CursorMode.Auto);
@@ -86,7 +83,7 @@ public class Character : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.F) && isLeaders)
         {
-            OpenLeaderboards();
+            ;
         }
     }
 

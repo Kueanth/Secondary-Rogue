@@ -1,5 +1,6 @@
 using UnityEngine;
 using Leopotam.Ecs;
+using System.Runtime.InteropServices;
 
 public class BodyTrigger : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class BodyTrigger : MonoBehaviour
     public SceneData sceneData;
     public UI ui;
 
+    [System.Obsolete]
     public void OnTriggerEnter2D(Collider2D collider)
     {
         ref Player components = ref entity.Get<Player>();
@@ -33,6 +35,7 @@ public class BodyTrigger : MonoBehaviour
                 ui.deadScreen.deadScreen.SetActive(true);
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
+                components.playerObject.SetActive(false);
             }
         }
     }
