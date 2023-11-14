@@ -9,7 +9,7 @@ public class EnemyShoot : MonoBehaviour
     public EcsEntity entityPlayer;
     public EcsEntity entity;
 
-    private SceneData sceneData;
+    public SceneData sceneData;
 
     private RaycastHit2D hit;
 

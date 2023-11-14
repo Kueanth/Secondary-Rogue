@@ -26,7 +26,7 @@ public class InitYandex : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void RateGame();
 
-    private void Awake()
+    private void Start()
     {
         if (Progress.Instance.PlayerInfoForGame.auth)
         {
@@ -34,6 +34,7 @@ public class InitYandex : MonoBehaviour
             _name.text = Progress.Instance.PlayerInfoForGame.name;
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
+            Progress.Instance.InfoInit();
         }
     }
 

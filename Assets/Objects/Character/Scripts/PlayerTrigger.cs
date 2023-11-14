@@ -18,13 +18,17 @@ public class PlayerTrigger : MonoBehaviour
         ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
         ui.deadScreen.deadScreen.GetComponent<Animator>().SetTrigger("Absolut");
-
         ui.gameScreen.gameScreen.SetActive(true);
+
         components.hp = 3;
         sceneData.paused = false;
         ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
 
-        if (components.deadforpit) components.transform.position = components.positionForPit;
+        if (components.deadforpit)
+        {
+            components.transform.position = components.positionForPit;
+            components.deadforpit = false;
+        }
     }
 
     [System.Obsolete]

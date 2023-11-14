@@ -53,6 +53,7 @@ mergeInto(LibraryManager.library, {
         var dateString = UTF8ToString(date);
         var myobj = JSON.parse(dateString);
         player.setData(myobj);
+        console.log("SaveData");
     },
 
     LoadData : function() {

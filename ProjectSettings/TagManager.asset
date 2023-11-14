@@ -13,6 +13,7 @@ TagManager:
   - Pit
   - Chest
   - Lazer
+  - Info
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
     public void Start()
     {
         Cursor.SetCursor(CursorImage, Vector2.zero, CursorMode.Auto);
+        Progress.Instance.InfoInit();
     }
 
     public void Update()

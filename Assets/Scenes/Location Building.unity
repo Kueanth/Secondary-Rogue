@@ -3054,6 +3054,7 @@ MonoBehaviour:
   bar: {fileID: 493355396}
   infoBar: {fileID: 503322089}
   gameScreen: {fileID: 1842580563}
+  Player: {fileID: 0}
   money: {fileID: 1457283815}
   startPosition: {x: 0, y: 0}
   textMeshPro: {fileID: 1868980952}
