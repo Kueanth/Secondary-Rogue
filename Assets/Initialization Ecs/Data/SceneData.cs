@@ -46,6 +46,6 @@ public class SceneData : MonoBehaviour
     public void resurrectionPlayer()
     {
         playerObject.SetActive(true);
-        playerObject.GetComponent<PlayerTrigger>().resurrectionPlayer();
+        playerObject.GetComponentInChildren<PlayerTrigger>().resurrectionPlayer();
     }
 }

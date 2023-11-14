@@ -28,11 +28,11 @@ public class InitYandex : MonoBehaviour
 
     private void Awake()
     {
-        if (Progress.Instance.playerInfoForGame.auth)
+        if (Progress.Instance.PlayerInfoForGame.auth)
         {
             _button.gameObject.SetActive(false);
-            _name.text = Progress.Instance.playerInfoForGame.name;
-            _photo.texture = Progress.Instance.playerInfoForGame.icon;
+            _name.text = Progress.Instance.PlayerInfoForGame.name;
+            _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
         }
     }
@@ -49,7 +49,7 @@ public class InitYandex : MonoBehaviour
         {
             _name.text = name;
             _button.gameObject.SetActive(false);
-            Progress.Instance.playerInfoForGame.name = name;
+            Progress.Instance.PlayerInfoForGame.name = name;
         }
     }
 
@@ -72,7 +72,7 @@ public class InitYandex : MonoBehaviour
         else if(_name.text != "")
         {
             _photo.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            Progress.Instance.playerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
             _button.gameObject.SetActive(false);
             LoadData();
             animatorAuthPlayer.SetTrigger("authComplete");
@@ -83,7 +83,7 @@ public class InitYandex : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         LoadPlayer();
-        Progress.Instance.playerInfoForGame.auth = true;
+        Progress.Instance.PlayerInfoForGame.auth = true;
         yield break;
     }
 }

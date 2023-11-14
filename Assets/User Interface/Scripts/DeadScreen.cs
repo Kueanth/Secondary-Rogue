@@ -30,6 +30,7 @@ public class DeadScreen : MonoBehaviour
 
     public void resurrectionClick()
     {
+        Progress.Instance.Save();
         ShowAdWithReward();
     }
 
