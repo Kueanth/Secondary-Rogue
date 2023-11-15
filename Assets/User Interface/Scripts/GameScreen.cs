@@ -14,6 +14,10 @@ public class GameScreen : MonoBehaviour
     public Image infoBar;
     public GameObject gameScreen;
 
+    [SerializeField] private GameObject authPlayer;
+    [SerializeField] private TextMeshProUGUI namePlayer;
+    [SerializeField] private RawImage icon;
+
     public GameObject Player;
 
     public TextMeshProUGUI money;
@@ -23,6 +27,20 @@ public class GameScreen : MonoBehaviour
     public TextMeshProUGUI textMeshPro;
 
     public EcsEntity entity;
+
+    private void Awake()
+    {
+        if (Progress.Instance.PlayerInfoForGame.auth)
+        {
+            authPlayer.SetActive(true);
+            namePlayer.text = Progress.Instance.PlayerInfoForGame.name;
+            icon.texture = Progress.Instance.PlayerInfoForGame.icon;
+        }
+        else
+        {
+            authPlayer.SetActive(false);
+        }
+    }
 
     public void ShootUpdate(ref int ammo, ref int store)
     {
