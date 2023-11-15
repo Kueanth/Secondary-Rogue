@@ -19,6 +19,7 @@ public class PlayerTrigger : MonoBehaviour
 
         ui.deadScreen.deadScreen.GetComponent<Animator>().SetTrigger("Absolut");
         ui.gameScreen.gameScreen.SetActive(true);
+        ui.gameScreen.infoBar.GetComponent<Animator>().Play("New State");
 
         components.hp = 3;
         sceneData.paused = false;

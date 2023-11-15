@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ca681dd359fa64186781a36d3bd02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &55593130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,6 +2531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ca681dd359fa64186781a36d3bd02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!95 &1288193707
 Animator:
   serializedVersion: 4

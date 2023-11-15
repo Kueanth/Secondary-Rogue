@@ -78,6 +78,7 @@ public class HatchTrigger : MonoBehaviour
         hatchComponents.open = false;
 
         ui.gameScreen.fade.GetComponent<Animator>().SetTrigger("Meow");
+        ui.gameScreen.fade.GetComponent<FadeNextRoom>().animator = ui.gameScreen.infoBar.GetComponent<Animator>();
 
         sceneData.countLevel += 1;
     }
