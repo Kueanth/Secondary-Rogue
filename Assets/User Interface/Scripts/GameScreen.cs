@@ -30,7 +30,7 @@ public class GameScreen : MonoBehaviour
 
     private void Awake()
     {
-        if (Progress.Instance.PlayerInfoForGame.auth)
+        if (Progress.Instance.PlayerInfoForGame.auth && Progress.Instance.PlayerInfoForGame.name != "")
         {
             authPlayer.SetActive(true);
             namePlayer.text = Progress.Instance.PlayerInfoForGame.name;

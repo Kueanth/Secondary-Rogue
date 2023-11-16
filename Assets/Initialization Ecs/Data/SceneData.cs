@@ -8,6 +8,8 @@ public class SceneData : MonoBehaviour
     public EcsEntity roomEntity;
     public EcsEntity gunEntity;
 
+    public UI ui;
+
     public Vector2 playerSpawnPoint;
 
     public float playerSpeed;
@@ -45,6 +47,7 @@ public class SceneData : MonoBehaviour
 
     public void resurrectionPlayer()
     {
+        ui.deadScreen.deadScreen.GetComponent<Animator>().SetTrigger("Absolut");
         playerObject.SetActive(true);
         playerObject.GetComponentInChildren<PlayerTrigger>().resurrectionPlayer();
     }

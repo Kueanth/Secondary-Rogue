@@ -17,7 +17,6 @@ public class PlayerTrigger : MonoBehaviour
         ref Player components = ref entity.Get<Player>();
         ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
-        ui.deadScreen.deadScreen.GetComponent<Animator>().SetTrigger("Absolut");
         ui.gameScreen.gameScreen.SetActive(true);
         ui.gameScreen.infoBar.GetComponent<Animator>().Play("New State");
 
