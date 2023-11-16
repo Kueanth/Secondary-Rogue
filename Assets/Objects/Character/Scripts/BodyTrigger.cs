@@ -13,12 +13,6 @@ public class BodyTrigger : MonoBehaviour
     {
         ref Player components = ref entity.Get<Player>();
 
-        if (collider.tag == "Chest")
-        {
-            components.nearChest = true;
-            components.chest = collider.transform;
-        }
-
         if (collider.gameObject.tag == "EnemyBullet")
         {
             components.hp -= 1;
@@ -37,16 +31,6 @@ public class BodyTrigger : MonoBehaviour
                 sceneData.paused = true;
                 components.playerObject.SetActive(false);
             }
-        }
-    }
-
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        ref Player components = ref entity.Get<Player>();
-
-        if (collision.tag == "Chest")
-        {
-            components.nearChest = false;
         }
     }
 }

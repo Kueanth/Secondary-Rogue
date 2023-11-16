@@ -30,7 +30,7 @@ public class ChestTrigger : MonoBehaviour
             material.SetVector("_Up", new Vector2(0f, 0.8f));
             material.SetVector("_Down", new Vector2(0f, -0.8f));
 
-            components.chest = this.transform;
+            components.chest = null;
             components.nearChest = false;
         }
         else if (collision.tag == "Player" && !chestComponents.open)
@@ -64,7 +64,7 @@ public class ChestTrigger : MonoBehaviour
             material.SetVector("_Up", new Vector2(0f, 0f));
             material.SetVector("_Down", new Vector2(0f, 0f));
 
-            components.chest = this.transform;
+            components.chest = null;
             components.nearChest = false;
         }
     }

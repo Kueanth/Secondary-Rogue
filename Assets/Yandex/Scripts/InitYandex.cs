@@ -14,6 +14,10 @@ public class InitYandex : MonoBehaviour
 
     [SerializeField] private Animator animatorAuthPlayer;
 
+    [SerializeField] private Animator _authPlayer;
+
+    [SerializeField] private Animator auth;
+
     [DllImport("__Internal")]
     private static extern void AuthPlayer();
 
@@ -35,6 +39,7 @@ public class InitYandex : MonoBehaviour
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
             Progress.Instance.InfoInit();
+            _authPlayer.enabled = false;
         }
     }
 
@@ -42,6 +47,12 @@ public class InitYandex : MonoBehaviour
     {
         AuthPlayer();
         StartCoroutine(LoadPlayerCoroutine());
+    }
+
+    public void CloseAuthBar()
+    {
+        _authPlayer.Play("CloseAuthBar");
+        auth.Play("AuthButtonInit");
     }
 
     public void GetName(string name)
@@ -77,6 +88,7 @@ public class InitYandex : MonoBehaviour
             _button.gameObject.SetActive(false);
             LoadData();
             animatorAuthPlayer.SetTrigger("authComplete");
+            if (_authPlayer.enabled) _authPlayer.Play("CloseAuthBar");
             Progress.Instance.InfoInit();
         }
     }

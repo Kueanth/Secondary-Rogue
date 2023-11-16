@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class FadeInMenu : MonoBehaviour
 {
+    [SerializeField] private Animator auth;
+
     public void loadScene()
     {
         SceneManager.LoadScene(1);
@@ -17,5 +19,10 @@ public class FadeInMenu : MonoBehaviour
     public void adView()
     {
         Application.ExternalCall("ShowAdWithoutReward");
+    }
+
+    public void ViewAuthBar()
+    {
+        auth.Play("OpenAuthBar");
     }
 }
