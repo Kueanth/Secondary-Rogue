@@ -18,20 +18,19 @@ public class DeadScreen : MonoBehaviour
 
     public void reloadButtonClick()
     {
-        Progress.Instance.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void exitButtonClick()
     {
-        Progress.Instance.Save();
         SceneManager.LoadScene(0);
     }
 
     public void resurrectionClick()
     {
-        Progress.Instance.Save();
+#if UNITY_WEBGL
         ShowAdWithReward();
+#endif  
     }
 
     public void editText(int countLevel, int countEnemy, int countMoney)

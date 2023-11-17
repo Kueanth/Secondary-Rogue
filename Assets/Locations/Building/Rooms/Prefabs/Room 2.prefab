@@ -15610,23 +15610,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 966963622672908581, guid: 2a58479dc50a0e3408faf160be6fc70a, type: 3}
       propertyPath: m_Intensity
-      value: 2.55
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 966963622672908581, guid: 2a58479dc50a0e3408faf160be6fc70a, type: 3}
       propertyPath: m_PointLightInnerAngle
-      value: 180.56
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 966963622672908581, guid: 2a58479dc50a0e3408faf160be6fc70a, type: 3}
       propertyPath: m_PointLightOuterAngle
-      value: 180.56
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 966963622672908581, guid: 2a58479dc50a0e3408faf160be6fc70a, type: 3}
       propertyPath: m_PointLightInnerRadius
-      value: 0.38
+      value: 0.32522035
       objectReference: {fileID: 0}
     - target: {fileID: 966963622672908581, guid: 2a58479dc50a0e3408faf160be6fc70a, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 0.7655593
+      value: 4.575042
       objectReference: {fileID: 0}
     - target: {fileID: 966963622672908582, guid: 2a58479dc50a0e3408faf160be6fc70a, type: 3}
       propertyPath: m_LocalRotation.w

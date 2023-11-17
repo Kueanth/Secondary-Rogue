@@ -113,7 +113,6 @@ public class PlayerTrigger : MonoBehaviour
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
                 components.deadforpit = true;
-                components.playerObject.SetActive(false);
             }
         }
     }

@@ -18,8 +18,6 @@ public class GameScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI namePlayer;
     [SerializeField] private RawImage icon;
 
-    public GameObject Player;
-
     public TextMeshProUGUI money;
 
     public Vector2 startPosition;

@@ -6,7 +6,6 @@ public class PlayerInit : IEcsInitSystem
 {
     private SceneData sceneData;
     private StaticData configuration;
-    private GunArray gunArray;
     private UI ui;
 
     private EcsFilter<RoomDestroy> _filter;

@@ -48,7 +48,6 @@ public class SceneData : MonoBehaviour
     public void resurrectionPlayer()
     {
         ui.deadScreen.deadScreen.GetComponent<Animator>().SetTrigger("Absolut");
-        playerObject.SetActive(true);
         playerObject.GetComponentInChildren<PlayerTrigger>().resurrectionPlayer();
     }
 }
