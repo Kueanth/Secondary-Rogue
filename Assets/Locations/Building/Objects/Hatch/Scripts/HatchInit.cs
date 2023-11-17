@@ -20,7 +20,7 @@ public class HatchInit : IEcsInitSystem, IEcsRunSystem
         foreach (var hatch in sceneData.positionsHatchs)
         {
             if (hatch.name == "SpawnHatch") continue;
-            
+
             EcsEntity hatchEntity = _world.NewEntity();
 
             ref Hatch hatchComponents = ref hatchEntity.Get<Hatch>();

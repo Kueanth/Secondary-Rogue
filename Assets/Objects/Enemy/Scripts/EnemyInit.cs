@@ -115,11 +115,12 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
 
                 enemyObject.GetComponent<EnemyShoot>().entity = enemy;
                 enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
-                enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
                 enemyObject.GetComponent<EnemyShoot>().sceneData = sceneData;
-                enemyObject.GetComponent<EnemyTrigger>().hpObject = components.hpObject;
+                enemyObject.GetComponent<EnemyTrigger>().gunEntity = sceneData.gunEntity;
+                enemyObject.GetComponent<EnemyTrigger>().entity = enemy;
                 enemyObject.GetComponent<EnemyTrigger>().sceneData = sceneData;
                 enemyObject.GetComponent<EnemyTrigger>().ui = ui;
+                enemyObject.GetComponent<EnemyTrigger>().hpObject = components.hpObject;
                 enemyObject.GetComponent<EnemyTrigger>().money = money;
 
                 components.targets = i.transform.GetComponentsInChildren<Transform>();

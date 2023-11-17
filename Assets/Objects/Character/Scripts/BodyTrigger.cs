@@ -29,6 +29,7 @@ public class BodyTrigger : MonoBehaviour
                 ui.deadScreen.deadScreen.SetActive(true);
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
+                components.animator.Play("Dead 2");
             }
         }
     }

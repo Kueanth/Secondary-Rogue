@@ -73,8 +73,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
 
                 int random = Random.Range(0, 2);
 
-                if (random != 0)
-                    continue;
+                if (random != 0) continue;
 
                 EcsEntity chestEntity = _world.NewEntity();
 
@@ -92,9 +91,10 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
                 chestComponents.open = false;
                 chestComponents.animator = chestObject.GetComponent<Animator>();
 
-                chestObject.GetComponentInChildren<ChestTrigger>().entity = chestEntity;
-
                 chestObject.GetComponentInChildren<ChestTrigger>().ui = ui;
+
+                chestObject.GetComponentInChildren<ChestTrigger>().entity = chestEntity;
+                chestObject.GetComponentInChildren<ChestTrigger>().sceneData = sceneData;
                 chestObject.GetComponentInChildren<ChestTrigger>().entityGun = sceneData.playerEntity;
 
                 chestObject.transform.SetParent(chest);
@@ -109,9 +109,6 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
                 chestMaterial.color = new Color32(0, 0, 0, 0);
 
                 chestObject.GetComponent<SpriteRenderer>().material = chestMaterial;
-
-                EcsEntity roomEntity = _filter.GetEntity(meow);
-                roomEntity.Del<RoomCreate>();
             }
 
             roomEntity = _filter.GetEntity(0);

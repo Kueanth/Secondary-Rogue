@@ -34,6 +34,8 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
         sceneData.roomEntity = entity;
 
+        sceneData.enemyCount = 0;
+
         gow.room = roomObject;
 
         sceneData.posChest = roomObject.transform.Find("SpawnChest");

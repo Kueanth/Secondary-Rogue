@@ -23,7 +23,7 @@ public class PlayerTrigger : MonoBehaviour
         components.hp = 3;
         sceneData.paused = false;
         ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
-
+        components.animator.SetTrigger("Refuse");
         if (components.deadforpit)
         {
             components.transform.position = components.positionForPit;
@@ -113,6 +113,7 @@ public class PlayerTrigger : MonoBehaviour
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
                 components.deadforpit = true;
+                components.animator.Play("Refuse");
             }
         }
     }
