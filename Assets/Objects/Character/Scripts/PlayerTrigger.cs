@@ -18,12 +18,16 @@ public class PlayerTrigger : MonoBehaviour
         ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
         ui.gameScreen.gameScreen.SetActive(true);
-        ui.gameScreen.infoBar.GetComponent<Animator>().Play("New State");
+        
+        if(!sceneData.levelComplete) ui.gameScreen.infoBar.GetComponent<Animator>().Play("New State");
 
         components.hp = 3;
         sceneData.paused = false;
+
+        components.animator.SetTrigger("End");
+
         ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
-        components.animator.SetTrigger("Refuse");
+
         if (components.deadforpit)
         {
             components.transform.position = components.positionForPit;
@@ -41,7 +45,7 @@ public class PlayerTrigger : MonoBehaviour
         {
             components.hp -= 1;
 
-            if (components.hp != 0)
+            if (components.hp > 0)
             {
                 components.vignetteEffect.SetTrigger("Effect");
 
@@ -100,6 +104,7 @@ public class PlayerTrigger : MonoBehaviour
 
                 components.pit = true;
                 components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = false;
+                components.animator.SetTrigger("Refuse");
                 StartCoroutine(Animation(components, gunComponents));
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
             }
@@ -113,7 +118,7 @@ public class PlayerTrigger : MonoBehaviour
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
                 components.deadforpit = true;
-                components.animator.Play("Refuse");
+                components.animator.SetTrigger("Refuse");
             }
         }
     }
@@ -128,12 +133,6 @@ public class PlayerTrigger : MonoBehaviour
                 EndAnimation();
                 yield break;
             }
-
-            components.playerObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
-            gunComponents.gun.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
-
-            components.playerObject.GetComponentInChildren<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.2f);
-            gunComponents.gun.GetComponent<SpriteRenderer>().color -= new Color(0f, 0f, 0f, 0.2f);
 
             yield return new WaitForSeconds(.06f);
         }
@@ -150,11 +149,7 @@ public class PlayerTrigger : MonoBehaviour
 
         components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
 
-        components.playerObject.transform.localScale = new Vector3(1f, 1f, 1f);
-        gunComponents.gun.transform.localScale = new Vector3(1f, 1f, 1f);
-
-        components.playerObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        gunComponents.gun.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        components.animator.SetTrigger("End");
 
         return;
     }

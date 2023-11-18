@@ -40,6 +40,8 @@ public class PlayerInput : IEcsRunSystem
             if (Input.GetKeyDown(KeyCode.F) && components.nearChest)
             {
                 components.chest.GetComponent<ChestTrigger>().OpenChest();
+                components.nearChest = false;
+                components.chest = null;
             }
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearHatch)

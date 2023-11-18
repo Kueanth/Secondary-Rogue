@@ -3339,7 +3339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
   playerSpawnPoint: {x: -14, y: 4}
-  playerSpeed: 4
+  playerSpeed: 5
   enemyCount: 0
   countKillEnemy: 0
   playerObject: {fileID: 0}

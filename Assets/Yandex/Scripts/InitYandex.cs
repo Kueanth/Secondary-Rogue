@@ -18,6 +18,8 @@ public class InitYandex : MonoBehaviour
 
     [SerializeField] private Animator auth;
 
+    [SerializeField] private GameObject loading;
+
     [DllImport("__Internal")]
     private static extern void AuthPlayer();
 
@@ -45,6 +47,8 @@ public class InitYandex : MonoBehaviour
 
     public void AuthButton()
     {
+        Progress.Instance.paused = true;
+        loading.SetActive(true);
         AuthPlayer();
         StartCoroutine(LoadPlayerCoroutine());
     }
@@ -67,7 +71,14 @@ public class InitYandex : MonoBehaviour
 
     public void RateGameButton()
     {
-        RateGame();
+        if (Progress.Instance.PlayerInfoForGame.auth)
+        {
+            RateGame();
+        }
+        else
+        {
+            _authPlayer.Play("OpenAuthBar");
+        }
     }
 
     public void GetPhoto(string url)
@@ -98,6 +109,8 @@ public class InitYandex : MonoBehaviour
         yield return new WaitForSeconds(3);
         LoadPlayer();
         Progress.Instance.PlayerInfoForGame.auth = true;
+        loading.SetActive(false);
+        Progress.Instance.paused = false;
         yield break;
     }
 }

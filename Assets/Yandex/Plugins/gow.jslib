@@ -42,7 +42,7 @@ mergeInto(LibraryManager.library, {
         }, 
         onError: (e) => {
           console.log('Error while open video ad:', e);
-        }
+        }   
     }
 })
   },
@@ -60,5 +60,4 @@ mergeInto(LibraryManager.library, {
           myGameInstance.SendMessage('Progress', 'Load', myJSON);
         });
     },
-
   });

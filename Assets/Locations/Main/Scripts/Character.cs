@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Animator CharacterAnimator;
     [SerializeField] private SpriteRenderer CharacterSR;
     [SerializeField] private Texture2D CursorImage;
+    [SerializeField] private GameObject FadeObject;
 
     public void Start()
     {
@@ -24,68 +25,72 @@ public class Character : MonoBehaviour
 
     public void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector2 movement = new Vector2(horizontal, vertical);
-        movement.Normalize();
-
-        GetComponent<Rigidbody2D>().velocity = movement * 5f;
-
-        if (horizontal >= 0.2f)
+        if (!Progress.Instance.paused)
         {
-            running = true;
-            flipping = false;
-        }
-        else if (horizontal <= -0.2f)
-        {
-            running = true;
-            flipping = true;
-        }
-        else
-        {
-            if (vertical >= 0.2f)
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
+
+            Vector2 movement = new Vector2(horizontal, vertical);
+            movement.Normalize();
+
+            GetComponent<Rigidbody2D>().velocity = movement * 5f;
+
+            if (horizontal >= 0.2f)
             {
                 running = true;
+                flipping = false;
             }
-            else if(vertical <= -0.2f)
+            else if (horizontal <= -0.2f)
             {
                 running = true;
+                flipping = true;
             }
             else
             {
-                running = false;
+                if (vertical >= 0.2f)
+                {
+                    running = true;
+                }
+                else if (vertical <= -0.2f)
+                {
+                    running = true;
+                }
+                else
+                {
+                    running = false;
+                }
             }
-        }
 
-        // Set bool for animator
-        if (running)
+            // Set bool for animator
+            if (running)
 
-            CharacterAnimator.SetBool("Running", true);
-        else
-            CharacterAnimator.SetBool("Running", false);
+                CharacterAnimator.SetBool("Running", true);
+            else
+                CharacterAnimator.SetBool("Running", false);
 
 
-        // flipping character
-        if (flipping)
-        {
-            CharacterSR.flipX = true;
+            // flipping character
+            if (flipping)
+            {
+                CharacterSR.flipX = true;
 
-        }
-        else if (!flipping)
-        {
-            CharacterSR.flipX = false;
-        }
+            }
+            else if (!flipping)
+            {
+                CharacterSR.flipX = false;
+            }
 
-        if (Input.GetKeyDown(KeyCode.F) && isEnter)
-        {
-            Fade.SetTrigger("Meow");
-            isEnter = false;
-        }
+            if (Input.GetKeyDown(KeyCode.F) && isEnter)
+            {
+                FadeObject.transform.SetAsLastSibling();
+                Fade.SetTrigger("Meow");
+                isEnter = false;
+            }
 
-        if(Input.GetKeyDown(KeyCode.F) && isLeaders)
-        {
+            if (Input.GetKeyDown(KeyCode.F) && isLeaders)
+            {
 
+            }
         }
     }
 

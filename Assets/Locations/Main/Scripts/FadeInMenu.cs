@@ -9,6 +9,21 @@ using UnityEngine.UI;
 public class FadeInMenu : MonoBehaviour
 {
     [SerializeField] private Animator auth;
+    [SerializeField] private GameObject player;
+
+    public void SetSubling(int number)
+    {
+        switch (number)
+        {
+            case 1:
+                transform.SetAsLastSibling();
+                break;
+
+            case 2:
+                transform.SetAsFirstSibling();
+                break;
+        }
+    }
 
     public void loadScene()
     {
@@ -23,6 +38,8 @@ public class FadeInMenu : MonoBehaviour
 
     public void ViewAuthBar()
     {
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         auth.Play("OpenAuthBar");
+        transform.SetAsFirstSibling();
     }
 }

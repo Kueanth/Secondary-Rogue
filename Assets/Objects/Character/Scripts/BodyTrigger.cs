@@ -17,7 +17,7 @@ public class BodyTrigger : MonoBehaviour
         {
             components.hp -= 1;
 
-            if (components.hp != 0)
+            if (components.hp > 0)
             {
                 components.vignetteEffect.SetTrigger("Effect");
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
@@ -29,7 +29,8 @@ public class BodyTrigger : MonoBehaviour
                 ui.deadScreen.deadScreen.SetActive(true);
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
-                components.animator.Play("Dead 2");
+                components.animator.SetTrigger("Refuse");
+                components.rigidbody2D.velocity = Vector2.zero;
             }
         }
     }

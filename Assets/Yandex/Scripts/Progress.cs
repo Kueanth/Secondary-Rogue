@@ -33,6 +33,8 @@ public class Progress : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI info;
 
+    public bool paused;
+
     public static Progress Instance;
 
     private void Awake()
