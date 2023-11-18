@@ -52,7 +52,9 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
             ++Progress.Instance.PlayerInfoForSave.levels;
 
+#if UNITY_WEBGL
             SetDataInLeaderboards(Progress.Instance.PlayerInfoForSave.levels);
+#endif
 
             sceneData.levelComplete = false;
 

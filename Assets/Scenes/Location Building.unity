@@ -3539,6 +3539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMeshProUGUI: {fileID: 138445983}
   fade: {fileID: 1288193708}
+  player: {fileID: 0}
   deadScreen: {fileID: 532043941}
   reloadButton: {fileID: 254500018}
 --- !u!114 &1862044587

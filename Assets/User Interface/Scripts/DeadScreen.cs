@@ -18,11 +18,6 @@ public class DeadScreen : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void ShowAdWithReward();
 
-    public void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
     public void reloadButtonClick()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -35,9 +30,8 @@ public class DeadScreen : MonoBehaviour
 
     public void resurrectionClick()
     {
-        player.GetComponentInChildren<PlayerTrigger>().resurrectionPlayer();
 #if UNITY_WEBGL
-        //ShowAdWithReward();
+        ShowAdWithReward();
 #endif 
     }
 

@@ -98,8 +98,7 @@ public class GameScreen : MonoBehaviour
 
     public void EditInfoBar(string text)
     {
-        if(infoBar.GetComponentInChildren<TextMeshProUGUI>().enabled)
-            infoBar.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        infoBar.GetComponentInChildren<TextMeshProUGUI>().text = text;
 
         infoBar.GetComponent<Animator>().SetTrigger("SetBar");
     }
