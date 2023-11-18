@@ -9,12 +9,19 @@ public class DeadScreen : MonoBehaviour
     public TextMeshProUGUI textMeshProUGUI;
     public Image fade;
 
+    [SerializeField] GameObject player;
+
     public GameObject deadScreen;
 
     public Button reloadButton;
 
     [DllImport("__Internal")]
     private static extern void ShowAdWithReward();
+
+    public void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     public void reloadButtonClick()
     {
@@ -28,9 +35,10 @@ public class DeadScreen : MonoBehaviour
 
     public void resurrectionClick()
     {
+        player.GetComponentInChildren<PlayerTrigger>().resurrectionPlayer();
 #if UNITY_WEBGL
-        ShowAdWithReward();
-#endif  
+        //ShowAdWithReward();
+#endif 
     }
 
     public void editText(int countLevel, int countEnemy, int countMoney)

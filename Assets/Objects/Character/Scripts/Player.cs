@@ -5,6 +5,8 @@ public struct Player
 {
     public int hp;
 
+    public bool dead;
+
     public bool particleRun;
 
     public GameObject playerObject;
