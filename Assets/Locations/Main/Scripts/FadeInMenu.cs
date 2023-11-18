@@ -27,6 +27,7 @@ public class FadeInMenu : MonoBehaviour
 
     public void loadScene()
     {
+        Progress.Instance.enter = false;
         SceneManager.LoadScene(1);
     }
 
@@ -38,8 +39,11 @@ public class FadeInMenu : MonoBehaviour
 
     public void ViewAuthBar()
     {
-        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        auth.Play("OpenAuthBar");
-        transform.SetAsFirstSibling();
+        if (!Progress.Instance.enter && !Progress.Instance.PlayerInfoForGame.auth)
+        {
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            auth.Play("OpenAuthBar");
+            transform.SetAsFirstSibling();
+        }
     }
 }

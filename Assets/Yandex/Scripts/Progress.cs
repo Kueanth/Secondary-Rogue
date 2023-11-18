@@ -35,6 +35,8 @@ public class Progress : MonoBehaviour
 
     public bool paused;
 
+    public bool enter;
+
     public static Progress Instance;
 
     private void Awake()

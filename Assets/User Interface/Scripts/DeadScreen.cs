@@ -29,7 +29,7 @@ public class DeadScreen : MonoBehaviour
     }
 
     public void resurrectionClick()
-    {
+    { 
 #if UNITY_WEBGL
         ShowAdWithReward();
 #endif 

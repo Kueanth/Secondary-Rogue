@@ -83,6 +83,7 @@ public class Character : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && isEnter)
             {
                 FadeObject.transform.SetAsLastSibling();
+                Progress.Instance.enter = true;
                 Fade.SetTrigger("Meow");
                 isEnter = false;
             }
