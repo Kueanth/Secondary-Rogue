@@ -17908,7 +17908,7 @@ Camera:
   far clip plane: 100
   field of view: 16.6
   orthographic: 1
-  orthographic size: 2.1888888
+  orthographic size: 1.9851851
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -18509,7 +18509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1615032635
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18835,7 +18835,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -18942,6 +18942,7 @@ MonoBehaviour:
     name: 
   info: {fileID: 1524151612}
   paused: 0
+  enter: 0
 --- !u!4 &1683068327
 Transform:
   m_ObjectHideFlags: 0

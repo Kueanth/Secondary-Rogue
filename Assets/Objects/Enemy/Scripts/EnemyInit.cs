@@ -85,6 +85,8 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 if (i.name == "SpawnEnemy") continue;
                 if (i.name == "Check") continue;
 
+                mapping = new int[15] { 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 6 };
+
                 if (sceneData.countLevel + 5 > 15)
                     tempMax = 15;
                 else

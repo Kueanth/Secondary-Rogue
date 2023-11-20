@@ -11,6 +11,9 @@ public class FadeInMenu : MonoBehaviour
     [SerializeField] private Animator auth;
     [SerializeField] private GameObject player;
 
+    [DllImport("__Internal")]
+    private static extern void OpenGame();
+    
     public void SetSubling(int number)
     {
         switch (number)
@@ -34,6 +37,7 @@ public class FadeInMenu : MonoBehaviour
     [System.Obsolete]
     public void adView()
     {
+        OpenGame();
         Application.ExternalCall("ShowAdWithoutReward");
     }
 
@@ -44,6 +48,10 @@ public class FadeInMenu : MonoBehaviour
             player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             auth.Play("OpenAuthBar");
             transform.SetAsFirstSibling();
+        }
+        else
+        {
+            auth.enabled = false;
         }
     }
 }

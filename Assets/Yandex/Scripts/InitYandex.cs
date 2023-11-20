@@ -98,6 +98,7 @@ public class InitYandex : MonoBehaviour
             Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
             _button.gameObject.SetActive(false);
             LoadData();
+            Progress.Instance.PlayerInfoForGame.auth = true;
             animatorAuthPlayer.SetTrigger("authComplete");
             if (_authPlayer.enabled) _authPlayer.Play("CloseAuthBar");
             Progress.Instance.InfoInit();

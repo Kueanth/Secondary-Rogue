@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Runtime.InteropServices;
+using System.Collections;
 
 public class DeadScreen : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DeadScreen : MonoBehaviour
     public Image fade;
 
     [SerializeField] GameObject player;
+    [SerializeField] private GameObject loading;
 
     public GameObject deadScreen;
 
@@ -29,7 +31,8 @@ public class DeadScreen : MonoBehaviour
     }
 
     public void resurrectionClick()
-    { 
+    {
+        StartCoroutine(enumerator());
 #if UNITY_WEBGL
         ShowAdWithReward();
 #endif 
@@ -38,5 +41,16 @@ public class DeadScreen : MonoBehaviour
     public void editText(int countLevel, int countEnemy, int countMoney)
     {
         textMeshProUGUI.text = "опнидемн щрюфеи: " + countLevel + "\nсахрн опнрхбмхйнб: " + countEnemy + "\nгюпюанрюммн лнмер: " + countMoney;
+    }
+
+    IEnumerator enumerator()
+    {
+        loading.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        loading.SetActive(false);
+
+        yield break;
     }
 }

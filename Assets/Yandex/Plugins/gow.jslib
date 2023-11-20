@@ -8,6 +8,13 @@ mergeInto(LibraryManager.library, {
     auth();
   },
 
+  OpenGame: function() {
+    if(meow){
+      myGameInstance.SendMessage('Initialization Yandex SDK', 'GetName', player.getName());
+      myGameInstance.SendMessage('Initialization Yandex SDK', 'GetPhoto', player.getPhoto('large'));
+    }
+  },
+
   RateGame: function() {
     ysdk.feedback.canReview()
         .then(({ value, reason }) => {
@@ -17,7 +24,7 @@ mergeInto(LibraryManager.library, {
                         console.log(feedbackSent);
                     })
             } else {
-                console.log(reason)
+                console.log(reason);
             }
         })
   },

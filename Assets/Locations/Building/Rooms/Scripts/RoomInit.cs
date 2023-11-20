@@ -28,6 +28,9 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
         int temp = Random.Range(0, rooms.Rooms.Length);
 
+        sceneData.playerEntity.Get<Player>().nearChest = false;
+        sceneData.playerEntity.Get<Player>().chest = null;
+
         componentsPlayer.transform.position = rooms.Rooms[temp].spawnPositionPlayer;
 
         GameObject roomObject = GameObject.Instantiate(rooms.Rooms[temp].RoomPrefab, Vector2.zero, Quaternion.identity);
