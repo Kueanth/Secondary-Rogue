@@ -51,7 +51,7 @@ public class FadeInMenu : MonoBehaviour
         }
         else
         {
-            auth.enabled = false;
+            auth.GetComponent<GameObject>().SetActive(false);
         }
     }
 }
