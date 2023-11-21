@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyObject: {fileID: 3658432928545132216, guid: 0a7ee717eb471b74994287fff5b1e8d1, type: 3}
   enemyName: Enemy-5
-  hp: 20
+  hp: 30
   money: 6

@@ -13,6 +13,8 @@ public struct GunComponents
     public float timeShoot;
     public Vector2 spawnPointBulltet;
 
+    public float reloading;
+
     public bool canShoot;
     public bool rayLazer;
     public bool reolading;

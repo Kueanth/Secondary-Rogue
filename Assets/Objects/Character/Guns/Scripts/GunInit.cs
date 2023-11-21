@@ -28,6 +28,7 @@ public class GunInit : IEcsInitSystem
         components.canShoot = true;
         components.spawnPointBulltet = gunArray.guns[0].spawnPointShoot;
         components.bulletSpawn.localPosition = components.spawnPointBulltet;
+        components.reloading = gunArray.guns[0].reloading;
 
         sceneData.gunEntity = gunEntity;
 

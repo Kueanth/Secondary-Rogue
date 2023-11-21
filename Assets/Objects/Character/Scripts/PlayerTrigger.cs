@@ -24,7 +24,7 @@ public class PlayerTrigger : MonoBehaviour
         components.hp = 3;
         sceneData.paused = false;
 
-        components.animator.SetTrigger("End");
+        components.animator.Play("Idle");
 
         ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
 

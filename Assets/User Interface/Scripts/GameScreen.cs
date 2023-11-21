@@ -14,6 +14,9 @@ public class GameScreen : MonoBehaviour
     public Image infoBar;
     public GameObject gameScreen;
 
+    [SerializeField]
+    [Range(0, 100)] private float speed;
+
     [SerializeField] private GameObject authPlayer;
     [SerializeField] private TextMeshProUGUI namePlayer;
     [SerializeField] private RawImage icon;
@@ -84,10 +87,11 @@ public class GameScreen : MonoBehaviour
         this.gun.sprite = sprite;
     }
 
-    public void StartReloadBar()
+    public void StartReloadBar(float speed)
     {
         kristal.enabled = true;
         bar.enabled = true;
+        kristal.GetComponent<Animator>().SetFloat("New Float", 1f / speed);
         kristal.GetComponent<Animator>().SetTrigger("Trigger");
     }
     public void EndReloadBar()

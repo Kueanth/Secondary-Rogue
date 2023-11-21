@@ -44,8 +44,9 @@ public class GunTrigger : MonoBehaviour
         components.maxStore = gun.maxStore;
         components.timeShoot = gun.timeShoot;
         components.spawnPointBulltet = gun.spawnPointShoot;
-        
-        if(components.gunData.nameGun == "Awm")
+        components.reloading = gun.reloading;
+
+        if (components.gunData.nameGun == "Awm" || components.gunData.nameGun == "Awm_2" || components.gunData.nameGun == "Awm_3")
         {
             ui.gameScreen.aim.enabled = false;
             components.rayLazer = true;
@@ -76,6 +77,38 @@ public class GunTrigger : MonoBehaviour
 
             case "Automat":
                 ui.gameScreen.EditGun(ui.imageGun[3]);
+                break;
+
+            case "Pistol_2":
+                ui.gameScreen.EditGun(ui.imageGun[4]);
+                break;
+
+            case "Drobovik_2":
+                ui.gameScreen.EditGun(ui.imageGun[5]);
+                break;
+
+            case "Awm_2":
+                ui.gameScreen.EditGun(ui.imageGun[6]);
+                break;
+
+            case "Automat_2":
+                ui.gameScreen.EditGun(ui.imageGun[7]);
+                break;
+
+            case "Pistol_3":
+                ui.gameScreen.EditGun(ui.imageGun[8]);
+                break;
+
+            case "Drobovik_3":
+                ui.gameScreen.EditGun(ui.imageGun[9]);
+                break;
+
+            case "Awm_3":
+                ui.gameScreen.EditGun(ui.imageGun[10]);
+                break;
+
+            case "Automat_3":
+                ui.gameScreen.EditGun(ui.imageGun[11]);
                 break;
         }
 

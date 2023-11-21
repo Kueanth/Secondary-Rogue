@@ -29,7 +29,7 @@ public class GunReload : MonoBehaviour
     {
         StartReloadBar(ref components, ref ui);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(components.reloading);
 
         EndReloadBar(ref components, ref ui);
 
@@ -45,7 +45,7 @@ public class GunReload : MonoBehaviour
 
     private void StartReloadBar(ref GunComponents components, ref UI ui)
     {
-        ui.gameScreen.StartReloadBar();
+        ui.gameScreen.StartReloadBar(components.reloading);
     }
 
     private void EndReloadBar(ref GunComponents components, ref UI ui)
