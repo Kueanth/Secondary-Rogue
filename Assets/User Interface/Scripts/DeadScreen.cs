@@ -10,6 +10,8 @@ public class DeadScreen : MonoBehaviour
     public TextMeshProUGUI textMeshProUGUI;
     public Image fade;
 
+    public PlayerTrigger playerTrigger;
+
     [SerializeField] GameObject player;
     [SerializeField] private GameObject loading;
 
@@ -33,7 +35,8 @@ public class DeadScreen : MonoBehaviour
     public void resurrectionClick()
     {
         StartCoroutine(enumerator());
-#if UNITY_WEBGL
+
+#if UNITY_WEBGL && !UNITY_EDITOR
         ShowAdWithReward();
 #endif 
     }

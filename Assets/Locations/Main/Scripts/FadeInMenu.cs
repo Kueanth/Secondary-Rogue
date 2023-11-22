@@ -37,8 +37,10 @@ public class FadeInMenu : MonoBehaviour
     [System.Obsolete]
     public void adView()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
         OpenGame();
         Application.ExternalCall("ShowAdWithoutReward");
+#endif
     }
 
     public void ViewAuthBar()

@@ -51,6 +51,8 @@ public class PlayerInit : IEcsInitSystem
         sceneData.playerObject = PlayerObject;
         sceneData.ui = ui;
 
+        sceneData.ui.deadScreen.playerTrigger = Components.transform.GetComponentInChildren<PlayerTrigger>();
+
         Components.transform.position = sceneData.playerSpawnPoint;
     }
 }

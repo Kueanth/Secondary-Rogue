@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fff7753c23a57d41a1550e91526b575, type: 3}
   m_Name: Automat_3
   m_EditorClassIdentifier: 
-  spriteForHand: {fileID: 21300000, guid: 9473a7d33fea1994cad8fbe3865c6506, type: 3}
+  spriteForHand: {fileID: 21300000, guid: edb5f89d47f125a4f96709a8f7c3fffb, type: 3}
   prefabForChest: {fileID: 6113455243596403626, guid: fed042bfc24a3f741a043da5cea3696b, type: 3}
   nameGun: Automat_3
   reloading: 3
@@ -21,5 +21,5 @@ MonoBehaviour:
   maxAmmo: 20
   store: 90
   maxStore: 90
-  spawnPointShoot: {x: 0.462, y: 0.192}
+  spawnPointShoot: {x: 0.37, y: 0.166}
   timeShoot: 0.1

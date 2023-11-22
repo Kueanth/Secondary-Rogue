@@ -21,5 +21,5 @@ MonoBehaviour:
   maxAmmo: 15
   store: 80
   maxStore: 80
-  spawnPointShoot: {x: 0.462, y: 0.192}
+  spawnPointShoot: {x: 0.391, y: 0.165}
   timeShoot: 0.3

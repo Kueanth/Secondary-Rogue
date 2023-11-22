@@ -24,7 +24,7 @@ public class BulletShoot : IEcsRunSystem
 
             if (!components.flipping)
             {
-                if(gunComponents.gunData.nameGun == "Drobovik")
+                if(gunComponents.gunData.nameGun == "Drobovik" || gunComponents.gunData.nameGun == "Drobovik_2" || gunComponents.gunData.nameGun == "Drobovik_3")
                 {
                     for(int x = 0; x <= 5; x++)
                     {
@@ -57,7 +57,7 @@ public class BulletShoot : IEcsRunSystem
             }
             else if (components.flipping)
             {
-                if (gunComponents.gunData.nameGun == "Drobovik")
+                if (gunComponents.gunData.nameGun == "Drobovik" || gunComponents.gunData.nameGun == "Drobovik_2" || gunComponents.gunData.nameGun == "Drobovik_3")
                 {
                     for (int x = 0; x <= 5; x++)
                     {

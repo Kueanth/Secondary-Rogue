@@ -55,10 +55,6 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
             ++Progress.Instance.PlayerInfoForSave.levels;
 
-#if UNITY_WEBGL
-            SetDataInLeaderboards(Progress.Instance.PlayerInfoForSave.levels);
-#endif
-
             sceneData.levelComplete = false;
 
             ref RoomDestroy gow = ref _filter.Get1(meow);
@@ -78,7 +74,11 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
             sceneData.posChest = roomObject.transform.Find("SpawnChest");
             sceneData.posEnemy = roomObject.transform.Find("SpawnEnemy");
-            sceneData.posHatch = roomObject.transform.Find("SpawnHatch");         
+            sceneData.posHatch = roomObject.transform.Find("SpawnHatch");
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+            SetDataInLeaderboards(Progress.Instance.PlayerInfoForSave.levels);
+#endif
         }
     }
 }

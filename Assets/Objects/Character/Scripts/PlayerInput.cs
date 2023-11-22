@@ -55,11 +55,13 @@ public class PlayerInput : IEcsRunSystem
             if(Input.GetKeyDown(KeyCode.F) && components.nearHp)
             {
                 components.hpTransform.GetComponent<HpTrigger>().GetHp(ref entity, ref ui);
+                components.nearHp = false;
             }
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearGun)
             {
                 components.gunInChest.GetComponent<GunTrigger>().GetGun(ref entity, ref ui);
+                components.nearGun = false;
             }
 
             // Get position

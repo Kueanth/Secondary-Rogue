@@ -84,8 +84,8 @@ public class EnemyTrigger : MonoBehaviour
                 }
 
                 entity.Destroy();
-                Destroy(gameObject);
                 tempBool = true;
+                Destroy(gameObject);
             }
         }
 
