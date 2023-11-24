@@ -48,10 +48,10 @@ public class GunReload : MonoBehaviour
         ui.gameScreen.StartReloadBar(components.reloading);
     }
 
-    private void EndReloadBar(ref GunComponents components, ref UI ui)
+    public void EndReloadBar(ref GunComponents components, ref UI ui)
     {
         ui.gameScreen.textMeshPro.text = $"{components.ammo}/{components.store}";
-        ui.gameScreen.EndReloadBar();
+        ui.gameScreen.EndReloadBar(true);
     }
 
 

@@ -6,7 +6,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
     private SceneData sceneData;
     private StaticData configuration;
     private EcsEntity roomEntity;
-    private EcsFilter<RoomDestroy, RoomCreate> _filter;
+    private EcsFilter<RoomDestroy, ChestDestroy> _filter;
     private GunArray guns;
     private UI ui;
 
@@ -111,8 +111,7 @@ public class ChestInit : IEcsInitSystem, IEcsRunSystem
                 chestObject.GetComponent<SpriteRenderer>().material = chestMaterial;
             }
 
-            roomEntity = _filter.GetEntity(0);
-            roomEntity.Del<RoomCreate>();
+            _filter.GetEntity(meow).Del<ChestDestroy>();
         }
     }
 }

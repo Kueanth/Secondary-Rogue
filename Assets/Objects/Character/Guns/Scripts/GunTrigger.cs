@@ -61,6 +61,12 @@ public class GunTrigger : MonoBehaviour
 
         ui.gameScreen.GetGun(components.ammo, components.store);
 
+        if (components.reolading)
+        {
+            components.reolading = false;
+            components.gun.GetComponent<GunReload>().EndReloadBar(ref components, ref ui);
+        }
+
         switch (components.gunData.nameGun)
         {
             case "Pistol":

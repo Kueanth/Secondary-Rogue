@@ -9,7 +9,7 @@ public class EnemyTrigger : MonoBehaviour
     public EcsEntity gunEntity;
     public Money money;
     public GameObject hpObject;
-
+    public bool isDead;
     public GameObject particle;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,7 +28,7 @@ public class EnemyTrigger : MonoBehaviour
         bool tempBool = false;
 
         if (collision.gameObject.tag == "Bullet")
-        {
+        {   
             components.hp -= componentsGun.damage;
 
             if (components.hp > 0)
@@ -38,6 +38,10 @@ public class EnemyTrigger : MonoBehaviour
             }   
             else
             {
+                if (isDead) return;
+
+                isDead = true;
+
                 sceneData.enemyCount -= 1;
                 sceneData.countKillEnemy += 1;
                 ++Progress.Instance.PlayerInfoForSave.enemys;
@@ -83,7 +87,6 @@ public class EnemyTrigger : MonoBehaviour
 
                 }
 
-                entity.Destroy();
                 tempBool = true;
                 Destroy(gameObject);
             }
@@ -103,5 +106,10 @@ public class EnemyTrigger : MonoBehaviour
         {
             entity.Get<EnemyNewFollow>();
         }
+    }
+
+    private void OnDestroy()
+    {
+        entity.Destroy();
     }
 }

@@ -40,6 +40,7 @@ public class PlayerInput : IEcsRunSystem
             if (Input.GetKeyDown(KeyCode.F) && components.nearChest)
             {
                 components.chest.GetComponent<ChestTrigger>().OpenChest();
+
                 components.nearChest = false;
                 components.chest = null;
             }
@@ -50,18 +51,29 @@ public class PlayerInput : IEcsRunSystem
 
                 components.nearHatch = false;
                 components.nearChest = false;
+                components.nearGun = false;
+                components.nearHp = false;
+
+                components.hpTransform = null;
+                components.chest = null;
+                components.hatch = null;
+                components.gunInChest = null;
             }
 
             if(Input.GetKeyDown(KeyCode.F) && components.nearHp)
             {
                 components.hpTransform.GetComponent<HpTrigger>().GetHp(ref entity, ref ui);
+
                 components.nearHp = false;
+                components.hpTransform = null;
             }
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearGun)
             {
                 components.gunInChest.GetComponent<GunTrigger>().GetGun(ref entity, ref ui);
+
                 components.nearGun = false;
+                components.gunInChest = null;
             }
 
             // Get position

@@ -93,6 +93,9 @@ public class HatchInit : IEcsInitSystem, IEcsRunSystem
 
                 hatchObject.GetComponent<SpriteRenderer>().material = hatchMaterial;
             }
+
+            _filter.GetEntity(meow).Del<RoomCreate>();
+            _filter.GetEntity(meow).Get<EnemyDestroy>();
         }
     }
 }

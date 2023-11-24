@@ -51,7 +51,7 @@ public class InitYandex : MonoBehaviour
     {
         Progress.Instance.paused = true;
         loading.SetActive(true);
-        //AuthPlayer();
+        AuthPlayer();
         StartCoroutine(LoadPlayerCoroutine());
     }
 
@@ -75,7 +75,7 @@ public class InitYandex : MonoBehaviour
     {
         if (Progress.Instance.PlayerInfoForGame.auth)
         {
-            //RateGame();
+            RateGame();
         }
         else
         {
@@ -99,7 +99,7 @@ public class InitYandex : MonoBehaviour
             _photo.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
             Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
             _button.gameObject.SetActive(false);
-            //LoadData();
+            LoadData();
             Progress.Instance.PlayerInfoForGame.auth = true;
             animatorAuthPlayer.SetTrigger("authComplete");
             animatorRating.SetTrigger("authComplete");
@@ -111,7 +111,7 @@ public class InitYandex : MonoBehaviour
     IEnumerator LoadPlayerCoroutine()
     {
         yield return new WaitForSeconds(3);
-        //LoadPlayer();
+        LoadPlayer();
         Progress.Instance.PlayerInfoForGame.auth = true;
         loading.SetActive(false);
         Progress.Instance.paused = false;

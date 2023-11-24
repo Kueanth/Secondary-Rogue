@@ -25,6 +25,8 @@ public class PlayerTrigger : MonoBehaviour
         components.hp = 3;
         sceneData.paused = false;
 
+        if(components.animator.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
+            components.animator.SetTrigger("End");
         components.animator.Play("Idle");
 
         ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);

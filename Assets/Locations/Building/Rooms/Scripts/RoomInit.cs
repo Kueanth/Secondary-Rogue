@@ -20,6 +20,7 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
     public void Init()
     {
         sceneData.levelComplete = false;
+        sceneData.enemyCount = 0;
 
         EcsEntity entity = _world.NewEntity();
         ref RoomDestroy gow = ref entity.Get<RoomDestroy>();
@@ -36,8 +37,6 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
         GameObject roomObject = GameObject.Instantiate(rooms.Rooms[temp].RoomPrefab, Vector2.zero, Quaternion.identity);
 
         sceneData.roomEntity = entity;
-
-        sceneData.enemyCount = 0;
 
         gow.room = roomObject;
 
@@ -66,6 +65,9 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
             int temp = Random.Range(0, rooms.Rooms.Length);
 
+            sceneData.playerEntity.Get<Player>().nearChest = false;
+            sceneData.playerEntity.Get<Player>().chest = null;
+
             componentsPlayer.transform.position = rooms.Rooms[temp].spawnPositionPlayer;
 
             GameObject roomObject = GameObject.Instantiate(rooms.Rooms[temp].RoomPrefab, Vector2.zero, Quaternion.identity);
@@ -77,6 +79,7 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
             sceneData.posHatch = roomObject.transform.Find("SpawnHatch");
 
 #if UNITY_WEBGL && !UNITY_EDITOR
+            if(Progress.Instance.PlayerInfoForGame.auth)
             SetDataInLeaderboards(Progress.Instance.PlayerInfoForSave.levels);
 #endif
         }

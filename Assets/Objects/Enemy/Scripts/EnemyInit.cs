@@ -6,7 +6,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
 {
     private EcsWorld _world;
 
-    private EcsFilter<RoomDestroy, RoomCreate> _filter;
+    private EcsFilter<RoomDestroy, EnemyDestroy> _filter;
 
     private SceneData sceneData;
     private StaticData configuration;
@@ -20,7 +20,6 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
     public void Init()
     {
         sceneData.positionsEnemy = sceneData.posEnemy.transform.GetComponentsInChildren<Transform>();
-        sceneData.enemyCount = 0;
 
         foreach(var i in sceneData.positionsEnemy)
         {
@@ -78,7 +77,6 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
         foreach(var meow in _filter)
         {
             sceneData.positionsEnemy = sceneData.posEnemy.transform.GetComponentsInChildren<Transform>();
-            sceneData.enemyCount = 0;
 
             foreach (var i in sceneData.positionsEnemy)
             {
@@ -129,6 +127,9 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
 
                 sceneData.enemyCount += 1;
             }
+
+            _filter.GetEntity(meow).Del<EnemyDestroy>();
+            _filter.GetEntity(meow).Get<ChestDestroy>();
         }
     }
 }

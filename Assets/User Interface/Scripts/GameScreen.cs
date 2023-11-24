@@ -14,6 +14,8 @@ public class GameScreen : MonoBehaviour
     public Image infoBar;
     public GameObject gameScreen;
 
+    public bool upGun;
+
     [SerializeField]
     [Range(0, 100)] private float speed;
 
@@ -94,10 +96,28 @@ public class GameScreen : MonoBehaviour
         kristal.GetComponent<Animator>().SetFloat("New Float", 1f / speed);
         kristal.GetComponent<Animator>().SetTrigger("Trigger");
     }
-    public void EndReloadBar()
+    public void EndReloadBar(bool gow)
     {
-        kristal.enabled = false;
-        bar.enabled = false;
+        if (gow)
+        {
+            kristal.enabled = false;
+            bar.enabled = false;
+
+            upGun = true;
+
+            kristal.GetComponent<Animator>().Play("New State");
+        }
+        else if(!upGun)
+        {
+            kristal.enabled = false;
+            bar.enabled = false;
+
+            kristal.GetComponent<Animator>().Play("New State");
+        }
+        else
+        {
+            upGun = false;
+        }
     }
 
     public void EditInfoBar(string text)
