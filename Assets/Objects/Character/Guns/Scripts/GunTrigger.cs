@@ -64,7 +64,7 @@ public class GunTrigger : MonoBehaviour
         if (components.reolading)
         {
             components.reolading = false;
-            components.gun.GetComponent<GunReload>().EndReloadBar(ref components, ref ui);
+            ui.GetComponent<GameScreen>().EndReloadBar(true);
         }
 
         switch (components.gunData.nameGun)

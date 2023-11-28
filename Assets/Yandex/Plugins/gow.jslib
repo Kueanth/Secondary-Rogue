@@ -36,6 +36,30 @@ mergeInto(LibraryManager.library, {
      });
     },
 
+    GetDataInLeaderboards: function (rawNameStr, includeUser, quantityAround, quantityTop) {
+        var lbname = UTF8ToString(rawNameStr);
+        ysdk.getLeaderboards()
+            .then(lb => {
+                lb.getLeaderboardEntries(lbname, { quantityTop: quantityTop, includeUser: includeUser, quantityAround: quantityAround })
+                    .then(res => {
+                        var lbAnswer = {
+                            "entries": []
+                        };
+                        var lbEntries = [];
+                        res.entries.forEach(line => {
+                            var entry = {
+                                "playerName": line.player.publicName,
+                                "rank": line.line,
+                                "score": line.score
+                            };
+                            lbEntries.push(entry);
+                        });
+                        lbAnswer.entries = lbEntries;
+                        window.unityInstance.SendMessage("Progress", "LoadLeaderboard", JSON.stringify(lbAnswer));
+                    });
+            });
+    },
+
   ShowAdWithReward : function() {
     ysdk.adv.showRewardedVideo({
     callbacks: {

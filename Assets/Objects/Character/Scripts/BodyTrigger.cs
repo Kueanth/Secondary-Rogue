@@ -13,7 +13,7 @@ public class BodyTrigger : MonoBehaviour
     {
         ref Player components = ref entity.Get<Player>();
 
-        if (collider.gameObject.tag == "EnemyBullet")
+        if (collider.gameObject.tag == "EnemyBullet" && !sceneData.paused)
         {
             components.hp -= 1;
 

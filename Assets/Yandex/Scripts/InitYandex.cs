@@ -33,6 +33,9 @@ public class InitYandex : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void RateGame();
 
+    [DllImport("__Internal")]
+    private static extern void GetDataInLeaderboards(string rawNameStr, bool includeUser, int quantityTop, int quantityAround);
+
     private void Start()
     {
         if (Progress.Instance.PlayerInfoForGame.auth)
@@ -112,6 +115,8 @@ public class InitYandex : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         LoadPlayer();
+        LoadData();
+        GetDataInLeaderboards("level", true, 5, 2);
         Progress.Instance.PlayerInfoForGame.auth = true;
         loading.SetActive(false);
         Progress.Instance.paused = false;

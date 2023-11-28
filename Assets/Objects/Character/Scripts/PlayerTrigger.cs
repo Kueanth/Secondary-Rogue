@@ -25,9 +25,7 @@ public class PlayerTrigger : MonoBehaviour
         components.hp = 3;
         sceneData.paused = false;
 
-        if(components.animator.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
-            components.animator.SetTrigger("End");
-        components.animator.Play("Idle");
+        components.animator.SetTrigger("End");
 
         ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
 
@@ -112,8 +110,10 @@ public class PlayerTrigger : MonoBehaviour
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
             }
             else
-            {   
+            {
+                components.positionForPit = new Vector2(components.transform.position.x, components.transform.position.y) - (components.rigidbody2D.velocity).normalized;
                 GameObject temp = components.playerObject;
+                components.animator.SetTrigger("Refuse");
                 components.rigidbody2D.velocity = Vector2.zero;
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
                 ui.gameScreen.gameScreen.SetActive(false);
@@ -121,7 +121,6 @@ public class PlayerTrigger : MonoBehaviour
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
                 components.deadforpit = true;
-                components.animator.SetTrigger("Refuse");
             }
         }
     }
@@ -151,7 +150,7 @@ public class PlayerTrigger : MonoBehaviour
         components.rigidbody2D.velocity = Vector2.zero;
 
         components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
-
+        
         components.animator.SetTrigger("End");
 
         return;
