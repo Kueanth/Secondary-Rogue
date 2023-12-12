@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     [SerializeField] private SpriteRenderer CharacterSR;
     [SerializeField] private Texture2D CursorImage;
     [SerializeField] private GameObject FadeObject;
+    [SerializeField] private GameObject LeadersObject;
 
     public void Start()
     {
@@ -90,7 +91,7 @@ public class Character : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && isLeaders)
             {
-
+                LeadersObject.SetActive(true);
             }
         }
     }

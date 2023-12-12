@@ -36,6 +36,19 @@ mergeInto(LibraryManager.library, {
      });
     },
 
+    IsPlayerAuth: function () {
+        window.ysdk.getPlayer().then(_player => {
+            var result;
+            if (_player.getMode() === 'lite') {
+                result = 0;
+            }
+            else {
+                result = 1;
+            }
+            window.unityInstance.SendMessage("Initialization Yandex SDK", "LoadAuthBar", result);
+        });
+    },
+
     GetDataInLeaderboards: function (rawNameStr, includeUser, quantityAround, quantityTop) {
         var lbname = UTF8ToString(rawNameStr);
         ysdk.getLeaderboards()
@@ -48,14 +61,15 @@ mergeInto(LibraryManager.library, {
                         var lbEntries = [];
                         res.entries.forEach(line => {
                             var entry = {
-                                "playerName": line.player.publicName,
-                                "rank": line.line,
+                                "publicName": line.player.publicName,
+                                "rank": line.rank,
+                                "imageURL": line.player.getAvatarSrc('large'),
                                 "score": line.score
                             };
                             lbEntries.push(entry);
                         });
                         lbAnswer.entries = lbEntries;
-                        window.unityInstance.SendMessage("Progress", "LoadLeaderboard", JSON.stringify(lbAnswer));
+                        myGameInstance.SendMessage("Progress", "LoadLeaderboard", JSON.stringify(lbAnswer));
                     });
             });
     },

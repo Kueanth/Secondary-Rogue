@@ -28,6 +28,9 @@ public class InitYandex : MonoBehaviour
     private static extern void LoadPlayer();
 
     [DllImport("__Internal")]
+    private static extern void IsPlayerAuth();
+
+    [DllImport("__Internal")]
     private static extern void LoadData();
 
     [DllImport("__Internal")]
@@ -40,6 +43,7 @@ public class InitYandex : MonoBehaviour
     {
         if (Progress.Instance.PlayerInfoForGame.auth)
         {
+            IsPlayerAuth();
             _button.gameObject.SetActive(false);
             _name.text = Progress.Instance.PlayerInfoForGame.name;
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
@@ -91,6 +95,12 @@ public class InitYandex : MonoBehaviour
         StartCoroutine(DownloadImage(url));
     }
 
+    public void LoadAuthBar(bool auth)
+    {
+        if (!auth)
+            _authPlayer.enabled = true;
+    }
+
     IEnumerator DownloadImage(string mediaUrl)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(mediaUrl);
@@ -103,6 +113,7 @@ public class InitYandex : MonoBehaviour
             Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
             _button.gameObject.SetActive(false);
             LoadData();
+            GetDataInLeaderboards("levels", true, 5, 2);
             Progress.Instance.PlayerInfoForGame.auth = true;
             animatorAuthPlayer.SetTrigger("authComplete");
             animatorRating.SetTrigger("authComplete");
@@ -116,7 +127,6 @@ public class InitYandex : MonoBehaviour
         yield return new WaitForSeconds(3);
         LoadPlayer();
         LoadData();
-        GetDataInLeaderboards("level", true, 5, 2);
         Progress.Instance.PlayerInfoForGame.auth = true;
         loading.SetActive(false);
         Progress.Instance.paused = false;
