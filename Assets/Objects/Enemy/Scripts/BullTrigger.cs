@@ -1,17 +1,18 @@
 using UnityEngine;
 using Leopotam.Ecs;
 
-public class HpTrigger : MonoBehaviour
+public class BullTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
+
             ref Player components = ref meow.Get<Player>();
 
-            components.hpTransform = this.transform;
-            components.nearHp = true;
+            components.bullTransform = this.transform;
+            components.nearBull = true;
         }
     }
 
@@ -22,19 +23,18 @@ public class HpTrigger : MonoBehaviour
             EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
             ref Player components = ref meow.Get<Player>();
 
-            components.hpTransform = this.transform;
-            components.nearHp = false;
+            components.bullTransform = this.transform;
+            components.nearBull = false;
         }
     }
 
-    public void GetHp(ref EcsEntity entity, ref UI ui)
+    public void GetBull(ref EcsEntity entity, ref UI ui)
     {
-        ref Player components = ref entity.Get<Player>();
+        ref GunComponents gunComponents = ref entity.Get<GunComponents>();
 
-        if (components.hp != 3)
-            components.hp += 1;
+        gunComponents.store = gunComponents.maxStore;
 
-        ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
+        ui.gameScreen.GetGun(gunComponents.ammo, gunComponents.store);
 
         Destroy(gameObject);
     }

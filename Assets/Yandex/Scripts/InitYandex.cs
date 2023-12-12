@@ -41,16 +41,18 @@ public class InitYandex : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            IsPlayerAuth();
+#endif
+
         if (Progress.Instance.PlayerInfoForGame.auth)
         {
-            IsPlayerAuth();
             _button.gameObject.SetActive(false);
             _name.text = Progress.Instance.PlayerInfoForGame.name;
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
             animatorRating.SetTrigger("authComplete");
-            Progress.Instance.InfoInit();
-            _authPlayer.enabled = false;
+            Progress.Instance.InfoInit();   
         }
     }
 
@@ -95,10 +97,10 @@ public class InitYandex : MonoBehaviour
         StartCoroutine(DownloadImage(url));
     }
 
-    public void LoadAuthBar(bool auth)
+    public void LoadAuthBar(int aug)
     {
-        if (!auth)
-            _authPlayer.enabled = true;
+        if (aug == 0)
+            _authPlayer.Play("OpenAuthBar");
     }
 
     IEnumerator DownloadImage(string mediaUrl)

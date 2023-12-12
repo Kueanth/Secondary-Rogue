@@ -9,6 +9,7 @@ public class EnemyTrigger : MonoBehaviour
     public EcsEntity gunEntity;
     public Money money;
     public GameObject hpObject;
+    public GameObject bullObject;
     public bool isDead;
     public GameObject particle;
 
@@ -67,7 +68,7 @@ public class EnemyTrigger : MonoBehaviour
                 effect.transform.parent = null;
                 gameObject.GetComponent<Animator>().SetTrigger("Get Attack");
 
-                int tempRange = Random.Range(0, 3);
+                int tempRange = Random.Range(0, 4);
 
                 if(tempRange == 0)
                 {
@@ -85,6 +86,22 @@ public class EnemyTrigger : MonoBehaviour
                     hpMainObject.GetComponent<SpriteRenderer>().material = hpMaterial;
                     Destroy(hpMainObject, 5);
 
+                }
+                else if(tempRange == 1)
+                {
+                    GameObject bullMainObject = GameObject.Instantiate(bullObject, gameObject.transform.position, Quaternion.identity);
+
+                    Material bullMaterial = new Material(Shader.Find("Shader Graphs/Outlines"));
+
+                    bullMaterial.SetVector("_Right", new Vector2(0.8f, 0f));
+                    bullMaterial.SetVector("_Left", new Vector2(-0.8f, 0f));
+                    bullMaterial.SetVector("_Up", new Vector2(0f, 0.8f));
+                    bullMaterial.SetVector("_Down", new Vector2(0f, -0.8f));
+
+                    bullMaterial.color = new Color32(255, 230, 0, 255);
+
+                    bullMainObject.GetComponent<SpriteRenderer>().material = bullMaterial;
+                    Destroy(bullMainObject, 5);
                 }
 
                 tempBool = true;

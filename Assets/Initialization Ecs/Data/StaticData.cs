@@ -12,5 +12,7 @@ public class StaticData : ScriptableObject
     public GameObject Chest;
     public GameObject Hatch;
     public GameObject Hp;
+    public GameObject Bull;
+
     public Texture2D Cursor;
 }

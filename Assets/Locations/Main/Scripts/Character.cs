@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Texture2D CursorImage;
     [SerializeField] private GameObject FadeObject;
     [SerializeField] private GameObject LeadersObject;
+    [SerializeField] private Animator AuthBar;
 
     public void Start()
     {
@@ -91,7 +92,14 @@ public class Character : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && isLeaders)
             {
-                LeadersObject.SetActive(true);
+                if (Progress.Instance.PlayerInfoForGame.auth)
+                {
+                    LeadersObject.SetActive(true);
+                }
+                else
+                {
+                    AuthBar.Play("OpenAuthBar");
+                }
             }
         }
     }

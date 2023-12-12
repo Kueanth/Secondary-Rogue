@@ -55,6 +55,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             components.timerForShoot = Random.Range(3, 6);
             components.money = enemyObjects[mapping[temp]].money;
             components.hpObject = configuration.Hp;
+            components.bullObject = configuration.Bull;
 
             enemyObject.GetComponent<EnemyShoot>().entity = enemy;
             enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
@@ -64,6 +65,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
             enemyObject.GetComponent<EnemyTrigger>().sceneData = sceneData;
             enemyObject.GetComponent<EnemyTrigger>().ui = ui;
             enemyObject.GetComponent<EnemyTrigger>().hpObject = components.hpObject;
+            enemyObject.GetComponent<EnemyTrigger>().bullObject = components.bullObject;
             enemyObject.GetComponent<EnemyTrigger>().money = money;
 
             components.targets = i.transform.GetComponentsInChildren<Transform>();
@@ -112,6 +114,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 components.timerForShoot = Random.Range(3, 6);
                 components.money = enemyObjects[mapping[temp]].money;
                 components.hpObject = configuration.Hp;
+                components.bullObject = configuration.Bull;
 
                 enemyObject.GetComponent<EnemyShoot>().entity = enemy;
                 enemyObject.GetComponent<EnemyShoot>().entityPlayer = sceneData.playerEntity;
@@ -121,6 +124,7 @@ public class EnemyInit : IEcsInitSystem, IEcsRunSystem
                 enemyObject.GetComponent<EnemyTrigger>().sceneData = sceneData;
                 enemyObject.GetComponent<EnemyTrigger>().ui = ui;
                 enemyObject.GetComponent<EnemyTrigger>().hpObject = components.hpObject;
+                enemyObject.GetComponent<EnemyTrigger>().bullObject = components.bullObject;
                 enemyObject.GetComponent<EnemyTrigger>().money = money;
 
                 components.targets = i.transform.GetComponentsInChildren<Transform>();

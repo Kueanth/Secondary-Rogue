@@ -20,4 +20,5 @@ MonoBehaviour:
   Chest: {fileID: 3910838994740863551, guid: 9abfba616f0d6014e881b1211422bc0d, type: 3}
   Hatch: {fileID: 3417937545308619820, guid: 1acfb5986ee9ab940b0fba0d73fcf232, type: 3}
   Hp: {fileID: 4477935259354243491, guid: b1f8b9a2b58c1df4ab72ca1c662f8131, type: 3}
+  Bull: {fileID: 8791157428882170331, guid: 795de4e86798e334d8e0356fe9ddf651, type: 3}
   Cursor: {fileID: 2800000, guid: fc682ee9408c13e4689c89c1fa836ddf, type: 3}

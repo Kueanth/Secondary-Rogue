@@ -53,11 +53,13 @@ public class PlayerInput : IEcsRunSystem
                 components.nearChest = false;
                 components.nearGun = false;
                 components.nearHp = false;
+                components.nearBull = false;
 
                 components.hpTransform = null;
                 components.chest = null;
                 components.hatch = null;
                 components.gunInChest = null;
+                components.bullTransform = null;
             }
 
             if(Input.GetKeyDown(KeyCode.F) && components.nearHp)
@@ -66,6 +68,14 @@ public class PlayerInput : IEcsRunSystem
 
                 components.nearHp = false;
                 components.hpTransform = null;
+            }
+
+            if (Input.GetKeyDown(KeyCode.F) && components.nearBull)
+            {
+                components.bullTransform.GetComponent<BullTrigger>().GetBull(ref entity, ref ui);
+
+                components.nearBull = false;
+                components.bullTransform = null;
             }
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearGun)

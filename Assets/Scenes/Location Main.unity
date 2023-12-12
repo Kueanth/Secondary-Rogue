@@ -18036,7 +18036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &917111908
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18092,7 +18092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -31834,6 +31834,7 @@ MonoBehaviour:
   CursorImage: {fileID: 2800000, guid: 075fd450206679e4db7d3f85cf80be37, type: 3}
   FadeObject: {fileID: 1615032634}
   LeadersObject: {fileID: 1100191562}
+  AuthBar: {fileID: 917111909}
 --- !u!95 &1975316117
 Animator:
   serializedVersion: 4

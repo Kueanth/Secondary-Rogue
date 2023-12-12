@@ -11,6 +11,7 @@ public struct EnemyData
     public int money;
 
     public GameObject hpObject;
+    public GameObject bullObject;
 
     public Vector2 target;
 

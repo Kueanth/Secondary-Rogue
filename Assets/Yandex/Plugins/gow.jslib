@@ -45,7 +45,7 @@ mergeInto(LibraryManager.library, {
             else {
                 result = 1;
             }
-            window.unityInstance.SendMessage("Initialization Yandex SDK", "LoadAuthBar", result);
+            myGameInstance.SendMessage("Initialization Yandex SDK", "LoadAuthBar", result);
         });
     },
 

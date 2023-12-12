@@ -3806,6 +3806,7 @@ MonoBehaviour:
   bar: {fileID: 493355396}
   infoBar: {fileID: 503322089}
   gameScreen: {fileID: 1842580563}
+  upGun: 0
   speed: 0
   authPlayer: {fileID: 1653889490}
   namePlayer: {fileID: 628431939}
@@ -3859,6 +3860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMeshProUGUI: {fileID: 138445983}
   fade: {fileID: 1288193708}
+  playerTrigger: {fileID: 0}
   player: {fileID: 0}
   loading: {fileID: 1729938665}
   deadScreen: {fileID: 532043941}

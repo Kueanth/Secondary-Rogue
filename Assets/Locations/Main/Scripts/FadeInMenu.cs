@@ -45,15 +45,6 @@ public class FadeInMenu : MonoBehaviour
 
     public void ViewAuthBar()
     {
-        if (!Progress.Instance.enter && !Progress.Instance.PlayerInfoForGame.auth)
-        {
-            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            auth.Play("OpenAuthBar");
-            transform.SetAsFirstSibling();
-        }
-        else
-        {
-            auth.GetComponent<GameObject>().SetActive(false);
-        }
+        
     }
 }
