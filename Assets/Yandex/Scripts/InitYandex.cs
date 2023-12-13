@@ -4,9 +4,33 @@ using System.Runtime.InteropServices;
 using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System;
+
+[System.Serializable]
+public class Leaderboard
+{
+    public List<LeaderboardEntries> entries;
+}
+
+[System.Serializable]
+public class LeaderboardEntries
+{
+    public string publicName;
+    public string imageURL;
+    public int rank;
+    public int score;
+}
 
 public class InitYandex : MonoBehaviour
 {
+    public Leaderboard leaderboard;
+
+    [SerializeField] private RawImage[] _photos;
+    [SerializeField] private TextMeshProUGUI[] _rate;
+    [SerializeField] private TextMeshProUGUI[] _score;
+    [SerializeField] private TextMeshProUGUI[] _names;
+
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private RawImage _photo;
 
@@ -41,18 +65,25 @@ public class InitYandex : MonoBehaviour
 
     private void Start()
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            IsPlayerAuth();
-#endif
-
         if (Progress.Instance.PlayerInfoForGame.auth)
         {
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+            GetDataInLeaderboards("levels", true, 5, 2);
+#endif
+
             _button.gameObject.SetActive(false);
             _name.text = Progress.Instance.PlayerInfoForGame.name;
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
             animatorRating.SetTrigger("authComplete");
             Progress.Instance.InfoInit();   
+        }
+        else
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            IsPlayerAuth();
+#endif
         }
     }
 
@@ -103,6 +134,17 @@ public class InitYandex : MonoBehaviour
             _authPlayer.Play("OpenAuthBar");
     }
 
+    public void Gow(string value)
+    {
+        leaderboard = JsonUtility.FromJson<Leaderboard>(value);
+
+        StartCoroutine(DownloadImage(leaderboard.entries[0].imageURL, 0, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[1].imageURL, 1, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[2].imageURL, 2, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[3].imageURL, 3, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[4].imageURL, 4, leaderboard));
+    }
+
     IEnumerator DownloadImage(string mediaUrl)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(mediaUrl);
@@ -129,9 +171,25 @@ public class InitYandex : MonoBehaviour
         yield return new WaitForSeconds(3);
         LoadPlayer();
         LoadData();
-        Progress.Instance.PlayerInfoForGame.auth = true;
         loading.SetActive(false);
         Progress.Instance.paused = false;
         yield break;
+    }
+
+    IEnumerator DownloadImage(string mediaUrl, int i, Leaderboard leaderboard)
+    {
+        _score[i].text = Convert.ToString(leaderboard.entries[i].score);
+        _rate[i].text = Convert.ToString(leaderboard.entries[i].rank);
+        _names[i].text = Convert.ToString(leaderboard.entries[i].publicName);
+
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(mediaUrl);
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+            Debug.Log(request.error);
+        else
+        {
+            _photos[i].texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+        }
     }
 }

@@ -34,6 +34,7 @@ public class BullTrigger : MonoBehaviour
 
         gunComponents.store = gunComponents.maxStore;
 
+        if(!gunComponents.reolading)
         ui.gameScreen.GetGun(gunComponents.ammo, gunComponents.store);
 
         Destroy(gameObject);

@@ -69,7 +69,7 @@ mergeInto(LibraryManager.library, {
                             lbEntries.push(entry);
                         });
                         lbAnswer.entries = lbEntries;
-                        myGameInstance.SendMessage("Progress", "LoadLeaderboard", JSON.stringify(lbAnswer));
+                        myGameInstance.SendMessage("Initialization Yandex SDK", "Gow", JSON.stringify(lbAnswer));
                     });
             });
     },
