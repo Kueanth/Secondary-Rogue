@@ -8,6 +8,14 @@ using System.Collections.Generic;
 using System;
 
 [System.Serializable]
+public class PLayerLeaderboard
+{
+    public string publicName;
+    public int rank;
+    public int score;
+}
+
+[System.Serializable]
 public class Leaderboard
 {
     public List<LeaderboardEntries> entries;
@@ -24,12 +32,15 @@ public class LeaderboardEntries
 
 public class InitYandex : MonoBehaviour
 {
-    public Leaderboard leaderboard;
+    public static Leaderboard leaderboard;
+    public PLayerLeaderboard playerLeaderboard;
 
     [SerializeField] private RawImage[] _photos;
     [SerializeField] private TextMeshProUGUI[] _rate;
     [SerializeField] private TextMeshProUGUI[] _score;
     [SerializeField] private TextMeshProUGUI[] _names;
+
+    public GameObject Rating;
 
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private RawImage _photo;
@@ -63,8 +74,15 @@ public class InitYandex : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void GetDataInLeaderboards(string rawNameStr, bool includeUser, int quantityTop, int quantityAround);
 
+    [DllImport("__Internal")]
+    private static extern void AskSetLeaderboardScore(string rawNameStr);
+
     private void Start()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            IsPlayerAuth();
+#endif
+
         if (Progress.Instance.PlayerInfoForGame.auth)
         {
 
@@ -78,12 +96,6 @@ public class InitYandex : MonoBehaviour
             animatorAuthPlayer.SetTrigger("authComplete");
             animatorRating.SetTrigger("authComplete");
             Progress.Instance.InfoInit();   
-        }
-        else
-        {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            IsPlayerAuth();
-#endif
         }
     }
 
@@ -143,6 +155,39 @@ public class InitYandex : MonoBehaviour
         StartCoroutine(DownloadImage(leaderboard.entries[2].imageURL, 2, leaderboard));
         StartCoroutine(DownloadImage(leaderboard.entries[3].imageURL, 3, leaderboard));
         StartCoroutine(DownloadImage(leaderboard.entries[4].imageURL, 4, leaderboard));
+
+        AskSetLeaderboardScore("levels");
+    }
+
+    public void Rrrr()
+    {
+        StartCoroutine(DownloadImage(leaderboard.entries[5].imageURL, 0, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[6].imageURL, 1, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[7].imageURL, 2, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[8].imageURL, 3, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[9].imageURL, 4, leaderboard));
+    }
+
+    public void Wwww()
+    {
+        StartCoroutine(DownloadImage(leaderboard.entries[0].imageURL, 0, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[1].imageURL, 1, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[2].imageURL, 2, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[3].imageURL, 3, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[4].imageURL, 4, leaderboard));
+    }
+
+    public void Meow(string value)
+    {
+        playerLeaderboard = JsonUtility.FromJson<PLayerLeaderboard>(value);
+
+        for(int i = 0; i < 5; i++)
+        {
+            if (playerLeaderboard.rank == i)
+            {
+                Rating.GetComponent<Rating>().number = i - 1;
+            }
+        }
     }
 
     IEnumerator DownloadImage(string mediaUrl)

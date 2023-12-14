@@ -49,6 +49,26 @@ mergeInto(LibraryManager.library, {
         });
     },
 
+    AskSetLeaderboardScore: function (rawNameStr) {
+        var lbname = UTF8ToString(rawNameStr);
+        window.ysdk.getLeaderboards()
+            .then(lb => lb.getLeaderboardPlayerEntry(lbname))
+            .then(res => {
+                var json = {
+                    "publicName": res.player.publicName,
+                    "rank": res.rank,
+                    "score": res.score
+                };
+
+                myGameInstance.SendMessage("Initialization Yandex SDK", "Meow", JSON.stringify(json));
+            })
+            .catch(err => {
+                if (err.code === 'LEADERBOARD_PLAYER_NOT_PRESENT') {
+                    
+                }
+            });
+    },
+
     GetDataInLeaderboards: function (rawNameStr, includeUser, quantityAround, quantityTop) {
         var lbname = UTF8ToString(rawNameStr);
         ysdk.getLeaderboards()
@@ -96,7 +116,6 @@ mergeInto(LibraryManager.library, {
         var dateString = UTF8ToString(date);
         var myobj = JSON.parse(dateString);
         player.setData(myobj);
-        console.log("SaveData");
     },
 
     LoadData : function() {
