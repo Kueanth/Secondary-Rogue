@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 public class Character : MonoBehaviour
 {
+    [DllImport("__Internal")]
+    private static extern void AskSetLeaderboardScore(string rawNameStr);
+
     private bool isEnter;
     private bool isLeaders;
 
@@ -17,6 +20,8 @@ public class Character : MonoBehaviour
     [SerializeField] private GameObject FadeObject;
     [SerializeField] private GameObject LeadersObject;
     [SerializeField] private Animator AuthBar;
+
+    [SerializeField] private InitYandex initYandex;
 
     public void Start()
     {
@@ -95,6 +100,7 @@ public class Character : MonoBehaviour
                 if (Progress.Instance.PlayerInfoForGame.auth)
                 {
                     LeadersObject.SetActive(true);
+                    AskSetLeaderboardScore("levels");
                 }
                 else
                 {

@@ -38,14 +38,14 @@ public class Rating : MonoBehaviour
 
     public void OpenPlayerTop()
     {
-        initYandex.Rrrr();
+        initYandex.Wwww();
         imageBack.sprite = forImage[1];
         
     }
 
     public void OpenMainTop()
     {
-        initYandex.Wwww();
+        initYandex.Rrrr();
         imageBack.sprite = forImage[0];
     }
 }

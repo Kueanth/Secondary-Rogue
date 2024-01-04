@@ -56,6 +56,8 @@ public class InitYandex : MonoBehaviour
 
     [SerializeField] private GameObject loading;
 
+    [SerializeField] private TextMeshProUGUI _text;
+
     [DllImport("__Internal")]
     private static extern void AuthPlayer();
 
@@ -87,7 +89,7 @@ public class InitYandex : MonoBehaviour
         {
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-            GetDataInLeaderboards("levels", true, 5, 2);
+            GetDataInLeaderboards("levels", true, 5, 5);
 #endif
 
             _button.gameObject.SetActive(false);
@@ -161,20 +163,20 @@ public class InitYandex : MonoBehaviour
 
     public void Rrrr()
     {
-        StartCoroutine(DownloadImage(leaderboard.entries[5].imageURL, 0, leaderboard));
-        StartCoroutine(DownloadImage(leaderboard.entries[6].imageURL, 1, leaderboard));
-        StartCoroutine(DownloadImage(leaderboard.entries[7].imageURL, 2, leaderboard));
-        StartCoroutine(DownloadImage(leaderboard.entries[8].imageURL, 3, leaderboard));
-        StartCoroutine(DownloadImage(leaderboard.entries[9].imageURL, 4, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[0].imageURL, 0, leaderboard, true));
+        StartCoroutine(DownloadImage(leaderboard.entries[1].imageURL, 1, leaderboard, true));
+        StartCoroutine(DownloadImage(leaderboard.entries[2].imageURL, 2, leaderboard, true));
+        StartCoroutine(DownloadImage(leaderboard.entries[3].imageURL, 3, leaderboard, true));
+        StartCoroutine(DownloadImage(leaderboard.entries[9].imageURL, 4, leaderboard, true));
     }
 
     public void Wwww()
     {
-        StartCoroutine(DownloadImage(leaderboard.entries[0].imageURL, 0, leaderboard));
-        StartCoroutine(DownloadImage(leaderboard.entries[1].imageURL, 1, leaderboard));
-        StartCoroutine(DownloadImage(leaderboard.entries[2].imageURL, 2, leaderboard));
-        StartCoroutine(DownloadImage(leaderboard.entries[3].imageURL, 3, leaderboard));
-        StartCoroutine(DownloadImage(leaderboard.entries[4].imageURL, 4, leaderboard));
+        StartCoroutine(DownloadImage(leaderboard.entries[5].imageURL, 0, leaderboard, false));
+        StartCoroutine(DownloadImage(leaderboard.entries[6].imageURL, 1, leaderboard, false));
+        StartCoroutine(DownloadImage(leaderboard.entries[7].imageURL, 2, leaderboard, false));
+        StartCoroutine(DownloadImage(leaderboard.entries[8].imageURL, 3, leaderboard, false));
+        StartCoroutine(DownloadImage(leaderboard.entries[9].imageURL, 4, leaderboard, false));
     }
 
     public void Meow(string value)
@@ -188,6 +190,8 @@ public class InitYandex : MonoBehaviour
                 Rating.GetComponent<Rating>().number = i - 1;
             }
         }
+
+        _text.text = $"Ваше место в рейтинге: {playerLeaderboard.rank}";
     }
 
     IEnumerator DownloadImage(string mediaUrl)
@@ -202,7 +206,7 @@ public class InitYandex : MonoBehaviour
             Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
             _button.gameObject.SetActive(false);
             LoadData();
-            GetDataInLeaderboards("levels", true, 5, 2);
+            GetDataInLeaderboards("levels", true, 5, 5);
             Progress.Instance.PlayerInfoForGame.auth = true;
             animatorAuthPlayer.SetTrigger("authComplete");
             animatorRating.SetTrigger("authComplete");
@@ -221,11 +225,20 @@ public class InitYandex : MonoBehaviour
         yield break;
     }
 
-    IEnumerator DownloadImage(string mediaUrl, int i, Leaderboard leaderboard)
+    IEnumerator DownloadImage(string mediaUrl, int i, Leaderboard leaderboard, bool temp = true)
     {
-        _score[i].text = Convert.ToString(leaderboard.entries[i].score);
-        _rate[i].text = Convert.ToString(leaderboard.entries[i].rank);
-        _names[i].text = Convert.ToString(leaderboard.entries[i].publicName);
+        if (temp)
+        {
+            _score[i].text = Convert.ToString(leaderboard.entries[i].score);
+            _rate[i].text = Convert.ToString(leaderboard.entries[i].rank);
+            _names[i].text = Convert.ToString(leaderboard.entries[i].publicName);
+        }
+        else
+        {
+            _score[i].text = Convert.ToString(leaderboard.entries[i + 5].score);
+            _rate[i].text = Convert.ToString(leaderboard.entries[i + 5].rank);
+            _names[i].text = Convert.ToString(leaderboard.entries[i + 5].publicName);
+        }
 
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(mediaUrl);
         yield return request.SendWebRequest();
