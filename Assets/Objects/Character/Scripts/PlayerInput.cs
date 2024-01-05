@@ -1,4 +1,5 @@
 using Leopotam.Ecs;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -9,6 +10,8 @@ public class PlayerInput : IEcsRunSystem
 
     public bool particleRun;
 
+    public static int value = 0;
+    
     public SceneData sceneData;
     public UI ui;
 
@@ -16,6 +19,22 @@ public class PlayerInput : IEcsRunSystem
     {
         foreach (var i in _filter)
         {
+            if (Input.GetKeyDown(KeyCode.Tab) && !ui.deadScreen.deadScreen.activeSelf)
+            {
+                if (value == 0 && !Progress.Instance.openPausedBar)
+                {
+                    ui.pausedScreen.GameObj.Play("Open");
+                    ++value;
+                }
+                else if (value == 1 && Progress.Instance.openPausedBar)
+                {
+                    ui.pausedScreen.GameObj.Play("Close");
+                    --value;
+                }
+            }
+
+            if (sceneData.paused) return;
+
             ref Player components = ref _filter.Get1(i);
             ref GunComponents gunComponents = ref _filter.Get2(i);
             ref EcsEntity entity = ref _filter.GetEntity(i);

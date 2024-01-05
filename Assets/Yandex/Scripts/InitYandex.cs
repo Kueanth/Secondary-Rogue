@@ -118,11 +118,10 @@ public class InitYandex : MonoBehaviour
     public void GetName(string name)
     {
         if(name != "")
-        {
             _name.text = name;
-            _button.gameObject.SetActive(false);
-            Progress.Instance.PlayerInfoForGame.name = name;
-        }
+
+        _button.gameObject.SetActive(false);
+        Progress.Instance.PlayerInfoForGame.name = name;
     }
 
     public void RateGameButton()
@@ -200,19 +199,18 @@ public class InitYandex : MonoBehaviour
         yield return request.SendWebRequest();
         if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             Debug.Log(request.error);
-        else if(_name.text != "")
-        {
-            _photo.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            _button.gameObject.SetActive(false);
-            LoadData();
-            GetDataInLeaderboards("levels", true, 5, 5);
-            Progress.Instance.PlayerInfoForGame.auth = true;
-            animatorAuthPlayer.SetTrigger("authComplete");
-            animatorRating.SetTrigger("authComplete");
-            if (_authPlayer.enabled) _authPlayer.Play("CloseAuthBar");
-            Progress.Instance.InfoInit();
-        }
+
+
+         _photo.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+         Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
+         _button.gameObject.SetActive(false);
+         LoadData();
+         GetDataInLeaderboards("levels", true, 5, 5);
+         Progress.Instance.PlayerInfoForGame.auth = true;
+         animatorAuthPlayer.SetTrigger("authComplete");
+         animatorRating.SetTrigger("authComplete");
+         if (_authPlayer.enabled) _authPlayer.Play("CloseAuthBar");
+         Progress.Instance.InfoInit();
     }
 
     IEnumerator LoadPlayerCoroutine()
@@ -231,6 +229,10 @@ public class InitYandex : MonoBehaviour
         {
             _score[i].text = Convert.ToString(leaderboard.entries[i].score);
             _rate[i].text = Convert.ToString(leaderboard.entries[i].rank);
+
+            if (Convert.ToString(leaderboard.entries[i].publicName) == "")
+                _names[i].text = "Пользователь скрыт";
+            else
             _names[i].text = Convert.ToString(leaderboard.entries[i].publicName);
         }
         else

@@ -18,6 +18,7 @@ public class InitEcs : MonoBehaviour
     private EcsSystems _fixedSystems;
     private EcsSystems _updateSystems;
     private EcsSystems _lateSystems;
+    private EcsSystems _playerSystem;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class InitEcs : MonoBehaviour
         _fixedSystems = new EcsSystems(_world);
         _updateSystems = new EcsSystems(_world);
         _lateSystems = new EcsSystems(_world);
+        _playerSystem = new EcsSystems(_world);
 
         _awakeSystems
             .Init();
@@ -54,7 +56,6 @@ public class InitEcs : MonoBehaviour
             .Add(new EnemyInit())
             .Add(new ChestInit())
             .Add(new FadeInit())
-            .Add(new PlayerInput())
             .Add(new GunInput())
             .Add(new PlayerRotate())
             .Add(new CameraFollow())
@@ -79,6 +80,18 @@ public class InitEcs : MonoBehaviour
             .Inject(ui)
             .Init();
 
+
+        _playerSystem
+            .Add(new PlayerInput())
+            .Inject(configuration)
+            .Inject(sceneData)
+            .Inject(enemyObjects)
+            .Inject(rooms)
+            .Inject(guns)
+            .Inject(ui)
+            .Inject(money)
+            .Init();
+
         _awakeSystems.Run();
     }
 
@@ -101,6 +114,8 @@ public class InitEcs : MonoBehaviour
         {
             _updateSystems.Run();
         }
+
+        _playerSystem.Run();
     }
 
     private void LateUpdate()

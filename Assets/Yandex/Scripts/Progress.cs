@@ -36,6 +36,8 @@ public class Progress : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI info;
 
+    public bool openPausedBar;
+
     public bool paused;
 
     public bool enter;

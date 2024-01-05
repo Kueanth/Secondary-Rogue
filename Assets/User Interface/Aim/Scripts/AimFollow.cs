@@ -20,6 +20,14 @@ public class AimFollow : IEcsRunSystem, IEcsInitSystem
         if (Cursor.visible && !sceneData.paused) Cursor.visible = false;
         else if (!Cursor.visible && sceneData.paused) Cursor.visible = true;
 
-        ui.gameScreen.aim.transform.position = Input.mousePosition;
+        if (sceneData.paused)
+        {
+            ui.gameScreen.aim.enabled = false;
+        }
+        else
+        {
+            ui.gameScreen.aim.enabled = true;
+            ui.gameScreen.aim.transform.position = Input.mousePosition;
+        }
     }
 }

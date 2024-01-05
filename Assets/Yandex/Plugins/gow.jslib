@@ -1,7 +1,9 @@
 mergeInto(LibraryManager.library, {
   LoadPlayer: function () {
+    if(meow){
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetName', player.getName());
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetPhoto', player.getPhoto('large'));
+    }
   },
 
   AuthPlayer: function () {
