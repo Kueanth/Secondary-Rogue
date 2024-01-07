@@ -13,6 +13,7 @@ public class GameScreen : MonoBehaviour
     public Image bar;
     public Image infoBar;
     public GameObject gameScreen;
+    public GameObject Fade;
 
     public bool upGun;
 

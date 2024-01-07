@@ -11,4 +11,14 @@ public class FadeNextRoom : MonoBehaviour
         animator.Play("New State");
         room.Get<RoomCreate>();
     }
+
+    public void Enter()
+    {
+        Progress.Instance.openPausedBar = true;
+    }
+
+    public void Exit()
+    {
+        Progress.Instance.openPausedBar = false;
+    }
 }

@@ -19,8 +19,9 @@ public class PlayerTrigger : MonoBehaviour
 
         ui.gameScreen.gameScreen.SetActive(true);
         ui.deadScreen.deadScreen.SetActive(false);
-        
-        if(!sceneData.levelComplete) ui.gameScreen.infoBar.GetComponent<Animator>().Play("New State");
+        ui.pausedScreen.pausedScreen.SetActive(true);
+
+        if (!sceneData.levelComplete) ui.gameScreen.infoBar.GetComponent<Animator>().Play("New State");
 
         components.hp = 3;
         sceneData.paused = false;
@@ -118,6 +119,7 @@ public class PlayerTrigger : MonoBehaviour
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
                 ui.gameScreen.gameScreen.SetActive(false);
                 ui.deadScreen.deadScreen.SetActive(true);
+                ui.pausedScreen.pausedScreen.SetActive(false);
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
                 components.deadforpit = true;

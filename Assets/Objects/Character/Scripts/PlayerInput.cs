@@ -19,7 +19,7 @@ public class PlayerInput : IEcsRunSystem
     {
         foreach (var i in _filter)
         {
-            if (Input.GetKeyDown(KeyCode.Tab) && !ui.deadScreen.deadScreen.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Tab) && !ui.deadScreen.deadScreen.activeSelf && !ui.pausedScreen.Fade.activeSelf)
             {
                 if (value == 0 && !Progress.Instance.openPausedBar)
                 {

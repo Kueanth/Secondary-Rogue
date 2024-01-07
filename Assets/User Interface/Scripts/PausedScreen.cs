@@ -7,6 +7,8 @@ public class PausedScreen : MonoBehaviour
     public GameObject Fade;
     public Animator GameObj;
 
+    public GameObject pausedScreen;
+
     public UI ui;
 
     public EcsEntity player;
@@ -38,14 +40,12 @@ public class PausedScreen : MonoBehaviour
     public void Three()
     {
         player.Get<Player>().rigidbody2D.velocity = Vector2.zero;
-        player.Get<Player>().animator.Play("Idle");
         sceneData.paused = true;
     }
 
     public void Four()
     {
         player.Get<Player>().rigidbody2D.velocity = Vector2.zero;
-        player.Get<Player>().animator.Play("Idle");
         sceneData.paused = false;
     }
 
@@ -69,7 +69,6 @@ public class PausedScreen : MonoBehaviour
         sceneData.paused = false;
         PlayerInput.value = 0;
         GameObj.Play("ExitGame");
-        Progress.Instance.openPausedBar = false;
     }
 
     public void reloadGameEnd()
@@ -77,7 +76,6 @@ public class PausedScreen : MonoBehaviour
         sceneData.paused = false;
         PlayerInput.value = 0;
         GameObj.Play("ReloadGame");
-        Progress.Instance.openPausedBar = false;
     }
 
     public void resumeGameEnd()
@@ -91,6 +89,7 @@ public class PausedScreen : MonoBehaviour
     {
         Fade.SetActive(true);
         PlayerInput.value = 0;
+        Progress.Instance.openPausedBar = false;
         Fade.GetComponent<Animator>().Play("ExitInRoom");
     }
 
@@ -98,6 +97,7 @@ public class PausedScreen : MonoBehaviour
     {
         Fade.SetActive(true);
         PlayerInput.value = 0;
+        Progress.Instance.openPausedBar = false;
         Fade.GetComponent<Animator>().Play("ReloadFade");
     }
 }

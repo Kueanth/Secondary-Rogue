@@ -18,7 +18,7 @@ public class AimFollow : IEcsRunSystem, IEcsInitSystem
         // For cursor
 
         if (Cursor.visible && !sceneData.paused) Cursor.visible = false;
-        else if (!Cursor.visible && sceneData.paused) Cursor.visible = true;
+        else if (!Cursor.visible && sceneData.paused || Progress.Instance.openPausedBar) Cursor.visible = true;
 
         if (sceneData.paused)
         {

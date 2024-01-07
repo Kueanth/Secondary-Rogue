@@ -27,6 +27,7 @@ public class BodyTrigger : MonoBehaviour
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[0]);
                 ui.gameScreen.gameScreen.SetActive(false);
                 ui.deadScreen.deadScreen.SetActive(true);
+                ui.pausedScreen.pausedScreen.SetActive(false);
                 ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
                 sceneData.paused = true;
                 components.animator.SetTrigger("Refuse");
