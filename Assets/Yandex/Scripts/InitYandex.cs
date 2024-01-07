@@ -50,7 +50,7 @@ public class InitYandex : MonoBehaviour
     [SerializeField] private Animator animatorAuthPlayer;
     [SerializeField] private Animator animatorRating;
 
-    [SerializeField] private Animator _authPlayer;
+    [SerializeField] private GameObject _authPlayer;
 
     [SerializeField] private Animator auth;
 
@@ -111,7 +111,7 @@ public class InitYandex : MonoBehaviour
 
     public void CloseAuthBar()
     {
-        _authPlayer.Play("CloseAuthBar");
+        _authPlayer.GetComponent<Animator>().Play("CloseAuthBar");
         auth.Play("AuthButtonInit");
     }
 
@@ -132,7 +132,7 @@ public class InitYandex : MonoBehaviour
         }
         else
         {
-            _authPlayer.Play("OpenAuthBar");
+            _authPlayer.GetComponent<Animator>().Play("OpenAuthBar");
         }
     }
 
@@ -141,10 +141,9 @@ public class InitYandex : MonoBehaviour
         StartCoroutine(DownloadImage(url));
     }
 
-    public void LoadAuthBar(int aug)
+    public void LoadAuthBar()
     {
-        if (aug == 0)
-            _authPlayer.Play("OpenAuthBar");
+        _authPlayer.GetComponent<Animator>().Play("OpenAuthBar");
     }
 
     public void Gow(string value)
@@ -206,10 +205,10 @@ public class InitYandex : MonoBehaviour
          _button.gameObject.SetActive(false);
          LoadData();
          GetDataInLeaderboards("levels", true, 5, 5);
+         _authPlayer.SetActive(false);
          Progress.Instance.PlayerInfoForGame.auth = true;
          animatorAuthPlayer.SetTrigger("authComplete");
          animatorRating.SetTrigger("authComplete");
-         if (_authPlayer.enabled) _authPlayer.Play("CloseAuthBar");
          Progress.Instance.InfoInit();
     }
 

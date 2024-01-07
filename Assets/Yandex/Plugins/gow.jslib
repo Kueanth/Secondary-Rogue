@@ -42,12 +42,8 @@ mergeInto(LibraryManager.library, {
         window.ysdk.getPlayer().then(_player => {
             var result;
             if (_player.getMode() === 'lite') {
-                result = 0;
+                myGameInstance.SendMessage("Initialization Yandex SDK", "LoadAuthBar", result);
             }
-            else {
-                result = 1;
-            }
-            myGameInstance.SendMessage("Initialization Yandex SDK", "LoadAuthBar", result);
         });
     },
 

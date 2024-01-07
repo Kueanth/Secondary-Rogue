@@ -45,6 +45,7 @@ public class PausedScreen : MonoBehaviour
 
     public void Four()
     {
+        ui.gameScreen.aim.enabled = true;
         player.Get<Player>().rigidbody2D.velocity = Vector2.zero;
         sceneData.paused = false;
     }

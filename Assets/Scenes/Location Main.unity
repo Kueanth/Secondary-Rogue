@@ -5013,7 +5013,7 @@ MonoBehaviour:
   _button: {fileID: 510828682}
   animatorAuthPlayer: {fileID: 826704853}
   animatorRating: {fileID: 0}
-  _authPlayer: {fileID: 917111909}
+  _authPlayer: {fileID: 917111907}
   auth: {fileID: 510828685}
   loading: {fileID: 760779951}
   _text: {fileID: 626745566}

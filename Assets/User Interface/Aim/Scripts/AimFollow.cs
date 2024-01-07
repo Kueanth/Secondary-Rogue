@@ -18,7 +18,11 @@ public class AimFollow : IEcsRunSystem, IEcsInitSystem
         // For cursor
 
         if (Cursor.visible && !sceneData.paused) Cursor.visible = false;
-        else if (!Cursor.visible && sceneData.paused || Progress.Instance.openPausedBar) Cursor.visible = true;
+        else if (!Cursor.visible && sceneData.paused || !ui.gameScreen.aim.enabled && sceneData.paused)
+        {
+            Cursor.SetCursor(configuration.Cursor, Vector2.zero, CursorMode.Auto);
+            Cursor.visible = true;
+        }
 
         if (sceneData.paused)
         {
@@ -26,7 +30,6 @@ public class AimFollow : IEcsRunSystem, IEcsInitSystem
         }
         else
         {
-            ui.gameScreen.aim.enabled = true;
             ui.gameScreen.aim.transform.position = Input.mousePosition;
         }
     }
