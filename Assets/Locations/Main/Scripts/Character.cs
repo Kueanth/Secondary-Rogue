@@ -23,6 +23,9 @@ public class Character : MonoBehaviour
     [SerializeField] private GameObject ShopObject;
     [SerializeField] private Animator AuthBar;
 
+    [SerializeField] private Transform pointForPet;
+    [SerializeField] private SpriteRenderer Pet;
+
     [SerializeField] private InitYandex initYandex;
 
     public void Start()
@@ -48,25 +51,30 @@ public class Character : MonoBehaviour
             {
                 running = true;
                 flipping = false;
+                Pet.GetComponent<Animator>().SetBool("Speed", true);
             }
             else if (horizontal <= -0.2f)
             {
                 running = true;
                 flipping = true;
+                Pet.GetComponent<Animator>().SetBool("Speed", true);
             }
             else
             {
                 if (vertical >= 0.2f)
                 {
                     running = true;
+                    Pet.GetComponent<Animator>().SetBool("Speed", true);
                 }
                 else if (vertical <= -0.2f)
                 {
                     running = true;
+                    Pet.GetComponent<Animator>().SetBool("Speed", true);
                 }
                 else
                 {
                     running = false;
+                    Pet.GetComponent<Animator>().SetBool("Speed", false);
                 }
             }
 
@@ -77,16 +85,21 @@ public class Character : MonoBehaviour
             else
                 CharacterAnimator.SetBool("Running", false);
 
+            if (Pet.transform.position.x > gameObject.transform.position.x)
+                Pet.flipX = true;
+            else
+                Pet.flipX = false;
 
             // flipping character
             if (flipping)
             {
                 CharacterSR.flipX = true;
-
+                pointForPet.localPosition = new Vector2(0.8f, -0.3f);
             }
             else if (!flipping)
             {
                 CharacterSR.flipX = false;
+                pointForPet.localPosition = new Vector2(-0.8f, -0.3f);  
             }
 
             if (Input.GetKeyDown(KeyCode.F) && isEnter)
@@ -112,7 +125,7 @@ public class Character : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && isShop)
             {
-                if (1 == 1)
+                if (Progress.Instance.PlayerInfoForGame.auth)
                 {
                     ShopObject.SetActive(true);
                 }

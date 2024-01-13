@@ -10,6 +10,8 @@ using System;
 [System.Serializable]
 public class PlayerInfoForSave
 {
+    public string pets; 
+    public int checkedVideo;
     public int levels;
     public int record;
 }
