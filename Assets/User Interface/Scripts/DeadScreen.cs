@@ -8,6 +8,7 @@ using System.Collections;
 public class DeadScreen : MonoBehaviour
 {
     public TextMeshProUGUI textMeshProUGUI;
+    public TextMeshProUGUI textMeshProUGUI1;
     public Image fade;
 
     public PlayerTrigger playerTrigger;
@@ -41,9 +42,10 @@ public class DeadScreen : MonoBehaviour
 #endif 
     }
 
-    public void editText(int countLevel, int countEnemy, int countMoney)
+    public void editText(int countLevel, int record)
     {
-        textMeshProUGUI.text = "опнидемн щрюфеи: " + countLevel + "\nсахрн опнрхбмхйнб: " + countEnemy + "\nгюпюанрюммн лнмер: " + countMoney;
+        textMeshProUGUI.text = "опнидемн щрюфеи: " + countLevel;
+        textMeshProUGUI1.text = "пейнпд: " + record;
     }
 
     IEnumerator enumerator()

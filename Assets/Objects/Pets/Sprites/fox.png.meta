@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b84d0d6b387177429cd7af7440fa916
+guid: cbc5f0e5e0444be429dba984827d0dd6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -140,64 +140,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackgroundProfileInformation_1
+      name: fox_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 66
-        width: 112
-        height: 24
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c79e5083e867f14438dd9a06b173d9df
-      internalID: -380954850
+      spriteID: 92129b8cc06d99c428309608e17eee58
+      internalID: 1665402757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackgroundProfileInformation_3
+      name: fox_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 106
-        height: 32
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8960bdc0c56bd4546af0e171921b2078
-      internalID: -1488368221
+      spriteID: c0f1b4b838aa7b54bbfa357e46a0aac0
+      internalID: 860338924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackgroundProfileInformation_5
+      name: fox_2
       rect:
         serializedVersion: 2
-        x: 6
-        y: 5
-        width: 99
-        height: 20
+        x: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1033d4ed20d53b44cba3eeaa5442b9b0
-      internalID: -646087498
+      spriteID: be5b865d4660e794887593359ee9c2d6
+      internalID: -325889358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fox_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8598f9ced949a5b448186f49025ae45b
+      internalID: 933249473
       vertices: []
       indices: 
       edges: []
@@ -213,12 +234,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BackgroundProfileInformation_2: 1390186248
-      BackgroundProfileInformation_5: -646087498
-      BackgroundProfileInformation_1: -380954850
-      BackgroundProfileInformation_4: 249243935
-      BackgroundProfileInformation_0: 1484603373
-      BackgroundProfileInformation_3: -1488368221
+      fox_2: -325889358
+      fox_1: 860338924
+      fox_0: 1665402757
+      fox_3: 933249473
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

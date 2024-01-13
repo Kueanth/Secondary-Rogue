@@ -81,6 +81,7 @@ public class HatchTrigger : MonoBehaviour
         ui.gameScreen.fade.GetComponent<FadeNextRoom>().animator = ui.gameScreen.infoBar.GetComponent<Animator>();
 
         sceneData.countLevel += 1;
+        sceneData.record += 1;
     }
 
     public void levelComplete()

@@ -11,24 +11,32 @@ public class AimFollow : IEcsRunSystem, IEcsInitSystem
     public void Init()
     {
         Cursor.SetCursor(configuration.Cursor, Vector2.zero, CursorMode.Auto);
+
+        sceneData.paused = false;
+        Cursor.visible = true;
     }
 
     public void Run()
     {
         // For cursor
-
-        if (Cursor.visible && !sceneData.paused) Cursor.visible = false;
-        else if (!Cursor.visible && sceneData.paused || !ui.gameScreen.aim.enabled && sceneData.paused)
+        if(!sceneData.paused)
         {
+            if(!sceneData.lazerWork)
+                ui.gameScreen.aim.enabled = true;
+            else if(sceneData.lazerWork)
+                ui.gameScreen.aim.enabled = false;
+
+            Cursor.visible = false;
+        }
+        else if(sceneData.paused)
+        {
+            ui.gameScreen.aim.enabled = false;
+
             Cursor.SetCursor(configuration.Cursor, Vector2.zero, CursorMode.Auto);
             Cursor.visible = true;
         }
 
-        if (sceneData.paused)
-        {
-            ui.gameScreen.aim.enabled = false;
-        }
-        else
+        if (!sceneData.paused && ui.gameScreen.aim.enabled)
         {
             ui.gameScreen.aim.transform.position = Input.mousePosition;
         }

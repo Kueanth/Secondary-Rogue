@@ -11,8 +11,7 @@ using System;
 public class PlayerInfoForSave
 {
     public int levels;
-    public int enemys;
-    public int money;
+    public int record;
 }
 
 [System.Serializable]
@@ -30,6 +29,9 @@ public class Progress : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern void SaveData(string date);
+
+    [SerializeField] private Sprite boards;
+    [SerializeField] private Sprite forBoard;
 
     public PlayerInfoForSave PlayerInfoForSave;
     public PlayerInfoForGame PlayerInfoForGame;

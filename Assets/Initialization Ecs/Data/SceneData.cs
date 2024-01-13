@@ -18,6 +18,8 @@ public class SceneData : MonoBehaviour
 
     public int countKillEnemy;
 
+    public int record;
+
     public GameObject playerObject;
 
     public bool levelComplete;
@@ -44,6 +46,8 @@ public class SceneData : MonoBehaviour
     public GameObject[] hatchs;
 
     public bool paused = false;
+
+    public bool lazerWork = false;
 
     public void resurrectionPlayer()
     {

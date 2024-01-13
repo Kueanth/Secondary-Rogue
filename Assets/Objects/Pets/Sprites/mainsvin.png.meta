@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b84d0d6b387177429cd7af7440fa916
+guid: 70ed76807f44dfb4fa0e91fbb652dea8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -140,64 +140,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackgroundProfileInformation_1
+      name: mainsvin_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 66
-        width: 112
-        height: 24
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c79e5083e867f14438dd9a06b173d9df
-      internalID: -380954850
+      spriteID: fca1b928821f313438f2f428f705ae84
+      internalID: -794825917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackgroundProfileInformation_3
+      name: mainsvin_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 106
-        height: 32
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8960bdc0c56bd4546af0e171921b2078
-      internalID: -1488368221
+      spriteID: 66a95812d2f54cf4cba48fc3d3c1446f
+      internalID: -1173066014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BackgroundProfileInformation_5
+      name: mainsvin_2
       rect:
         serializedVersion: 2
-        x: 6
-        y: 5
-        width: 99
-        height: 20
+        x: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1033d4ed20d53b44cba3eeaa5442b9b0
-      internalID: -646087498
+      spriteID: b871d47dc5b5eb34ab82647b8ffc5e36
+      internalID: 1767743825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mainsvin_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63661d127efae24ea03a1a0213b7eb6
+      internalID: 96959348
       vertices: []
       indices: 
       edges: []
@@ -213,12 +234,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BackgroundProfileInformation_2: 1390186248
-      BackgroundProfileInformation_5: -646087498
-      BackgroundProfileInformation_1: -380954850
-      BackgroundProfileInformation_4: 249243935
-      BackgroundProfileInformation_0: 1484603373
-      BackgroundProfileInformation_3: -1488368221
+      mainsvin_1: -1173066014
+      mainsvin_2: 1767743825
+      mainsvin_0: -794825917
+      mainsvin_3: 96959348
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

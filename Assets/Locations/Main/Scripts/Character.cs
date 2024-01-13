@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     private static extern void AskSetLeaderboardScore(string rawNameStr);
 
     private bool isEnter;
+    private bool isShop;
     private bool isLeaders;
 
     private bool running;
@@ -107,6 +108,19 @@ public class Character : MonoBehaviour
                     AuthBar.Play("OpenAuthBar");
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.F) && isShop)
+            {
+                if (Progress.Instance.PlayerInfoForGame.auth)
+                {
+                    LeadersObject.SetActive(true);
+                    AskSetLeaderboardScore("levels");
+                }
+                else
+                {
+                    AuthBar.Play("OpenAuthBar");
+                }
+            }
         }
     }
 
@@ -121,7 +135,13 @@ public class Character : MonoBehaviour
         {
             isLeaders = true;
         }
-    }
+
+        if(collision.name == "NPC")
+        {
+            isShop = true;
+        }
+
+        }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -134,5 +154,11 @@ public class Character : MonoBehaviour
         {
             isLeaders = false;
         }
+
+        if (collision.name == "NPC")
+        {
+            isShop = false;
+        }
+
     }
 }

@@ -14,11 +14,12 @@ public class FadeNextRoom : MonoBehaviour
 
     public void Enter()
     {
-        Progress.Instance.openPausedBar = true;
+        
     }
 
     public void Exit()
     {
         Progress.Instance.openPausedBar = false;
+        Cursor.visible = false;
     }
 }

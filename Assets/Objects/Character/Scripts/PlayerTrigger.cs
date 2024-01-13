@@ -27,6 +27,8 @@ public class PlayerTrigger : MonoBehaviour
         sceneData.paused = false;
 
         components.animator.SetTrigger("End");
+        ui.gameScreen.aim.enabled = true;
+        sceneData.paused = false;
 
         ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
 
@@ -120,7 +122,12 @@ public class PlayerTrigger : MonoBehaviour
                 ui.gameScreen.gameScreen.SetActive(false);
                 ui.deadScreen.deadScreen.SetActive(true);
                 ui.pausedScreen.pausedScreen.SetActive(false);
-                ui.deadScreen.editText(sceneData.countLevel, sceneData.countKillEnemy, 0);
+
+                if(sceneData.record > Progress.Instance.PlayerInfoForSave.record)
+                {
+                    Progress.Instance.PlayerInfoForSave.record = sceneData.record;
+                }
+                ui.deadScreen.editText(sceneData.countLevel, Progress.Instance.PlayerInfoForSave.record);
                 sceneData.paused = true;
                 components.deadforpit = true;
             }

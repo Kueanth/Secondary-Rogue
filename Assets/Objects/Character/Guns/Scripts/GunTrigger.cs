@@ -50,11 +50,13 @@ public class GunTrigger : MonoBehaviour
         {
             ui.gameScreen.aim.enabled = false;
             components.rayLazer = true;
+            scene.lazerWork = true;
         }
         else
         {
             ui.gameScreen.aim.enabled = true;
             components.rayLazer = false;
+            scene.lazerWork = false;
         }
 
         components.gun.Find("Spawn Bullet").localPosition = components.spawnPointBulltet;
