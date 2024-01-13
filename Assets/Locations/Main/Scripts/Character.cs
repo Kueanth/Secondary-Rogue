@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Texture2D CursorImage;
     [SerializeField] private GameObject FadeObject;
     [SerializeField] private GameObject LeadersObject;
+    [SerializeField] private GameObject ShopObject;
     [SerializeField] private Animator AuthBar;
 
     [SerializeField] private InitYandex initYandex;
@@ -111,10 +112,9 @@ public class Character : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && isShop)
             {
-                if (Progress.Instance.PlayerInfoForGame.auth)
+                if (1 == 1)
                 {
-                    LeadersObject.SetActive(true);
-                    AskSetLeaderboardScore("levels");
+                    ShopObject.SetActive(true);
                 }
                 else
                 {
