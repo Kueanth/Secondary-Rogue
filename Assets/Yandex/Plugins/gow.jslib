@@ -17,11 +17,11 @@ mergeInto(LibraryManager.library, {
   checkedItem: function(){
     payments.getPurchases().then(purchases => {
         if (purchases.some(purchase => purchase.productID === '01')) {
-          myGameInstance.SendMessage('Initialization Pets', 'Checked01');
+          myGameInstance.SendMessage('Initialization Pets', 'Checked01', 1);
         }
 
         if (purchases.some(purchase => purchase.productID === '02')) {
-          myGameInstance.SendMessage('Initialization Pets', 'Checked02');
+          myGameInstance.SendMessage('Initialization Pets', 'Checked02', 1);
         }
 
     }).catch(err => {
@@ -123,6 +123,24 @@ mergeInto(LibraryManager.library, {
         onRewarded: () => {
           console.log('Rewarded!');
           myGameInstance.SendMessage('Initialization - Entity Component System', 'resurrectionPlayer');
+        },
+        onClose: () => {
+        }, 
+        onError: (e) => {
+          console.log('Error while open video ad:', e);
+        }   
+    }
+})
+  },
+
+    ShowAdWithRewardPet : function() {
+    ysdk.adv.showRewardedVideo({
+    callbacks: {
+        onOpen: () => {
+        },
+        onRewarded: () => {
+          console.log('Rewarded!');
+          myGameInstance.SendMessage('Progress', 'addPointPet');
         },
         onClose: () => {
         }, 

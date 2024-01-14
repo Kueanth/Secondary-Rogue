@@ -47,6 +47,8 @@ public class Progress : MonoBehaviour
 
     public bool enter;
 
+    public bool buy01, buy02;
+
     public static Progress Instance;
 
     private void Awake()
@@ -77,5 +79,10 @@ public class Progress : MonoBehaviour
     public void InfoInit()
     {
         info = GameObject.FindGameObjectWithTag("Info").GetComponent<TextMeshProUGUI>();
+    }
+
+    public void addPointPet()
+    {
+        PlayerInfoForSave.checkedVideo++;
     }
 }

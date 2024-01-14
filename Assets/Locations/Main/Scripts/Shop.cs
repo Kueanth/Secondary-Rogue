@@ -14,6 +14,9 @@ public class Shop : MonoBehaviour
     [DllImport("___Internal")]
     private static extern void checkedItemConsume();
 
+    [DllImport("___Internal")]
+    private static extern void ShowAdWithRewardPet();
+
     [SerializeField] private Button[] buttons;
     [SerializeField] private TextMeshProUGUI[] text;
 
@@ -27,6 +30,12 @@ public class Shop : MonoBehaviour
     public void EndAnimation()
     {
         gameObject.SetActive(false);
+    }
+
+    public void Enter()
+    {
+        checkedItem();
+        checkedItemConsume();
     }
 
     // Methods for buttons
@@ -81,18 +90,90 @@ public class Shop : MonoBehaviour
         else
         {
             text[3].text = "»спользовать";
-
-            buttons[3].interactable = true;
         }
     }
 
-    public void Checked01()
+    public void Checked01(int value)
     {
-
+        if(value == 1)
+        {
+            text[5].text = "»спользовать";
+            Progress.Instance.buy01 = true;
+        }
+        else
+        {
+            text[5].text = "105 ян";
+        }
     }
 
-    public void Checked02()
+    public void Checked02(int value)
     {
+        if (value == 1)
+        {
+            text[6].text = "»спользовать";
+            Progress.Instance.buy02 = true;
+        }
+        else
+        {
+            text[6].text = "750 ян";
+        }
+    }
 
+    public void One()
+    {
+        Progress.Instance.PlayerInfoForSave.pet = 0;
+        initPets.Delete();
+    }
+
+    public void Two()
+    {
+        Progress.Instance.PlayerInfoForSave.pet = 1;
+        initPets.Delete();
+    }
+
+    public void Three()
+    {
+        if(Progress.Instance.PlayerInfoForSave.checkedVideo == 10)
+        {
+            text[3].text = "»спользовать";
+            Progress.Instance.PlayerInfoForSave.pet = 2;
+            initPets.Delete();
+        }
+        else
+        {
+            ShowAdWithRewardPet();
+        }
+    }
+
+    public void Four()
+    {
+        Progress.Instance.PlayerInfoForSave.pet = 3;
+        initPets.Delete();
+    }
+
+    public void Five()
+    {
+        if(Progress.Instance.buy02)
+        {
+            Progress.Instance.PlayerInfoForSave.pet = 4;
+            initPets.Delete();
+        }
+        else
+        {
+            buyItem("02");
+        }
+    }
+
+    public void Six()
+    {
+        if (Progress.Instance.buy01)
+        {
+            Progress.Instance.PlayerInfoForSave.pet = 5;
+            initPets.Delete();
+        }
+        else
+        {
+            buyItem("01");
+        }
     }
 }

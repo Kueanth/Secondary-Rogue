@@ -57,6 +57,9 @@ public class InitYandex : MonoBehaviour
     private static extern void AuthPlayer();
 
     [DllImport("__Internal")]
+    private static extern void checkedItem();
+
+    [DllImport("__Internal")]
     private static extern void LoadPlayer();
 
     [DllImport("__Internal")]
@@ -94,6 +97,7 @@ public class InitYandex : MonoBehaviour
             animatorRating.SetTrigger("authComplete");
             Progress.Instance.InfoInit();
             initPet.GetComponent<InitPets>().InitializationPets();
+            checkedItem();
         }
     }
 
@@ -196,16 +200,17 @@ public class InitYandex : MonoBehaviour
             Debug.Log(request.error);
 
 
-         _photo.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-         Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
-         _button.gameObject.SetActive(false);
-         LoadData();
-         GetDataInLeaderboards("levels", true, 5, 5);
-         _authPlayer.SetActive(false);
-         Progress.Instance.PlayerInfoForGame.auth = true;
-         animatorAuthPlayer.SetTrigger("authComplete");
-         animatorRating.SetTrigger("authComplete");
-         Progress.Instance.InfoInit();
+        _photo.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+        Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
+        _button.gameObject.SetActive(false);
+        LoadData();
+        GetDataInLeaderboards("levels", true, 5, 5);
+        _authPlayer.SetActive(false);
+        Progress.Instance.PlayerInfoForGame.auth = true;
+        animatorAuthPlayer.SetTrigger("authComplete");
+        animatorRating.SetTrigger("authComplete");
+        Progress.Instance.InfoInit();
+        initPet.GetComponent<InitPets>().InitializationPets();
     }
 
     IEnumerator LoadPlayerCoroutine()

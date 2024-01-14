@@ -43,4 +43,10 @@ public class InitPets : MonoBehaviour
         Character.GetComponent<Character>().Pet = Pet.GetComponent<SpriteRenderer>();
         Pet.transform.SetParent(Parent);
     }
+
+    public void Delete()
+    {
+        GameObject.Destroy(Pet);
+        InitializationPets();
+    }
 }
