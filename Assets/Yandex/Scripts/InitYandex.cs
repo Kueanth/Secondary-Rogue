@@ -94,7 +94,6 @@ public class InitYandex : MonoBehaviour
             _name.text = Progress.Instance.PlayerInfoForGame.name;
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
-            animatorRating.SetTrigger("authComplete");
             Progress.Instance.InfoInit();
             initPet.GetComponent<InitPets>().InitializationPets();
             checkedItem();
@@ -208,7 +207,6 @@ public class InitYandex : MonoBehaviour
         _authPlayer.SetActive(false);
         Progress.Instance.PlayerInfoForGame.auth = true;
         animatorAuthPlayer.SetTrigger("authComplete");
-        animatorRating.SetTrigger("authComplete");
         Progress.Instance.InfoInit();
         initPet.GetComponent<InitPets>().InitializationPets();
     }

@@ -5012,12 +5012,12 @@ MonoBehaviour:
   _photo: {fileID: 0}
   _button: {fileID: 510828682}
   animatorAuthPlayer: {fileID: 826704853}
-  animatorRating: {fileID: 0}
+  animatorRating: {fileID: 826704853}
   _authPlayer: {fileID: 917111907}
   auth: {fileID: 510828685}
   loading: {fileID: 760779951}
   _text: {fileID: 626745566}
-  initPet: {fileID: 1747512309}
+  initPet: {fileID: 1855822394}
 --- !u!1 &52920584
 GameObject:
   m_ObjectHideFlags: 0
@@ -31946,6 +31946,11 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1855822394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3820329829573508961, guid: bb302ddebe200e7479ffce086df1d8e8, type: 3}
+  m_PrefabInstance: {fileID: 2110998697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &1855822395 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3820329829573508958, guid: bb302ddebe200e7479ffce086df1d8e8, type: 3}
