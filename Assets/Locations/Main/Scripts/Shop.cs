@@ -35,7 +35,6 @@ public class Shop : MonoBehaviour
     public void Enter()
     {
         checkedItem();
-        checkedItemConsume();
     }
 
     // Methods for buttons
@@ -62,23 +61,13 @@ public class Shop : MonoBehaviour
             buttons[1].interactable = true;
             buttons[2].interactable = false;
         }
-        else if(Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 500)
+        else
         {
             text[0].text = "Использовать";
             text[1].text = "Недоступен";
             text[2].text = "Недоступен";
 
             buttons[0].interactable = true;
-            buttons[1].interactable = false;
-            buttons[2].interactable = false;
-        }
-        else
-        {
-            text[0].text = "Недоступен";
-            text[1].text = "Недоступен";
-            text[2].text = "Недоступен";
-
-            buttons[0].interactable = false;
             buttons[1].interactable = false;
             buttons[2].interactable = false;
         }

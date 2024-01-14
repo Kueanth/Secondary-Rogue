@@ -10,8 +10,14 @@ mergeInto(LibraryManager.library, {
     auth();
   },
 
-  buyItem: function(id) {
-    window.ysdk.getPayments(id);
+  buyItem: function(ida) {
+    payments.purchase({ id: ida }).then(purchase => {
+        // Покупка успешно совершена!
+    }).catch(err => {
+        // Покупка не удалась: в консоли разработчика не добавлен товар с таким id,
+        // пользователь не авторизовался, передумал и закрыл окно оплаты,
+        // истекло отведенное на покупку время, не хватило денег и т. д.
+    })
   },
 
   checkedItem: function(){
@@ -24,7 +30,7 @@ mergeInto(LibraryManager.library, {
         }
     }).catch(err => {
         // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
-    });
+    })
 
     payments.getPurchases().then(purchases => {
         if (purchases.some(purchase => purchase.productID === '02')) {
@@ -32,10 +38,10 @@ mergeInto(LibraryManager.library, {
         }
     }).catch(err => {
         // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
-    });
+    })
 
-    myGameInstance.SendMessage('Initialization Pets', 'Checked01', check01);
-    myGameInstance.SendMessage('Initialization Pets', 'Checked02', check02);
+    myGameInstance.SendMessage('Shop', 'Checked01', check01);
+    myGameInstance.SendMessage('Shop', 'Checked02', check02);
   },
 
   checkedItemConsume: function(){
