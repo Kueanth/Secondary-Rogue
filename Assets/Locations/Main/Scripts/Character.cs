@@ -24,7 +24,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Animator AuthBar;
 
     [SerializeField] private Transform pointForPet;
-    [SerializeField] private SpriteRenderer Pet;
+    [SerializeField] public SpriteRenderer Pet;
 
     [SerializeField] private InitYandex initYandex;
 

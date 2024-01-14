@@ -120,6 +120,7 @@ mergeInto(LibraryManager.library, {
         player.getData().then(_date => {
           const myJSON = JSON.stringify(_date);
           myGameInstance.SendMessage('Progress', 'Load', myJSON);
+          myGameInstance.SendMessage('Initialization Pets', 'InitializationPets');
         });
     },
   });

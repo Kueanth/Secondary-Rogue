@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PetInMenu : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    [SerializeField] public Transform target;
     [SerializeField] private float speed;
 
     public void FixedUpdate()

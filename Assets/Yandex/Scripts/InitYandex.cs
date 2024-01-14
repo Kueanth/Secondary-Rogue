@@ -44,19 +44,14 @@ public class InitYandex : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private RawImage _photo;
-
     [SerializeField] private Button _button;
-
     [SerializeField] private Animator animatorAuthPlayer;
     [SerializeField] private Animator animatorRating;
-
     [SerializeField] private GameObject _authPlayer;
-
     [SerializeField] private Animator auth;
-
     [SerializeField] private GameObject loading;
-
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private GameObject initPet;
 
     [DllImport("__Internal")]
     private static extern void AuthPlayer();

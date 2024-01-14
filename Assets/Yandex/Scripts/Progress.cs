@@ -10,7 +10,7 @@ using System;
 [System.Serializable]
 public class PlayerInfoForSave
 {
-    public string pets; 
+    public int pet; 
     public int checkedVideo;
     public int levels;
     public int record;
@@ -34,6 +34,7 @@ public class Progress : MonoBehaviour
 
     [SerializeField] private Sprite boards;
     [SerializeField] private Sprite forBoard;
+    [SerializeField] private GameObject initPet;
 
     public PlayerInfoForSave PlayerInfoForSave;
     public PlayerInfoForGame PlayerInfoForGame;
@@ -71,18 +72,10 @@ public class Progress : MonoBehaviour
     public void Load(string value)
     {
         PlayerInfoForSave = JsonUtility.FromJson<PlayerInfoForSave>(value);
-
-        /* info.text += "Количество пройденных этажей: " + PlayerInfoForSave.levels.ToString() + '\n' +
-                    "Количество монет: " + PlayerInfoForSave.money.ToString() + '\n' +
-                    "Количество убитых противников: " + PlayerInfoForSave.enemys.ToString(); */
     }
 
     public void InfoInit()
     {
         info = GameObject.FindGameObjectWithTag("Info").GetComponent<TextMeshProUGUI>();
-
-        /* info.text += "Количество пройденных этажей: " + PlayerInfoForSave.levels.ToString() + '\n' +
-                    "Количество монет: " + PlayerInfoForSave.money.ToString() + '\n' +
-                    "Количество убитых противников: " + PlayerInfoForSave.enemys.ToString(); */
     }
 }
