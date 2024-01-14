@@ -10,6 +10,29 @@ mergeInto(LibraryManager.library, {
     auth();
   },
 
+  buyItem: function(id) {
+    window.ysdk.getPayments(id);
+  },
+
+  checkedItem: function(){
+    payments.getPurchases().then(purchases => {
+        if (purchases.some(purchase => purchase.productID === '01')) {
+          myGameInstance.SendMessage('Initialization Pets', 'Checked01');
+        }
+
+        if (purchases.some(purchase => purchase.productID === '02')) {
+          myGameInstance.SendMessage('Initialization Pets', 'Checked02');
+        }
+
+    }).catch(err => {
+        // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
+    })
+  },
+
+  checkedItemConsume: function(){
+    payments.getPurchases().then(purchases => purchases.forEach(consumePurchase));
+  },
+
   OpenGame: function() {
     if(meow){
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetName', player.getName());

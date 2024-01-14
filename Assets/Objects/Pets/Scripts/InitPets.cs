@@ -8,6 +8,7 @@ public class InitPets : MonoBehaviour
 
     [SerializeField] private GameObject Pet;
     [SerializeField] private GameObject Character;
+    [SerializeField] private Shop Shop;
 
     public void InitializationPets()
     {
