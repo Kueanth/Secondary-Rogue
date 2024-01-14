@@ -5,16 +5,16 @@ using System.Runtime.InteropServices;
 
 public class Shop : MonoBehaviour
 {
-    [DllImport("___Internal")]
+    [DllImport("__Internal")]
     private static extern void buyItem(string id);
 
-    [DllImport("___Internal")]
+    [DllImport("__Internal")]
     private static extern void checkedItem();
 
-    [DllImport("___Internal")]
+    [DllImport("__Internal")]
     private static extern void checkedItemConsume();
 
-    [DllImport("___Internal")]
+    [DllImport("__Internal")]
     private static extern void ShowAdWithRewardPet();
 
     [SerializeField] private Button[] buttons;
@@ -93,9 +93,9 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void Checked01(int value)
+    public void Checked01(bool value)
     {
-        if(value == 1)
+        if(value)
         {
             text[5].text = "Использовать";
             Progress.Instance.buy01 = true;
@@ -106,9 +106,9 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void Checked02(int value)
+    public void Checked02(bool value)
     {
-        if (value == 1)
+        if (value)
         {
             text[6].text = "Использовать";
             Progress.Instance.buy02 = true;
@@ -135,7 +135,7 @@ public class Shop : MonoBehaviour
     {
         if(Progress.Instance.PlayerInfoForSave.checkedVideo == 10)
         {
-            text[3].text = "Использовать";
+            text[2].text = "Использовать";
             Progress.Instance.PlayerInfoForSave.pet = 2;
             initPets.Delete();
         }

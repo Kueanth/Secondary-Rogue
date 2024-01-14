@@ -15,21 +15,27 @@ mergeInto(LibraryManager.library, {
   },
 
   checkedItem: function(){
+    var check01 = false;
+    var check02 = false;
+
     payments.getPurchases().then(purchases => {
         if (purchases.some(purchase => purchase.productID === '01')) {
-          myGameInstance.SendMessage('Initialization Pets', 'Checked01', 1);
+          check01 = true;
         }
     }).catch(err => {
         // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
     });
 
     payments.getPurchases().then(purchases => {
-        if (purchases.some(purchase => purchase.productID === '01')) {
-          myGameInstance.SendMessage('Initialization Pets', 'Checked01', 1);
+        if (purchases.some(purchase => purchase.productID === '02')) {
+          check02 = true;
         }
     }).catch(err => {
         // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
     });
+
+    myGameInstance.SendMessage('Initialization Pets', 'Checked01', check01);
+    myGameInstance.SendMessage('Initialization Pets', 'Checked02', check02);
   },
 
   checkedItemConsume: function(){
