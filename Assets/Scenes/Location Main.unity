@@ -5008,8 +5008,8 @@ MonoBehaviour:
   - {fileID: 549762823}
   - {fileID: 1641358860}
   Rating: {fileID: 1100191562}
-  _name: {fileID: 0}
-  _photo: {fileID: 0}
+  _name: {fileID: 357728916}
+  _photo: {fileID: 1082833306}
   _button: {fileID: 510828682}
   animatorAuthPlayer: {fileID: 826704853}
   animatorRating: {fileID: 826704853}
@@ -5017,7 +5017,7 @@ MonoBehaviour:
   auth: {fileID: 510828685}
   loading: {fileID: 760779951}
   _text: {fileID: 626745566}
-  initPet: {fileID: 1855822394}
+  initPet: {fileID: 1747512309}
 --- !u!1 &52920584
 GameObject:
   m_ObjectHideFlags: 0
@@ -26130,7 +26130,7 @@ MonoBehaviour:
   - {fileID: 7919399941446913432, guid: 34037816c5826df4ea6882ac3f7e9082, type: 3}
   - {fileID: 3820329829573508961, guid: bb302ddebe200e7479ffce086df1d8e8, type: 3}
   Point: {fileID: 270422438}
-  Pet: {fileID: 0}
+  Pet: {fileID: 1855822394}
   Character: {fileID: 1975316113}
   Shop: {fileID: 828184607}
 --- !u!1 &1760915626

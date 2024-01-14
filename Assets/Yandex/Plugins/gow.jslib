@@ -19,14 +19,17 @@ mergeInto(LibraryManager.library, {
         if (purchases.some(purchase => purchase.productID === '01')) {
           myGameInstance.SendMessage('Initialization Pets', 'Checked01', 1);
         }
-
-        if (purchases.some(purchase => purchase.productID === '02')) {
-          myGameInstance.SendMessage('Initialization Pets', 'Checked02', 1);
-        }
-
     }).catch(err => {
         // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
-    })
+    });
+
+    payments.getPurchases().then(purchases => {
+        if (purchases.some(purchase => purchase.productID === '01')) {
+          myGameInstance.SendMessage('Initialization Pets', 'Checked01', 1);
+        }
+    }).catch(err => {
+        // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
+    });
   },
 
   checkedItemConsume: function(){
