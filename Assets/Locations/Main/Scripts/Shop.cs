@@ -86,12 +86,12 @@ public class Shop : MonoBehaviour
     {
         if(value)
         {
-            text[5].text = "»спользовать";
+            text[4].text = "»спользовать";
             Progress.Instance.buy01 = true;
         }
         else
         {
-            text[5].text = "105 ян";
+            text[4].text = "105 ян";
         }
     }
 
@@ -99,12 +99,12 @@ public class Shop : MonoBehaviour
     {
         if (value)
         {
-            text[6].text = "»спользовать";
+            text[5].text = "»спользовать";
             Progress.Instance.buy02 = true;
         }
         else
         {
-            text[6].text = "750 ян";
+            text[5].text = "750 ян";
         }
     }
 
@@ -122,22 +122,22 @@ public class Shop : MonoBehaviour
 
     public void Three()
     {
-        if(Progress.Instance.PlayerInfoForSave.checkedVideo == 10)
+        Progress.Instance.PlayerInfoForSave.pet = 2;
+        initPets.Delete();
+    }
+
+    public void Four()
+    {
+        if (Progress.Instance.PlayerInfoForSave.checkedVideo == 10)
         {
-            text[2].text = "»спользовать";
-            Progress.Instance.PlayerInfoForSave.pet = 2;
+            text[3].text = "»спользовать";
+            Progress.Instance.PlayerInfoForSave.pet = 3;
             initPets.Delete();
         }
         else
         {
             ShowAdWithRewardPet();
         }
-    }
-
-    public void Four()
-    {
-        Progress.Instance.PlayerInfoForSave.pet = 3;
-        initPets.Delete();
     }
 
     public void Five()
@@ -164,5 +164,19 @@ public class Shop : MonoBehaviour
         {
             buyItem("01");
         }
+    }
+
+    public void EditText()
+    {
+        if (Progress.Instance.PlayerInfoForSave.checkedVideo != 10)
+        {
+            text[3].text = $"{Progress.Instance.PlayerInfoForSave.checkedVideo} / 10";
+        }
+        else
+        {
+            text[3].text = "»спользовать";
+        }
+
+        Progress.Instance.Save();
     }
 }

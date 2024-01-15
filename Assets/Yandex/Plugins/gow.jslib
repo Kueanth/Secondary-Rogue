@@ -21,27 +21,13 @@ mergeInto(LibraryManager.library, {
   },
 
   checkedItem: function(){
-    var check01 = false;
-    var check02 = false;
-
     payments.getPurchases().then(purchases => {
         if (purchases.some(purchase => purchase.productID === '01')) {
-          check01 = true;
+          myGameInstance.SendMessage('Shop', 'Checked01', true);
         }
     }).catch(err => {
         // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
     })
-
-    payments.getPurchases().then(purchases => {
-        if (purchases.some(purchase => purchase.productID === '02')) {
-          check02 = true;
-        }
-    }).catch(err => {
-        // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
-    })
-
-    myGameInstance.SendMessage('Shop', 'Checked01', check01);
-    myGameInstance.SendMessage('Shop', 'Checked02', check02);
   },
 
   checkedItemConsume: function(){
@@ -156,6 +142,7 @@ mergeInto(LibraryManager.library, {
         onRewarded: () => {
           console.log('Rewarded!');
           myGameInstance.SendMessage('Progress', 'addPointPet');
+          myGameInstance.SendMessage('Shop', 'EditText');
         },
         onClose: () => {
         }, 

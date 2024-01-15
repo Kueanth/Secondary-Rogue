@@ -208,7 +208,7 @@ public class InitYandex : MonoBehaviour
         Progress.Instance.PlayerInfoForGame.auth = true;
         animatorAuthPlayer.SetTrigger("authComplete");
         Progress.Instance.InfoInit();
-        initPet.GetComponent<InitPets>().InitializationPets();
+        initPet.GetComponent<InitPets>().Delete();
     }
 
     IEnumerator LoadPlayerCoroutine()
