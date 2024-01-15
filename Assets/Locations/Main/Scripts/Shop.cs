@@ -46,30 +46,18 @@ public class Shop : MonoBehaviour
             text[0].text = "Использовать";
             text[1].text = "Использовать";
             text[2].text = "Использовать";
-
-            buttons[0].interactable = true;
-            buttons[1].interactable = true;
-            buttons[2].interactable = true;
         }
         else if (Progress.Instance.PlayerInfoForSave.levels >= 500 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
             text[0].text = "Использовать";
             text[1].text = "Использовать";
             text[2].text = "Недоступен";
-
-            buttons[0].interactable = true;
-            buttons[1].interactable = true;
-            buttons[2].interactable = false;
         }
         else
         {
             text[0].text = "Использовать";
             text[1].text = "Недоступен";
             text[2].text = "Недоступен";
-
-            buttons[0].interactable = true;
-            buttons[1].interactable = false;
-            buttons[2].interactable = false;
         }
         
         if(Progress.Instance.PlayerInfoForSave.checkedVideo != 10)
@@ -116,14 +104,20 @@ public class Shop : MonoBehaviour
 
     public void Two()
     {
-        Progress.Instance.PlayerInfoForSave.pet = 1;
-        initPets.Delete();
+        if (Progress.Instance.PlayerInfoForSave.levels >= 500 && Progress.Instance.PlayerInfoForSave.levels < 1000)
+        {
+            Progress.Instance.PlayerInfoForSave.pet = 1;
+            initPets.Delete();
+        }
     }
 
     public void Three()
     {
-        Progress.Instance.PlayerInfoForSave.pet = 2;
-        initPets.Delete();
+        if(Progress.Instance.PlayerInfoForSave.levels >= 1000)
+        {
+            Progress.Instance.PlayerInfoForSave.pet = 2;
+            initPets.Delete();
+        }
     }
 
     public void Four()
@@ -177,6 +171,11 @@ public class Shop : MonoBehaviour
             text[3].text = "Использовать";
         }
 
+        Progress.Instance.Save();
+    }
+
+    public void OnDisable()
+    {
         Progress.Instance.Save();
     }
 }

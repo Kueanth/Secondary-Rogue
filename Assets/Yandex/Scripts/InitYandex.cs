@@ -95,7 +95,7 @@ public class InitYandex : MonoBehaviour
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
             Progress.Instance.InfoInit();
-            initPet.GetComponent<InitPets>().InitializationPets();
+            initPet.GetComponent<InitPets>().Delete();
             checkedItem();
         }
     }

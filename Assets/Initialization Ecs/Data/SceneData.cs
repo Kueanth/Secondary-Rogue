@@ -49,6 +49,9 @@ public class SceneData : MonoBehaviour
 
     public bool lazerWork = false;
 
+    public Transform pointForPet;
+    public GameObject Pet;
+
     public void resurrectionPlayer()
     {
         ui.deadScreen.deadScreen.GetComponent<Animator>().SetTrigger("Absolut");

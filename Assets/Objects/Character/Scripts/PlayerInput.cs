@@ -145,25 +145,37 @@ public class PlayerInput : IEcsRunSystem
             if (vertical >= 0.2f || vertical <= -0.2f)
             {
                 components.running = true;
+                sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
             }
 
             if (horizontal >= 0.2f)
             {
                 components.running = true;
+                sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
+                sceneData.Pet.GetComponent<SpriteRenderer>().flipX = false;
+                sceneData.pointForPet.position =
+                    new Vector2(components.transform.position.x, components.transform.position.y) + new Vector2(-0.8f, -0.5f);
             }
             else if (horizontal <= -0.2f)
             {
                 components.running = true;
+                sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
+                sceneData.Pet.GetComponent<SpriteRenderer>().flipX = true;
+
+                sceneData.pointForPet.position =
+                    new Vector2(components.transform.position.x, components.transform.position.y) + new Vector2(0.8f, -0.5f);
             }
             else
             {
                 if (vertical >= 0.2f || vertical <= -0.2f)
                 {
                     components.running = true;
+                    sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
                 }
                 else
                 {
                     components.running = false;
+                    sceneData.Pet.GetComponent<Animator>().SetBool("Speed", false);
                 }
             }
 
@@ -172,6 +184,9 @@ public class PlayerInput : IEcsRunSystem
             {
                 gunComponents.gun.position =
                     new Vector3(positionPlayer.x + 0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
+                sceneData.Pet.GetComponent<SpriteRenderer>().flipX = true;
+                sceneData.pointForPet.position =
+                    new Vector2(components.transform.position.x, components.transform.position.y) + new Vector2(0.8f, -0.5f);
             }
             else
             {

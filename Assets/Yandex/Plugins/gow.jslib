@@ -25,9 +25,24 @@ mergeInto(LibraryManager.library, {
         if (purchases.some(purchase => purchase.productID === '01')) {
           myGameInstance.SendMessage('Shop', 'Checked01', true);
         }
+        else{
+          myGameInstance.SendMessage('Shop', 'Checked01', false);
+        }
     }).catch(err => {
         // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
     })
+
+    payments.getPurchases().then(purchases => {
+        if (purchases.some(purchase => purchase.productID === '02')) {
+          myGameInstance.SendMessage('Shop', 'Checked02', true);
+        }
+        else{
+          myGameInstance.SendMessage('Shop', 'Checked02', false);
+        }
+    }).catch(err => {
+        // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
+    })
+
   },
 
   checkedItemConsume: function(){

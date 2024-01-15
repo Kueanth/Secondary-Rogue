@@ -57,6 +57,7 @@ public class InitEcs : MonoBehaviour
             .Add(new ChestInit())
             .Add(new FadeInit())
             .Add(new GunInput())
+            .Add(new PetInit())
             .Add(new PlayerRotate())
             .Add(new CameraFollow())
             .Add(new BulletShoot())

@@ -4,6 +4,8 @@ public class NPC : MonoBehaviour
 {
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.name == "Point") return;
+
         Material material = new Material(Shader.Find("Shader Graphs/Outlines"));
 
         material.SetVector("_Right", new Vector2(0.8f, 0f));
@@ -18,6 +20,8 @@ public class NPC : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.name == "Point") return;
+
         Material material = new Material(Shader.Find("Shader Graphs/Outlines"));
 
         material.SetVector("_Right", new Vector2(0f, 0f));

@@ -56,6 +56,8 @@ public class PlayerInit : IEcsInitSystem
         sceneData.ui.pausedScreen.player = Entity;
         sceneData.ui.pausedScreen.ui = ui;
 
+        sceneData.pointForPet = PlayerObject.transform.Find("Point");
+
         Components.transform.position = sceneData.playerSpawnPoint;
     }
 }
