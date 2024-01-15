@@ -18,8 +18,6 @@ public class PetInit : IEcsInitSystem
 
         ref PetData data = ref entity.Get<PetData>();
 
-        Debug.Log(sceneData.pointForPet.position);
-
         GameObject Pet =
             GameObject.Instantiate
                 (configuration.Pets[Progress.Instance.PlayerInfoForSave.pet], sceneData.pointForPet.position, Quaternion.identity);
@@ -36,7 +34,6 @@ public class PetInit : IEcsInitSystem
 
         Pet.transform.localScale = new Vector2(0.8f, 0.8f);
 
-        Debug.Log(sceneData.playerSpawnPoint);
         data.Transform.transform.position = sceneData.pointForPet.position;
     }
 }

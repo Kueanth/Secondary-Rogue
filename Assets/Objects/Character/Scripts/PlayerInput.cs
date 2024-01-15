@@ -39,8 +39,14 @@ public class PlayerInput : IEcsRunSystem
             ref GunComponents gunComponents = ref _filter.Get2(i);
             ref EcsEntity entity = ref _filter.GetEntity(i);
 
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
+            float horizontal = 0;
+            float vertical = 0;
+
+            if (!components.pit)
+            {
+                horizontal = Input.GetAxis("Horizontal");
+                vertical = Input.GetAxis("Vertical");
+            }
 
             if ((horizontal != 0f || vertical != 0) && components.transform.GetComponent<PlayerParticle>().particleRun && !components.pit)
             {
@@ -184,9 +190,6 @@ public class PlayerInput : IEcsRunSystem
             {
                 gunComponents.gun.position =
                     new Vector3(positionPlayer.x + 0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
-                sceneData.Pet.GetComponent<SpriteRenderer>().flipX = true;
-                sceneData.pointForPet.position =
-                    new Vector2(components.transform.position.x, components.transform.position.y) + new Vector2(0.8f, -0.5f);
             }
             else
             {

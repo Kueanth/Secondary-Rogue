@@ -111,6 +111,7 @@ public class PlayerTrigger : MonoBehaviour
                 components.animator.SetTrigger("Refuse");
                 StartCoroutine(Animation(components, gunComponents));
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
+                sceneData.Pet.GetComponent<PetInMenu>().active = false;
             }
             else
             {
@@ -159,7 +160,9 @@ public class PlayerTrigger : MonoBehaviour
         components.rigidbody2D.velocity = Vector2.zero;
 
         components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
-        
+
+        sceneData.Pet.GetComponent<PetInMenu>().active = true;
+
         components.animator.SetTrigger("End");
 
         return;

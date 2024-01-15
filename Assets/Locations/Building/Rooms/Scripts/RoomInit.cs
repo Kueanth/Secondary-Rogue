@@ -70,6 +70,8 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
 
             componentsPlayer.transform.position = rooms.Rooms[temp].spawnPositionPlayer;
 
+            sceneData.Pet.GetComponent<Transform>().position = sceneData.pointForPet.position;
+
             GameObject roomObject = GameObject.Instantiate(rooms.Rooms[temp].RoomPrefab, Vector2.zero, Quaternion.identity);
 
             gow.room = roomObject;
