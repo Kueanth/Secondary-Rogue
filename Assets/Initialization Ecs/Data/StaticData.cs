@@ -17,4 +17,7 @@ public class StaticData : ScriptableObject
     public Texture2D Cursor;
 
     public GameObject[] Pets;
+
+    public Sprite[] _boards;
+    public Sprite[] _playerAuthBoards;
 }

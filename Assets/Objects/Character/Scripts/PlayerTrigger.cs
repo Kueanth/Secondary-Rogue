@@ -112,6 +112,7 @@ public class PlayerTrigger : MonoBehaviour
                 StartCoroutine(Animation(components, gunComponents));
                 ui.gameScreen.EditHpBar(components.hp, ui.imageHp[components.hp]);
                 sceneData.Pet.GetComponent<PetInMenu>().active = false;
+                sceneData.Pet.GetComponent<Animator>().SetBool("Speed", false);
             }
             else
             {
@@ -162,6 +163,7 @@ public class PlayerTrigger : MonoBehaviour
         components.playerObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
 
         sceneData.Pet.GetComponent<PetInMenu>().active = true;
+        sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
 
         components.animator.SetTrigger("End");
 

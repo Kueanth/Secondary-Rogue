@@ -3851,8 +3851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.2, y: 3.2}
-  m_SizeDelta: {x: 177.947, y: 140.952}
+  m_AnchoredPosition: {x: 2.4, y: 4.8}
+  m_SizeDelta: {x: 195.4, y: 155.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1595584652
 MonoBehaviour:
@@ -3874,7 +3874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -945629892, guid: 2eaf7a9c865cb0041b8a13091cc7c3b1, type: 3}
+  m_Sprite: {fileID: 1636164787, guid: 2eaf7a9c865cb0041b8a13091cc7c3b1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4558,6 +4558,8 @@ MonoBehaviour:
   - {fileID: 824122432}
   paused: 0
   lazerWork: 0
+  pointForPet: {fileID: 0}
+  Pet: {fileID: 0}
 --- !u!114 &1780000282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4777,9 +4779,12 @@ MonoBehaviour:
   authPlayer: {fileID: 1653889490}
   namePlayer: {fileID: 628431939}
   icon: {fileID: 661553283}
+  board: {fileID: 1595584652}
+  playerAuthBoard: {fileID: 1744845498}
   money: {fileID: 1457283815}
   startPosition: {x: 0, y: 0}
   textMeshPro: {fileID: 1868980952}
+  configuration: {fileID: 11400000, guid: 69c2ab716982ae04b959ec5930ebfe50, type: 2}
 --- !u!114 &1862044585
 MonoBehaviour:
   m_ObjectHideFlags: 0

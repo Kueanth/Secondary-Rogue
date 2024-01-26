@@ -151,13 +151,11 @@ public class PlayerInput : IEcsRunSystem
             if (vertical >= 0.2f || vertical <= -0.2f)
             {
                 components.running = true;
-                sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
             }
 
             if (horizontal >= 0.2f)
             {
                 components.running = true;
-                sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
                 sceneData.Pet.GetComponent<SpriteRenderer>().flipX = false;
                 sceneData.pointForPet.position =
                     new Vector2(components.transform.position.x, components.transform.position.y) + new Vector2(-0.8f, -0.5f);
@@ -165,7 +163,6 @@ public class PlayerInput : IEcsRunSystem
             else if (horizontal <= -0.2f)
             {
                 components.running = true;
-                sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
                 sceneData.Pet.GetComponent<SpriteRenderer>().flipX = true;
 
                 sceneData.pointForPet.position =
@@ -176,12 +173,10 @@ public class PlayerInput : IEcsRunSystem
                 if (vertical >= 0.2f || vertical <= -0.2f)
                 {
                     components.running = true;
-                    sceneData.Pet.GetComponent<Animator>().SetBool("Speed", true);
                 }
                 else
                 {
                     components.running = false;
-                    sceneData.Pet.GetComponent<Animator>().SetBool("Speed", false);
                 }
             }
 

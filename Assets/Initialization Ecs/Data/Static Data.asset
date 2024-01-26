@@ -25,6 +25,15 @@ MonoBehaviour:
   Pets:
   - {fileID: 1080263357544937732, guid: 87db8edea780cc84a98362d96381acc8, type: 3}
   - {fileID: 4670931909491727811, guid: ab7a0bbdb77dd554abf1e62cdfcf0d62, type: 3}
+  - {fileID: 5959379790951734183, guid: 24a08e4178f084546ae12e21627549fe, type: 3}
   - {fileID: 4082390301274773427, guid: ab2cacfd114838145939ba9e9140e75e, type: 3}
   - {fileID: 7919399941446913432, guid: 34037816c5826df4ea6882ac3f7e9082, type: 3}
   - {fileID: 3820329829573508961, guid: bb302ddebe200e7479ffce086df1d8e8, type: 3}
+  _boards:
+  - {fileID: -945629892, guid: 2eaf7a9c865cb0041b8a13091cc7c3b1, type: 3}
+  - {fileID: -1227491604, guid: 2eaf7a9c865cb0041b8a13091cc7c3b1, type: 3}
+  - {fileID: 1636164787, guid: 2eaf7a9c865cb0041b8a13091cc7c3b1, type: 3}
+  _playerAuthBoards:
+  - {fileID: -380954850, guid: 0b84d0d6b387177429cd7af7440fa916, type: 3}
+  - {fileID: 1484603373, guid: 0b84d0d6b387177429cd7af7440fa916, type: 3}
+  - {fileID: 1390186248, guid: 0b84d0d6b387177429cd7af7440fa916, type: 3}

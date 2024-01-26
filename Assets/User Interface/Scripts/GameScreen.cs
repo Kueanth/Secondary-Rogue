@@ -24,6 +24,9 @@ public class GameScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI namePlayer;
     [SerializeField] private RawImage icon;
 
+    [SerializeField] private Image board;
+    [SerializeField] private Image playerAuthBoard;
+
     public TextMeshProUGUI money;
 
     public Vector2 startPosition;
@@ -32,11 +35,31 @@ public class GameScreen : MonoBehaviour
 
     public EcsEntity entity;
 
+    public StaticData configuration;
+
     private void Awake()
     {
         if (Progress.Instance.PlayerInfoForGame.auth && Progress.Instance.PlayerInfoForGame.name != "")
         {
             authPlayer.SetActive(true);
+
+            if (Progress.Instance.PlayerInfoForSave.levels < 100)
+            {
+                playerAuthBoard.sprite = configuration._playerAuthBoards[0];
+                board.sprite = configuration._boards[0];
+
+            }
+            else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
+            {
+                playerAuthBoard.sprite = configuration._playerAuthBoards[1];
+                board.sprite = configuration._boards[1];
+            }
+            else
+            {
+                playerAuthBoard.sprite = configuration._playerAuthBoards[2];
+                board.sprite = configuration._boards[2];
+            }
+
             namePlayer.text = Progress.Instance.PlayerInfoForGame.name;
             icon.texture = Progress.Instance.PlayerInfoForGame.icon;
         }

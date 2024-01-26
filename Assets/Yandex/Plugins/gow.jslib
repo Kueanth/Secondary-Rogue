@@ -10,6 +10,10 @@ mergeInto(LibraryManager.library, {
     auth();
   },
 
+  CheckPlayer: function () {
+    checkPlayer();
+  },
+
   buyItem: function(ida) {
     payments.purchase({ id: ida }).then(purchase => {
         // Покупка успешно совершена!
@@ -178,7 +182,7 @@ mergeInto(LibraryManager.library, {
         player.getData().then(_date => {
           const myJSON = JSON.stringify(_date);
           myGameInstance.SendMessage('Progress', 'Load', myJSON);
-          myGameInstance.SendMessage('Initialization Pets', 'InitializationPets');
+          myGameInstance.SendMessage('Initialization Pets', 'Delete');
         });
     },
   });

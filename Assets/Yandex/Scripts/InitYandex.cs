@@ -39,6 +39,11 @@ public class InitYandex : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] _rate;
     [SerializeField] private TextMeshProUGUI[] _score;
     [SerializeField] private TextMeshProUGUI[] _names;
+    [SerializeField] private Image[] _boards;
+    [SerializeField] private Sprite[] _boardSet;
+    [SerializeField] private Sprite[] _playerAuthBoardSet;
+    [SerializeField] private Image _board;
+    [SerializeField] private Image _playerAuthBoard;
 
     public GameObject Rating;
 
@@ -58,6 +63,9 @@ public class InitYandex : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern void checkedItem();
+
+    [DllImport("__Internal")]
+    private static extern void CheckPlayer();
 
     [DllImport("__Internal")]
     private static extern void LoadPlayer();
@@ -95,7 +103,6 @@ public class InitYandex : MonoBehaviour
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
             Progress.Instance.InfoInit();
-            initPet.GetComponent<InitPets>().Delete();
             checkedItem();
         }
     }
@@ -209,11 +216,29 @@ public class InitYandex : MonoBehaviour
         animatorAuthPlayer.SetTrigger("authComplete");
         Progress.Instance.InfoInit();
         initPet.GetComponent<InitPets>().Delete();
+
+        if (Progress.Instance.PlayerInfoForSave.levels < 100)
+        {
+            _playerAuthBoard.sprite = _playerAuthBoardSet[0];
+            _board.sprite = _boardSet[0];
+
+        }
+        else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
+        {
+            _playerAuthBoard.sprite = _playerAuthBoardSet[1];
+            _board.sprite = _boardSet[1];
+        }
+        else
+        {
+            _playerAuthBoard.sprite = _playerAuthBoardSet[2];
+            _board.sprite = _boardSet[2];
+        }
     }
 
     IEnumerator LoadPlayerCoroutine()
     {
         yield return new WaitForSeconds(3);
+        CheckPlayer();
         LoadPlayer();
         LoadData();
         loading.SetActive(false);
@@ -223,22 +248,20 @@ public class InitYandex : MonoBehaviour
 
     IEnumerator DownloadImage(string mediaUrl, int i, Leaderboard leaderboard, bool temp = true)
     {
-        if (temp)
-        {
-            _score[i].text = Convert.ToString(leaderboard.entries[i].score);
-            _rate[i].text = Convert.ToString(leaderboard.entries[i].rank);
-
-            if (Convert.ToString(leaderboard.entries[i].publicName) == "")
-                _names[i].text = "Пользователь скрыт";
-            else
-            _names[i].text = Convert.ToString(leaderboard.entries[i].publicName);
-        }
+        if (leaderboard.entries[i].score < 100)
+            _boards[i].sprite = _boardSet[0];
+        else if(leaderboard.entries[i].score >= 100 && leaderboard.entries[i].score < 1000)
+            _boards[i].sprite = _boardSet[1];
         else
-        {
-            _score[i].text = Convert.ToString(leaderboard.entries[i + 5].score);
-            _rate[i].text = Convert.ToString(leaderboard.entries[i + 5].rank);
-            _names[i].text = Convert.ToString(leaderboard.entries[i + 5].publicName);
-        }
+            _boards[i].sprite = _boardSet[2];
+
+        _score[i].text = Convert.ToString(leaderboard.entries[i].score);
+        _rate[i].text = Convert.ToString(leaderboard.entries[i].rank);
+
+        if (Convert.ToString(leaderboard.entries[i].publicName) == "")
+            _names[i].text = "Пользователь скрыт";
+        else
+            _names[i].text = Convert.ToString(leaderboard.entries[i].publicName);
 
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(mediaUrl);
         yield return request.SendWebRequest();
