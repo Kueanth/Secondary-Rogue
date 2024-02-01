@@ -6,7 +6,10 @@ using System.Runtime.InteropServices;
 public class Shop : MonoBehaviour
 {
     [DllImport("__Internal")]
-    private static extern void buyItem(string id);
+    private static extern void buyItem01();
+
+    [DllImport("__Internal")]
+    private static extern void buyItem02();
 
     [DllImport("__Internal")]
     private static extern void checkedItem();
@@ -143,7 +146,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            buyItem("02");
+            buyItem02();
         }
     }
 
@@ -156,7 +159,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            buyItem("01");
+            buyItem01();
         }
     }
 

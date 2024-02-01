@@ -20,10 +20,12 @@ public class FadeInMenu : MonoBehaviour
         {
             case 1:
                 transform.SetAsLastSibling();
+                Progress.Instance.paused = true;
                 break;
 
             case 2:
                 transform.SetAsFirstSibling();
+                Progress.Instance.paused = false;
                 break;
         }
     }

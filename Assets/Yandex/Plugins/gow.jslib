@@ -14,13 +14,19 @@ mergeInto(LibraryManager.library, {
     checkPlayer();
   },
 
-  buyItem: function(ida) {
-    payments.purchase({ id: ida }).then(purchase => {
+  buyItem01: function() {
+    payments.purchase({ id: '01' }).then(purchase => {
         // Покупка успешно совершена!
     }).catch(err => {
-        // Покупка не удалась: в консоли разработчика не добавлен товар с таким id,
-        // пользователь не авторизовался, передумал и закрыл окно оплаты,
-        // истекло отведенное на покупку время, не хватило денег и т. д.
+        console.log('Ошибка');
+    })
+  },
+
+  buyItem02: function() {
+    payments.purchase({ id: '02' }).then(purchase => {
+        // Покупка успешно совершена!
+    }).catch(err => {
+        console.log('Ошибка');
     })
   },
 
@@ -33,7 +39,7 @@ mergeInto(LibraryManager.library, {
           myGameInstance.SendMessage('Shop', 'Checked01', false);
         }
     }).catch(err => {
-        // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
+        console.log('Ошибка 01');
     })
 
     payments.getPurchases().then(purchases => {
@@ -44,7 +50,7 @@ mergeInto(LibraryManager.library, {
           myGameInstance.SendMessage('Shop', 'Checked02', false);
         }
     }).catch(err => {
-        // Выбрасывает исключение USER_NOT_AUTHORIZED для неавторизованных пользователей.
+        console.log('Ошибка 02');
     })
 
   },
