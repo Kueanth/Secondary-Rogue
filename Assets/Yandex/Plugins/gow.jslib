@@ -16,7 +16,7 @@ mergeInto(LibraryManager.library, {
 
   buyItem01: function() {
     payments.purchase({ id: '01' }).then(purchase => {
-        // Покупка успешно совершена!
+        checkedItem();
     }).catch(err => {
         console.log('Ошибка');
     })
@@ -24,7 +24,7 @@ mergeInto(LibraryManager.library, {
 
   buyItem02: function() {
     payments.purchase({ id: '02' }).then(purchase => {
-        // Покупка успешно совершена!
+        checkedItem();
     }).catch(err => {
         console.log('Ошибка');
     })
@@ -33,24 +33,18 @@ mergeInto(LibraryManager.library, {
   checkedItem: function(){
     payments.getPurchases().then(purchases => {
         if (purchases.some(purchase => purchase.productID === '01')) {
-          myGameInstance.SendMessage('Shop', 'Checked01', true);
-        }
-        else{
-          myGameInstance.SendMessage('Shop', 'Checked01', false);
+          myGameInstance.SendMessage('Shop', 'Checked01');
         }
     }).catch(err => {
-        console.log('Ошибка 01');
+        console.log(err);
     })
 
     payments.getPurchases().then(purchases => {
         if (purchases.some(purchase => purchase.productID === '02')) {
-          myGameInstance.SendMessage('Shop', 'Checked02', true);
-        }
-        else{
-          myGameInstance.SendMessage('Shop', 'Checked02', false);
+          myGameInstance.SendMessage('Shop', 'Checked02');
         }
     }).catch(err => {
-        console.log('Ошибка 02');
+        console.log(err);
     })
 
   },

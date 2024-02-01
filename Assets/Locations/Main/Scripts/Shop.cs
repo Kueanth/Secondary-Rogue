@@ -73,30 +73,17 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void Checked01(bool value)
+    public void Checked01()
     {
-        if(value)
-        {
             text[4].text = "»спользовать";
             Progress.Instance.buy01 = true;
-        }
-        else
-        {
-            text[4].text = "105 ян";
-        }
     }
 
-    public void Checked02(bool value)
+    public void Checked02()
     {
-        if (value)
-        {
+
             text[5].text = "»спользовать";
             Progress.Instance.buy02 = true;
-        }
-        else
-        {
-            text[5].text = "750 ян";
-        }
     }
 
     public void One()

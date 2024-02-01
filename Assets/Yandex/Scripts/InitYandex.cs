@@ -214,7 +214,6 @@ public class InitYandex : MonoBehaviour
         Progress.Instance.PlayerInfoForGame.auth = true;
         animatorAuthPlayer.SetTrigger("authComplete");
         Progress.Instance.InfoInit();
-        initPet.GetComponent<InitPets>().Delete();
 
         if (Progress.Instance.PlayerInfoForSave.levels < 100)
         {
