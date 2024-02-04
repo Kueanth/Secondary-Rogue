@@ -195,7 +195,14 @@ public class InitYandex : MonoBehaviour
             }
         }
 
-        _text.text = $"Ваше место в рейтинге: {playerLeaderboard.rank}";
+        if(Progress.Instance.PlayerInfoForSave.lan == 2)
+        {
+            _text.text = $"Your place in the ranking: {playerLeaderboard.rank}";
+        }
+        else
+        {
+            _text.text = $"Ваше место в рейтинге: {playerLeaderboard.rank}";
+        }
     }
 
     IEnumerator DownloadImage(string mediaUrl)
@@ -249,7 +256,7 @@ public class InitYandex : MonoBehaviour
     {
         if (leaderboard.entries[i].score < 100)
             _boards[i].sprite = _boardSet[0];
-        else if(leaderboard.entries[i].score >= 100 && leaderboard.entries[i].score < 1000)
+        else if (leaderboard.entries[i].score >= 100 && leaderboard.entries[i].score < 1000)
             _boards[i].sprite = _boardSet[1];
         else
             _boards[i].sprite = _boardSet[2];
@@ -258,7 +265,14 @@ public class InitYandex : MonoBehaviour
         _rate[i].text = Convert.ToString(leaderboard.entries[i].rank);
 
         if (Convert.ToString(leaderboard.entries[i].publicName) == "")
-            _names[i].text = "Пользователь скрыт";
+        {
+            if(Progress.Instance.PlayerInfoForSave.lan == 2)
+            {
+                _names[i].text = "The user is hidden";
+            }
+            else
+                _names[i].text = "Пользователь скрыт";
+        }
         else
             _names[i].text = Convert.ToString(leaderboard.entries[i].publicName);
 

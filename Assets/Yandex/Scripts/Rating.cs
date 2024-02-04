@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Rating : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
     [SerializeField] private InitYandex initYandex;
+
+    [SerializeField] private TextMeshProUGUI[] text;
 
     public int number;
 
@@ -47,5 +50,31 @@ public class Rating : MonoBehaviour
     {
         initYandex.Rrrr();
         imageBack.sprite = forImage[0];
+    }
+
+    public void CheckedLan()
+    {
+        if(Progress.Instance.PlayerInfoForSave.lan == 2)
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                text[i].text = "Absent";
+            }
+
+            text[5].text = "- The first season -";
+            text[6].text = "The best players this season";
+            text[7].text = "Your place in the ranking: -";
+        }
+        else
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                text[i].text = "Отсутствует";
+            }
+
+            text[5].text = "- Первый сезон -";
+            text[6].text = "Лучшие игроки в этом сезоне";
+            text[7].text = "Ваше место в рейтинге: -";
+        }
     }
 }
