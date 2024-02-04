@@ -22096,6 +22096,8 @@ MonoBehaviour:
   - {fileID: 294660250}
   - {fileID: 623829742}
   - {fileID: 466825271}
+  - {fileID: 1043895903}
+  - {fileID: 1616696046}
 --- !u!1 &842417235
 GameObject:
   m_ObjectHideFlags: 0
@@ -22545,6 +22547,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1975316113}
+  text:
+  - {fileID: 107083858}
+  - {fileID: 1481031418}
 --- !u!1 &929121749
 GameObject:
   m_ObjectHideFlags: 0
@@ -24051,7 +24056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1100191563
 RectTransform:
   m_ObjectHideFlags: 0

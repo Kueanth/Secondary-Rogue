@@ -43,6 +43,11 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
         sceneData.posChest = roomObject.transform.Find("SpawnChest");
         sceneData.posEnemy = roomObject.transform.Find("SpawnEnemy");
         sceneData.posHatch = roomObject.transform.Find("SpawnHatch");
+
+        if (Progress.Instance.PlayerInfoForSave.lan == 2)
+            ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " FLOOR\nLOCATION: BUILDING");
+        else
+            ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
     }
 
     public void Run()
@@ -50,6 +55,10 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
         foreach(var meow in _filter)
         {
             ui.gameScreen.infoBar.GetComponent<Animator>().enabled = true;
+
+            if(Progress.Instance.PlayerInfoForSave.lan == 2)
+                ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " FLOOR\nLOCATION: BUILDING");
+            else
             ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
 
             ++Progress.Instance.PlayerInfoForSave.levels;

@@ -57,6 +57,17 @@ public class Shop : MonoBehaviour
             names[5].text = " от";
         }
 
+        if(Progress.Instance.PlayerInfoForSave.lan == 2)
+        {
+            names[6].text = "105 Yan";
+            names[7].text = "750 Yan";
+        }
+        else
+        {
+            names[6].text = "105 ян";
+            names[7].text = "750 ян";
+        }
+
         checkedItem();
     }
 

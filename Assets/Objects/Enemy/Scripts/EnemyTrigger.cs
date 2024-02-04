@@ -58,7 +58,10 @@ public class EnemyTrigger : MonoBehaviour
                         hatch.GetComponentInChildren<HatchTrigger>().levelComplete();
                     }
 
-                    ui.gameScreen.EditInfoBar("щрюф опнидем");
+                    if (Progress.Instance.PlayerInfoForSave.lan == 2)
+                        ui.gameScreen.EditInfoBar("THE FLOOR IS PASSED");
+                    else
+                        ui.gameScreen.EditInfoBar("щрюф опнидем");
 
                 }
 

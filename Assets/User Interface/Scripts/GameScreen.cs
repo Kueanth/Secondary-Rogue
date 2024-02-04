@@ -12,6 +12,7 @@ public class GameScreen : MonoBehaviour
     public Image kristal;
     public Image bar;
     public Image infoBar;
+    public GameObject infoObj; 
     public GameObject gameScreen;
     public GameObject Fade;
 
@@ -146,6 +147,8 @@ public class GameScreen : MonoBehaviour
 
     public void EditInfoBar(string text)
     {
+        infoObj.SetActive(true);
+
         infoBar.GetComponentInChildren<TextMeshProUGUI>().text = text;
 
         infoBar.GetComponent<Animator>().SetTrigger("SetBar");
