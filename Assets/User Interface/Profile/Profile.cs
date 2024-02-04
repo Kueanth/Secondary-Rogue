@@ -14,9 +14,16 @@ public class Profile : MonoBehaviour
 
     public void Open()
     {
-
-        bar.SetActive(true);
+        if (!Progress.Instance.PlayerInfoForGame.auth)
+            animator.Play("OpenAuthBar");
+        else
+            bar.SetActive(true);
     }
+
+    public void Close()
+    {
+        bar.GetComponent<Animator>().Play("ProfileExit");
+    } 
 
     public void Enter()
     {
@@ -26,28 +33,46 @@ public class Profile : MonoBehaviour
 
         if (Progress.Instance.PlayerInfoForSave.levels >= 1000)
         {
-            rating.text = "Ваша лига: золотая";
+            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+                rating.text = "Ваша лига: золотая";
+            else
+                rating.text = "Your league: Golden";
         }
         else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
-            rating.text = "Ваша лига: серебрянная";
+            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+                rating.text = "Ваша лига: серебряная";
+            else
+                rating.text = "Your league: Silver";
         }
         else
         {
+            if(Progress.Instance.PlayerInfoForSave.lan == 1)
             rating.text = "Ваша лига: начальная";
+            else
+                rating.text = "Your league: Initial";
         }
 
         if (Progress.Instance.PlayerInfoForSave.levels >= 1000)
         {
-            rating.text = "Вы находитесь на последней лиге";
+            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+                description.text = "Вы находитесь на последней лиге";
+            else
+                description.text = "You are in the last league";
         }
         else if (Progress.Instance.PlayerInfoForSave.levels >= 500 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
-            rating.text = "До следующей лиги вам осталось пройти этажей: " + (1000 - Progress.Instance.PlayerInfoForSave.record);
+            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+            description.text = "До следующей лиги вам осталось пройти этажей: " + (1000 - Progress.Instance.PlayerInfoForSave.levels);
+            else
+                description.text = "You have only a few floors left to go to the next league: " + (1000 - Progress.Instance.PlayerInfoForSave.levels);
         }
         else
         {
-            rating.text = "До следующей лиги вам осталось пройти этажей: " + (100 - Progress.Instance.PlayerInfoForSave.record);
+            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+                description.text = "До следующей лиги вам осталось пройти этажей: " + (100 - Progress.Instance.PlayerInfoForSave.levels);
+            else
+                description.text = "You have only a few floors left to go to the next league: " + (100 - Progress.Instance.PlayerInfoForSave.levels);
         }
     }
 

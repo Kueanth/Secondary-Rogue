@@ -24,6 +24,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] text;
 
     [SerializeField] private InitPets initPets;
+    [SerializeField] private TextMeshProUGUI[] names;
 
     public void Exit()
     {
@@ -37,6 +38,25 @@ public class Shop : MonoBehaviour
 
     public void Enter()
     {
+        if (Progress.Instance.PlayerInfoForSave.lan == 2)
+        {
+            names[0].text = "Turtle";
+            names[1].text = "Rabbit";
+            names[2].text = "Fox";
+            names[3].text = "Badger";
+            names[4].text = "Hedgehog";
+            names[5].text = "Cat";
+        }
+        else
+        {
+            names[0].text = "Черепаха";
+            names[1].text = "Кролик";
+            names[2].text = "Лиса";
+            names[3].text = "Борсук";
+            names[4].text = "Ёжик";
+            names[5].text = "Кот";
+        }
+
         checkedItem();
     }
 
@@ -46,21 +66,48 @@ public class Shop : MonoBehaviour
     {
         if(Progress.Instance.PlayerInfoForSave.levels >= 1000)
         {
-            text[0].text = "Использовать";
-            text[1].text = "Использовать";
-            text[2].text = "Использовать";
+            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            {
+                text[0].text = "Использовать";
+                text[1].text = "Использовать";
+                text[2].text = "Использовать";
+            }
+            else
+            {
+                text[0].text = "Use";
+                text[1].text = "Use";
+                text[2].text = "Use";
+            }
         }
         else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
-            text[0].text = "Использовать";
-            text[1].text = "Использовать";
-            text[2].text = "Недоступен";
+            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            {
+                text[0].text = "Использовать";
+                text[1].text = "Использовать";
+                text[2].text = "Недоступен";
+            }
+            else
+            {
+                text[0].text = "Use";
+                text[1].text = "Use";
+                text[2].text = "Unavailable";
+            }
         }
         else
         {
-            text[0].text = "Использовать";
-            text[1].text = "Недоступен";
-            text[2].text = "Недоступен";
+            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            {
+                text[0].text = "Использовать";
+                text[1].text = "Недоступен";
+                text[2].text = "Недоступен";
+            }
+            else
+            {
+                text[0].text = "Use";
+                text[1].text = "Unavailable";
+                text[2].text = "Unavailable";
+            }
         }
         
         if(Progress.Instance.PlayerInfoForSave.checkedVideo != 10)
@@ -69,21 +116,31 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            text[3].text = "Использовать";
+            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+                text[3].text = "Использовать";
+            else
+                text[3].text = "Use";
         }
     }
 
     public void Checked01()
     {
+        if (Progress.Instance.PlayerInfoForSave.lan == 1)
             text[4].text = "Использовать";
-            Progress.Instance.buy01 = true;
+        else
+            text[4].text = "Use";
+
+        Progress.Instance.buy01 = true;
     }
 
     public void Checked02()
     {
-
+        if (Progress.Instance.PlayerInfoForSave.lan == 1)
             text[5].text = "Использовать";
-            Progress.Instance.buy02 = true;
+        else
+            text[5].text = "Use";
+
+        Progress.Instance.buy02 = true;
     }
 
     public void One()
@@ -114,7 +171,11 @@ public class Shop : MonoBehaviour
     {
         if (Progress.Instance.PlayerInfoForSave.checkedVideo == 10)
         {
-            text[3].text = "Использовать";
+            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+                text[3].text = "Использовать";
+            else
+                text[3].text = "Use";
+
             Progress.Instance.PlayerInfoForSave.pet = 3;
             initPets.Delete();
         }
@@ -158,7 +219,10 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            text[3].text = "Использовать";
+            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+                text[3].text = "Использовать";
+            else
+                text[3].text = "Use";
         }
 
         Progress.Instance.Save();
