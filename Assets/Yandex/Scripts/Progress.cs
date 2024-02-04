@@ -14,6 +14,7 @@ public class PlayerInfoForSave
     public int checkedVideo;
     public int levels;
     public int record;
+    public int lan;
 }
 
 [System.Serializable]

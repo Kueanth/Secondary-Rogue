@@ -50,7 +50,7 @@ public class Shop : MonoBehaviour
             text[1].text = "Использовать";
             text[2].text = "Использовать";
         }
-        else if (Progress.Instance.PlayerInfoForSave.levels >= 500 && Progress.Instance.PlayerInfoForSave.levels < 1000)
+        else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
             text[0].text = "Использовать";
             text[1].text = "Использовать";
@@ -94,7 +94,7 @@ public class Shop : MonoBehaviour
 
     public void Two()
     {
-        if (Progress.Instance.PlayerInfoForSave.levels >= 500 && Progress.Instance.PlayerInfoForSave.levels < 1000)
+        if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
             Progress.Instance.PlayerInfoForSave.pet = 1;
             initPets.Delete();

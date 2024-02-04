@@ -57,6 +57,7 @@ public class InitYandex : MonoBehaviour
     [SerializeField] private GameObject loading;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private GameObject initPet;
+    [SerializeField] private Language language;
 
     [DllImport("__Internal")]
     private static extern void AuthPlayer();
@@ -269,6 +270,14 @@ public class InitYandex : MonoBehaviour
         else
         {
             _photos[i].texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+        }
+    }
+
+    public void CheckedLan()
+    {
+        if(Progress.Instance.PlayerInfoForSave.lan == 0)
+        {
+            language.Open();
         }
     }
 }
