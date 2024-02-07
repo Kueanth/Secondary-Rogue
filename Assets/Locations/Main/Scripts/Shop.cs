@@ -162,10 +162,11 @@ public class Shop : MonoBehaviour
 
     public void Two()
     {
-        if (Progress.Instance.PlayerInfoForSave.levels >= 100)
+        if(Progress.Instance.PlayerInfoForSave.levels >= 100)
         {
             Progress.Instance.PlayerInfoForSave.pet = 1;
             initPets.Delete();
+            Debug.Log("work");
         }
     }
 
@@ -175,6 +176,7 @@ public class Shop : MonoBehaviour
         {
             Progress.Instance.PlayerInfoForSave.pet = 2;
             initPets.Delete();
+            Debug.Log("work");
         }
     }
 

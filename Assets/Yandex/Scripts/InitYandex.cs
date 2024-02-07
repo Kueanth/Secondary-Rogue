@@ -218,14 +218,13 @@ public class InitYandex : MonoBehaviour
         _photo.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
         Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
         _button.gameObject.SetActive(false);
-        LoadData();
         GetDataInLeaderboards("levels", true, 5, 5);
         _authPlayer.SetActive(false);
         Progress.Instance.PlayerInfoForGame.auth = true;
         animatorAuthPlayer.SetTrigger("authComplete");
         Progress.Instance.InfoInit();
 
-        if (Progress.Instance.PlayerInfoForSave.levels < 100)
+        if(Progress.Instance.PlayerInfoForSave.levels < 100)
         {
             _playerAuthBoard.sprite = _playerAuthBoardSet[0];
             _board.sprite = _boardSet[0];
