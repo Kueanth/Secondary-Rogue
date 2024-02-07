@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Runtime.InteropServices;
 
 public class Rating : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class Rating : MonoBehaviour
     [SerializeField] private Image imageBack;
 
     [SerializeField] private Sprite[] forImage;
+
+    [SerializeField] private InitYandex _initYandex;
+
+    [DllImport("__Internal")]
+    private static extern void AskSetLeaderboardScore(string rawNameStr);
 
     public void Start()
     {
@@ -63,7 +69,7 @@ public class Rating : MonoBehaviour
 
             text[5].text = "- The first season -";
             text[6].text = "The best players this season";
-            text[7].text = "Your place in the ranking: -";
+            text[7].text = "Your place in the ranking: " + _initYandex.playerLeaderboard.rank;
         }
         else
         {
@@ -74,7 +80,7 @@ public class Rating : MonoBehaviour
 
             text[5].text = "- Первый сезон -";
             text[6].text = "Лучшие игроки в этом сезоне";
-            text[7].text = "Ваше место в рейтинге: -";
+            text[7].text = "Ваше место в рейтинге: " + _initYandex.playerLeaderboard.rank;
         }
     }
 }

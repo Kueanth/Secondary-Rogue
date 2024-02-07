@@ -60,7 +60,7 @@ public class Profile : MonoBehaviour
             else
                 description.text = "You are in the last league";
         }
-        else if (Progress.Instance.PlayerInfoForSave.levels >= 500 && Progress.Instance.PlayerInfoForSave.levels < 1000)
+        else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
             if(Progress.Instance.PlayerInfoForSave.lan == 1)
             description.text = "ƒо следующей лиги вам осталось пройти этажей: " + (1000 - Progress.Instance.PlayerInfoForSave.levels);

@@ -154,6 +154,8 @@ public class InitYandex : MonoBehaviour
 
     public void Gow(string value)
     {
+        Rating.GetComponent<Rating>().CheckedLan();
+
         leaderboard = JsonUtility.FromJson<Leaderboard>(value);
 
         StartCoroutine(DownloadImage(leaderboard.entries[0].imageURL, 0, leaderboard));
