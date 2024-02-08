@@ -44,8 +44,16 @@ public class DeadScreen : MonoBehaviour
 
     public void editText(int countLevel, int record)
     {
-        textMeshProUGUI.text = "опнидемн щрюфеи: " + countLevel;
-        textMeshProUGUI1.text = "пейнпд: " + record;
+        if(Progress.Instance.PlayerInfoForSave.lan == 1)
+        {
+            textMeshProUGUI.text = "опнидемн щрюфеи: " + countLevel;
+            textMeshProUGUI1.text = "пейнпд: " + record;
+        }
+        else
+        {
+            textMeshProUGUI.text = "FLOORS PASSED: " + countLevel;
+            textMeshProUGUI1.text = "RECORD: " + record;
+        }
     }
 
     IEnumerator enumerator()

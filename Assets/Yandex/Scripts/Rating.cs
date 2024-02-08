@@ -64,6 +64,7 @@ public class Rating : MonoBehaviour
         {
             for(int i = 0; i < 5; i++)
             {
+                if (text[i].text == "Отсутствует")
                 text[i].text = "Absent";
             }
 
@@ -75,7 +76,8 @@ public class Rating : MonoBehaviour
         {
             for (int i = 0; i < 5; i++)
             {
-                text[i].text = "Отсутствует";
+                if (text[i].text == "Absent")
+                    text[i].text = "Отсутствует";
             }
 
             text[5].text = "- Первый сезон -";

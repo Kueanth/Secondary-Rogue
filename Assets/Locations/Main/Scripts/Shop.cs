@@ -158,6 +158,8 @@ public class Shop : MonoBehaviour
     {
         Progress.Instance.PlayerInfoForSave.pet = 0;
         initPets.Delete();
+        Progress.Instance.Save();
+        GetComponent<Animator>().Play("ExitShop");
     }
 
     public void Two()
@@ -166,7 +168,8 @@ public class Shop : MonoBehaviour
         {
             Progress.Instance.PlayerInfoForSave.pet = 1;
             initPets.Delete();
-            Debug.Log("work");
+            Progress.Instance.Save();
+            GetComponent<Animator>().Play("ExitShop");
         }
     }
 
@@ -176,7 +179,8 @@ public class Shop : MonoBehaviour
         {
             Progress.Instance.PlayerInfoForSave.pet = 2;
             initPets.Delete();
-            Debug.Log("work");
+            Progress.Instance.Save();
+            GetComponent<Animator>().Play("ExitShop");
         }
     }
 
@@ -191,6 +195,8 @@ public class Shop : MonoBehaviour
 
             Progress.Instance.PlayerInfoForSave.pet = 3;
             initPets.Delete();
+            Progress.Instance.Save();
+            GetComponent<Animator>().Play("ExitShop");
         }
         else
         {
@@ -204,6 +210,8 @@ public class Shop : MonoBehaviour
         {
             Progress.Instance.PlayerInfoForSave.pet = 4;
             initPets.Delete();
+            Progress.Instance.Save();
+            GetComponent<Animator>().Play("ExitShop");
         }
         else
         {
@@ -217,6 +225,8 @@ public class Shop : MonoBehaviour
         {
             Progress.Instance.PlayerInfoForSave.pet = 5;
             initPets.Delete();
+            Progress.Instance.Save();
+            GetComponent<Animator>().Play("ExitShop");
         }
         else
         {
@@ -238,11 +248,6 @@ public class Shop : MonoBehaviour
                 text[3].text = "Use";
         }
 
-        Progress.Instance.Save();
-    }
-
-    public void OnDisable()
-    {
         Progress.Instance.Save();
     }
 }

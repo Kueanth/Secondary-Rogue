@@ -15,7 +15,7 @@ MonoBehaviour:
   spriteForHand: {fileID: 21300000, guid: 05ca10084db8ff343807dcda48723e90, type: 3}
   prefabForChest: {fileID: 1001905038626628219, guid: 580cf22942548a14d95580e1f0e97877, type: 3}
   nameGun: Awm_2
-  reloading: 5
+  reloading: 4
   damage: 15
   ammo: 5
   maxAmmo: 5

@@ -15,7 +15,7 @@ MonoBehaviour:
   spriteForHand: {fileID: 21300000, guid: 5ac175b5d3d4e2a4a9a3c906e4ce27a1, type: 3}
   prefabForChest: {fileID: 3472048994166147815, guid: a0b663869cf9054489f36fd19dfa610b, type: 3}
   nameGun: Drobovik_3
-  reloading: 6
+  reloading: 5
   damage: 3
   ammo: 5
   maxAmmo: 5
