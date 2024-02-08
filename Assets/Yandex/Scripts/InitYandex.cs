@@ -219,6 +219,7 @@ public class InitYandex : MonoBehaviour
         Progress.Instance.PlayerInfoForGame.icon = ((DownloadHandlerTexture)request.downloadHandler).texture;
         _button.gameObject.SetActive(false);
         GetDataInLeaderboards("levels", true, 5, 5);
+        LoadData();
         _authPlayer.SetActive(false);
         Progress.Instance.PlayerInfoForGame.auth = true;
         animatorAuthPlayer.SetTrigger("authComplete");
@@ -247,7 +248,6 @@ public class InitYandex : MonoBehaviour
         yield return new WaitForSeconds(3);
         CheckPlayer();
         LoadPlayer();
-        LoadData();
         loading.SetActive(false);
         Progress.Instance.paused = false;
         yield break;
