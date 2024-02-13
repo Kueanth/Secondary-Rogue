@@ -181,6 +181,7 @@ public class HelpBar : MonoBehaviour
 
     public void Open()
     {
+        AudioObject.Instance.Click();
         if (Progress.Instance.PlayerInfoForSave.lan == 0)
             lan.SetActive(true);
         else

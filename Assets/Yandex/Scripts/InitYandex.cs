@@ -109,6 +109,7 @@ public class InitYandex : MonoBehaviour
 
     public void AuthButton()
     {
+        AudioObject.Instance.Click();
         Progress.Instance.paused = true;
         loading.SetActive(true);
         AuthPlayer();
@@ -117,6 +118,7 @@ public class InitYandex : MonoBehaviour
 
     public void CloseAuthBar()
     {
+        AudioObject.Instance.Click();
         _authPlayer.GetComponent<Animator>().Play("CloseAuthBar");
         auth.Play("AuthButtonInit");
     }
@@ -132,6 +134,7 @@ public class InitYandex : MonoBehaviour
 
     public void RateGameButton()
     {
+        AudioObject.Instance.Click();
         if (Progress.Instance.PlayerInfoForGame.auth)
         {
             RateGame();

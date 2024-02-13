@@ -4,6 +4,7 @@ public class Links : MonoBehaviour
 {
     public void OpenTelegram()
     {
+        AudioObject.Instance.Click();
         Application.OpenURL("https://t.me/kueanth");
     }
 

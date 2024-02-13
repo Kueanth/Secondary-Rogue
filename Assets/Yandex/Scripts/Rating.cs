@@ -31,6 +31,7 @@ public class Rating : MonoBehaviour
 
     public void Exit()
     {
+        AudioObject.Instance.Click();
         _you[number].rectTransform.sizeDelta = new Vector2(0f, 0f);
         animator.SetTrigger("end");
     }

@@ -104,6 +104,7 @@ public class Character : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && isEnter)
             {
+                AudioObject.Instance.Click();
                 FadeObject.transform.SetAsLastSibling();
                 Progress.Instance.enter = true;
                 Fade.SetTrigger("Meow");
@@ -112,6 +113,7 @@ public class Character : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && isLeaders)
             {
+                AudioObject.Instance.Click();
                 if (Progress.Instance.PlayerInfoForGame.auth)
                 {
                     LeadersObject.SetActive(true);
@@ -125,6 +127,7 @@ public class Character : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F) && isShop)
             {
+                AudioObject.Instance.Click();
                 if (Progress.Instance.PlayerInfoForGame.auth)
                 {
                     ShopObject.SetActive(true);

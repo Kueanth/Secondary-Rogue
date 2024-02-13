@@ -26,6 +26,7 @@ public class Language : MonoBehaviour
 
     public void Open()
     {
+        AudioObject.Instance.Click();
         gameObject.SetActive(true);
     }
 }

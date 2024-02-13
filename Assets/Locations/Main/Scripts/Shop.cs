@@ -156,6 +156,7 @@ public class Shop : MonoBehaviour
 
     public void One()
     {
+        AudioObject.Instance.Click();
         Progress.Instance.PlayerInfoForSave.pet = 0;
         initPets.Delete();
         Progress.Instance.Save();
@@ -164,7 +165,8 @@ public class Shop : MonoBehaviour
 
     public void Two()
     {
-        if(Progress.Instance.PlayerInfoForSave.levels >= 100)
+        AudioObject.Instance.Click();
+        if (Progress.Instance.PlayerInfoForSave.levels >= 100)
         {
             Progress.Instance.PlayerInfoForSave.pet = 1;
             initPets.Delete();
@@ -175,7 +177,8 @@ public class Shop : MonoBehaviour
 
     public void Three()
     {
-        if(Progress.Instance.PlayerInfoForSave.levels >= 1000)
+        AudioObject.Instance.Click();
+        if (Progress.Instance.PlayerInfoForSave.levels >= 1000)
         {
             Progress.Instance.PlayerInfoForSave.pet = 2;
             initPets.Delete();
@@ -186,6 +189,7 @@ public class Shop : MonoBehaviour
 
     public void Four()
     {
+        AudioObject.Instance.Click();
         if (Progress.Instance.PlayerInfoForSave.checkedVideo == 10)
         {
             if (Progress.Instance.PlayerInfoForSave.lan == 1)
@@ -206,7 +210,8 @@ public class Shop : MonoBehaviour
 
     public void Five()
     {
-        if(Progress.Instance.buy02)
+        AudioObject.Instance.Click();
+        if (Progress.Instance.buy02)
         {
             Progress.Instance.PlayerInfoForSave.pet = 4;
             initPets.Delete();
@@ -221,6 +226,7 @@ public class Shop : MonoBehaviour
 
     public void Six()
     {
+        AudioObject.Instance.Click();
         if (Progress.Instance.buy01)
         {
             Progress.Instance.PlayerInfoForSave.pet = 5;

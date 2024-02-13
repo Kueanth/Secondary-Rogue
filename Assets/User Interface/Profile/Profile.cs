@@ -14,6 +14,7 @@ public class Profile : MonoBehaviour
 
     public void Open()
     {
+        AudioObject.Instance.Click();
         if (!Progress.Instance.PlayerInfoForGame.auth)
             animator.Play("OpenAuthBar");
         else
