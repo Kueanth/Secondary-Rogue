@@ -15,6 +15,8 @@ public class BodyTrigger : MonoBehaviour
 
         if (collider.gameObject.tag == "EnemyBullet" && !sceneData.paused)
         {
+            AudioObject.Instance.Health();
+
             components.hp -= 1;
 
             if (components.hp > 0)

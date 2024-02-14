@@ -48,4 +48,9 @@ public class FadeInMenu : MonoBehaviour
     {
         
     }
+
+    public void EnterDungeon()
+    {
+        StartCoroutine(AudioObject.Instance.EnterInDungeon());
+    }
 }

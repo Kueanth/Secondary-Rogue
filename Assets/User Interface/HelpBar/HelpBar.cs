@@ -14,6 +14,8 @@ public class HelpBar : MonoBehaviour
 
     public void Next()
     {
+        AudioObject.Instance.Click();
+
         fields[index].SetActive(false);
 
         index++;
@@ -95,6 +97,8 @@ public class HelpBar : MonoBehaviour
 
     public void Back()
     {
+        AudioObject.Instance.Click();
+
         fields[index].SetActive(false);
 
         index--;
@@ -162,7 +166,7 @@ public class HelpBar : MonoBehaviour
             case 5:
                 if (Progress.Instance.PlayerInfoForSave.lan == 2)
                 {
-                    text[7].text = "Opponents can lose health and ammunition for reloading, going up to them you can pick them up and use them." +
+                    text[7].text = "Opponents can lose and drop health and ammunition for reloading, going up to them you can pick them up and use them." +
                         "\n\n\n\n\nThere are also chests of weapons in the game, you can open them with the F button";
                 }
                 else
@@ -258,7 +262,7 @@ public class HelpBar : MonoBehaviour
             case 5:
                 if (Progress.Instance.PlayerInfoForSave.lan == 2)
                 {
-                    text[7].text = "Opponents can lose health and ammunition for reloading, going up to them you can pick them up and use them." +
+                    text[7].text = "Opponents can lose and drop health and ammunition for reloading, going up to them you can pick them up and use them." +
                         "\n\n\n\n\nThere are also chests of weapons in the game, you can open them with the F button";
                 }
                 else
@@ -272,6 +276,7 @@ public class HelpBar : MonoBehaviour
 
     public void Close()
     {
+        AudioObject.Instance.Click();
         fields[index].SetActive(false);
         animator.Play("HelpBarExit");
     }

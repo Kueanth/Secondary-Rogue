@@ -33,6 +33,7 @@ public class GunInput : IEcsRunSystem
             {
                 if (gunComponents.ammo != 0)
                 {
+                    AudioObject.Instance.Shoot();
                     gunComponents.canShoot = false;
                     gunComponents.reload.ShootGun(ref entity);
                     ui.gameScreen.ShootUpdate(ref gunComponents.ammo, ref gunComponents.store);

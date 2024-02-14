@@ -29,7 +29,7 @@ public class EnemyTrigger : MonoBehaviour
         bool tempBool = false;
 
         if (collision.gameObject.tag == "Bullet")
-        {   
+        {
             components.hp -= componentsGun.damage;
 
             if (components.hp > 0)
@@ -105,6 +105,7 @@ public class EnemyTrigger : MonoBehaviour
                     Destroy(bullMainObject, 5);
                 }
 
+                AudioObject.Instance.Health();
                 tempBool = true;
                 Destroy(gameObject);
             }

@@ -17,6 +17,11 @@ public class FadeNextRoom : MonoBehaviour
         
     }
 
+    public void EnterInMenu()
+    {
+        StartCoroutine(AudioObject.Instance.EnterInMenu());
+    }
+
     public void Exit()
     {
         Progress.Instance.openPausedBar = false;

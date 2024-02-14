@@ -47,6 +47,8 @@ public class PlayerTrigger : MonoBehaviour
 
         if (collider.gameObject.tag == "Pit" && !components.pit)
         {
+            AudioObject.Instance.Health();
+
             components.hp -= 1;
 
             if (components.hp > 0)

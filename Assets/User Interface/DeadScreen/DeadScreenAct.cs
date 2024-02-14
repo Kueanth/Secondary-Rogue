@@ -9,12 +9,14 @@ public class DeadScreenAct : MonoBehaviour
 
     public void reloadGame()
     {
+        AudioObject.Instance.Louder();
         Fade.gameObject.SetActive(true);
         Fade.SetTrigger("Em");
     }
 
     public void exitGame()
     {
+        AudioObject.Instance.Louder();
         Fade.gameObject.SetActive(true);
         Fade.SetTrigger("Gow");
     }
@@ -41,6 +43,17 @@ public class DeadScreenAct : MonoBehaviour
 
     public void reloadGameEnd()
     {
+        AudioObject.Instance.Louder();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void endGameAdBar()
+    {
+        AudioObject.Instance.Louder();
+    }
+
+    public void Awake()
+    {
+        AudioObject.Instance.Quieter();
     }
 }

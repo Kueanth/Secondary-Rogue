@@ -32,6 +32,8 @@ public class EnemyShoot : MonoBehaviour
 
         ref EnemyData componentsEnemy = ref entity.Get<EnemyData>();
 
+        AudioObject.Instance.Shoot();
+
         switch (componentsEnemy.name)
         {
             case "Enemy-0":

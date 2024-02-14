@@ -64,6 +64,8 @@ public class PlayerInput : IEcsRunSystem
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearChest)
             {
+                AudioObject.Instance.Click();
+
                 components.chest.GetComponent<ChestTrigger>().OpenChest();
 
                 components.nearChest = false;
@@ -72,6 +74,8 @@ public class PlayerInput : IEcsRunSystem
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearHatch)
             {
+                AudioObject.Instance.Click();
+
                 components.hatch.GetComponent<HatchTrigger>().OpenHatch();
 
                 components.nearHatch = false;
@@ -89,6 +93,8 @@ public class PlayerInput : IEcsRunSystem
 
             if(Input.GetKeyDown(KeyCode.F) && components.nearHp)
             {
+                AudioObject.Instance.Click();
+
                 components.hpTransform.GetComponent<HpTrigger>().GetHp(ref entity, ref ui);
 
                 components.nearHp = false;
@@ -97,6 +103,8 @@ public class PlayerInput : IEcsRunSystem
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearBull)
             {
+                AudioObject.Instance.Click();
+
                 components.bullTransform.GetComponent<BullTrigger>().GetBull(ref entity, ref ui);
 
                 components.nearBull = false;
@@ -105,6 +113,8 @@ public class PlayerInput : IEcsRunSystem
 
             if (Input.GetKeyDown(KeyCode.F) && components.nearGun)
             {
+                AudioObject.Instance.Click();
+
                 components.gunInChest.GetComponent<GunTrigger>().GetGun(ref entity, ref ui);
 
                 components.nearGun = false;
