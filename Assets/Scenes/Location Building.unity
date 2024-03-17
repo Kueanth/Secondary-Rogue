@@ -1748,7 +1748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &532043942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2334,7 +2334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &729159657
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4297,6 +4297,7 @@ GameObject:
   - component: {fileID: 1729938666}
   - component: {fileID: 1729938668}
   - component: {fileID: 1729938667}
+  - component: {fileID: 1729938669}
   m_Layer: 5
   m_Name: Loading
   m_TagString: Untagged
@@ -4364,6 +4365,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729938665}
   m_CullTransparentMesh: 1
+--- !u!114 &1729938669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729938665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b882eb347da183b4bb81b90e6165195e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingText: {fileID: 878090630}
 --- !u!1 &1743559576
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,7 +4577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
   playerSpawnPoint: {x: -14, y: 4}
-  playerSpeed: 6
+  playerSpeed: 7
   enemyCount: 0
   countKillEnemy: 0
   record: 0

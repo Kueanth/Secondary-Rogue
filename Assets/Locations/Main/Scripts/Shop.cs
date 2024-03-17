@@ -26,6 +26,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private InitPets initPets;
     [SerializeField] private TextMeshProUGUI[] names;
 
+    [SerializeField] private GameObject AdBar;
+
     public void Exit()
     {
         gameObject.GetComponent<Animator>().Play("ExitShop");
@@ -127,6 +129,8 @@ public class Shop : MonoBehaviour
         }
         else
         {
+            AdBar.SetActive(false);
+
             if(Progress.Instance.PlayerInfoForSave.lan == 1)
                 text[3].text = "Использовать";
             else
@@ -192,6 +196,8 @@ public class Shop : MonoBehaviour
         AudioObject.Instance.Click();
         if (Progress.Instance.PlayerInfoForSave.checkedVideo == 10)
         {
+            AdBar.SetActive(false);
+
             if (Progress.Instance.PlayerInfoForSave.lan == 1)
                 text[3].text = "Использовать";
             else
