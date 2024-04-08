@@ -7,7 +7,7 @@ public class AuthPlayerBarLan : MonoBehaviour
 
     private void Open()
     {
-        if(Progress.Instance.PlayerInfoForSave.lan == 2)
+        if(PlayerPrefs.GetInt("Language") == 2)
         {
             text.text = "Auth";
         }

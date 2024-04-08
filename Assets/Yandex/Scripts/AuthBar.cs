@@ -22,7 +22,7 @@ public class AuthBar : MonoBehaviour
 
     public void Lan()
     {
-        if(Progress.Instance.PlayerInfoForSave.lan == 2)
+        if(PlayerPrefs.GetInt("Language") == 2)
         {
             text[0].text = "You can play as a guest in the game, as well as log in. If you log in, you will be able to: rate the game, be on the leaderboard, purchase donation items and also save your rating, which will allow you to compete with other players!";
             text[1].text = "Auth";

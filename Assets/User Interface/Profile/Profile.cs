@@ -34,21 +34,21 @@ public class Profile : MonoBehaviour
 
         if (Progress.Instance.PlayerInfoForSave.levels >= 1000)
         {
-            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            if (PlayerPrefs.GetInt("Language") == 1)
                 rating.text = "Ваша лига: золотая";
             else
                 rating.text = "Your league: Golden";
         }
         else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
-            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+            if(PlayerPrefs.GetInt("Language") == 1)
                 rating.text = "Ваша лига: серебряная";
             else
                 rating.text = "Your league: Silver";
         }
         else
         {
-            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+            if(PlayerPrefs.GetInt("Language") == 1)
             rating.text = "Ваша лига: начальная";
             else
                 rating.text = "Your league: Initial";
@@ -56,21 +56,21 @@ public class Profile : MonoBehaviour
 
         if (Progress.Instance.PlayerInfoForSave.levels >= 1000)
         {
-            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+            if(PlayerPrefs.GetInt("Language") == 1)
                 description.text = "Вы находитесь на последней лиге";
             else
                 description.text = "You are in the last league";
         }
         else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
-            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+            if(PlayerPrefs.GetInt("Language") == 1)
             description.text = "До следующей лиги вам осталось пройти этажей: " + (1000 - Progress.Instance.PlayerInfoForSave.levels);
             else
                 description.text = "You have only a few floors left to go to the next league: " + (1000 - Progress.Instance.PlayerInfoForSave.levels);
         }
         else
         {
-            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            if (PlayerPrefs.GetInt("Language") == 1)
                 description.text = "До следующей лиги вам осталось пройти этажей: " + (100 - Progress.Instance.PlayerInfoForSave.levels);
             else
                 description.text = "You have only a few floors left to go to the next league: " + (100 - Progress.Instance.PlayerInfoForSave.levels);

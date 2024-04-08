@@ -47,7 +47,7 @@ public class GunInput : IEcsRunSystem
                 gunComponents.reolading = true;
                 gunComponents.reload.ReloadGun(ref gunComponents, ref ui);
 
-                if (Progress.Instance.PlayerInfoForSave.lan == 2)
+                if (PlayerPrefs.GetInt("Language") == 2)
                     ui.gameScreen.textMeshPro.text = "Reloading";
                 else
                     ui.gameScreen.textMeshPro.text = "Перезарядка";

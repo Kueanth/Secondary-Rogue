@@ -30,11 +30,11 @@ public class BodyTrigger : MonoBehaviour
                 ui.gameScreen.gameScreen.SetActive(false);
                 ui.deadScreen.deadScreen.SetActive(true);
                 ui.pausedScreen.pausedScreen.SetActive(false);
-                if (sceneData.record > Progress.Instance.PlayerInfoForSave.record)
+                if (sceneData.record > PlayerPrefs.GetInt("record"))
                 {
-                    Progress.Instance.PlayerInfoForSave.record = sceneData.record;
+                    PlayerPrefs.SetInt("record", sceneData.record);
                 }
-                ui.deadScreen.editText(sceneData.countLevel, Progress.Instance.PlayerInfoForSave.record);
+                ui.deadScreen.editText(sceneData.countLevel, PlayerPrefs.GetInt("record"));
                 sceneData.paused = true;
                 components.animator.SetTrigger("Refuse");
                 components.rigidbody2D.velocity = Vector2.zero;

@@ -58,6 +58,8 @@ public class PlayerInit : IEcsInitSystem
 
         sceneData.pointForPet = PlayerObject.transform.Find("Point");
 
+        Progress.Instance.sceneData = this.sceneData;
+
         Components.transform.position = sceneData.playerSpawnPoint;
     }
 }

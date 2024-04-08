@@ -13,8 +13,6 @@ public class PlayerInfoForSave
     public int pet; 
     public int checkedVideo;
     public int levels;
-    public int record;
-    public int lan;
 }
 
 [System.Serializable]
@@ -39,6 +37,8 @@ public class Progress : MonoBehaviour
 
     public PlayerInfoForSave PlayerInfoForSave;
     public PlayerInfoForGame PlayerInfoForGame;
+
+    public SceneData sceneData;
 
     [SerializeField] private TextMeshProUGUI info;
 
@@ -86,4 +86,19 @@ public class Progress : MonoBehaviour
     {
         PlayerInfoForSave.checkedVideo++;
     }
+
+    void PauseGame()
+    {
+        AudioListener.pause = true;
+        sceneData.paused = true;
+        Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        AudioListener.pause = false;
+        sceneData.paused = false;
+        Time.timeScale = 1;
+    }
 }
+ 

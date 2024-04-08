@@ -8,7 +8,7 @@ public class Language : MonoBehaviour
     public void Russian()
     {
         AudioObject.Instance.Click();
-        Progress.Instance.PlayerInfoForSave.lan = 1;
+        PlayerPrefs.GetInt("Language", 1);
         rating.CheckedLan();
         animator.Play("LanguageExit");
     }
@@ -16,7 +16,7 @@ public class Language : MonoBehaviour
     public void English()
     {
         AudioObject.Instance.Click();
-        Progress.Instance.PlayerInfoForSave.lan = 2;
+        PlayerPrefs.GetInt("Language", 2);
         rating.CheckedLan();
         animator.Play("LanguageExit");
     }

@@ -40,7 +40,7 @@ public class Shop : MonoBehaviour
 
     public void Enter()
     {
-        if (Progress.Instance.PlayerInfoForSave.lan == 2)
+        if (PlayerPrefs.GetInt("Language") == 2)
         {
             names[0].text = "Turtle";
             names[1].text = "Rabbit";
@@ -59,7 +59,7 @@ public class Shop : MonoBehaviour
             names[5].text = "Кот";
         }
 
-        if(Progress.Instance.PlayerInfoForSave.lan == 2)
+        if(PlayerPrefs.GetInt("Language") == 2)
         {
             names[6].text = "105 Yan";
             names[7].text = "750 Yan";
@@ -79,7 +79,7 @@ public class Shop : MonoBehaviour
     {
         if(Progress.Instance.PlayerInfoForSave.levels >= 1000)
         {
-            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            if (PlayerPrefs.GetInt("Language") == 1)
             {
                 text[0].text = "Использовать";
                 text[1].text = "Использовать";
@@ -94,7 +94,7 @@ public class Shop : MonoBehaviour
         }
         else if (Progress.Instance.PlayerInfoForSave.levels >= 100 && Progress.Instance.PlayerInfoForSave.levels < 1000)
         {
-            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            if (PlayerPrefs.GetInt("Language") == 1)
             {
                 text[0].text = "Использовать";
                 text[1].text = "Использовать";
@@ -109,7 +109,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            if (PlayerPrefs.GetInt("Language") == 1)
             {
                 text[0].text = "Использовать";
                 text[1].text = "Недоступен";
@@ -131,7 +131,7 @@ public class Shop : MonoBehaviour
         {
             AdBar.SetActive(false);
 
-            if(Progress.Instance.PlayerInfoForSave.lan == 1)
+            if(PlayerPrefs.GetInt("Language") == 1)
                 text[3].text = "Использовать";
             else
                 text[3].text = "Use";
@@ -140,20 +140,20 @@ public class Shop : MonoBehaviour
 
     public void Checked01()
     {
-        if (Progress.Instance.PlayerInfoForSave.lan == 1)
-            text[4].text = "Использовать";
+        if (PlayerPrefs.GetInt("Language") == 1)
+            text[5].text = "Использовать";
         else
-            text[4].text = "Use";
+            text[5].text = "Use";
 
         Progress.Instance.buy01 = true;
     }
 
     public void Checked02()
     {
-        if (Progress.Instance.PlayerInfoForSave.lan == 1)
-            text[5].text = "Использовать";
+        if (PlayerPrefs.GetInt("Language") == 1)
+            text[4].text = "Использовать";
         else
-            text[5].text = "Use";
+            text[4].text = "Use";
 
         Progress.Instance.buy02 = true;
     }
@@ -198,7 +198,7 @@ public class Shop : MonoBehaviour
         {
             AdBar.SetActive(false);
 
-            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            if (PlayerPrefs.GetInt("Language") == 1)
                 text[3].text = "Использовать";
             else
                 text[3].text = "Use";
@@ -254,7 +254,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            if (Progress.Instance.PlayerInfoForSave.lan == 1)
+            if (PlayerPrefs.GetInt("Language") == 1)
                 text[3].text = "Использовать";
             else
                 text[3].text = "Use";

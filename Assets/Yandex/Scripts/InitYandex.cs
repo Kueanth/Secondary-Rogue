@@ -105,6 +105,12 @@ public class InitYandex : MonoBehaviour
             animatorAuthPlayer.SetTrigger("authComplete");
             Progress.Instance.InfoInit();
         }
+        else
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        LoadData();
+#endif
+        }
     }
 
     public void AuthButton()
@@ -200,7 +206,7 @@ public class InitYandex : MonoBehaviour
             }
         }
 
-        if(Progress.Instance.PlayerInfoForSave.lan == 2)
+        if(PlayerPrefs.GetInt("Language") == 2)
         {
             _text.text = $"Your place in the ranking: {playerLeaderboard.rank}";
         }
@@ -249,8 +255,6 @@ public class InitYandex : MonoBehaviour
     IEnumerator LoadPlayerCoroutine()
     {
         yield return new WaitForSeconds(3);
-        CheckPlayer();
-        LoadPlayer();
         loading.SetActive(false);
         Progress.Instance.paused = false;
         yield break;
@@ -270,7 +274,7 @@ public class InitYandex : MonoBehaviour
 
         if (Convert.ToString(leaderboard.entries[i].publicName) == "")
         {
-            if(Progress.Instance.PlayerInfoForSave.lan == 2)
+            if(PlayerPrefs.GetInt("Language") == 2)
             {
                 _names[i].text = "The user is hidden";
             }
@@ -293,9 +297,15 @@ public class InitYandex : MonoBehaviour
 
     public void CheckedLan()
     {
-        if(Progress.Instance.PlayerInfoForSave.lan == 0)
+        if(PlayerPrefs.GetInt("Language") == 0)
         {
             language.Open();
         }
+    }
+
+    public void LoadingMeow()
+    {
+        CheckPlayer();
+        LoadPlayer();
     }
 }

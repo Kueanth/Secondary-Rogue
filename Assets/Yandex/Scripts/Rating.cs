@@ -61,7 +61,7 @@ public class Rating : MonoBehaviour
 
     public void CheckedLan()
     {
-        if(Progress.Instance.PlayerInfoForSave.lan == 2)
+        if(PlayerPrefs.GetInt("Language") == 2)
         {
             for(int i = 0; i < 5; i++)
             {
@@ -72,6 +72,8 @@ public class Rating : MonoBehaviour
             text[5].text = "- The first season -";
             text[6].text = "The best players this season";
             text[7].text = "Your place in the ranking: " + _initYandex.playerLeaderboard.rank;
+
+            text[8].text = "Auth";
         }
         else
         {
@@ -84,6 +86,8 @@ public class Rating : MonoBehaviour
             text[5].text = "- Первый сезон -";
             text[6].text = "Лучшие игроки в этом сезоне";
             text[7].text = "Ваше место в рейтинге: " + _initYandex.playerLeaderboard.rank;
+
+            text[8].text = "Авторизация";
         }
     }
 }

@@ -52,7 +52,7 @@ public class AudioObject : MonoBehaviour
         {
             if(i > 0.1f)
             {
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.1f);
                 audioSource.volume = i;
             }
 
@@ -97,5 +97,22 @@ public class AudioObject : MonoBehaviour
     public void Louder()
     {
         audioSource.volume = 1f;
+    }
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        Silence(!hasFocus);
+    }
+
+    void OnApplicationPause(bool isPaused)
+    {
+        Silence(isPaused);
+    }
+
+    private void Silence(bool silence)
+    {
+        AudioListener.pause = silence;
+        // Or / And
+        AudioListener.volume = silence ? 0 : 1;
     }
 }

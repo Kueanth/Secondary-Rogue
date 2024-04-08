@@ -44,10 +44,10 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
         sceneData.posEnemy = roomObject.transform.Find("SpawnEnemy");
         sceneData.posHatch = roomObject.transform.Find("SpawnHatch");
 
-        if (Progress.Instance.PlayerInfoForSave.lan == 2)
-            ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " FLOOR\nLOCATION: BUILDING");
-        else
+        if (PlayerPrefs.GetInt("Language") == 1)
             ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
+        else
+            ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " FLOOR\nLOCATION: BUILDING");
     }
 
     public void Run()
@@ -56,10 +56,10 @@ public class RoomInit : IEcsInitSystem, IEcsRunSystem
         {
             ui.gameScreen.infoBar.GetComponent<Animator>().enabled = true;
 
-            if(Progress.Instance.PlayerInfoForSave.lan == 2)
-                ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " FLOOR\nLOCATION: BUILDING");
+            if(PlayerPrefs.GetInt("Language") == 1)
+                ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
             else
-            ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " ›“¿∆\nÀŒ ¿÷»ﬂ: «¿—“–Œ… ¿");
+                ui.gameScreen.EditInfoBar(sceneData.countLevel + 1 + " FLOOR\nLOCATION: BUILDING");
 
             ++Progress.Instance.PlayerInfoForSave.levels;
 

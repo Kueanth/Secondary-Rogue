@@ -127,11 +127,11 @@ public class PlayerTrigger : MonoBehaviour
                 ui.deadScreen.deadScreen.SetActive(true);
                 ui.pausedScreen.pausedScreen.SetActive(false);
 
-                if(sceneData.record > Progress.Instance.PlayerInfoForSave.record)
+                if(sceneData.record > PlayerPrefs.GetInt("record"))
                 {
-                    Progress.Instance.PlayerInfoForSave.record = sceneData.record;
+                    PlayerPrefs.SetInt("record", sceneData.record);
                 }
-                ui.deadScreen.editText(sceneData.countLevel, Progress.Instance.PlayerInfoForSave.record);
+                ui.deadScreen.editText(sceneData.countLevel, PlayerPrefs.GetInt("record"));
                 sceneData.paused = true;
                 components.deadforpit = true;
             }

@@ -7,7 +7,7 @@ public class LoadingMenu : MonoBehaviour
 
     public void Start()
     {
-        if (Progress.Instance.PlayerInfoForSave.lan == 2)
+        if (PlayerPrefs.GetInt("Language") == 2)
             loadingText.text = "Loading";
         else
             loadingText.text = "Загрузка";

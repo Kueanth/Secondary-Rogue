@@ -1,10 +1,8 @@
 mergeInto(LibraryManager.library, {
   LoadPlayer: function () {
-    if(meow){
       Console.Log("Load Player");
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetName', player.getName());
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetPhoto', player.getPhoto('large'));
-    }
   },
 
   AuthPlayer: function () {
@@ -12,7 +10,7 @@ mergeInto(LibraryManager.library, {
   },
 
   CheckPlayer: function () {
-    checkPlayer();
+    initPlayer();
   },
 
   buyItem01: function() {
@@ -141,12 +139,14 @@ mergeInto(LibraryManager.library, {
     ysdk.adv.showRewardedVideo({
     callbacks: {
         onOpen: () => {
+          myGameInstance.SendMessage('Progress', 'PauseGame');
         },
         onRewarded: () => {
           console.log('Rewarded!');
           myGameInstance.SendMessage('Initialization - Entity Component System', 'resurrectionPlayer');
         },
         onClose: () => {
+          myGameInstance.SendMessage(myGameInstance.SendMessage('Progress', 'ResumeGame'));
         }, 
         onError: (e) => {
           console.log('Error while open video ad:', e);

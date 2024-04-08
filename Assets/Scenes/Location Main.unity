@@ -27351,7 +27351,7 @@ Camera:
   far clip plane: 100
   field of view: 16.6
   orthographic: 1
-  orthographic size: 3.3814814
+  orthographic size: 2.2407408
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -29296,6 +29296,7 @@ MonoBehaviour:
     auth: 0
     icon: {fileID: 0}
     name: 
+  sceneData: {fileID: 0}
   info: {fileID: 1524151612}
   openPausedBar: 0
   paused: 0

@@ -44,7 +44,7 @@ public class DeadScreen : MonoBehaviour
 
     public void editText(int countLevel, int record)
     {
-        if(Progress.Instance.PlayerInfoForSave.lan == 1)
+        if(PlayerPrefs.GetInt("Language") == 1)
         {
             textMeshProUGUI.text = "опнидемн щрюфеи: " + countLevel;
             textMeshProUGUI1.text = "пейнпд: " + record;

@@ -23,7 +23,6 @@ public class BullTrigger : MonoBehaviour
             EcsEntity meow = collision.GetComponentInChildren<BodyTrigger>().entity;
             ref Player components = ref meow.Get<Player>();
 
-            components.bullTransform = this.transform;
             components.nearBull = false;
         }
     }
