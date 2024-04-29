@@ -4,11 +4,13 @@ public class Language : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private Rating rating;
+    [SerializeField] private AuthBar authBar;
 
     public void Russian()
     {
         AudioObject.Instance.Click();
-        PlayerPrefs.GetInt("Language", 1);
+        PlayerPrefs.SetInt("Language", 1);
+        authBar.Lan();
         rating.CheckedLan();
         animator.Play("LanguageExit");
     }
@@ -16,7 +18,8 @@ public class Language : MonoBehaviour
     public void English()
     {
         AudioObject.Instance.Click();
-        PlayerPrefs.GetInt("Language", 2);
+        PlayerPrefs.SetInt("Language", 2);
+        authBar.Lan();
         rating.CheckedLan();
         animator.Play("LanguageExit");
     }

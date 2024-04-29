@@ -81,6 +81,9 @@ public class InitYandex : MonoBehaviour
     private static extern void RateGame();
 
     [DllImport("__Internal")]
+    private static extern void GetDeviceID();
+
+    [DllImport("__Internal")]
     private static extern void GetDataInLeaderboards(string rawNameStr, bool includeUser, int quantityTop, int quantityAround);
 
     [DllImport("__Internal")]
@@ -104,12 +107,6 @@ public class InitYandex : MonoBehaviour
             _photo.texture = Progress.Instance.PlayerInfoForGame.icon;
             animatorAuthPlayer.SetTrigger("authComplete");
             Progress.Instance.InfoInit();
-        }
-        else
-        {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        LoadData();
-#endif
         }
     }
 

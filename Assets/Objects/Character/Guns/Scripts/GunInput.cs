@@ -29,17 +29,30 @@ public class GunInput : IEcsRunSystem
                 gunComponents.lazer.gameObject.SetActive(false);
             }
 
-            if (Input.GetMouseButton(0) && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
-            {
-                if (gunComponents.ammo != 0)
+            if (!Progress.Instance.mobile)
+                if (Input.GetMouseButton(0) && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
                 {
-                    AudioObject.Instance.Shoot();
-                    gunComponents.canShoot = false;
-                    gunComponents.reload.ShootGun(ref entity);
-                    ui.gameScreen.ShootUpdate(ref gunComponents.ammo, ref gunComponents.store);
-                    entity.Get<Shoot>();
+                    if (gunComponents.ammo != 0)
+                    {
+                        AudioObject.Instance.Shoot();
+                        gunComponents.canShoot = false;
+                        gunComponents.reload.ShootGun(ref entity);
+                        ui.gameScreen.ShootUpdate(ref gunComponents.ammo, ref gunComponents.store);
+                        entity.Get<Shoot>();
+                    }
                 }
-            }
+            else
+                if (!Progress.Instance.isJoystick && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
+                {
+                    if (gunComponents.ammo != 0)
+                    {
+                        AudioObject.Instance.Shoot();
+                        gunComponents.canShoot = false;
+                        gunComponents.reload.ShootGun(ref entity);
+                        ui.gameScreen.ShootUpdate(ref gunComponents.ammo, ref gunComponents.store);
+                        entity.Get<Shoot>();
+                    }
+                }
 
             if (gunComponents.ammo != gunComponents.maxAmmo && Input.GetKeyDown(KeyCode.R) && !gunComponents.reolading && gunComponents.store != 0 
                 || gunComponents.ammo == 0 && !gunComponents.reolading && gunComponents.store != 0)

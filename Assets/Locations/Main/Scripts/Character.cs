@@ -7,12 +7,16 @@ public class Character : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void AskSetLeaderboardScore(string rawNameStr);
 
+    public Joystick joystick;
+
     private bool isEnter;
     private bool isShop;
     private bool isLeaders;
 
     private bool running;
     private bool flipping;
+
+    private bool f_click;
 
     [SerializeField] private Animator Fade;
     [SerializeField] private Animator CharacterAnimator;
@@ -47,13 +51,21 @@ public class Character : MonoBehaviour
 
             GetComponent<Rigidbody2D>().velocity = movement * 5f;
 
-            if (horizontal >= 0.2f)
+            if (joystick.Horizontal >= 0.5f || joystick.Horizontal <= -0.5f
+               || joystick.Vertical >= 0.5f || joystick.Vertical <= -0.5f)
+            {
+                Vector2 movementJoystick = new Vector2(joystick.Horizontal, joystick.Vertical);
+                movementJoystick.Normalize();
+                GetComponent<Rigidbody2D>().velocity = movementJoystick * 5f;
+            }
+
+            if (horizontal >= 0.2f || joystick.Horizontal >= 0.5f)
             {
                 running = true;
                 flipping = false;
                 Pet.GetComponent<Animator>().SetBool("Speed", true);
             }
-            else if (horizontal <= -0.2f)
+            else if (horizontal <= -0.2f || joystick.Horizontal <= -0.5f)
             {
                 running = true;
                 flipping = true;
@@ -61,12 +73,12 @@ public class Character : MonoBehaviour
             }
             else
             {
-                if (vertical >= 0.2f)
+                if (vertical >= 0.2f || joystick.Vertical >= 0.5f)
                 {
                     running = true;
                     Pet.GetComponent<Animator>().SetBool("Speed", true);
                 }
-                else if (vertical <= -0.2f)
+                else if (vertical <= -0.2f || joystick.Vertical <= -0.5f)
                 {
                     running = true;
                     Pet.GetComponent<Animator>().SetBool("Speed", true);
@@ -102,7 +114,7 @@ public class Character : MonoBehaviour
                 pointForPet.localPosition = new Vector2(-0.8f, -0.3f);  
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && isEnter)
+            if (Input.GetKeyDown(KeyCode.F) || f_click && isEnter)
             {
                 AudioObject.Instance.Click();
                 FadeObject.transform.SetAsLastSibling();
@@ -111,7 +123,7 @@ public class Character : MonoBehaviour
                 isEnter = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && isLeaders)
+            if (Input.GetKeyDown(KeyCode.F) || f_click && isLeaders)
             {
                 AudioObject.Instance.Click();
                 if (Progress.Instance.PlayerInfoForGame.auth)
@@ -125,7 +137,7 @@ public class Character : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && isShop)
+            if (Input.GetKeyDown(KeyCode.F) || f_click && isShop)
             {
                 AudioObject.Instance.Click();
                 if (Progress.Instance.PlayerInfoForGame.auth)
@@ -137,6 +149,8 @@ public class Character : MonoBehaviour
                     AuthBar.Play("OpenAuthBar");
                 }
             }
+
+            f_click = false;
         }
         else
         {
@@ -161,7 +175,7 @@ public class Character : MonoBehaviour
             isShop = true;
         }
 
-        }
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -180,5 +194,10 @@ public class Character : MonoBehaviour
             isShop = false;
         }
 
+    }
+
+    public void Click()
+    {
+        f_click = true;
     }
 }

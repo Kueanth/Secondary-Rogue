@@ -25,6 +25,9 @@ public class PlayerInfoForGame
 
 public class Progress : MonoBehaviour
 {
+    public bool mobile;
+    public bool isJoystick;
+
     [DllImport("__Internal")]
     private static extern void LoadData();
 
@@ -34,6 +37,8 @@ public class Progress : MonoBehaviour
     [SerializeField] private Sprite boards;
     [SerializeField] private Sprite forBoard;
     [SerializeField] private GameObject initPet;
+
+    [SerializeField] private AudioSource audioSource;
 
     public PlayerInfoForSave PlayerInfoForSave;
     public PlayerInfoForGame PlayerInfoForGame;
@@ -89,16 +94,25 @@ public class Progress : MonoBehaviour
 
     void PauseGame()
     {
+        audioSource.volume = 0f;
         AudioListener.pause = true;
-        sceneData.paused = true;
+        if(sceneData != null)
+            sceneData.paused = true;
         Time.timeScale = 0;
     }
 
     void ResumeGame()
     {
+        audioSource.volume = 1f;
         AudioListener.pause = false;
-        sceneData.paused = false;
+        if (sceneData != null)
+            sceneData.paused = false;
         Time.timeScale = 1;
+    }
+
+    public void Mobile()
+    {
+        mobile = true;
     }
 }
  

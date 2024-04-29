@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Leopotam.Ecs;
 
 public class SceneData : MonoBehaviour
-{
+{ 
     public EcsEntity playerEntity;
     public EcsEntity roomEntity;
     public EcsEntity gunEntity;

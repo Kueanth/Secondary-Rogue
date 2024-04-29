@@ -1,9 +1,17 @@
 mergeInto(LibraryManager.library, {
   LoadPlayer: function () {
+    if(meow){
       Console.Log("Load Player");
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetName', player.getName());
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetPhoto', player.getPhoto('large'));
+    }
   },
+
+  GetDeviceID: function () {
+        switch (window.ysdk.deviceInfo.type) {
+            case "mobile": { window.unityInstance.SendMessage("Progress", "Mobile"); break; }
+        }
+    },
 
   AuthPlayer: function () {
     auth();
@@ -13,9 +21,31 @@ mergeInto(LibraryManager.library, {
     initPlayer();
   },
 
+  ShowAdWithoutReward : function() {
+    ysdk.adv.showFullscreenAdv({
+    callbacks: {
+        onOpen: function(){
+          myGameInstance.SendMessage('Progress', 'PauseGame');
+        },
+        onClose: function(wasShown) {
+          myGameInstance.SendMessage('Progress', 'ResumeGame');
+        },
+        onError: function(error) {
+          // some action on error
+        }
+      }
+    });
+      },
+
   buyItem01: function() {
     payments.purchase({ id: '01' }).then(purchase => {
-        checkedItem();
+        payments.getPurchases().then(purchases => {
+        if (purchases.some(purchase => purchase.productID === '01')) {
+          myGameInstance.SendMessage('Shop', 'Checked01');
+        }
+    }).catch(err => {
+        console.log(err);
+    })
     }).catch(err => {
         console.log('Ошибка');
     })
@@ -23,7 +53,13 @@ mergeInto(LibraryManager.library, {
 
   buyItem02: function() {
     payments.purchase({ id: '02' }).then(purchase => {
-        checkedItem();
+        payments.getPurchases().then(purchases => {
+        if (purchases.some(purchase => purchase.productID === '02')) {
+          myGameInstance.SendMessage('Shop', 'Checked02');
+        }
+    }).catch(err => {
+        console.log(err);
+    })
     }).catch(err => {
         console.log('Ошибка');
     })
@@ -53,10 +89,11 @@ mergeInto(LibraryManager.library, {
   },
 
   OpenGame: function() {
+    myGameInstance.SendMessage("Initialization Yandex SDK", "CheckedLan");
+
     if(meow){
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetName', player.getName());
       myGameInstance.SendMessage('Initialization Yandex SDK', 'GetPhoto', player.getPhoto('large'));
-      ShowAdWithoutReward();
     }
   },
 
@@ -82,6 +119,7 @@ mergeInto(LibraryManager.library, {
     },
 
     IsPlayerAuth: function () {
+      myGameInstance.SendMessage("Initialization Yandex SDK", "CheckedLan");
         window.ysdk.getPlayer().then(_player => {
             var result;
             if (_player.getMode() === 'lite') {
@@ -146,7 +184,7 @@ mergeInto(LibraryManager.library, {
           myGameInstance.SendMessage('Initialization - Entity Component System', 'resurrectionPlayer');
         },
         onClose: () => {
-          myGameInstance.SendMessage(myGameInstance.SendMessage('Progress', 'ResumeGame'));
+          myGameInstance.SendMessage('Progress', 'ResumeGame');
         }, 
         onError: (e) => {
           console.log('Error while open video ad:', e);
@@ -159,6 +197,7 @@ mergeInto(LibraryManager.library, {
     ysdk.adv.showRewardedVideo({
     callbacks: {
         onOpen: () => {
+          myGameInstance.SendMessage('Progress', 'PauseGame');
         },
         onRewarded: () => {
           console.log('Rewarded!');
@@ -166,6 +205,7 @@ mergeInto(LibraryManager.library, {
           myGameInstance.SendMessage('Shop', 'EditText');
         },
         onClose: () => {
+          myGameInstance.SendMessage('Progress', 'ResumeGame');
         }, 
         onError: (e) => {
           console.log('Error while open video ad:', e);
@@ -184,7 +224,6 @@ mergeInto(LibraryManager.library, {
         player.getData().then(_date => {
           const myJSON = JSON.stringify(_date);
           myGameInstance.SendMessage('Progress', 'Load', myJSON);
-          myGameInstance.SendMessage("Initialization Yandex SDK", "CheckedLan");
           myGameInstance.SendMessage('Initialization Pets', 'Delete');
         });
     },

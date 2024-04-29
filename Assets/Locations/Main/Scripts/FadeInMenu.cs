@@ -13,7 +13,10 @@ public class FadeInMenu : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern void OpenGame();
-    
+
+    [DllImport("__Internal")]
+    private static extern void ShowAdWithoutReward();
+
     public void SetSubling(int number)
     {
         switch (number)
@@ -41,6 +44,7 @@ public class FadeInMenu : MonoBehaviour
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
         OpenGame();
+        ShowAdWithoutReward();
 #endif
     }
 

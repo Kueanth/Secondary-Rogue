@@ -9,7 +9,7 @@ public class CameraFollow : IEcsRunSystem
 
     private Vector3 velocity = Vector3.zero;
 
-    private float smoothTime = 0.2f;
+    [SerializeField] private float smoothTime = 0.2f;
 
     public void Run()
     {
