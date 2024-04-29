@@ -30,6 +30,7 @@ public class GunInput : IEcsRunSystem
             }
 
             if (!Progress.Instance.mobile)
+            {
                 if (Input.GetMouseButton(0) && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
                 {
                     if (gunComponents.ammo != 0)
@@ -41,8 +42,10 @@ public class GunInput : IEcsRunSystem
                         entity.Get<Shoot>();
                     }
                 }
-            else
-                if (!Progress.Instance.isJoystick && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
+            }
+            else if (Progress.Instance.mobile)
+            {
+                if (Progress.Instance.isShoot && !playerComponents.pit && !gunComponents.reolading && gunComponents.canShoot)
                 {
                     if (gunComponents.ammo != 0)
                     {
@@ -53,10 +56,13 @@ public class GunInput : IEcsRunSystem
                         entity.Get<Shoot>();
                     }
                 }
+            }
 
             if (gunComponents.ammo != gunComponents.maxAmmo && Input.GetKeyDown(KeyCode.R) && !gunComponents.reolading && gunComponents.store != 0 
-                || gunComponents.ammo == 0 && !gunComponents.reolading && gunComponents.store != 0)
+                || gunComponents.ammo == 0 && !gunComponents.reolading && gunComponents.store != 0 ||
+                gunComponents.ammo != gunComponents.maxAmmo && Progress.Instance.isR && !gunComponents.reolading && gunComponents.store != 0)
             {
+                Progress.Instance.isR = false;
                 gunComponents.reolading = true;
                 gunComponents.reload.ReloadGun(ref gunComponents, ref ui);
 

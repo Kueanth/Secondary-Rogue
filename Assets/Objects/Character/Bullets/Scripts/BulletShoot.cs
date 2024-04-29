@@ -18,7 +18,12 @@ public class BulletShoot : IEcsRunSystem
 
             GameObject bulletObject = null;
 
-            Vector3 diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - gunComponents.gun.position;
+            Vector3 diference;
+            if(!Progress.Instance.mobile)
+            diference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - gunComponents.gun.position;
+            else
+            diference = Camera.main.ScreenToWorldPoint(Progress.Instance.positionClick) - gunComponents.gun.position;
+
             float rotateZ = Mathf.Atan2(diference.y, diference.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, 0f, rotateZ + 90f);
 

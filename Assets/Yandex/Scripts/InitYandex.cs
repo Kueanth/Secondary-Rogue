@@ -89,8 +89,11 @@ public class InitYandex : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void AskSetLeaderboardScore(string rawNameStr);
 
+    public static GameObject MobilePad;
+
     private void Start()
     {
+        GetDeviceID();
 #if UNITY_WEBGL && !UNITY_EDITOR
             IsPlayerAuth();
 #endif
@@ -133,6 +136,12 @@ public class InitYandex : MonoBehaviour
 
         _button.gameObject.SetActive(false);
         Progress.Instance.PlayerInfoForGame.name = name;
+    }
+
+    public static void MobilePadOn()
+    {
+        if (Progress.Instance.mobile)
+            MobilePad.SetActive(true);
     }
 
     public void RateGameButton()

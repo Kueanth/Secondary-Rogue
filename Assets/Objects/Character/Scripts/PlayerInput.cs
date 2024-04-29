@@ -10,6 +10,8 @@ public class PlayerInput : IEcsRunSystem
 
     public bool particleRun;
 
+    public static Joystick joystick;
+
     public static int value = 0;
     
     public SceneData sceneData;
@@ -19,16 +21,20 @@ public class PlayerInput : IEcsRunSystem
     {
         foreach (var i in _filter)
         {
-            if (Input.GetKeyDown(KeyCode.Tab) && !ui.deadScreen.deadScreen.activeSelf && !ui.pausedScreen.Fade.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Tab) && !ui.deadScreen.deadScreen.activeSelf && !ui.pausedScreen.Fade.activeSelf ||
+                Progress.Instance.isTab && !ui.deadScreen.deadScreen.activeSelf && !ui.pausedScreen.Fade.activeSelf)
             {
+                Progress.Instance.isTab = false;
+
                 if (value == 0 && !Progress.Instance.openPausedBar)
                 {
-                    ui.pausedScreen.GameObj.Play("Open");
+                    ui.pausedScreen.GameObj.SetActive(true);
+                    ui.pausedScreen.GameObj.GetComponent<Animator>().Play("Open");
                     ++value;
                 }
                 else if (value == 1 && Progress.Instance.openPausedBar)
                 {
-                    ui.pausedScreen.GameObj.Play("Close");
+                    ui.pausedScreen.GameObj.GetComponent<Animator>().Play("Close");
                     --value;
                 }
             }
@@ -44,8 +50,19 @@ public class PlayerInput : IEcsRunSystem
 
             if (!components.pit)
             {
-                horizontal = Input.GetAxis("Horizontal");
-                vertical = Input.GetAxis("Vertical");
+                if (!Progress.Instance.mobile)
+                {
+                    horizontal = Input.GetAxis("Horizontal");
+                    vertical = Input.GetAxis("Vertical");
+                }
+                else
+                {
+                    if (joystick.Horizontal >= 0.5f || joystick.Horizontal <= -0.5f || joystick.Vertical >= 0.5f || joystick.Vertical <= -0.5f)
+                    {
+                        horizontal = joystick.Horizontal;
+                        vertical = joystick.Vertical;
+                    }
+                }
             }
 
             if ((horizontal != 0f || vertical != 0) && components.transform.GetComponent<PlayerParticle>().particleRun && !components.pit)
@@ -62,8 +79,9 @@ public class PlayerInput : IEcsRunSystem
                 components.rigidbody2D.velocity = movement * sceneData.playerSpeed;
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && components.nearChest)
+            if (Input.GetKeyDown(KeyCode.F) && components.nearChest || Progress.Instance.isF && components.nearChest)
             {
+                Progress.Instance.isF = false;
                 AudioObject.Instance.Click();
 
                 components.chest.GetComponent<ChestTrigger>().OpenChest();
@@ -72,8 +90,9 @@ public class PlayerInput : IEcsRunSystem
                 components.chest = null;
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && components.nearHatch)
+            if (Input.GetKeyDown(KeyCode.F) && components.nearHatch || Progress.Instance.isF && components.nearHatch)
             {
+                Progress.Instance.isF = false;
                 AudioObject.Instance.Click();
 
                 components.hatch.GetComponent<HatchTrigger>().OpenHatch();
@@ -91,8 +110,9 @@ public class PlayerInput : IEcsRunSystem
                 components.bullTransform = null;
             }
 
-            if(Input.GetKeyDown(KeyCode.F) && components.nearHp)
+            if(Input.GetKeyDown(KeyCode.F) && components.nearHp || Progress.Instance.isF && components.nearHp)
             {
+                Progress.Instance.isF = false;
                 AudioObject.Instance.Click();
 
                 components.hpTransform.GetComponent<HpTrigger>().GetHp(ref entity, ref ui);
@@ -101,8 +121,9 @@ public class PlayerInput : IEcsRunSystem
                 components.hpTransform = null;
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && components.nearBull)
+            if (Input.GetKeyDown(KeyCode.F) && components.nearBull || Progress.Instance.isF && components.nearBull)
             {
+                Progress.Instance.isF = false;
                 AudioObject.Instance.Click();
 
                 components.bullTransform.GetComponent<BullTrigger>().GetBull(ref entity, ref ui);
@@ -111,8 +132,9 @@ public class PlayerInput : IEcsRunSystem
                 components.bullTransform = null;
             }
 
-            if (Input.GetKeyDown(KeyCode.F) && components.nearGun)
+            if (Input.GetKeyDown(KeyCode.F) && components.nearGun || Progress.Instance.isF && components.nearGun)
             {
+                Progress.Instance.isF = false;
                 AudioObject.Instance.Click();
 
                 components.gunInChest.GetComponent<GunTrigger>().GetGun(ref entity, ref ui);
@@ -201,6 +223,10 @@ public class PlayerInput : IEcsRunSystem
                 gunComponents.gun.position =
                     new Vector3(positionPlayer.x + -0.2f + GunAnim.animX, positionPlayer.y + -0.2f + GunAnim.animY, 0f);
             }
+
+            Progress.Instance.isF = false;
+            Progress.Instance.isR = false;
+            Progress.Instance.isTab = false;
         }
     }
 }

@@ -14,6 +14,8 @@ public class StaticData : ScriptableObject
     public GameObject Hp;
     public GameObject Bull;
 
+    public Joystick joystick;
+
     public Texture2D Cursor;
 
     public GameObject[] Pets;

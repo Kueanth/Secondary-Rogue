@@ -38,7 +38,10 @@ public class AimFollow : IEcsRunSystem, IEcsInitSystem
 
         if (!sceneData.paused && ui.gameScreen.aim.enabled)
         {
-            ui.gameScreen.aim.transform.position = Input.mousePosition;
+            if (!Progress.Instance.mobile)
+            {
+                ui.gameScreen.aim.transform.position = Input.mousePosition;
+            }
         }
     }
 }

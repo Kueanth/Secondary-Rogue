@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PausedScreen : MonoBehaviour
 {
     public GameObject Fade;
-    public Animator GameObj;
+    public GameObject GameObj;
 
     public GameObject pausedScreen;
 
@@ -41,12 +41,6 @@ public class PausedScreen : MonoBehaviour
         Progress.Instance.openPausedBar = true;
     }
 
-    public void Second()
-    {
-        AudioObject.Instance.Louder();
-        Progress.Instance.openPausedBar = false;
-    }
-
     public void Three()
     {
         AudioObject.Instance.Quieter();
@@ -56,6 +50,9 @@ public class PausedScreen : MonoBehaviour
 
     public void Four()
     {
+        AudioObject.Instance.Louder();
+        Progress.Instance.openPausedBar = false;
+        Time.timeScale = 1;
         ui.gameScreen.aim.enabled = true;
         player.Get<Player>().rigidbody2D.velocity = Vector2.zero;
         sceneData.paused = false;
@@ -73,32 +70,35 @@ public class PausedScreen : MonoBehaviour
 
     public void Reload()
     {
-        GameObj.Play("Close");
+        GameObj.GetComponent<Animator>().Play("Close");
     }
 
     public void exitGameEnd()
     {
         sceneData.paused = false;
         PlayerInput.value = 0;
-        GameObj.Play("ExitGame");
+        GameObj.GetComponent<Animator>().Play("ExitGame");
     }
 
     public void reloadGameEnd()
     {
         sceneData.paused = false;
         PlayerInput.value = 0;
-        GameObj.Play("ReloadGame");
+        GameObj.GetComponent<Animator>().Play("ReloadGame");
     }
 
     public void resumeGameEnd()
     {
         sceneData.paused = false;
         PlayerInput.value = 0;
-        GameObj.Play("Close");
+        GameObj.GetComponent<Animator>().Play("Close");
     }
 
     public void End()
     {
+        AudioObject.Instance.Louder();
+        Progress.Instance.openPausedBar = false;;
+        Time.timeScale = 1;
         Fade.SetActive(true);
         PlayerInput.value = 0;
         Progress.Instance.openPausedBar = false;
@@ -107,6 +107,9 @@ public class PausedScreen : MonoBehaviour
 
     public void ReloadFade()
     {
+        AudioObject.Instance.Louder();
+        Progress.Instance.openPausedBar = false;
+        Time.timeScale = 1;
         Fade.SetActive(true);
         PlayerInput.value = 0;
         Progress.Instance.openPausedBar = false;

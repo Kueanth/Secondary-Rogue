@@ -9,7 +9,7 @@ mergeInto(LibraryManager.library, {
 
   GetDeviceID: function () {
         switch (window.ysdk.deviceInfo.type) {
-            case "mobile": { window.unityInstance.SendMessage("Progress", "Mobile"); break; }
+            case "mobile": { myGameInstance.SendMessage("Progress", "Mobile"); break; }
         }
     },
 

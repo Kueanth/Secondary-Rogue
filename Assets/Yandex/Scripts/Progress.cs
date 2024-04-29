@@ -25,8 +25,13 @@ public class PlayerInfoForGame
 
 public class Progress : MonoBehaviour
 {
-    public bool mobile;
+    public bool mobile = false;
     public bool isJoystick;
+    public bool isShoot = false;
+    public Vector2 positionClick;
+    public bool isF;
+    public bool isR;
+    public bool isTab;
 
     [DllImport("__Internal")]
     private static extern void LoadData();
@@ -113,6 +118,10 @@ public class Progress : MonoBehaviour
     public void Mobile()
     {
         mobile = true;
+
+        if (Progress.Instance.mobile)
+            InitYandex.MobilePadOn();
     }
+
 }
  

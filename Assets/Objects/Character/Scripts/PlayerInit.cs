@@ -14,6 +14,8 @@ public class PlayerInit : IEcsInitSystem
 
     public void Init()
     {
+        PlayerInput.joystick = ui.joystick;
+
         EcsEntity Entity = _world.NewEntity();
 
         ref Player Components = ref Entity.Get<Player>();

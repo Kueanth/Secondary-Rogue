@@ -1,21 +1,20 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class JoystickEvent : MonoBehaviour, IBeginDragHandler, IEndDragHandler
+public class JoystickEvent : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public void OnBeginDrag(PointerEventData eventData)
     {
-        string name = eventData.pointerCurrentRaycast.gameObject.name;
-
-        if (name == "Fixed Joystick" || name == "Handle")
-            Progress.Instance.isJoystick = true;
+        Progress.Instance.isJoystick = true;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        string name = eventData.pointerCurrentRaycast.gameObject.name;
+        Progress.Instance.isJoystick = false;
+    }
 
-        if (name == "Fixed Joystick" || name == "Handle")
-            Progress.Instance.isJoystick = false;
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Progress.Instance.isJoystick = true;
     }
 }

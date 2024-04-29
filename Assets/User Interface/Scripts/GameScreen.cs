@@ -38,8 +38,16 @@ public class GameScreen : MonoBehaviour
 
     public StaticData configuration;
 
+    public GameObject MobilePad;
+
     private void Awake()
     {
+        if (Progress.Instance.mobile)
+        {
+            MobilePad.SetActive(true);
+            aim.transform.position = new Vector2(1000000f, 1000000f);
+        }
+
         if (Progress.Instance.PlayerInfoForGame.auth && Progress.Instance.PlayerInfoForGame.name != "")
         {
             authPlayer.SetActive(true);
@@ -79,6 +87,21 @@ public class GameScreen : MonoBehaviour
     public void GetGun(int ammo, int store)
     {
         textMeshPro.text = ammo + "/" + store;
+    }
+
+    public void isR()
+    {
+        Progress.Instance.isR = true;
+    }
+
+    public void isF()
+    {
+        Progress.Instance.isF = true;
+    }
+
+    public void isTab()
+    {
+        Progress.Instance.isTab = true;
     }
 
     public void AmmoUpdate()

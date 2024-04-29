@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
+    public Joystick joystick;
+
     public GameScreen gameScreen;
     public DeadScreen deadScreen;
     public PausedScreen pausedScreen;
